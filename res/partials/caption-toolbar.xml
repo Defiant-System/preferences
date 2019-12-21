@@ -1,0 +1,12 @@
+<CaptionToolBar>
+	<Group>
+		<Options>
+			<Tool symbol="preferences-icon-chevron-left" state="disabled"/>
+			<Tool symbol="preferences-icon-chevron-right" state="disabled"/>
+		</Options>
+		<Tool symbol="preferences-icon-show-all" click="main-menu"/>
+	</Group>
+	<Group>
+		<Search placeholder="Search"/>
+	</Group>
+</CaptionToolBar>

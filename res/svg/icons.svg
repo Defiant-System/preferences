@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0">
+	<svg id="preferences-icon-chevron-left" viewBox="0 0 240 240">
+		<polyline fill="none" stroke="#333" stroke-width="32" stroke-linecap="round" stroke-linejoin="round" points="165,28.75 74,119.75 165.75,211"/>
+	</svg>
+
+	<svg id="preferences-icon-chevron-right" viewBox="0 0 240 240">
+		<polyline fill="none" stroke="#333" stroke-width="32" stroke-linecap="round" stroke-linejoin="round" points="74,211.25 165,120.25 74.25,28"/>
+	</svg>
+
+	<svg id="preferences-icon-show-all" viewBox="0 0 240 240">
+		<rect fill="#333" y="40" width="40" height="40"/>
+		<rect fill="#333" x="60" y="40" width="40" height="40"/>
+		<rect fill="#333" x="120" y="40" width="40" height="40"/>
+		<rect fill="#333" x="180" y="40" width="40" height="40"/>
+		<rect fill="#333" y="100" width="40" height="40"/>
+		<rect fill="#333" x="60" y="100" width="40" height="40"/>
+		<rect fill="#333" x="120" y="100" width="40" height="40"/>
+		<rect fill="#333" x="180" y="100" width="40" height="40"/>
+		<rect fill="#333" y="160" width="40" height="40"/>
+		<rect fill="#333" x="60" y="160" width="40" height="40"/>
+		<rect fill="#333" x="120" y="160" width="40" height="40"/>
+		<rect fill="#333" x="180" y="160" width="40" height="40"/>
+	</svg>
+</svg>
