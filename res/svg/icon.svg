@@ -1,5 +1,5 @@
 
-<svg id="system-preferences" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
 	<defs>
 		<linearGradient x1="50.3446809%" y1="-1.79401677%" x2="50%" y2="92.8753811%" id="syspref-linearGradient-1">
 			<stop stop-color="#fff" offset="0%"></stop>
