@@ -10,7 +10,7 @@ const preferences = {
 
 		// tmp
 		window.find(`section[data-view="main"] .section:nth(1)`).trigger("click");
-		window.find(`section[data-view="Desktop"] .tab-row_ > div:nth(1)`).trigger("click");
+		window.find(`section[data-view="Desktop"] .tab-row_ > div:nth(0)`).trigger("click");
 
 		//window.find(`section[data-view="main"] .section:nth(17)`).trigger("click");
 	},

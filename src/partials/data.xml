@@ -1,81 +1,81 @@
 <Data>
 	<Desktop>
 		<i name="Ultra-Wide" type="wide">
-			<i><![CDATA[background: url(/res/img/bg/wide/mountain.jpg?w=688&h=288) no-repeat 50% 50%/cover;]]></i>
-			<i><![CDATA[background: url(/res/img/bg/wide/deep-space.jpg?w=688&h=288) no-repeat 50% 50%/cover;]]></i>
-			<i><![CDATA[background: url(/res/img/bg/wide/forest-trail.jpg?w=688&h=288) no-repeat 50% 50%/cover;]]></i>
-			<i><![CDATA[background: url(/res/img/bg/wide/fuji.jpg?w=688&h=288) no-repeat 50% 50%/cover;]]></i>
-			<i><![CDATA[background: url(/res/img/bg/wide/gold-hour.jpg?w=688&h=288) no-repeat 50% 50%/cover;]]></i>
-			<i><![CDATA[background: url(/res/img/bg/wide/horizon.jpg?w=688&h=288) no-repeat 50% 50%/cover;]]></i>
-			<i><![CDATA[background: url(/res/img/bg/wide/milkyway.jpg?w=688&h=288) no-repeat 50% 50%/cover;]]></i>
-			<i><![CDATA[background: url(/res/img/bg/wide/pyramids.jpg?w=688&h=288) no-repeat 50% 50%/cover;]]></i>
-			<i><![CDATA[background: url(/res/img/bg/wide/reflective.jpg?w=688&h=288) no-repeat 50% 50%/cover;]]></i>
-			<i><![CDATA[background: url(/res/img/bg/wide/vacation.jpg?w=688&h=288) no-repeat 50% 50%/cover;]]></i>
-			<i><![CDATA[background: url(/res/img/bg/wide/sunset.jpg?w=688&h=288) no-repeat 50% 50%/cover;]]></i>
-			<i><![CDATA[background: url(/res/img/bg/wide/trees.jpg?w=688&h=288) no-repeat 50% 50%/cover;]]></i>
-			<i><![CDATA[background: url(/res/img/bg/wide/sunrise.jpg?w=688&h=288) no-repeat 50% 50%/cover;]]></i>
-			<i><![CDATA[background: url(/res/img/bg/wide/patagonia.jpg?w=688&h=288) no-repeat 50% 50%/cover;]]></i>
-			<i><![CDATA[background: url(/res/img/bg/wide/shoreline.jpg?w=688&h=288) no-repeat 50% 50%/cover;]]></i>
-			<i><![CDATA[background: url(/res/img/bg/wide/morning.jpg?w=688&h=288) no-repeat 50% 50%/cover;]]></i>
-			<i><![CDATA[background: url(/res/img/bg/wide/mountains.jpg?w=688&h=288) no-repeat 50% 50%/cover;]]></i>
-			<i><![CDATA[background: url(/res/img/bg/wide/grass.jpg?w=688&h=288) no-repeat 50% 50%/cover;]]></i>
-			<i><![CDATA[background: url(/res/img/bg/wide/forest.jpg?w=688&h=288) no-repeat 50% 50%/cover;]]></i>
-			<i><![CDATA[background: url(/res/img/bg/wide/galaxy.jpg?w=688&h=288) no-repeat 50% 50%/cover;]]></i>
-			<i><![CDATA[background: url(/res/img/bg/wide/coppersky.jpg?w=688&h=288) no-repeat 50% 50%/cover;]]></i>
-			<i><![CDATA[background: url(/res/img/bg/wide/earth.jpg?w=688&h=288) no-repeat 50% 50%/cover;]]></i>
-			<i><![CDATA[background: url(/res/img/bg/wide/abstract.jpg?w=688&h=288) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/wide/mountain.jpg?w=688&h=288) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/wide/deep-space.jpg?w=688&h=288) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/wide/forest-trail.jpg?w=688&h=288) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/wide/fuji.jpg?w=688&h=288) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/wide/gold-hour.jpg?w=688&h=288) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/wide/horizon.jpg?w=688&h=288) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/wide/milkyway.jpg?w=688&h=288) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/wide/pyramids.jpg?w=688&h=288) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/wide/reflective.jpg?w=688&h=288) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/wide/vacation.jpg?w=688&h=288) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/wide/sunset.jpg?w=688&h=288) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/wide/trees.jpg?w=688&h=288) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/wide/sunrise.jpg?w=688&h=288) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/wide/patagonia.jpg?w=688&h=288) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/wide/shoreline.jpg?w=688&h=288) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/wide/morning.jpg?w=688&h=288) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/wide/mountains.jpg?w=688&h=288) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/wide/grass.jpg?w=688&h=288) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/wide/forest.jpg?w=688&h=288) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/wide/galaxy.jpg?w=688&h=288) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/wide/coppersky.jpg?w=688&h=288) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/wide/earth.jpg?w=688&h=288) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/wide/abstract.jpg?w=688&h=288) no-repeat 50% 50%/cover;]]></i>
 		</i>
 		<i name="Wallpapers">
-			<i><![CDATA[background: url(/res/img/bg/wallpapers/bled.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
-			<i><![CDATA[background: url(/res/img/bg/wallpapers/golden-gate-bridge.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
-			<i><![CDATA[background: url(/res/img/bg/wallpapers/jellyfish.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
-			<i><![CDATA[background: url(/res/img/bg/wallpapers/light.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
-			<i><![CDATA[background: url(/res/img/bg/wallpapers/night-photograph.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
-			<i><![CDATA[background: url(/res/img/bg/wallpapers/sunset.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
-			<i><![CDATA[background: url(/res/img/bg/wallpapers/thunderstorm.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
-			<i><![CDATA[background: url(/res/img/bg/wallpapers/antelope-canyon.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
-			<i><![CDATA[background: url(/res/img/bg/wallpapers/water-drop.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
-			<i><![CDATA[background: url(/res/img/bg/wallpapers/hawaiian-print.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/wallpapers/bled.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/wallpapers/golden-gate-bridge.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/wallpapers/jellyfish.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/wallpapers/light.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/wallpapers/night-photograph.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/wallpapers/sunset.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/wallpapers/thunderstorm.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/wallpapers/antelope-canyon.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/wallpapers/water-drop.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/wallpapers/hawaiian-print.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
 		</i>
 		<i name="Nature">
-			<i><![CDATA[background: url(/res/img/bg/nature/barley-field.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
-			<i><![CDATA[background: url(/res/img/bg/nature/bloom.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
-			<i><![CDATA[background: url(/res/img/bg/nature/cherry-tree.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
-			<i><![CDATA[background: url(/res/img/bg/nature/grass.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
-			<i><![CDATA[background: url(/res/img/bg/nature/japanese-cherry-trees.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
-			<i><![CDATA[background: url(/res/img/bg/nature/lotus.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
-			<i><![CDATA[background: url(/res/img/bg/nature/meadow.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
-			<i><![CDATA[background: url(/res/img/bg/nature/pink.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
-			<i><![CDATA[background: url(/res/img/bg/nature/plant.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/nature/barley-field.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/nature/bloom.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/nature/cherry-tree.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/nature/grass.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/nature/japanese-cherry-trees.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/nature/lotus.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/nature/meadow.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/nature/pink.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/nature/plant.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
 		</i>
 		<i name="Plants">
-			<i><![CDATA[background: url(/res/img/bg/nature/drop-of-water.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
-			<i><![CDATA[background: url(/res/img/bg/nature/flower-2.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
-			<i><![CDATA[background: url(/res/img/bg/nature/flower-3.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
-			<i><![CDATA[background: url(/res/img/bg/nature/flower.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
-			<i><![CDATA[background: url(/res/img/bg/nature/rose.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/nature/drop-of-water.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/nature/flower-2.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/nature/flower-3.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/nature/flower.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/nature/rose.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
 		</i>
 		<i name="Patterns">
-			<i><![CDATA[background: url(/res/img/bg/tiles/birdsteps.gif);]]></i>
-			<i><![CDATA[background: url(/res/img/bg/tiles/chicken.jpg);]]></i>
-			<i><![CDATA[background: url(/res/img/bg/tiles/coffee_bean.gif);]]></i>
-			<i><![CDATA[background: url(/res/img/bg/tiles/fatcells.gif);]]></i>
-			<i><![CDATA[background: url(/res/img/bg/tiles/fly_away.jpg);]]></i>
-			<i><![CDATA[background: url(/res/img/bg/tiles/fossil.jpg);]]></i>
-			<i><![CDATA[background: url(/res/img/bg/tiles/gone_fishing.gif);]]></i>
-			<i><![CDATA[background: url(/res/img/bg/tiles/green_dragon.jpg);]]></i>
-			<i><![CDATA[background: url(/res/img/bg/tiles/jiggly.jpg);]]></i>
-			<i><![CDATA[background: url(/res/img/bg/tiles/marble.jpg);]]></i>
-			<i><![CDATA[background: url(/res/img/bg/tiles/moon.gif);]]></i>
-			<i><![CDATA[background: url(/res/img/bg/tiles/moon2.gif);]]></i>
-			<i><![CDATA[background: url(/res/img/bg/tiles/no_ones_laughing.jpg);]]></i>
-			<i><![CDATA[background: url(/res/img/bg/tiles/organic_green.jpg);]]></i>
-			<i><![CDATA[background: url(/res/img/bg/tiles/plait.gif);]]></i>
-			<i><![CDATA[background: url(/res/img/bg/tiles/prairie_wind.gif);]]></i>
-			<i><![CDATA[background: url(/res/img/bg/tiles/snow.gif);]]></i>
-			<i><![CDATA[background: url(/res/img/bg/tiles/time_for_lunch.jpg);]]></i>
-			<i><![CDATA[background: url(/res/img/bg/tiles/won_ton_soup.jpg);]]></i>
-			<i><![CDATA[background: url(/res/img/bg/tiles/zapotec.gif);]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/tiles/birdsteps.gif);]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/tiles/chicken.jpg);]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/tiles/coffee_bean.gif);]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/tiles/fatcells.gif);]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/tiles/fly_away.jpg);]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/tiles/fossil.jpg);]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/tiles/gone_fishing.gif);]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/tiles/green_dragon.jpg);]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/tiles/jiggly.jpg);]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/tiles/marble.jpg);]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/tiles/moon.gif);]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/tiles/moon2.gif);]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/tiles/no_ones_laughing.jpg);]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/tiles/organic_green.jpg);]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/tiles/plait.gif);]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/tiles/prairie_wind.gif);]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/tiles/snow.gif);]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/tiles/time_for_lunch.jpg);]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/tiles/won_ton_soup.jpg);]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/tiles/zapotec.gif);]]></i>
 		</i>
 		<i name="Gradients">
 			<i><![CDATA[background: linear-gradient(135deg, rgb(195, 39, 2) 0%,rgb(224, 164, 60) 100%);]]></i>
