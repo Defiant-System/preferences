@@ -1,9 +1,9 @@
 
 background: #ececec;
-.transition(200ms);
+transition: all 200ms;
 
 content {
-	.select(none);
+	user-select: none;
 	color: #333;
 
 	.nowrap {
@@ -29,7 +29,7 @@ content {
 		padding: 11px;
 		opacity: 0;
 		visibility: hidden;
-		.transitionWhat(opacity, 200ms);
+		transition: opacity, 200ms;
 
 		&.active {
 			position: static;
@@ -161,7 +161,7 @@ content {
 						text-align: center;
 						border-radius: 20px;
 						color: #999;
-						.transition(120ms);
+						transition: all 120ms;
 					}
 
 					div {
