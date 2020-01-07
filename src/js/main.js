@@ -2,7 +2,6 @@
 const preferences = {
 	init() {
 		// fast references
-		this.windowBody = window.find(".window-body_");
 		this.activeSection =
 		this.mainMenu = window.find(`content > section[data-view="main"]`);
 		
@@ -26,7 +25,7 @@ const preferences = {
 				this.activeSection.removeClass("active");
 				this.mainMenu.addClass("active");
 		
-				this.windowBody.css({
+				window.body.css({
 					width: this.mainMenu.width() +"px",
 					height: this.mainMenu.height() +"px",
 				});
@@ -38,7 +37,7 @@ const preferences = {
 				value = el.find(".name").text();
 				section = window.find(`section[data-view="${value}"]`);
 
-				this.windowBody.css({
+				window.body.css({
 					width: section.width() +"px",
 					height: section.height() +"px",
 				});
@@ -110,7 +109,7 @@ const preferences = {
 					if (index === 0 && item.wide) {
 						isWide = item.value;
 					}
-					preferences.windowBody.find(`.workspace[data-id="${item.name}"] div`).attr({
+					window.body.find(`.workspace[data-id="${item.name}"] div`).attr({
 						style: item.value
 					});
 				});
