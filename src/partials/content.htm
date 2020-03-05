@@ -96,20 +96,38 @@
 	<section data-view="General">
 		<div class="row-group_">
 			<legend>Highlight color:</legend>
-			<div style="width: 200px">
+			<div style="max-width: 220px;">
 				<selectbox>
-					<selected>Blue</selected>
-					<svg><use xlink:href="#icon-chevron-sort"></use></svg>
+					<option name="blue" style="--icon-prefix: url(/ant/icons/generic-folder.png);">Blue</option>
+					<option name="green" style="--icon-prefix: url(/ant/icons/generic-folder.png);">Green</option>
+					<option name="red" style="--icon-prefix: url(/ant/icons/generic-folder.png);" selected="true">Red</option>
+					<option name="orange" style="--icon-prefix: url(/ant/icons/generic-folder.png);">Orange</option>
 				</selectbox>
 			</div>
 		</div>
 
 		<div class="row-group_">
 			<legend>Sidebar icon size:</legend>
-			<div style="width: 200px">
+			<div style="max-width: 220px;">
+				<div class="wSelect">
+					<select>
+						<option name="small">Small</option>
+						<option name="medium" selected="true">Medium</option>
+						<option name="large">Large</option>
+					</select>
+				</div>
+			</div>
+		</div>
+
+		<div class="row-group_">
+			<legend>Highlight color:</legend>
+			<div style="max-width: 220px;">
 				<selectbox>
-					<selected>Medium</selected>
-					<svg><use xlink:href="#icon-chevron-sort"></use></svg>
+					<option name="blue" style="--icon-prefix: url(/ant/icons/generic-folder.png);">Blue</option>
+					<option name="green" style="--icon-prefix: url(/ant/icons/generic-document.png);">Green</option>
+					<option name="red" style="--icon-prefix: url(/ant/icons/generic-folder.png);" selected="true">Red</option>
+					<option name="orange" style="--icon-prefix: url(/ant/icons/generic-folder.png);">Orange</option>
+					<option name="blue" style="--icon-prefix: url(/ant/icons/generic-folder.png);">Blue</option>
 				</selectbox>
 			</div>
 		</div>
@@ -178,22 +196,14 @@
 			<legend>Mixed</legend>
 			<div class="nowrap">
 				<div class="field-wrapper">
-					<div class="color-preset" style="--preset-color: #f90;">
-						<span>
-							<svg><use href="#icon-color-preset"></use></svg>
-						</span>
-					</div>
+					<div class="color-preset" style="--preset-color: #f90;"></div>
 				</div>
 
 				<div class="field-wrapper">
 					<input type="number" value="20"/>
 					<div>
-						<span>
-							<svg class="up"><use href="#icon-chevron-down"></use></svg>
-						</span>
-						<span>
-							<svg><use href="#icon-chevron-down"></use></svg>
-						</span>
+						<span class="up"></span>
+						<span></span>
 					</div>
 				</div>
 			</div>
@@ -203,7 +213,7 @@
 
 		<div class="row-group_">
 			<legend>Slider</legend>
-			<div style="width: 170px;">
+			<div style="max-width: 200px;">
 				<input type="range" value="80" min="0" max="100">
 			</div>
 		</div>
