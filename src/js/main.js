@@ -21,6 +21,10 @@ const preferences = {
 			value,
 			flag;
 		switch (event.type) {
+			case "set-highlight-color":
+			case "set-sidebar-icon-size":
+				console.log(event);
+				break;
 			case "main-menu":
 				this.activeSection.removeClass("active");
 				this.mainMenu.addClass("active");

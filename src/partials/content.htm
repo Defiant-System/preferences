@@ -97,11 +97,11 @@
 		<div class="row-group_">
 			<legend>Highlight color:</legend>
 			<div style="max-width: 220px;">
-				<selectbox>
-					<option name="blue" style="--icon-prefix: url(/ant/icons/generic-folder.png);">Blue</option>
-					<option name="green" style="--icon-prefix: url(/ant/icons/generic-folder.png);">Green</option>
-					<option name="red" style="--icon-prefix: url(/ant/icons/generic-folder.png);" selected="true">Red</option>
-					<option name="orange" style="--icon-prefix: url(/ant/icons/generic-folder.png);">Orange</option>
+				<selectbox data-change="set-highlight-color">
+					<option value="blue" style="--icon-prefix: url(/ant/icons/generic-folder.png);">Blue</option>
+					<option value="green" style="--icon-prefix: url(/ant/icons/generic-folder.png);">Green</option>
+					<option value="red" style="--icon-prefix: url(/ant/icons/generic-folder.png);" selected="true">Red</option>
+					<option value="orange" style="--icon-prefix: url(/ant/icons/generic-folder.png);">Orange</option>
 				</selectbox>
 			</div>
 		</div>
@@ -109,25 +109,10 @@
 		<div class="row-group_">
 			<legend>Sidebar icon size:</legend>
 			<div style="max-width: 220px;">
-				<div class="wSelect">
-					<select>
-						<option name="small">Small</option>
-						<option name="medium" selected="true">Medium</option>
-						<option name="large">Large</option>
-					</select>
-				</div>
-			</div>
-		</div>
-
-		<div class="row-group_">
-			<legend>Highlight color:</legend>
-			<div style="max-width: 220px;">
-				<selectbox>
-					<option name="blue" style="--icon-prefix: url(/ant/icons/generic-folder.png);">Blue</option>
-					<option name="green" style="--icon-prefix: url(/ant/icons/generic-document.png);">Green</option>
-					<option name="red" style="--icon-prefix: url(/ant/icons/generic-folder.png);" selected="true">Red</option>
-					<option name="orange" style="--icon-prefix: url(/ant/icons/generic-folder.png);">Orange</option>
-					<option name="blue" style="--icon-prefix: url(/ant/icons/generic-folder.png);">Blue</option>
+				<selectbox data-change="set-sidebar-icon-size">
+					<option value="small">Small</option>
+					<option value="medium" selected="true">Medium</option>
+					<option value="large">Large</option>
 				</selectbox>
 			</div>
 		</div>
