@@ -27,4 +27,7 @@
 	@import "icon-sharing.svg"
 	@import "icon-spotlight.svg"
 	@import "icon-general.svg"
+	@import "icon-desktop.svg"
+	@import "icon-users-groups.svg"
+	@import "icon-accounts.svg"
 </svg>

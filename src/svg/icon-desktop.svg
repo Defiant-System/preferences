@@ -1,0 +1,46 @@
+
+<svg id="icon-desktop" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+	<style type="text/css">
+		.st0{fill:url(#SVGID_1_);stroke:#000000;stroke-width:2;}
+		.st1{fill:#63B0E1;stroke:#26286E;stroke-width:2;}
+		.st2{fill:#DFDDEF;stroke:#26286E;stroke-width:2;}
+		.st3{fill:#369;opacity:0.45;}
+		.st4{fill:#369;opacity:0.75;}
+	</style>
+	<filter x="-10%" y="-10%" width="130%" height="130%" filterUnits="objectBoundingBox" id="drop-filter-2">
+		<feOffset dx="17" dy="17" in="SourceAlpha" result="dropShadowOffsetOuter1"></feOffset>
+		<feGaussianBlur stdDeviation="11" in="dropShadowOffsetOuter1" result="dropShadowBlurOuter1"></feGaussianBlur>
+		<feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="dropShadowBlurOuter1" result="dropShadowMatrixOuter1"></feColorMatrix>
+		<feMerge>
+			<feMergeNode in="dropShadowMatrixOuter1"></feMergeNode>
+			<feMergeNode in="SourceGraphic"></feMergeNode>
+		</feMerge>
+	</filter>
+	<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="329.1501" y1="147.4684" x2="209.8679" y2="480.2091">
+		<stop  offset="0" style="stop-color:#3AC4F3"/>
+		<stop  offset="2.532520e-02" style="stop-color:#3FC3E6"/>
+		<stop  offset="0.1093" style="stop-color:#46C1C8"/>
+		<stop  offset="0.1935" style="stop-color:#49BEAE"/>
+		<stop  offset="0.2765" style="stop-color:#4BBD9B"/>
+		<stop  offset="0.3583" style="stop-color:#4BBC8E"/>
+		<stop  offset="0.438" style="stop-color:#4CBB86"/>
+		<stop  offset="0.5135" style="stop-color:#4CBB83"/>
+		<stop  offset="0.5677" style="stop-color:#4CB685"/>
+		<stop  offset="0.64" style="stop-color:#49AD8B"/>
+		<stop  offset="0.7223" style="stop-color:#449E92"/>
+		<stop  offset="0.8123" style="stop-color:#3F8A9A"/>
+		<stop  offset="0.9071" style="stop-color:#3B71A0"/>
+		<stop  offset="1" style="stop-color:#3754A5"/>
+	</linearGradient>
+	<path class="st0" d="M457.1,443.8H99.7c-10.1,0-18.2-8.2-18.2-18.2v-256c0-10.1,8.2-18.2,18.2-18.2h357.4c10.1,0,18.2,8.2,18.2,18.2
+		v256C475.3,435.6,467.2,443.8,457.1,443.8z"/>
+	<path class="st1" filter="url(#drop-filter-2)" d="M399.3,362.1H41.9c-10.1,0-18.2-8.2-18.2-18.2v-293c0-10.1,8.2-18.2,18.2-18.2h357.4c10.1,0,18.2,8.2,18.2,18.2
+		v293C417.5,354,409.3,362.1,399.3,362.1z"/>
+	<path class="st2" d="M417.5,103.9v-53c0-10.1-8.2-18.2-18.2-18.2H41.9c-10.1,0-18.2,8.2-18.2,18.2v53H417.5z"/>
+	<path class="st4" d="M395.9,83.7L385,72.8c1.8-2.7,2.8-5.8,2.8-9.3c0-9.2-7.5-16.7-16.7-16.7s-16.7,7.5-16.7,16.7s7.5,16.7,16.7,16.7
+		c3.3,0,6.3-1,8.9-2.6l11,11c0.7,0.7,1.6,1,2.5,1s1.8-0.3,2.5-1C397.3,87.3,397.3,85.1,395.9,83.7z M361.4,63.6
+		c0-5.4,4.4-9.7,9.7-9.7s9.7,4.4,9.7,9.7s-4.4,9.7-9.7,9.7S361.4,68.9,361.4,63.6z"/>
+	<circle class="st3" cx="54.9" cy="68.3" r="13.5"/>
+	<circle class="st3" cx="95.5" cy="68.3" r="13.5"/>
+	<circle class="st3" cx="136.1" cy="68.3" r="13.5"/>
+</svg>
