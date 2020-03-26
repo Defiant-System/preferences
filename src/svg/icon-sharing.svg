@@ -8,25 +8,7 @@
 		.st4{opacity:0.4;fill:url(#SVGID_3_);enable-background:new;}
 		.st5{fill:#dd2;stroke:#545B28;stroke-width:3;stroke-miterlimit:10;}
 	</style>
-	<filter x="-6.1%" y="-3.9%" width="112.1%" height="113.2%" filterUnits="objectBoundingBox" id="drop-filter-1">
-		<feOffset dx="0" dy="8" in="SourceAlpha" result="dropShadowOffsetOuter1"></feOffset>
-		<feGaussianBlur stdDeviation="8" in="dropShadowOffsetOuter1" result="dropShadowBlurOuter1"></feGaussianBlur>
-		<feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="dropShadowBlurOuter1" result="dropShadowMatrixOuter1"></feColorMatrix>
-		<feMerge>
-			<feMergeNode in="dropShadowMatrixOuter1"></feMergeNode>
-			<feMergeNode in="SourceGraphic"></feMergeNode>
-		</feMerge>
-	</filter>
-	<filter x="-6.1%" y="-3.9%" width="112.1%" height="113.2%" filterUnits="objectBoundingBox" id="drop-filter-2">
-		<feOffset dx="0" dy="1.5" in="SourceAlpha" result="dropShadowOffsetOuter1"></feOffset>
-		<feGaussianBlur stdDeviation="1.5" in="dropShadowOffsetOuter1" result="dropShadowBlurOuter1"></feGaussianBlur>
-		<feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="dropShadowBlurOuter1" result="dropShadowMatrixOuter1"></feColorMatrix>
-		<feMerge>
-			<feMergeNode in="dropShadowMatrixOuter1"></feMergeNode>
-			<feMergeNode in="SourceGraphic"></feMergeNode>
-		</feMerge>
-	</filter>
-	<path class="st0" filter="url(#drop-filter-1)" d="M23.4,92.4c0-11.6,9.4-21,21-21c0,0,73.2,0,103.1,0c38.2,0,28,34.4,60.5,34.4c48.4,0,247.6,0,247.6,0
+	<path class="st0" d="M23.4,92.4c0-11.6,9.4-21,21-21c0,0,73.2,0,103.1,0c38.2,0,28,34.4,60.5,34.4c48.4,0,247.6,0,247.6,0
 		c11.6,0,21,9.4,21,21v280.7c0,11.6-9.4,21-21,21H44.4c-11.6,0-21-9.4-21-21C23.4,407.6,23.4,92.4,23.4,92.4z"/>
 	<path class="st1" d="M23.4,148.5c0-11.6,9.4-21,21-21h411.2c11.6,0,21,9.4,21,21v259.1c0,11.6-9.4,21-21,21H44.4
 		c-11.6,0-21-9.4-21-21V148.5z"/>

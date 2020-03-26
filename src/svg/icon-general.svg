@@ -9,15 +9,6 @@
 		.st5{fill:none;stroke:#000000;stroke-width:2;}
 		.st6{fill:#ddd;}
 	</style>
-	<filter x="-6.1%" y="-3.9%" width="112.1%" height="113.2%" filterUnits="objectBoundingBox" id="drop-filter-1">
-		<feOffset dx="0" dy="11" in="SourceAlpha" result="dropShadowOffsetOuter1"></feOffset>
-		<feGaussianBlur stdDeviation="11" in="dropShadowOffsetOuter1" result="dropShadowBlurOuter1"></feGaussianBlur>
-		<feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="dropShadowBlurOuter1" result="dropShadowMatrixOuter1"></feColorMatrix>
-		<feMerge>
-			<feMergeNode in="dropShadowMatrixOuter1"></feMergeNode>
-			<feMergeNode in="SourceGraphic"></feMergeNode>
-		</feMerge>
-	</filter>
 	<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="33.3161" y1="40" x2="33.3161" y2="169.3809" gradientTransform="matrix(-1 0 0 1 375.2448 0)">
 		<stop  offset="0" style="stop-color:#9390C6"/>
 		<stop  offset="1" style="stop-color:#3953A4"/>
@@ -31,7 +22,7 @@
 		<stop  offset="0" style="stop-color:#FFFFFF"/>
 		<stop  offset="1" style="stop-color:#D6D6D6"/>
 	</linearGradient>
-	<path class="st6" filter="url(#drop-filter-1)" d="M433.4,460H66.6C51.9,460,40,448.1,40,433.4V66.6C40,51.9,51.9,40,66.6,40h366.8c14.7,0,26.6,11.9,26.6,26.6 v366.8C460,448.1,448.1,460,433.4,460z"/>
+	<path class="st6" d="M433.4,460H66.6C51.9,460,40,448.1,40,433.4V66.6C40,51.9,51.9,40,66.6,40h366.8c14.7,0,26.6,11.9,26.6,26.6 v366.8C460,448.1,448.1,460,433.4,460z"/>
 	<path class="st0" d="M224.6,169.4h234.6V66.6c0-14.7-11.9-26.6-26.6-26.6h-208"/>
 	<path class="st1" d="M261,134.4V77.1h38.7v6.8h-31.1v17.7h26.9v6.8h-26.9v26H261z"/>
 	<path class="st1" d="M308.7,85.2v-8.1h7v8.1H308.7z M308.7,134.4V92.9h7v41.5H308.7z"/>

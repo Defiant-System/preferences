@@ -17,15 +17,6 @@
 		<feDropShadow dx="0" dy="1" stdDeviation="0.5" flood-color="#fff" flood-opacity="0.95" />
 		<feDropShadow dx="0" dy="-1" stdDeviation="0.5" flood-color="#000" flood-opacity="0.85" />
 	</filter>
-	<filter x="-6.1%" y="-3.9%" width="112.1%" height="113.2%" filterUnits="objectBoundingBox" id="security-filter-1">
-		<feOffset dx="0" dy="8" in="SourceAlpha" result="securityShadowOffsetOuter1"></feOffset>
-		<feGaussianBlur stdDeviation="8" in="securityShadowOffsetOuter1" result="securityShadowBlurOuter1"></feGaussianBlur>
-		<feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="securityShadowBlurOuter1" result="securityShadowMatrixOuter1"></feColorMatrix>
-		<feMerge>
-			<feMergeNode in="securityShadowMatrixOuter1"></feMergeNode>
-			<feMergeNode in="SourceGraphic"></feMergeNode>
-		</feMerge>
-	</filter>
 	<filter x="-6.1%" y="-3.9%" width="112.1%" height="113.2%" filterUnits="objectBoundingBox" id="drop-filter-2">
 		<feOffset dx="0" dy="4" in="SourceAlpha" result="dropShadowOffsetOuter1"></feOffset>
 		<feGaussianBlur stdDeviation="4" in="dropShadowOffsetOuter1" result="dropShadowBlurOuter1"></feGaussianBlur>
@@ -77,7 +68,7 @@
 		<stop offset="0" style="stop-color:#333333"/>
 		<stop offset="1" style="stop-color:#787878"/>
 	</linearGradient>
-	<polygon class="st0" filter="url(#security-filter-1)" points="64.6,465.2 432.2,465.2 432.2,250.3 441.1,256 478.8,212.6 414.4,162.4 414.4,76.2 351.2,76.2 350.6,113.8 248.7,34.8 21.2,212.6 56.8,256.5 65.2,250.3 "/>
+	<polygon class="st0" points="64.6,465.2 432.2,465.2 432.2,250.3 441.1,256 478.8,212.6 414.4,162.4 414.4,76.2 351.2,76.2 350.6,113.8 248.7,34.8 21.2,212.6 56.8,256.5 65.2,250.3 "/>
 	<circle class="st1" cx="437.4" cy="218.9" r="12.5"/>
 	<circle class="st2" cx="59.4" cy="218.9" r="12.5"/>
 	<circle class="st3" cx="85" cy="444.2" r="12.5"/>

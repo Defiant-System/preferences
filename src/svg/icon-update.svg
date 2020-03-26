@@ -1,14 +1,5 @@
 
 <svg id="icon-update" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
-	<filter x="-6.1%" y="-3.9%" width="112.1%" height="113.2%" filterUnits="objectBoundingBox" id="update-filter-1">
-		<feOffset dx="0" dy="8" in="SourceAlpha" result="updateShadowOffsetOuter1"></feOffset>
-		<feGaussianBlur stdDeviation="8" in="updateShadowOffsetOuter1" result="updateShadowBlurOuter1"></feGaussianBlur>
-		<feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="updateShadowBlurOuter1" result="updateShadowMatrixOuter1"></feColorMatrix>
-		<feMerge>
-			<feMergeNode in="updateShadowMatrixOuter1"></feMergeNode>
-			<feMergeNode in="SourceGraphic"></feMergeNode>
-		</feMerge>
-	</filter>
 	<filter x="-6.1%" y="-3.9%" width="112.1%" height="113.2%" filterUnits="objectBoundingBox" id="drop-filter-2">
 		<feOffset dx="0" dy="4" in="SourceAlpha" result="dropShadowOffsetOuter1"></feOffset>
 		<feGaussianBlur stdDeviation="4" in="dropShadowOffsetOuter1" result="dropShadowBlurOuter1"></feGaussianBlur>
@@ -32,7 +23,7 @@
 		<stop  offset="0" style="stop-color:#AAAAFF"/>
 		<stop  offset="1" style="stop-color:#2222FF"/>
 	</linearGradient>
-	<circle class="st0" filter="url(#update-filter-1)" cx="250" cy="250" r="225.9"/>
+	<circle class="st0" cx="250" cy="250" r="225.9"/>
 	<circle id="Oval_3_" class="st1" cx="250.5" cy="249.5" r="195.8"/>
 	<g id="Shape_3_" transform="translate(30.000000, 30.000000) rotate(8.000000) translate(-30.000000, -30.000000) ">
 		<path id="path-3_14_" filter="url(#drop-filter-2)" class="st2" d="M277.5,111.6c0.5,0,1,0,1.5,0c1,0,2.5,0,3.5,0l3.5-14.1c1-4.5,2-4,2.5,0l1.5,14.1l0,0
