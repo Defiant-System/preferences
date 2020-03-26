@@ -21,4 +21,10 @@
 		<rect fill="#333" x="120" y="160" width="40" height="40"/>
 		<rect fill="#333" x="180" y="160" width="40" height="40"/>
 	</svg>
+
+	@import "icon-update.svg"
+	@import "icon-security.svg"
+	@import "icon-sharing.svg"
+	@import "icon-spotlight.svg"
+	@import "icon-general.svg"
 </svg>

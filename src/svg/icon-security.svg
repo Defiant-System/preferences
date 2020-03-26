@@ -1,0 +1,116 @@
+
+<svg id="icon-security" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+	<style type="text/css">
+		.st0{fill:url(#SVGID_1_);stroke:#00000070;stroke-width:0.5;}
+		.st1{fill:url(#SVGID_2_);stroke:#00000070;stroke-width:0.5;}
+		.st2{fill:url(#SVGID_3_);stroke:#00000070;stroke-width:0.5;}
+		.st3{fill:url(#SVGID_4_);stroke:#00000070;stroke-width:0.5;}
+		.st4{fill:url(#SVGID_5_);stroke:#00000070;stroke-width:0.5;}
+		.st5{fill:url(#SVGID_6_);stroke:#00000070;stroke-width:0.5;}
+		.st6{fill:url(#SVGID_7_);stroke:#00000070;stroke-width:0.5;}
+		.st7{fill:url(#SVGID_8_);stroke:#00000070;stroke-width:0.5;}
+		.st8{fill:url(#SVGID_9_);stroke:#00000070;stroke-width:0.5;}
+		.st9{fill:none;stroke:#00000070;stroke-width:0.2;stroke-linecap:round;}
+		.st10{fill:url(#SVGID_10_);stroke:#00000070;stroke-width:0.15;stroke-linejoin:round;}
+	</style>
+	<filter id="WMDS_1" x="0" y="0" width="200%" height="200%">
+		<feDropShadow dx="0" dy="1" stdDeviation="0.5" flood-color="#fff" flood-opacity="0.95" />
+		<feDropShadow dx="0" dy="-1" stdDeviation="0.5" flood-color="#000" flood-opacity="0.85" />
+	</filter>
+	<filter x="-6.1%" y="-3.9%" width="112.1%" height="113.2%" filterUnits="objectBoundingBox" id="security-filter-1">
+		<feOffset dx="0" dy="8" in="SourceAlpha" result="securityShadowOffsetOuter1"></feOffset>
+		<feGaussianBlur stdDeviation="8" in="securityShadowOffsetOuter1" result="securityShadowBlurOuter1"></feGaussianBlur>
+		<feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="securityShadowBlurOuter1" result="securityShadowMatrixOuter1"></feColorMatrix>
+		<feMerge>
+			<feMergeNode in="securityShadowMatrixOuter1"></feMergeNode>
+			<feMergeNode in="SourceGraphic"></feMergeNode>
+		</feMerge>
+	</filter>
+	<filter x="-6.1%" y="-3.9%" width="112.1%" height="113.2%" filterUnits="objectBoundingBox" id="drop-filter-2">
+		<feOffset dx="0" dy="4" in="SourceAlpha" result="dropShadowOffsetOuter1"></feOffset>
+		<feGaussianBlur stdDeviation="4" in="dropShadowOffsetOuter1" result="dropShadowBlurOuter1"></feGaussianBlur>
+		<feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="dropShadowBlurOuter1" result="dropShadowMatrixOuter1"></feColorMatrix>
+		<feMerge>
+			<feMergeNode in="dropShadowMatrixOuter1"></feMergeNode>
+			<feMergeNode in="SourceGraphic"></feMergeNode>
+		</feMerge>
+	</filter>
+	<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="250" y1="724.8443" x2="250" y2="1155.1558" gradientTransform="matrix(1 0 0 1 0 -690)">
+		<stop offset="0" style="stop-color:#D3D7DE"/>
+		<stop offset="1" style="stop-color:#888D91"/>
+	</linearGradient>
+	<radialGradient id="SVGID_2_" cx="437.4443" cy="283.11" r="12.5486" gradientTransform="matrix(1 0 0 -1 0 502)" gradientUnits="userSpaceOnUse">
+		<stop offset="0" style="stop-color:#FFFFFF"/>
+		<stop offset="1" style="stop-color:#787878"/>
+	</radialGradient>
+	<radialGradient id="SVGID_3_" cx="59.4186" cy="218.89" r="12.5486" gradientUnits="userSpaceOnUse">
+		<stop offset="0" style="stop-color:#FFFFFF"/>
+		<stop offset="1" style="stop-color:#787878"/>
+	</radialGradient>
+	<radialGradient id="SVGID_4_" cx="85.0386" cy="57.7586" r="12.5486" gradientTransform="matrix(1 0 0 -1 0 502)" gradientUnits="userSpaceOnUse">
+		<stop offset="0" style="stop-color:#FFFFFF"/>
+		<stop offset="1" style="stop-color:#787878"/>
+	</radialGradient>
+	<radialGradient id="SVGID_5_" cx="412.3472" cy="57.7586" r="12.5486" gradientTransform="matrix(1 0 0 -1 0 502)" gradientUnits="userSpaceOnUse">
+		<stop offset="0" style="stop-color:#FFFFFF"/>
+		<stop offset="1" style="stop-color:#787878"/>
+	</radialGradient>
+	<radialGradient id="SVGID_6_" cx="248.6929" cy="437.8757" r="12.5486" gradientTransform="matrix(1 0 0 -1 0 502)" gradientUnits="userSpaceOnUse">
+		<stop offset="0" style="stop-color:#FFFFFF"/>
+		<stop offset="1" style="stop-color:#787878"/>
+	</radialGradient>
+	<linearGradient id="SVGID_7_" gradientUnits="userSpaceOnUse" x1="248.6929" y1="869.6757" x2="248.6929" y2="1116.4642" gradientTransform="matrix(1 0 0 1 0 -690)">
+		<stop offset="0" style="stop-color:#333333"/>
+		<stop offset="1" style="stop-color:#787878"/>
+	</linearGradient>
+	<radialGradient id="SVGID_8_" cx="248.6928" cy="993.07" r="75.807" gradientTransform="matrix(1 0 0 1 0 -690)" gradientUnits="userSpaceOnUse">
+		<stop offset="0" style="stop-color:#D3D7DE"/>
+		<stop offset="0.2185" style="stop-color:#C6CAD0"/>
+		<stop offset="0.6211" style="stop-color:#A7AAAF"/>
+		<stop offset="1" style="stop-color:#888D91"/>
+	</radialGradient>
+	<linearGradient id="SVGID_9_" gradientUnits="userSpaceOnUse" x1="248.6929" y1="934.1937" x2="248.6929" y2="1051.9275" gradientTransform="matrix(1 0 0 1 0 -690)">
+		<stop offset="0" style="stop-color:#D3D7DE"/>
+		<stop offset="1" style="stop-color:#888D91"/>
+	</linearGradient>
+	<linearGradient id="SVGID_10_" gradientUnits="userSpaceOnUse" x1="248.4314" y1="353.1729" x2="248.4314" y2="329.6443" gradientTransform="matrix(1 0 0 -1 0 502)">
+		<stop offset="0" style="stop-color:#333333"/>
+		<stop offset="1" style="stop-color:#787878"/>
+	</linearGradient>
+	<polygon class="st0" filter="url(#security-filter-1)" points="64.6,465.2 432.2,465.2 432.2,250.3 441.1,256 478.8,212.6 414.4,162.4 414.4,76.2 351.2,76.2 350.6,113.8 248.7,34.8 21.2,212.6 56.8,256.5 65.2,250.3 "/>
+	<circle class="st1" cx="437.4" cy="218.9" r="12.5"/>
+	<circle class="st2" cx="59.4" cy="218.9" r="12.5"/>
+	<circle class="st3" cx="85" cy="444.2" r="12.5"/>
+	<circle class="st4" cx="412.3" cy="444.2" r="12.5"/>
+	<circle class="st5" cx="248.7" cy="64.1" r="12.5"/>
+	<circle class="st6" filter="url(#drop-filter-2)" cx="248.7" cy="303.1" r="123.4"/>
+	<circle class="st7" cx="248.7" cy="303.1" r="76.9"/>
+	<circle class="st8" filter="url(#drop-filter-2)" cx="248.7" cy="303.1" r="59.1"/>
+	<g id="lines" filter="url(#WMDS_1)">
+		<line class="st9" x1="248.7" y1="214.2" x2="248.7" y2="191.2"/>
+		<line class="st9" x1="248.7" y1="414.4" x2="248.7" y2="397.2"/>
+		<line class="st9" x1="343.3" y1="303.1" x2="360.6" y2="303.1"/>
+		<line class="st9" x1="136.8" y1="303.1" x2="156.7" y2="303.1"/>
+		<line class="st9" x1="314.6" y1="237.2" x2="327.6" y2="224.1"/>
+		<line class="st9" x1="169.7" y1="382" x2="181.8" y2="370"/>
+		<line class="st9" x1="315.6" y1="370" x2="327.6" y2="382"/>
+		<line class="st9" x1="169.7" y1="224.1" x2="183.3" y2="238.2"/>
+		<line class="st9" x1="272.7" y1="212.6" x2="277.5" y2="195.4"/>
+		<line class="st9" x1="219.9" y1="410.8" x2="224.1" y2="394"/>
+		<line class="st9" x1="339.7" y1="327.6" x2="356.4" y2="331.8"/>
+		<line class="st9" x1="141" y1="274.3" x2="159.8" y2="279.5"/>
+		<line class="st9" x1="329.7" y1="256.5" x2="345.4" y2="247.1"/>
+		<line class="st9" x1="152" y1="359" x2="167.1" y2="350.6"/>
+		<line class="st9" x1="295.8" y1="385.2" x2="304.6" y2="399.8"/>
+		<line class="st9" x1="192.7" y1="206.3" x2="202.7" y2="223.6"/>
+		<line class="st9" x1="294.7" y1="222" x2="304.1" y2="206.3"/>
+		<line class="st9" x1="192.7" y1="399.8" x2="201.1" y2="385.2"/>
+		<line class="st9" x1="330.3" y1="350.1" x2="344.9" y2="359"/>
+		<line class="st9" x1="151.4" y1="247.6" x2="168.2" y2="257.6"/>
+		<line class="st9" x1="338.6" y1="279" x2="355.9" y2="273.8"/>
+		<line class="st9" x1="140.5" y1="332.3" x2="157.2" y2="327.6"/>
+		<line class="st9" x1="272.7" y1="394.6" x2="277.5" y2="410.8"/>
+		<line class="st9" x1="218.9" y1="195.4" x2="224.1" y2="214.2"/>
+	</g>
+	<polygon class="st10" points="235.1,148.8 261.8,148.8 248.7,172.4 "/>
+</svg>
