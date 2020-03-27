@@ -21,8 +21,8 @@
 		<stop  offset="1" style="stop-color:#ddd"/>
 	</linearGradient>
 	<linearGradient id="Oval_1_" gradientUnits="userSpaceOnUse" x1="250.502" y1="448.2888" x2="250.502" y2="56.7152" gradientTransform="matrix(1 0 0 -1 0 502)">
-		<stop  offset="0" style="stop-color:#AAAAFF"/>
-		<stop  offset="1" style="stop-color:#2222FF"/>
+		<stop  offset="0" style="stop-color:#aaa"/>
+		<stop  offset="1" style="stop-color:#222"/>
 	</linearGradient>
 	<circle class="st0" cx="250" cy="250" r="225.9"/>
 	<circle id="Oval_3_" class="st1" cx="250.5" cy="249.5" r="195.8"/>

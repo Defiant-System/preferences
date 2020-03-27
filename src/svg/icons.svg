@@ -32,4 +32,5 @@
 	@import "icon-apis.svg"
 	@import "icon-date-time.svg"
 	@import "icon-keyboard.svg"
+	@import "icon-display.svg"
 </svg>
