@@ -1,0 +1,54 @@
+
+<svg id="icon-date-time" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+	<filter x="-10%" y="-10%" width="130%" height="130%" filterUnits="objectBoundingBox" id="drop-filter-2">
+		<feOffset dx="5" dy="5" in="SourceAlpha" result="dropShadowOffsetOuter1"></feOffset>
+		<feGaussianBlur stdDeviation="5" in="dropShadowOffsetOuter1" result="dropShadowBlurOuter1"></feGaussianBlur>
+		<feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="dropShadowBlurOuter1" result="dropShadowMatrixOuter1"></feColorMatrix>
+		<feMerge>
+			<feMergeNode in="dropShadowMatrixOuter1"></feMergeNode>
+			<feMergeNode in="SourceGraphic"></feMergeNode>
+		</feMerge>
+	</filter>
+	<style type="text/css">
+		.st0{fill:url(#SVGID_1_);}
+		.st1{fill:url(#SVGID_2_);}
+		.st2{fill:none;stroke:#666;stroke-width:23;stroke-linecap:round;stroke-linejoin:round;}
+		.st3{fill:#FFFFFF;}
+		.st4{fill:url(#SVGID_3_);}
+		.st5{fill:none;stroke:#000000;stroke-width:2;stroke-miterlimit:10;}
+	</style>
+	<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="195.1744" y1="469.7838" x2="195.1744" y2="143.8673" gradientTransform="matrix(1 0 0 -1 0 502)">
+		<stop offset="0" style="stop-color:#bbb"/>
+		<stop offset="1" style="stop-color:#999"/>
+	</linearGradient>
+	<linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="195.5655" y1="449.5558" x2="195.5655" y2="164.0954" gradientTransform="matrix(1 0 0 -1 0 502)">
+		<stop offset="0" style="stop-color:#ccc"/>
+		<stop offset="1" style="stop-color:#fff"/>
+	</linearGradient>
+	<linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="352.7378" y1="284.903" x2="352.7378" y2="212.6324">
+		<stop offset="0" style="stop-color:#CC0003"/>
+		<stop offset="1" style="stop-color:#FF5559"/>
+	</linearGradient>
+	<circle class="st0" cx="195.2" cy="195.2" r="175"/>
+	<circle class="st1" filter="url(#drop-filter-2)" cx="195.6" cy="194.8" r="155"/>
+	<polyline class="st2" points="282.5,107.7 195.6,195.2 116.7,142.6 "/>
+	<path class="st3" d="M247.1,212.6h211.2c8.9,0,16.2,7.2,16.2,16.2v231.3c0,8.9-7.2,16.2-16.2,16.2H247.1c-8.9,0-16.2-7.2-16.2-16.2
+		V228.8C231,219.9,238.2,212.6,247.1,212.6z"/>
+	<path class="st4" d="M474.5,284.9v-57.3c0-8.3-6.7-15-15-15H246c-8.3,0-15,6.7-15,15v57.3H474.5z"/>
+	<path class="st5" d="M247.1,212.6h211.2c8.9,0,16.2,7.2,16.2,16.2v231.3c0,8.9-7.2,16.2-16.2,16.2H247.1c-8.9,0-16.2-7.2-16.2-16.2
+		V228.8C231,219.9,238.2,212.6,247.1,212.6z"/>
+	<path class="st3" d="M292.1,260.9l5.6-0.8c0.1,3.6,0.8,6.1,2,7.4c1.2,1.3,2.9,2,5,2c1.6,0,2.9-0.4,4.1-1.1c1.1-0.7,1.9-1.7,2.4-2.9
+		c0.4-1.2,0.6-3.2,0.6-5.9V227h6.3v32.3c0,4-0.5,7-1.4,9.2c-1,2.2-2.5,3.8-4.6,5c-2.1,1.1-4.5,1.7-7.3,1.7c-4.2,0-7.3-1.2-9.5-3.6
+		C293.1,269.1,292,265.6,292.1,260.9z"/>
+	<path class="st3" d="M359.4,227h6.3v27.3c0,4.8-0.5,8.5-1.6,11.3c-1.1,2.8-3,5.1-5.8,6.8c-2.8,1.8-6.5,2.6-11.1,2.6
+		c-4.4,0-8.1-0.8-10.9-2.3c-2.8-1.5-4.8-3.7-6-6.6c-1.2-2.9-1.8-6.8-1.8-11.9V227h6.3v27.3c0,4.1,0.4,7.1,1.1,9.1
+		c0.8,1.9,2.1,3.4,3.9,4.5s4.1,1.6,6.8,1.6c4.6,0,7.9-1,9.8-3.1c2-2.1,2.9-6.1,2.9-12V227z"/>
+	<path class="st3" d="M376.1,274.3V227h6.4l24.9,37.2V227h6v47.3h-6.4l-24.9-37.2v37.2H376.1z"/>
+	<path d="M391.7,345.8l-15.2,1.2c-1.4-6-3.3-10.4-5.8-13.1c-4.1-4.4-9.2-6.5-15.3-6.5c-4.9,0-9.2,1.4-12.8,4.1
+		c-4.8,3.5-8.6,8.6-11.4,15.4c-2.8,6.7-4.2,16.4-4.3,28.8c3.7-5.6,8.2-9.8,13.5-12.5c5.3-2.7,10.9-4.1,16.7-4.1
+		c10.2,0,18.9,3.8,26.1,11.3c7.2,7.5,10.8,17.2,10.8,29.1c0,7.8-1.7,15.1-5.1,21.8c-3.4,6.7-8,11.9-13.9,15.4
+		c-5.9,3.6-12.6,5.4-20.1,5.4c-12.8,0-23.2-4.7-31.2-14.1c-8-9.4-12.1-24.8-12.1-46.4c0-24.1,4.4-41.6,13.3-52.5
+		c7.8-9.5,18.2-14.3,31.4-14.3c9.8,0,17.8,2.8,24.1,8.2C386.7,328.5,390.4,336.1,391.7,345.8z M329.2,399.5c0,5.3,1.1,10.3,3.4,15.1
+		c2.2,4.8,5.4,8.5,9.4,11c4,2.5,8.2,3.8,12.7,3.8c6.5,0,12-2.6,16.7-7.8c4.6-5.2,7-12.3,7-21.3c0-8.6-2.3-15.4-6.9-20.4
+		c-4.6-5-10.4-7.4-17.3-7.4c-6.9,0-12.8,2.5-17.6,7.4C331.6,384.9,329.2,391.4,329.2,399.5z"/>
+</svg>

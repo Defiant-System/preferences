@@ -29,5 +29,7 @@
 	@import "icon-general.svg"
 	@import "icon-desktop.svg"
 	@import "icon-users-groups.svg"
-	@import "icon-accounts.svg"
+	@import "icon-apis.svg"
+	@import "icon-date-time.svg"
+	@import "icon-keyboard.svg"
 </svg>
