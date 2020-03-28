@@ -38,4 +38,5 @@
 	@import "icon-speaker.svg"
 	@import "icon-mouse.svg"
 	@import "icon-notifications.svg"
+	@import "icon-screensaver.svg"
 </svg>
