@@ -1,0 +1,79 @@
+<section data-view="Desktop">
+	<div class="tab-view_" sys-click="do-tab-row">
+		<div class="tab-row_">
+			<div class="tab-active_">Wallpaper</div>
+			<div>Icons</div>
+			<div>Dock</div>
+		</div>
+		<div class="tab-body_">
+			<!-- Wallpaper -->
+			<div class="tab-active_">
+				<div class="reel" data-click="select-workspace">
+					<div class="workspace-wide active" data-id="ws-wide" data-name="Workspace #1-3">
+						<div></div>
+					</div>
+					<div class="workspace active" data-id="ws-1" data-name="Workspace #1">
+						<div></div>
+					</div>
+					<div class="workspace" data-id="ws-2" data-name="Workspace #2">
+						<div></div>
+					</div>
+					<div class="workspace" data-id="ws-3" data-name="Workspace #3">
+						<div></div>
+					</div>
+				</div>
+				<div class="sample">
+					<div class="tree" data-click="select-bg-folder"></div>
+					<div class="list wide-wp" data-click="select-bg-item"></div>
+				</div>
+			</div>
+
+			<!-- Icons -->
+			<div>
+				<div class="row-group_">
+					<legend>Folder color:</legend>
+					<div data-click="select-folder-icon-color">
+						<div class="color-select active" style="background: #157efb;"></div>
+						<div class="color-select" style="background: #944194;"></div>
+						<div class="color-select" style="background: #f5539e;"></div>
+						<div class="color-select" style="background: #de3a43;"></div>
+						<div class="color-select" style="background: #f5822e;"></div>
+						<div class="color-select" style="background: #fab73b;"></div>
+						<div class="color-select" style="background: #65b84d;"></div>
+						<div class="color-select" style="background: #989898;"></div>
+					</div>
+				</div>
+
+				<hr/>
+
+				<div class="row-group_">
+					<legend>Icon size</legend>
+					<div style="width: 170px;">
+						<input type="range" value="35" min="0" max="100">
+					</div>
+				</div>
+
+				<hr/>
+
+				<div class="row-group_">
+					<legend>Slider Steps 1-5</legend>
+					<div style="width: 170px;">
+						<input type="range" value="4" min="1" max="5" step="1">
+					</div>
+				</div>
+
+				<hr/>
+
+				<div class="row-group_">
+					<legend>Range Slider</legend>
+					<div style="width: 170px;">
+						<input type="range">
+					</div>
+				</div>
+			</div>
+
+			<!-- Dock -->
+			<div>Dock</div>
+		</div>
+	</div>
+</section>
