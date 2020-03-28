@@ -37,4 +37,5 @@
 	@import "icon-flag.svg"
 	@import "icon-speaker.svg"
 	@import "icon-mouse.svg"
+	@import "icon-notifications.svg"
 </svg>
