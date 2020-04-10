@@ -1,12 +1,13 @@
 <CaptionToolBar>
-	<Group>
+	<Group width="23%">
 		<Options>
-			<Tool symbol="icon-chevron-left" state="disabled"/>
-			<Tool symbol="icon-chevron-right" state="disabled"/>
+			<Tool symbol="icon-chevron-left" click="history-go" arg="-1" state="disabled"/>
+			<Tool symbol="icon-chevron-right" click="history-go" arg="1" state="disabled"/>
 		</Options>
 		<Tool symbol="icon-show-all" click="main-menu"/>
 	</Group>
-	<Group>
+	<Group />
+	<Group width="31%">
 		<Search placeholder="Search"/>
 	</Group>
 </CaptionToolBar>
