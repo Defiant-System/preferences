@@ -1,4 +1,23 @@
 
+const parts = {
+	general: ant_require("modules/general"),
+	desktop: ant_require("modules/desktop"),
+	language: ant_require("modules/language"),
+	spotlight: ant_require("modules/spotlight"),
+	notifications: ant_require("modules/notifications"),
+	displays: ant_require("modules/displays"),
+	keyboard: ant_require("modules/keyboard"),
+	mouse: ant_require("modules/mouse"),
+	sound: ant_require("modules/sound"),
+	security: ant_require("modules/security"),
+	integrations: ant_require("modules/integrations"),
+	updates: ant_require("modules/updates"),
+	sharing: ant_require("modules/sharing"),
+	userGroups: ant_require("modules/userGroups"),
+	dateTime: ant_require("modules/dateTime"),
+	accessibility: ant_require("modules/accessibility"),
+};
+
 const preferences = {
 	init() {
 		// fast references
@@ -9,7 +28,7 @@ const preferences = {
 			btnNext: window.find("[data-click='history-go'][data-arg='1']"),
 		};
 		this.history = new window.History;
-		this.history.push({view: "Main"});
+		this.history.push({ view: "Main" });
 		this.setViewState();
 		
 		// tmp
