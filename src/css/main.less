@@ -114,6 +114,7 @@ content {
 				height: 107px;
 				padding-top: 7px;
 				margin-bottom: 13px;
+				font-size: 0;
 
 				&.wide {
 					.workspace-wide {
@@ -125,15 +126,26 @@ content {
 					}
 				}
 
-				&.wp-count-1 {
+				&[data-ws="1"] {
 					.workspace[data-id="ws-2"],
-					.workspace[data-id="ws-3"] { display: none; }
+					.workspace[data-id="ws-3"] {
+						border: 0;
+						width: 0;
+						margin-right: 0;
+					}
 				}
-				&.wp-count-2 {
-					.workspace[data-id="ws-3"] { display: none; }
+				&[data-ws="2"] {
+					.workspace[data-id="ws-3"] {
+						border: 0;
+						width: 0;
+						margin-right: 0;
+					}
 				}
-				&.wp-count-3 {
-					.workspace[data-id="ws-add"] { display: none; }
+				&[data-ws="3"] {
+					.workspace[data-id="ws-add"] {
+						opacity: 0;
+						pointer-events: none;
+					}
 				}
 
 				.workspace-wide,
@@ -144,8 +156,15 @@ content {
 					display: inline-block;
 					width: 116px;
 					height: 74px;
-					margin: 0px 11px 0 0;
+					margin: 0px 17px 0 0;
 					border-radius: 3px;
+					transition: width 200ms ease,
+								margin-right 200ms ease;
+
+					&[data-id="ws-add"] {
+						opacity: 1;
+						transition: opacity 200ms ease 100ms;
+					}
 
 					&.active,
 					&:hover {
@@ -158,7 +177,8 @@ content {
 							bottom: -3px;
 							border-radius: 4px;
 						}
-						&:after {
+						&:after,
+						i.icon-times {
 							opacity: 1;
 							visibility: visible;
 						}
@@ -185,6 +205,7 @@ content {
 						margin-top: 7px;
 						text-align: center;
 						border-radius: 20px;
+						font-size: 12px;
 						color: #999;
 						transition: all 120ms;
 					}
@@ -196,10 +217,38 @@ content {
 						position: absolute;
 						top: 3px;
 						left: 3px;
-						right: 3px;
-						bottom: 3px;
+						width: 108px;
+						height: 66px;
 						border-radius: 2px;
 						pointer-events: none;
+					}
+
+					i.icon-times {
+						opacity: 0;
+						visibility: hidden;
+						background: #f5f5f5;
+						position: absolute;
+						top: -7px;
+						right: -7px;
+						width: 16px;
+						height: 16px;
+						cursor: pointer;
+						border-radius: 50%;
+						transition: opacity 120ms;
+						box-shadow: 0 0 1px rgba(0,0,0,.3),
+									0 2px 3px rgba(0,0,0,.35);
+
+						&:after {
+							content: "";
+							background: url(~/icons/icon-times.png) 50% 50% no-repeat;
+							//background-size: 75% auto;
+							position: absolute;
+							top: 3px;
+							left: 3px;
+							width: 10px;
+							height: 10px;
+							opacity: .4;
+						}
 					}
 
 					&[data-id="ws-add"] {
@@ -246,12 +295,12 @@ content {
 					&.active:before {
 						content: "";
 						position: absolute;
-						top: -3px;
-						left: -3px;
-						right: -3px;
-						bottom: -3px;
+						top: -2px;
+						left: -2px;
+						right: -2px;
+						bottom: -2px;
 						border-radius: 4px;
-						box-shadow: 0 0 0 2px #3182fa;
+						box-shadow: 0 0 0 3px #3182fa88;
 					}
 				}
 			}
