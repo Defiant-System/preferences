@@ -43,7 +43,7 @@ content {
 			visibility: visible;
 		}
 
-		&[data-view="Main"] {
+		&[data-view="main"] {
 			padding: 0;
 			width: 579px;
 			height: 420px;
@@ -86,7 +86,9 @@ content {
 					height: 44px;
 					border-radius: 3px;
 					filter: drop-shadow(0 2px 1px rgba(0,0,0,.15));
+					pointer-events: none;
 				}
+
 				.name {
 					display: inline-block;
 					margin-top: 5px;
@@ -99,12 +101,12 @@ content {
 			}
 		}
 
-		&[data-view="General"] {
+		&[data-view="general"] {
 			width: 579px;
 			height: 448px;
 		}
 
-		&[data-view="Desktop"] {
+		&[data-view="desktop"] {
 			width: 659px;
 			height: 448px;
 
@@ -117,9 +119,21 @@ content {
 					.workspace-wide {
 						display: block;
 					}
+
 					.workspace {
 						display: none;
 					}
+				}
+
+				&.wp-count-1 {
+					.workspace[data-id="ws-2"],
+					.workspace[data-id="ws-3"] { display: none; }
+				}
+				&.wp-count-2 {
+					.workspace[data-id="ws-3"] { display: none; }
+				}
+				&.wp-count-3 {
+					.workspace[data-id="ws-add"] { display: none; }
 				}
 
 				.workspace-wide,
@@ -149,6 +163,7 @@ content {
 							visibility: visible;
 						}
 					}
+
 					&.active {
 						&:before {
 							box-shadow: 0 0 0 3px #3182fa88;
@@ -186,13 +201,29 @@ content {
 						border-radius: 2px;
 						pointer-events: none;
 					}
+
+					&[data-id="ws-add"] {
+						cursor: pointer;
+
+						&:hover div {
+							filter: opacity(0.4) drop-shadow(0px 1px 0px #fff);
+						}
+
+						div {
+							background-image: url(~/icons/icon-add.png);
+							background-size: auto 50%;
+							filter: opacity(0.3) drop-shadow(0px 1px 0px #eee);
+						}
+					}
 				}
+
 				.workspace-wide {
 					display: none;
 					width: 211px;
 				}
 			}
 			.list {
+				position: relative;
 				padding: 1px 3px 9px;
 
 				&.wide-wp .bg-preview {
@@ -226,7 +257,7 @@ content {
 			}
 		}
 
-		&[data-view="Date & Time"] {
+		&[data-view="dateTime"] {
 			width: 659px;
 			height: 520px;
 

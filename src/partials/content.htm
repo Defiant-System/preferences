@@ -1,28 +1,28 @@
 <content>
-	<section class="active" data-view="Main" data-click="select-section">
+	<section class="active" data-view="main" data-click="select-section">
 		<!-- General Settings -->
 		<div>
-			<div class="section">
+			<div class="section" data-id="general">
 				<div class="icon" style="background-image: url(~/icons/icon-general.png);"></div>
 				<div class="name">General</div>
 			</div>
-			<div class="section">
+			<div class="section" data-id="desktop">
 				<div class="icon" style="background-image: url(~/icons/icon-desktop.png);"></div>
 				<div class="name">Desktop</div>
 			</div>
-			<div class="section">
+			<div class="section" data-id="screenSaver">
 				<div class="icon" style="background-image: url(~/icons/icon-screensaver.png);"></div>
 				<div class="name">Screen Saver</div>
 			</div>
-			<div class="section">
+			<div class="section" data-id="language">
 				<div class="icon" style="background-image: url(~/icons/icon-flag.png);"></div>
 				<div class="name">Language & Region</div>
 			</div>
-			<div class="section">
+			<div class="section" data-id="spotlight">
 				<div class="icon" style="background-image: url(~/icons/icon-spotlight.png);"></div>
 				<div class="name">Spotlight</div>
 			</div>
-			<div class="section">
+			<div class="section" data-id="notifications">
 				<div class="icon" style="background-image: url(~/icons/icon-notifications.png);"></div>
 				<div class="name">Notifications</div>
 			</div>
@@ -30,19 +30,19 @@
 
 		<!-- Hardware Settings -->
 		<div>
-			<div class="section">
+			<div class="section" data-id="displays">
 				<div class="icon" style="background-image: url(~/icons/icon-display.png);"></div>
 				<div class="name">Displays</div>
 			</div>
-			<div class="section">
+			<div class="section" data-id="keyboard">
 				<div class="icon" style="background-image: url(~/icons/icon-keyboard.png);"></div>
 				<div class="name">Keyboard</div>
 			</div>
-			<div class="section">
+			<div class="section" data-id="mouse">
 				<div class="icon" style="background-image: url(~/icons/icon-mouse.png);"></div>
 				<div class="name">Mouse</div>
 			</div>
-			<div class="section">
+			<div class="section" data-id="sound">
 				<div class="icon" style="background-image: url(~/icons/icon-speaker.png);"></div>
 				<div class="name">Sound</div>
 			</div>
@@ -50,19 +50,19 @@
 
 		<!-- Integration Settings -->
 		<div>
-			<div class="section">
+			<div class="section" data-id="security">
 				<div class="icon" style="background-image: url(~/icons/icon-security.png);"></div>
 				<div class="name">Security & Privacy</div>
 			</div>
-			<div class="section">
+			<div class="section" data-id="integrations">
 				<div class="icon" style="background-image: url(~/icons/icon-apis.png);"></div>
 				<div class="name">Integrations</div>
 			</div>
-			<div class="section">
+			<div class="section" data-id="updates">
 				<div class="icon" style="background-image: url(~/icons/icon-update.png);"></div>
 				<div class="name">Software Update</div>
 			</div>
-			<div class="section">
+			<div class="section" data-id="sharing">
 				<div class="icon" style="background-image: url(~/icons/icon-sharing.png);"></div>
 				<div class="name">Sharing</div>
 			</div>
@@ -70,24 +70,23 @@
 
 		<!-- Account Settings -->
 		<div>
-			<div class="section">
+			<div class="section" data-id="userGroups">
 				<div class="icon" style="background-image: url(~/icons/icon-users-groups.png);"></div>
 				<div class="name">Users & Groups</div>
 			</div>
-			<div class="section">
+			<div class="section" data-id="dateTime">
 				<div class="icon" style="background-image: url(~/icons/icon-date-time.png);"></div>
 				<div class="name">Date & Time</div>
 			</div>
-			<div class="section">
+			<div class="section" data-id="accessibility">
 				<div class="icon" style="background-image: url(~/icons/icon-accessibility.png);"></div>
 				<div class="name">Accessibility</div>
 			</div>
 		</div>
 	</section>
 
-	@import "sections/users-groups.htm"
 	@import "sections/accessibility.htm"
-	@import "sections/date-time.htm"
+	@import "sections/dateTime.htm"
 	@import "sections/desktop.htm"
 	@import "sections/displays.htm"
 	@import "sections/general.htm"
@@ -96,10 +95,11 @@
 	@import "sections/mouse.htm"
 	@import "sections/notifications.htm"
 	@import "sections/screensaver.htm"
-	@import "sections/security-privacy.htm"
+	@import "sections/security.htm"
 	@import "sections/sharing.htm"
-	@import "sections/software-updates.htm"
 	@import "sections/sound.htm"
 	@import "sections/spotlight.htm"
+	@import "sections/updates.htm"
+	@import "sections/usersGroups.htm"
 	
 </content>

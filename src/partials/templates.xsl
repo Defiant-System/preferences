@@ -3,7 +3,7 @@
 <xsl:template name="bg-tree">
 	<xsl:for-each select="./*">
 		<div>
-			<xsl:attribute name="class">tree-item <xsl:if test="position() = 1">active</xsl:if></xsl:attribute>
+			<xsl:attribute name="class">tree-item</xsl:attribute>
 			<xsl:attribute name="data-type"><xsl:value-of select="@type"/></xsl:attribute>
 			<span class="icon">
 				<xsl:attribute name="style">background-image: url(/ant/icons/<xsl:choose>

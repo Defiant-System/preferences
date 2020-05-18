@@ -1,9 +1,9 @@
 
-// parts.general
+// parts.screenSaver
 
 {
 	dispatch(event) {
-		let self = parts.general,
+		let self = parts.screenSaver,
 			section = event.section,
 			el;
 		switch (event.type) {

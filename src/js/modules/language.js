@@ -3,8 +3,11 @@
 
 {
 	dispatch(event) {
+		let self = parts.language,
+			section = event.section,
+			el;
 		switch (event.type) {
-			case "init":
+			case "init-view":
 				break;
 		}
 	}
