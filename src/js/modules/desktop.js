@@ -2,6 +2,7 @@
 // parts.desktop
 
 {
+	bgComplexRx: /url|gradient/i,
 	bgRexExp: /(?:\(['"]?)(.*?)(?:['"]?\))/,
 	async dispatch(event) {
 		let self = parts.desktop,
@@ -72,11 +73,15 @@
 
 				// select folder containing current wallpaper
 				active = self.reelEl.find("> div.active div");
-				style = self.bgRexExp.exec(active.attr("style"))[1];
-				active = window.bluePrint.selectSingleNode(`//i[contains(text(), "${style}")]`);
-				name = active ? active.parentNode.getAttribute("name") : "Wallpapers"
-				item = self.treeEl.find(`.tree-item .name:contains("${name}")`);
-
+				style = active.attr("style");				
+				if (self.bgComplexRx.exec(style)) {
+					style = self.bgRexExp.exec(style)[1];
+					active = window.bluePrint.selectSingleNode(`//i[contains(text(), "${style}")]`);
+					name = active ? active.parentNode.getAttribute("name") : "Wallpapers"
+					item = self.treeEl.find(`.tree-item .name:contains("${name}")`);
+				} else {
+					item = self.treeEl.find(`.tree-item .name:contains("Colors")`);
+				}
 				if (!item.length) self.treeEl.find(".tree-item:nth-child(1) .name").trigger("click");
 				else item.parent().trigger("click");
 				break;
@@ -95,11 +100,10 @@
 
 				// make "active" in list
 				active = self.reelEl.find("> .active div");
-				style = self.bgRexExp.exec(active.attr("style"))[1];
+				style = active.attr("style");
+				if (self.bgComplexRx.exec(style)) style = self.bgRexExp.exec(style)[1];
 				active = self.listEl.find(`div[style*="${style}"]`);
-				if (active.length) {
-					active.addClass("active").scrollIntoView();
-				}
+				if (active.length) active.addClass("active").scrollIntoView();
 
 				self.listEl.toggleClass("wide-wp", el.data("type") !== "wide");
 				break;
