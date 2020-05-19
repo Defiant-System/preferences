@@ -138,10 +138,14 @@
 				siblings.get(value + 1).find("div").attr({ style });
 				
 				self.reelEl.data({ ws: value + 1 });
+
+				// todo: interact with workspace to add / remove workspaces
 				break;
 			case "remove-workspace":
-				el = $(event.target);
-				console.log(el);
+				value = +self.reelEl.data("ws");
+				self.reelEl.data({ ws: value - 1 });
+				
+				// todo: interact with workspace to add / remove workspaces
 				break;
 		}
 	}

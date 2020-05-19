@@ -145,6 +145,7 @@ content {
 					.workspace[data-id="ws-add"] {
 						opacity: 0;
 						pointer-events: none;
+						transition: width 50ms ease;
 					}
 				}
 
@@ -166,18 +167,7 @@ content {
 						transition: opacity 200ms ease 100ms;
 					}
 
-					&.active,
 					&:hover {
-						&:before {
-							content: "";
-							position: absolute;
-							top: -3px;
-							left: -3px;
-							right: -3px;
-							bottom: -3px;
-							border-radius: 4px;
-						}
-						&:after,
 						i.icon-times {
 							opacity: 1;
 							visibility: visible;
@@ -186,10 +176,19 @@ content {
 
 					&.active {
 						&:before {
+							content: "";
+							position: absolute;
+							top: -3px;
+							left: -3px;
+							right: -3px;
+							bottom: -3px;
+							border-radius: 4px;
 							box-shadow: 0 0 0 3px #3182fa88;
 						}
 						&:after {
 							color: #555;
+							opacity: 1;
+							visibility: visible;
 						}
 					}
 
@@ -211,14 +210,14 @@ content {
 					}
 
 					div {
-						background-size: cover;
+						background-size: auto 100%;
 						background-repeat: no-repeat;
 						background-position: 50% 50%;
 						position: absolute;
 						top: 3px;
 						left: 3px;
-						width: 108px;
-						height: 66px;
+						right: 3px;
+						bottom: 3px;
 						border-radius: 2px;
 						pointer-events: none;
 					}
