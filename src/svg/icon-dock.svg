@@ -1,0 +1,18 @@
+
+<svg id="icon-dock" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+	<style type="text/css">
+		.st0{fill:url(#SVGID_1_);stroke:#222;stroke-width:6;}
+		.st1{opacity:0.5;fill:#FFFFFF;stroke:#222;stroke-width:6;}
+		.st2{opacity:0.45;fill:#FFFFFF;stroke:#222;stroke-width:3;}
+	</style>
+	<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="250" y1="116.752" x2="250" y2="411.7731" gradientTransform="matrix(1 0 0 -1 0 499)">
+		<stop  offset="0" style="stop-color:#b8b"/>
+		<stop  offset="1" style="stop-color:#69d"/>
+	</linearGradient>
+	<path class="st0" d="M453,416.1H47c-11.5,0-20.7-9.3-20.7-20.7V104.6c0-11.5,9.3-20.7,20.7-20.7h406c11.5,0,20.7,9.3,20.7,20.7 v290.8C473.7,406.8,464.5,416.1,453,416.1z"/>
+	<rect x="76" y="312" class="st1" width="348" height="104"/>
+	<path class="st2" d="M148.2,393.9h-34.3c-6.6,0-12-5.4-12-12v-31.5c0-6.6,5.4-12,12-12h34.3c6.6,0,12,5.4,12,12v31.5 C160.2,388.5,154.8,393.9,148.2,393.9z"/>
+	<path class="st2" d="M383.8,393.9h-34.3c-6.6,0-12-5.4-12-12v-31.5c0-6.6,5.4-12,12-12h34.3c6.6,0,12,5.4,12,12v31.5 C395.8,388.5,390.4,393.9,383.8,393.9z"/>
+	<path class="st2" d="M305.3,393.9H271c-6.6,0-12-5.4-12-12v-31.5c0-6.6,5.4-12,12-12h34.3c6.6,0,12,5.4,12,12v31.5 C317.3,388.5,311.9,393.9,305.3,393.9z"/>
+	<path class="st2" d="M226.7,393.9h-34.3c-6.6,0-12-5.4-12-12v-31.5c0-6.6,5.4-12,12-12h34.3c6.6,0,12,5.4,12,12v31.5 C238.7,388.5,233.3,393.9,226.7,393.9z"/>
+</svg>

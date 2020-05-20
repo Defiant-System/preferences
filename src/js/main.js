@@ -4,6 +4,7 @@ const parts = {
 	dateTime:      ant_require("modules/dateTime.js"),
 	desktop:       ant_require("modules/desktop.js"),
 	displays:      ant_require("modules/displays.js"),
+	dock:          ant_require("modules/dock.js"),
 	general:       ant_require("modules/general.js"),
 	integrations:  ant_require("modules/integrations.js"),
 	keyboard:      ant_require("modules/keyboard.js"),
@@ -33,7 +34,9 @@ const preferences = {
 		this.setViewState();
 
 		// tmp
-		window.find(`.section[data-id="desktop"]`).trigger("click");
+		window.find(`.section[data-id="dock"]`).trigger("click");
+		// setTimeout(() =>
+		// 	window.find(`section[data-view="desktop"] .tab-row_ > div:nth-child(3)`).trigger("click"), 300);
 	},
 	dispatch(event) {
 		let self = preferences,

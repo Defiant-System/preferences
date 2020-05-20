@@ -24,6 +24,16 @@ content {
 	.row-group_ {
 		width: 442px;
 		margin: 0 auto;
+
+		.cell {
+			display: inline-block;
+			text-align: center;
+			min-width: 53px;
+
+			label {
+				display: block;
+			}
+		}
 	}
 
 	section {
@@ -32,7 +42,7 @@ content {
 		left: 0;
 		width: 579px;
 		height: 420px;
-		padding: 11px;
+		padding: 13px 11px;
 		opacity: 0;
 		visibility: hidden;
 		transition: opacity, 200ms;
@@ -303,6 +313,11 @@ content {
 					}
 				}
 			}
+		}
+
+		&[data-view="dock"] {
+			width: 590px;
+			height: 360px;
 		}
 
 		&[data-view="dateTime"] {

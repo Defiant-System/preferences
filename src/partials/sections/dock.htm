@@ -1,0 +1,50 @@
+<section data-view="dock">
+	<div class="row-group_">
+		<legend>Size</legend>
+		<div style="max-width: 220px;" data-scale-left="Small" data-scale-right="Large">
+			<input type="range" value="50" min="0" max="100" data-change="icon-size">
+		</div>
+	</div>
+
+	<hr/>
+
+	<div class="row-group_">
+		<legend>Position on screen:</legend>
+		<div>
+			<div class="row" data-click="select-dock-position">
+				<div class="cell">
+					<span class="form-radio"><input type="radio" name="dock" id="dock-left"/><i></i></span>
+					<label for="dock-left">Left</label>
+				</div>
+				<div class="cell">
+					<span class="form-radio"><input type="radio" name="dock" id="dock-bottom" checked/><i></i></span>
+					<label for="dock-bottom">Bottom</label>
+				</div>
+				<div class="cell">
+					<span class="form-radio"><input type="radio" name="dock" id="dock-right"/><i></i></span>
+					<label for="dock-right">Right</label>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<hr/>
+
+	<div class="row-group_">
+		<legend></legend>
+		<div>
+			<div class="row">
+				<span class="form-checkbox"><input type="checkbox" name="toggle-dock" id="toggle-dock" checked data-change="toggle-dock"/><i></i></span>
+				<label for="toggle-dock">Automatically hide and show the Dock</label>
+			</div>
+			<div class="row">
+				<span class="form-checkbox"><input type="checkbox" name="app-indicators" id="app-indicators" checked/><i></i></span>
+				<label for="app-indicators">Show indicators for open applications</label>
+			</div>
+			<div class="row">
+				<span class="form-checkbox"><input type="checkbox" name="show-recent" id="show-recent"/><i></i></span>
+				<label for="show-recent">Show recent applications in Dock</label>
+			</div>
+		</div>
+	</div>
+</section>
