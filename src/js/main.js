@@ -17,12 +17,13 @@ const parts = {
 	sound:         ant_require("modules/sound.js"),
 	spotlight:     ant_require("modules/spotlight.js"),
 	updates:       ant_require("modules/updates.js"),
-	userGroups:    ant_require("modules/userGroups.js"),
+	usersGroups:   ant_require("modules/usersGroups.js"),
 };
 
 const preferences = {
 	init() {
 		// fast references
+		this.title = window.title;
 		this.activeSection =
 		this.mainMenu = window.find(`content > section[data-view="main"]`);
 		this.el = {
@@ -34,7 +35,7 @@ const preferences = {
 		this.setViewState();
 
 		// tmp
-		window.find(`.section[data-id="dock"]`).trigger("click");
+		window.find(`.section[data-id="usersGroups"]`).trigger("click");
 		// setTimeout(() =>
 		// 	window.find(`section[data-view="desktop"] .tab-row_ > div:nth-child(3)`).trigger("click"), 300);
 	},
@@ -42,6 +43,7 @@ const preferences = {
 		let self = preferences,
 			section,
 			view,
+			name,
 			el;
 		switch (event.type) {
 			// native events
@@ -50,7 +52,7 @@ const preferences = {
 				break;
 			// custom events
 			case "main-menu":
-				self.history.push({ view: "main" });
+				self.history.push({ view: "main", name: self.title });
 				self.setViewState();
 				break;
 			case "history-go":
@@ -62,9 +64,10 @@ const preferences = {
 			case "select-section":
 				el = $(event.target);
 				view = el.data("id");
+				name = el.find(".name").text();
 				if (!view) return;
 
-				self.history.push({ view });
+				self.history.push({ view, name });
 				self.setViewState();
 				break;
 			default:
@@ -98,6 +101,9 @@ const preferences = {
 		this.activeSection.removeClass("active");
 		this.activeSection = section.addClass("active");
 
+		// update window title
+		window.title = state.name;
+		// resize window
 		window.body.css({
 			width: width +"px",
 			height: height +"px",
