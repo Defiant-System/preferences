@@ -31,21 +31,57 @@
 		<div class="panel-right">
 			<div class="tab-view_" sys-click="do-tab-row">
 				<div class="tab-body_">
+					<div class="tab-active_ show-user-options">
 
-					<div class="user-options">
-						<div class="user">
-							<div class="avatar" style="background-image: url(/res/img/hbi.jpg);" data-hover="edit"></div>
-							<div class="name">Hakan Bilgin</div>
-							<div class="button">
-								<button>Change Password&hellip;</button>
+						<div class="user-options">
+							<div class="user">
+								<div class="avatar" style="background-image: url(/res/img/hbi.jpg);" data-hover="edit"></div>
+								<div class="name">Hakan Bilgin</div>
+								<div class="button">
+									<button>Change Password&hellip;</button>
+								</div>
 							</div>
 						</div>
-					</div>
-					
-					<div class="login-options">
+						
+						<div class="login-options">
+							<div class="row-group_">
+								<div class="row-cell_ legend-select">
+									<div>Automatic Login:</div>
+									<div style="width: 200px;">
+										<selectbox data-change="auto-login-option">
+											<option value="off">Off</option>
+											<option value="hbi" selected="true">Hakan Bilgin</option>
+											<option value="sarienn">Laura Bularca</option>
+										</selectbox>
+									</div>
+								</div>
+							</div>
+
+							<hr/>
+
+							<div class="row-group_">
+								<div class="row-cell_">
+									<div class="row">
+										<span class="form-checkbox"><input type="checkbox" id="trust-computer" checked/><i></i></span>
+										<label for="trust-computer">Trust this computer</label>
+									</div>
+									<div class="row">
+										<span class="form-checkbox"><input type="checkbox" id="show-create" checked/><i></i></span>
+										<label for="show-create">Show option to create account</label>
+									</div>
+									<div class="row">
+										<span class="form-checkbox"><input type="checkbox" id="allow-other-login"/><i></i></span>
+										<label for="allow-other-login">Allow other users to login to this computer</label>
+									</div>
+									<div class="row">
+										<span class="form-checkbox"><input type="checkbox" id="show-fullname"/><i></i></span>
+										<label for="show-fullname">Show full name</label>
+									</div>
+								</div>
+							</div>
+						</div>
 
 					</div>
-
 				</div>
 			</div>
 		</div>

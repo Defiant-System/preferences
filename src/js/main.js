@@ -45,10 +45,14 @@ const preferences = {
 			view,
 			name,
 			el;
+		//console.log(event);
 		switch (event.type) {
 			// native events
 			case "window.focus":
 			case "window.blur":
+			case "window.keyup":
+			case "window.keystroke":
+				// prevent fall through to default
 				break;
 			// custom events
 			case "main-menu":
@@ -71,12 +75,11 @@ const preferences = {
 				self.setViewState();
 				break;
 			default:
-				if (!event.target) return;
-				el = $(event.target);
+				//if (!event.target) return;
+				el = event.target ? $(event.target) : event.el;
 				section = el.parents("section");
 				view = section.data("view");
 
-				//console.log(view);
 				// pass on event to part
 				parts[view].dispatch({ ...event, section });
 		}

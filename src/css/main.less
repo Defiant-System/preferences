@@ -431,14 +431,19 @@ content {
 			}
 
 			.panel-right {
+				.tab-active_ {
+					&.show-user-options .user-options,
+					&.show-login-options .login-options {
+						display: block;
+					}
+				}
+
 				.user-options {
 					display: none;
 
 					.user {
 						height: 109px;
 						display: flex;
-						padding-left: 21px;
-						padding-right: 21px;
 
 						.avatar {
 							background: #eee url(~/icons/user.png) 50% 50%/contain no-repeat;
@@ -490,7 +495,23 @@ content {
 				}
 
 				.login-options {
+					display: none;
 
+					.row-group_ {
+						width: auto;
+					}
+
+					.legend-select {
+						display: flex;
+
+						> div {
+							display: inline-block;
+
+							&:first-child {
+								padding: 5px 7px 0 0;
+							}
+						}
+					}
 				}
 			}
 		}
