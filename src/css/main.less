@@ -42,7 +42,7 @@ content {
 		left: 0;
 		width: 579px;
 		height: 420px;
-		padding: 13px 11px;
+		padding: 13px 13px;
 		opacity: 0;
 		visibility: hidden;
 		transition: opacity, 200ms;
@@ -117,7 +117,7 @@ content {
 		}
 
 		&[data-view="desktop"] {
-			width: 659px;
+			width: 661px;
 			height: 448px;
 
 			.reel {
@@ -348,8 +348,45 @@ content {
 			}
 			.row-foot {
 				//background: #ccc;
-				height: 47px;
+				height: 43px;
+				padding-top: 5px;
 				margin-top: 7px;
+
+				.unlock-to-edit {
+					display: inline-block;
+					cursor: pointer;
+
+					&:hover {
+						i.icon-padlock {
+							background:  #e2e2e2;
+						}
+					}
+
+					i.icon-padlock {
+						position: relative;
+						width: 37px;
+						height: 37px;
+						display: inline-block;
+						vertical-align: middle;
+						border-radius: 3px;
+
+						&:before {
+							content: "";
+							position: absolute;
+							top: 3px;
+							left: 3px;
+							width: 31px;
+							height: 31px;
+							background: url(~/icons/icon-padlock.png) 50% 50% no-repeat;
+							//filter: drop-shadow(0 1px 1px rgba(0,0,0,.35));
+						}
+					}
+					span {
+						position: relative;
+						top: 2px;
+						color: #777;
+					}
+				}
 			}
 
 			.panel-left {

@@ -60,6 +60,8 @@
 		<path class="st5" d="M439.1,274.8l33.4-36.8l-73.7-67V73h-59v44.5l-89.1-80.9L27.5,238l33.3,36.9l13.9-12.6v182.7h-9.4v18.5h369.8 v-18.5H426v-182L439.1,274.8z M353.7,86.9h31.2v71.5l-31.2-28.3V86.9z M288.5,444.9h-75.7V328h75.7V444.9z M410.2,444.9H302.4V314.1 H198.8v130.9H90.5V248l160-144.5l159.7,145V444.9z"/>
 	</svg>
 
+	@import "icon-padlock.svg"
+
 	@import "icon-dock.svg"
 	@import "icon-update.svg"
 	@import "icon-security.svg"
