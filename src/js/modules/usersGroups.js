@@ -9,6 +9,9 @@
 		switch (event.type) {
 			case "init-view":
 				break;
+			case "unlock-view":
+				event.el.toggleClass("unlocked", event.el.hasClass("unlocked"));
+				break;
 		}
 	}
 }

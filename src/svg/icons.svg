@@ -61,6 +61,7 @@
 	</svg>
 
 	@import "icon-padlock.svg"
+	@import "icon-padlock-open.svg"
 
 	@import "icon-dock.svg"
 	@import "icon-update.svg"
