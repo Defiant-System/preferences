@@ -540,7 +540,7 @@ content {
 				vertical-align: top;
 				width: 222px;
 				height: 178px;
-				margin: 13px 17px;
+				margin: 13px 19px;
 				border: 1px solid #ccc;
 				border-radius: 3px;
 				font-size: 0;
@@ -628,14 +628,29 @@ content {
 			}
 
 			.clock {
-				background: #fff;
+				background: linear-gradient(0deg, #ccc, #eee);
+				position: relative;
 				display: inline-block;
 				vertical-align: top;
-				width: 130px;
-				height: 130px;
-				margin: 13px 17px;
-				border: 1px solid #ccc;
+				width: 149px;
+				height: 149px;
+				margin: 13px 19px;
+				border: 1px solid #bbb;
 				border-radius: 50%;
+				box-shadow: 0 1px 3px rgba(0,0,0,.15);
+
+				&:before {
+					content: "";
+					position: absolute;
+					top: 8px;
+					left: 8px;
+					right: 8px;
+					bottom: 8px;
+					border-radius: 50%;
+					background: #fff;
+					box-shadow: 0 0 0 1px #bababa,
+								inset 0 2px 5px rgba(0,0,0,.15);
+				}
 			}
 
 			/*
