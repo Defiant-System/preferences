@@ -35,10 +35,10 @@
 
 						<div class="user-options">
 							<div class="user">
-								<div class="avatar" style="background-image: url(/res/img/hbi.jpg);" data-hover="edit"></div>
+								<div class="avatar disabled_" style="background-image: url(/res/img/hbi.jpg);" data-hover="edit" data-click="edit-user-photo"></div>
 								<div class="name">Hakan Bilgin</div>
 								<div class="button">
-									<button>Change Password&hellip;</button>
+									<button disabled>Change Password&hellip;</button>
 								</div>
 							</div>
 						</div>
@@ -48,7 +48,7 @@
 								<div class="row-cell_ legend-select">
 									<div>Automatic Login:</div>
 									<div style="width: 200px;">
-										<selectbox class="disabled_" data-change="auto-login-option">
+										<selectbox disabled data-change="auto-login-option">
 											<option value="off">Off</option>
 											<option value="hbi" selected="true">Hakan Bilgin</option>
 											<option value="sarienn">Laura Bularca</option>
@@ -80,22 +80,12 @@
 								</div>
 							</div>
 
-	<div class="row-group_">
-		<div class="row-cell_">
-			<div class="row">
-				<span class="form-radio_ disabled_"><input type="radio" name="preferences-scrollbars" id="preferences-scrollbars-1" disabled checked/><i></i></span>
-				<label for="preferences-scrollbars-1">Automatically based on mouse or trackpad</label>
-			</div>
-			<div class="row">
-				<span class="form-radio_ disabled_"><input type="radio" name="preferences-scrollbars" id="preferences-scrollbars-2" disabled/><i></i></span>
-				<label for="preferences-scrollbars-2">When scrolling</label>
-			</div>
-			<div class="row">
-				<span class="form-radio_ disabled_"><input type="radio" name="preferences-scrollbars" id="preferences-scrollbars-3" disabled/><i></i></span>
-				<label for="preferences-scrollbars-3">Always</label>
-			</div>
-		</div>
-	</div>
+							<hr/>
+
+							<p>
+								<i class="icon-warning"></i>
+								Changes you make here can be unlocked in the login view - this is to prevent locking Defiant login view on public computers. These options are primarily customisation for your personal computer and streamline login view for you.
+							</p>
 
 						</div>
 

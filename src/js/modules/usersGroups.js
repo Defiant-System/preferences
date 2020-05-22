@@ -5,14 +5,17 @@
 	dispatch(event) {
 		let self = parts.usersGroups,
 			section = event.section,
+			items,
 			value,
+			isLocked,
 			el;
 		//console.log(event);
 		switch (event.type) {
 			case "init-view":
 				self.section = event.section;
 				self.tabView = self.section.find(".tab-active_");
-				console.log(self.tabView);
+				self.userOptions = self.tabView.find(".user-options");
+				self.loginOptions = self.tabView.find(".login-options");
 				break;
 			case "select-user":
 				el = $(event.target);
@@ -26,11 +29,24 @@
 					.removeClass("show-user-options show-login-options")
 					.addClass(value);
 				break;
+			case "edit-user-photo":
+				console.log(event);
+				break;
 			case "auto-login-option":
 				console.log(event);
 				break;
 			case "unlock-view":
-				event.el.toggleClass("unlocked", event.el.hasClass("unlocked"));
+				isLocked = event.el.hasClass("unlocked");
+				event.el.toggleClass("unlocked", isLocked);
+
+				// user options
+				self.userOptions.find(".avatar").toggleClass("disabled_", !isLocked);
+				self.userOptions.find("button").toggleAttr("disabled", !isLocked);
+
+				// login options
+				items = self.loginOptions.find("input, selectbox");
+				items.toggleAttr("disabled", !isLocked);
+				items.parent().toggleClass("disabled_", !isLocked);
 				break;
 		}
 	}
