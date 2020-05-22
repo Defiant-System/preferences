@@ -35,7 +35,7 @@ const preferences = {
 		this.setViewState();
 
 		// tmp
-		window.find(`.section[data-id="usersGroups"]`).trigger("click");
+		window.find(`.section[data-id="dateTime"]`).trigger("click");
 		// setTimeout(() =>
 		// 	window.find(`section[data-view="desktop"] .tab-row_ > div:nth-child(3)`).trigger("click"), 300);
 	},

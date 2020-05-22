@@ -530,18 +530,126 @@ content {
 		&[data-view="dateTime"] {
 			width: 659px;
 			height: 520px;
+			display: flex;
+			flex-direction: column;
+			text-align: center;
 
+			.calendar {
+				background: #fff;
+				display: inline-block;
+				vertical-align: top;
+				width: 222px;
+				height: 178px;
+				margin: 13px 17px;
+				border: 1px solid #ccc;
+				border-radius: 3px;
+				font-size: 0;
+
+				.calendar-head {
+					position: relative;
+					padding: 9px 0;
+					display: flex;
+					
+					&:before {
+						content: "";
+						position: absolute;
+						left: 3px;
+						right: 3px;
+						bottom: 1px;
+						height: 1px;
+						background: #eee;
+					}
+
+					.calendar-left,
+					.calendar-right {
+						background: url(/ant/icons/icon-chevron-left.png) 50% 50% no-repeat;
+						width: 18px;
+						cursor: pointer;
+						filter: brightness(3);
+
+						&.calendar-right {
+							background-image: url(/ant/icons/icon-chevron-right.png);
+						}
+					}
+
+					.calendar-month {
+						flex: 1;
+						font-size: 13px;
+						font-weight: 200;
+						text-align: center;
+					}
+				}
+
+				.month {
+					font-style: 0;
+					text-align: center;
+					//text-shadow: 0 1px 1px rgba(0,0,0,.15);
+
+					span {
+						//background: rgba(0,0,0,.05);
+						display: inline-block;
+						border-radius: 3px;
+						margin: 0 1px 1px 0;
+						font-size: 12px;
+						width: calc( 14.285% - 1.5px );
+						padding: 6px 0 5px;
+						cursor: pointer;
+
+						&.active {
+							background: #1067de;
+							color: #fff;
+						}
+
+						&:nth-child(7n - 1),
+						&:nth-child(7n) {
+							color: #aaa;
+						}
+
+						&:nth-child(7n + 1) {
+							margin-left: 1px;
+						}
+
+						&:nth-child(7n) {
+							margin-right: 0;
+						}
+
+						&:hover {
+							background: rgba(0,0,0,.1);
+						}
+
+						&.pm-day,
+						&.nm-day {
+							background: transparent;
+							color: #ddd;
+							cursor: default;
+						}
+					}
+				}
+			}
+
+			.clock {
+				background: #fff;
+				display: inline-block;
+				vertical-align: top;
+				width: 130px;
+				height: 130px;
+				margin: 13px 17px;
+				border: 1px solid #ccc;
+				border-radius: 50%;
+			}
+
+			/*
 			p {
 				padding: 10px 0;
 				text-align: center;
 				line-height: 1.25;
 			}
-
 			.worldmap {
 				//background: rgba(0,0,0,0.1);
 				height: 320px;
 				width: 100%;
 			}
+			*/
 		}
 
 		.row-body {
@@ -562,6 +670,10 @@ content {
 				flex: 1;
 				padding-top: 13px;
 			}
+
+			> .tab-view_ {
+				flex: 1;
+			}
 		}
 
 		.row-foot {
@@ -569,6 +681,7 @@ content {
 			height: 43px;
 			padding-top: 5px;
 			margin-top: 7px;
+			text-align: left;
 
 			.unlock-to-edit {
 				display: inline-block;
