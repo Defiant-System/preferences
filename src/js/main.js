@@ -75,8 +75,8 @@ const preferences = {
 				self.setViewState();
 				break;
 			default:
-				//if (!event.target) return;
 				el = event.target ? $(event.target) : event.el;
+				if (!el) return;
 				section = el.parents("section");
 				view = section.data("view");
 

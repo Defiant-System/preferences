@@ -31,7 +31,7 @@
 		<div class="panel-right">
 			<div class="tab-view_" sys-click="do-tab-row">
 				<div class="tab-body_">
-					<div class="tab-active_ show-user-options">
+					<div class="tab-active_ show-login-options">
 
 						<div class="user-options">
 							<div class="user">
@@ -48,7 +48,7 @@
 								<div class="row-cell_ legend-select">
 									<div>Automatic Login:</div>
 									<div style="width: 200px;">
-										<selectbox data-change="auto-login-option">
+										<selectbox class="disabled_" data-change="auto-login-option">
 											<option value="off">Off</option>
 											<option value="hbi" selected="true">Hakan Bilgin</option>
 											<option value="sarienn">Laura Bularca</option>
@@ -62,23 +62,41 @@
 							<div class="row-group_">
 								<div class="row-cell_">
 									<div class="row">
-										<span class="form-checkbox"><input type="checkbox" id="trust-computer" checked/><i></i></span>
+										<span class="form-checkbox_ disabled_"><input type="checkbox" id="trust-computer" disabled checked/><i></i></span>
 										<label for="trust-computer">Trust this computer</label>
 									</div>
 									<div class="row">
-										<span class="form-checkbox"><input type="checkbox" id="show-create" checked/><i></i></span>
+										<span class="form-checkbox_ disabled_"><input type="checkbox" id="show-create" disabled checked/><i></i></span>
 										<label for="show-create">Show option to create account</label>
 									</div>
 									<div class="row">
-										<span class="form-checkbox"><input type="checkbox" id="allow-other-login"/><i></i></span>
+										<span class="form-checkbox_ disabled_"><input type="checkbox" id="allow-other-login" disabled/><i></i></span>
 										<label for="allow-other-login">Allow other users to login to this computer</label>
 									</div>
 									<div class="row">
-										<span class="form-checkbox"><input type="checkbox" id="show-fullname"/><i></i></span>
+										<span class="form-checkbox_ disabled_"><input type="checkbox" id="show-fullname" disabled/><i></i></span>
 										<label for="show-fullname">Show full name</label>
 									</div>
 								</div>
 							</div>
+
+	<div class="row-group_">
+		<div class="row-cell_">
+			<div class="row">
+				<span class="form-radio_ disabled_"><input type="radio" name="preferences-scrollbars" id="preferences-scrollbars-1" disabled checked/><i></i></span>
+				<label for="preferences-scrollbars-1">Automatically based on mouse or trackpad</label>
+			</div>
+			<div class="row">
+				<span class="form-radio_ disabled_"><input type="radio" name="preferences-scrollbars" id="preferences-scrollbars-2" disabled/><i></i></span>
+				<label for="preferences-scrollbars-2">When scrolling</label>
+			</div>
+			<div class="row">
+				<span class="form-radio_ disabled_"><input type="radio" name="preferences-scrollbars" id="preferences-scrollbars-3" disabled/><i></i></span>
+				<label for="preferences-scrollbars-3">Always</label>
+			</div>
+		</div>
+	</div>
+
 						</div>
 
 					</div>
