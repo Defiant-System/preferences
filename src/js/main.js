@@ -35,9 +35,7 @@ const preferences = {
 		this.setViewState();
 
 		// tmp
-		window.find(`.section[data-id="dateTime"]`).trigger("click");
-		// setTimeout(() =>
-		// 	window.find(`section[data-view="desktop"] .tab-row_ > div:nth-child(3)`).trigger("click"), 300);
+		this.dispatch({ type: "go-to", view: "dateTime" })
 	},
 	dispatch(event) {
 		let self = preferences,
@@ -57,6 +55,13 @@ const preferences = {
 			// custom events
 			case "main-menu":
 				self.history.push({ view: "main", name: self.title });
+				self.setViewState();
+				break;
+			case "go-to":
+				el = window.find(`.section[data-id="${event.view}"]`);
+				view = el.data("id");
+				name = el.find(".name").text();
+				self.history.push({ view, name });
 				self.setViewState();
 				break;
 			case "history-go":
