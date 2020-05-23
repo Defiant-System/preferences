@@ -806,12 +806,6 @@ content {
 			display: flex;
 			flex-direction: column;
 
-			.row-head {
-				padding: 7px 0 11px;
-				line-height: 1.45;
-				text-align: center;
-			}
-
 			.row-body {
 				.panel-left {
 					padding: 0;
@@ -871,6 +865,81 @@ content {
 			}
 		}
 
+		&[data-view="notifications"] {
+			width: 631px;
+			height: 463px;
+			display: flex;
+			flex-direction: column;
+
+			.tab-body_ > div {
+				.panel-left {
+					width: 199px;
+					padding: 0;
+
+					.option {
+						position: relative;
+						padding: 4px 5px 5px 41px;
+						margin-bottom: 2px;
+
+						&:first-child {
+							border-radius: 2px 0 0 0;
+						}
+
+						&.active {
+							background: #1067de;
+							color: #fff;
+
+							.info {
+								color: #8bf;
+							}
+						}
+
+						.icon,
+						.avatar {
+							position: absolute;
+							top: 3px;
+							left: 5px;
+							width: 29px;
+							height: 29px;
+							background: rgba(0,0,0,.15);
+						}
+
+						.avatar {
+							border-radius: 50%;
+						}
+
+						.name {
+							display: block;
+							padding: 1px 0 2px;
+							white-space: nowrap;
+							overflow: hidden;
+							text-overflow: ellipsis;
+							pointer-events: none;
+						}
+
+						.info {
+							display: block;
+							color: #aaa;
+							font-weight: 100;
+							font-size: 11px;
+							pointer-events: none;
+						}
+					}
+				}
+
+				.panel-right {
+
+				}
+			}
+		}
+
+		.row-head {
+			padding: 7px 0 17px;
+			line-height: 1.45;
+			text-align: left;
+		}
+
+		.tab-body_ .tab-active_,
 		.row-body {
 			flex: 1;
 			display: flex;
