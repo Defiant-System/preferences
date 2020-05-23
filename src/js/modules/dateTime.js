@@ -16,6 +16,13 @@
 			case "go-to-language":
 				preferences.dispatch({ type: "go-to", view: "language" });
 				break;
+			case "select-time-zone":
+				el = $(event.target);
+				el.parent().find(".active").removeClass("active");
+				el.addClass("active");
+
+				console.log( el.data("utc") );
+				break;
 			case "unlock-view":
 				isLocked = event.el.hasClass("unlocked");
 				event.el.toggleClass("unlocked", isLocked);
