@@ -1,4 +1,4 @@
-<svg class="worldmap" viewBox="0 0 1000 550">
+<svg class="worldmap" viewBox="0 0 1000 550" cache="false">
 	<style>
 		.utc-bar {
 			fill: #fff;
