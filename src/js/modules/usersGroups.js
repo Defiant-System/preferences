@@ -4,7 +4,6 @@
 {
 	dispatch(event) {
 		let self = parts.usersGroups,
-			section = event.section,
 			items,
 			value,
 			isLocked,

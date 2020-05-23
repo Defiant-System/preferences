@@ -8,7 +8,7 @@
 			</div>
 			<div class="tab-body_">
 				<!-- Date & Time -->
-				<div class="tab-active_">
+				<div class="date-time-options tab-active_">
 					
 					<div class="date-settings">
 						<div class="date-sample">
@@ -52,6 +52,8 @@
 								<span class="hours">21</span>
 								<span class="seperator"></span>
 								<span class="minutes">47</span>
+								<span class="seperator"></span>
+								<span class="seconds">47</span>
 							</div>
 						</div>
 						<div class="clock">
@@ -66,7 +68,7 @@
 				</div>
 
 				<!-- Time Zone -->
-				<div>
+				<div class="time-zone-options">
 					<p>
 						To select a time zone, click the map near your location and choose a city from the Closest City menu.
 						You can  also have the time zone change automatically, if possible, based on your current location.
@@ -74,7 +76,89 @@
 				</div>
 
 				<!-- Clock -->
-				<div>Clock</div>
+				<div class="clock-options">
+
+					<div class="row-group_">
+						<legend>Menu bar visibility:</legend>
+						<div>
+							<div class="row">
+								<span class="form-checkbox_"><input type="checkbox" id="show-date-time" checked/><i></i></span>
+								<label for="show-date-time">Show date and time in menu bar</label>
+							</div>
+						</div>
+					</div>
+
+					<hr class="space" />
+
+					<div class="row-group_">
+						<legend>Time options:</legend>
+						<div>
+							<div class="row" data-click="select-dock-position">
+								<div class="cell flat">
+									<span class="form-radio"><input type="radio" name="time-option" id="time-option-digital" checked/><i></i></span>
+									<label for="time-option-digital">Digital</label>
+								</div>
+								<div class="cell flat">
+									<span class="form-radio"><input type="radio" name="time-option" id="time-option-analogue"/><i></i></span>
+									<label for="time-option-analogue">Analogue</label>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="row-group_">
+						<legend></legend>
+						<div>
+							<div class="row">
+								<span class="form-checkbox_"><input type="checkbox" id="use-24-hour" checked/><i></i></span>
+								<label for="use-24-hour">Use a 24-hour clock</label>
+							</div>
+						</div>
+					</div>
+
+					<div class="row-group_">
+						<legend></legend>
+						<div>
+							<div class="row">
+								<span class="form-checkbox_"><input type="checkbox" id="use-24-hour"/><i></i></span>
+								<label for="use-24-hour">Display the time with seconds</label>
+							</div>
+						</div>
+					</div>
+
+					<div class="row-group_">
+						<legend></legend>
+						<div>
+							<div class="row">
+								<span class="form-checkbox_ disabled_"><input type="checkbox" id="use-24-hour" disabled/><i></i></span>
+								<label for="use-24-hour">Show am/pm</label>
+							</div>
+						</div>
+					</div>
+
+					<hr class="space" />
+
+					<div class="row-group_">
+						<legend>Date options</legend>
+						<div>
+							<div class="row">
+								<span class="form-checkbox_"><input type="checkbox" id="use-24-hour" checked/><i></i></span>
+								<label for="use-24-hour">Show the day of the week</label>
+							</div>
+						</div>
+					</div>
+
+					<div class="row-group_">
+						<legend></legend>
+						<div>
+							<div class="row">
+								<span class="form-checkbox_"><input type="checkbox" id="use-24-hour" checked/><i></i></span>
+								<label for="use-24-hour">Show date</label>
+							</div>
+						</div>
+					</div>
+
+				</div>
 			</div>
 		</div>
 	</div>

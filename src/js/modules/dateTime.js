@@ -4,11 +4,14 @@
 {
 	dispatch(event) {
 		let self = parts.dateTime,
-			section = event.section,
 			isLocked,
 			el;
 		switch (event.type) {
 			case "init-view":
+				self.section = event.section;
+
+				// temp
+				self.section.find(".tab-row_ > div:nth-child(3)").trigger("click");
 				break;
 			case "go-to-language":
 				preferences.dispatch({ type: "go-to", view: "language" });

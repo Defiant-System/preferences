@@ -41,6 +41,13 @@ content {
 			label {
 				display: block;
 			}
+
+			&.flat {
+				label {
+					display: inline-block;
+					padding-right: 37px;
+				}
+			}
 		}
 	}
 
@@ -533,25 +540,34 @@ content {
 		}
 
 		&[data-view="dateTime"] {
-			width: 691px;
-			height: 521px;
+			width: 673px;
+			height: 479px;
 			display: flex;
 			flex-direction: column;
-			text-align: center;
+
+			.date-time-options {
+				text-align: center;
+			}
+			.time-zone-options {
+				text-align: center;
+			}
+			.clock-options {
+				
+			}
 
 			.date-settings,
 			.time-settings {
 				//background: rgba(0,0,0,.15);
 				display: inline-block;
 				width: 240px;
-				height: 373px;
-				padding: 21px 0 0;
+				height: 337px;
+				padding: 23px 0 0;
 				text-align: center;
 				vertical-align: top;
 
 				.date-sample,
 				.time-sample {
-					height: 37px;
+					height: 43px;
 
 					.wrapper {
 						background: #fff;
@@ -587,7 +603,7 @@ content {
 				}
 				.time-sample {
 					.wrapper {
-						width: 61px;
+						width: 89px;
 
 						.seperator:before {
 							content: ":";
