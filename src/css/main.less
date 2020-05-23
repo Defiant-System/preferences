@@ -541,7 +541,7 @@ content {
 
 		&[data-view="dateTime"] {
 			width: 673px;
-			height: 541px;
+			height: 487px;
 			display: flex;
 			flex-direction: column;
 
@@ -556,7 +556,26 @@ content {
 					width: 100%;
 					margin: 13px;
 				}
+
+				.selected-timezone {
+					.field-name {
+						color: #888;
+					}
+					.timezone-name {
+
+					}
+					.timezone-utc {
+						display: inline-block;
+						//display: none;
+						color: #aaa;
+						padding-left: 3px;
+
+						&:before { content: "["; }
+						&:after { content: "]"; }
+					}
+				}
 			}
+
 			.clock-options {
 				
 			}

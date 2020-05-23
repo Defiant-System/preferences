@@ -21,7 +21,8 @@
 				el.parent().find(".active").removeClass("active");
 				el.addClass("active");
 
-				console.log( el.data("utc") );
+				self.section.find(".timezone-name").html( el.data("name") +" Time" );
+				self.section.find(".timezone-utc").html( el.data("utc") );
 				break;
 			case "unlock-view":
 				isLocked = event.el.hasClass("unlocked");
