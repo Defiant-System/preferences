@@ -1,3 +1,85 @@
 <section data-view="language">
+	<div class="row-head">
+		Language & Region preferences controls the landuage you see in menus and dialogues, and the formats of dates, times and currencies.
+	</div>
 
+	<div class="row-body">
+		<div class="panel-left" data-click="select-user">
+
+			<div class="option active">
+				<span class="name">Endligh</span>
+				<span class="info">English &mdash; Primary</span>
+			</div>
+
+			<div class="option">
+				<span class="name">Svenska</span>
+				<span class="info">Swedish</span>
+			</div>
+
+			<div class="option">
+				<span class="name">Türkçe</span>
+				<span class="info">Turkish</span>
+			</div>
+
+		</div>
+		<div class="panel-right">
+			<div class="tab-view_" sys-click="do-tab-row">
+				<div class="tab-body_">
+					<div class="tab-active_">
+
+						<div class="row-group_">
+							<div class="row-cell_">
+								<div>Region:</div>
+								<div style="width: 200px;">
+									<selectbox>
+										<option value="sweden" selected="true">Sweden</option>
+										<option value="uk">United Kingdom</option>
+										<option value="turkey">Turkey</option>
+									</selectbox>
+								</div>
+							</div>
+						</div>
+
+						<div class="row-group_">
+							<div class="row-cell_">
+								<div>First day of week:</div>
+								<div style="width: 200px;">
+									<selectbox>
+										<option value="monday" selected="true">Monday</option>
+										<option value="sunday">Sunday</option>
+									</selectbox>
+								</div>
+							</div>
+						</div>
+
+						<div class="row-group_">
+							<div class="row-cell_">
+								<div>Time format:</div>
+								<div>
+									<span class="form-checkbox_ disabled_"><input type="checkbox" id="hours-24" checked/><i></i></span>
+									<label for="hours-24">24-Hour Time</label>
+								</div>
+							</div>
+						</div>
+
+						<div class="row-group_">
+							<div class="row-cell_">
+								<div>Temperature:</div>
+								<div style="width: 200px;">
+									<selectbox>
+										<option value="celsius" selected="true">&deg;C &mdash; Celsius</option>
+										<option value="fahrenheit">&deg;F &mdash; Fahrenheit</option>
+									</selectbox>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row-foot">
+		
+	</div>
 </section>

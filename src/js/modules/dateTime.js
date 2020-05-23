@@ -11,7 +11,7 @@
 				self.section = event.section;
 
 				// temp
-				self.section.find(".tab-row_ > div:nth-child(2)").trigger("click");
+				//self.section.find(".tab-row_ > div:nth-child(2)").trigger("click");
 				break;
 			case "go-to-language":
 				preferences.dispatch({ type: "go-to", view: "language" });

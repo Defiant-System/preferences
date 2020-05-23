@@ -132,7 +132,7 @@ content {
 		}
 
 		&[data-view="desktop"] {
-			width: 661px;
+			width: 663px;
 			height: 448px;
 
 			.reel {
@@ -305,10 +305,11 @@ content {
 				}
 
 				.bg-preview {
-					background-color: rgba(0,0,0,0.25);
+					background-color: rgba(0,0,0,.25);
 					background-size: cover;
 					background-repeat: no-repeat;
 					background-position: 50% 50%;
+					box-shadow: inset 0 0 0 1px #ddd;
 					position: relative;
 					display: inline-block;
 					width: 116px;
@@ -799,6 +800,77 @@ content {
 			*/
 		}
 
+		&[data-view="language"] {
+			width: 599px;
+			height: 409px;
+			display: flex;
+			flex-direction: column;
+
+			.row-head {
+				padding: 7px 0 11px;
+				line-height: 1.45;
+				text-align: center;
+			}
+
+			.row-body {
+				.panel-left {
+					padding: 0;
+
+					.option {
+						position: relative;
+						padding: 5px 5px;
+						margin-bottom: 2px;
+
+						&.active {
+							background: #1067de;
+							color: #fff;
+
+							.info {
+								color: #8bf;
+							}
+						}
+
+						.name {
+							display: block;
+							padding: 1px 0 2px;
+							white-space: nowrap;
+							overflow: hidden;
+							text-overflow: ellipsis;
+							pointer-events: none;
+						}
+
+						.info {
+							display: block;
+							color: #aaa;
+							font-weight: 100;
+							font-size: 11px;
+							pointer-events: none;
+						}
+					}
+				}
+
+				.panel-right {
+					.row-group_ {
+						width: auto;
+
+						> div {
+							display: flex;
+
+							> div {
+								display: inline-block;
+
+								&:first-child {
+									width: 37%;
+									text-align: right;
+									padding: 4px 7px 0 0;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
 		.row-body {
 			flex: 1;
 			display: flex;
@@ -808,6 +880,7 @@ content {
 				background: #fff;
 				width: 173px;
 				padding-top: 5px;
+				margin-top: 2px;
 				margin-right: 11px;
 				border: 1px solid #ccc;
 				border-radius: 3px 0 0 3px;

@@ -4,11 +4,11 @@
 {
 	dispatch(event) {
 		let self = parts.dock,
-			section = event.section,
 			value,
 			el;
 		switch (event.type) {
 			case "init-view":
+				self.section = event.section;
 				break;
 			case "select-dock-position":
 				el = $(event.target);
