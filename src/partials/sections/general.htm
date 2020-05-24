@@ -1,110 +1,68 @@
 <section data-view="general">
-	<div class="row-group_">
-		<legend>Highlight color:</legend>
-		<div style="max-width: 220px;">
-			<selectbox data-change="set-highlight-color">
-				<option value="blue" style="--icon-prefix: url(/ant/icons/generic-folder.png);">Blue</option>
-				<option value="green" style="--icon-prefix: url(/ant/icons/generic-folder.png);">Green</option>
-				<option value="red" style="--icon-prefix: url(/ant/icons/generic-folder.png);" selected="true">Red</option>
-				<option value="orange" style="--icon-prefix: url(/ant/icons/generic-folder.png);">Orange</option>
-			</selectbox>
+	<div class="row-body">
+		<div class="panel-left" data-click="select-user">
+
+			<div class="option active">
+				<span class="name">Defiant</span>
+				<span class="info">Sassy &mdash; Active</span>
+			</div>
+
+			<div class="option">
+				<span class="name">Mavericks</span>
+				<span class="info">Theme info</span>
+			</div>
+
+			<div class="option">
+				<span class="name">Windows</span>
+				<span class="info">Theme info</span>
+			</div>
+
 		</div>
-	</div>
+		<div class="panel-right">
+			<div class="tab-view_" sys-click="do-tab-row">
+				<div class="tab-body_">
+					<div class="tab-active_">
 
-	<div class="row-group_">
-		<legend>Sidebar icon size:</legend>
-		<div style="max-width: 220px;">
-			<selectbox data-change="set-sidebar-icon-size">
-				<option value="small">Small</option>
-				<option value="medium" selected="true">Medium</option>
-				<option value="large">Large</option>
-			</selectbox>
-		</div>
-	</div>
+						<div class="row-group_">
+							<legend>Appearance:</legend>
+							<div>
+								<div class="theme-preview active" data-name="Light"></div>
+								<div class="theme-preview" data-name="Dark"></div>
+							</div>
+						</div>
 
-	<hr/>
+						<div class="row-group_">
+							<legend>Accent color:</legend>
+							<div data-click="select-accent-icon-color">
+								<div class="color-select_ active" style="background: #157efb;"></div>
+								<div class="color-select_" style="background: #944194;"></div>
+								<div class="color-select_" style="background: #f5539e;"></div>
+								<div class="color-select_" style="background: #de3a43;"></div>
+								<div class="color-select_" style="background: #f5822e;"></div>
+								<div class="color-select_" style="background: #fab73b;"></div>
+								<div class="color-select_" style="background: #65b84d;"></div>
+								<div class="color-select_" style="background: #989898;"></div>
+							</div>
+						</div>
 
-	<div class="row-group_">
-		<legend>Show scroll bars:</legend>
-		<div>
-			<div class="row">
-				<span class="form-radio_"><input type="radio" name="preferences-scrollbars" id="preferences-scrollbars-1" checked/><i></i></span>
-				<label for="preferences-scrollbars-1">Automatically based on mouse or trackpad</label>
-			</div>
-			<div class="row">
-				<span class="form-radio_"><input type="radio" name="preferences-scrollbars" id="preferences-scrollbars-2"/><i></i></span>
-				<label for="preferences-scrollbars-2">When scrolling</label>
-			</div>
-			<div class="row">
-				<span class="form-radio_"><input type="radio" name="preferences-scrollbars" id="preferences-scrollbars-3"/><i></i></span>
-				<label for="preferences-scrollbars-3">Always</label>
-			</div>
-		</div>
-	</div>
+						<hr class="space"/>
 
-	<div class="row-group_">
-		<legend>Click in the scrollbar to:</legend>
-		<div>
-			<div class="row">
-				<span class="form-radio_"><input type="radio" name="preferences-click-scrollbar" id="preferences-click-scrollbars-1" checked/><i></i></span>
-				<label for="preferences-click-scrollbars-1">Jump to the next page</label>
-			</div>
-			<div class="row">
-				<span class="form-radio_"><input type="radio" name="preferences-click-scrollbar" id="preferences-click-scrollbars-2"/><i></i></span>
-				<label for="preferences-click-scrollbars-2">Jump to the spot that's clicked</label>
-			</div>
-		</div>
-	</div>
-
-	<hr/>
-
-	<div class="row-group_">
-		<legend></legend>
-		<div>
-			<div class="row">
-				<span class="form-checkbox_"><input type="checkbox" id="preferences-document-close" checked/><i></i></span>
-				<label for="preferences-document-close">Ask to keep changes when closing documents</label>
-			</div>
-			<div class="row">
-				<span class="form-checkbox_"><input type="checkbox" id="preferences-window-close"/><i></i></span>
-				<label for="preferences-window-close">Close windows when quiting an app</label>
-			</div>
-		</div>
-	</div>
-
-	<hr/>
-
-	<div class="row-group_">
-		<legend>Buttons</legend>
-		<div class="nowrap">
-			<button>Fit</button>
-			<button disabled>Fit</button>
-		</div>
-	</div>
-
-	<div class="row-group_">
-		<legend>Mixed</legend>
-		<div class="nowrap">
-			<div class="field-wrapper">
-				<div class="color-preset_" style="--preset-color: #f90;"></div>
-			</div>
-
-			<div class="field-wrapper">
-				<input type="number" value="20"/>
-				<div>
-					<span class="up"></span>
-					<span></span>
+						<div class="row-group_">
+							<legend></legend>
+							<div>
+								<div class="row">
+									<span class="form-checkbox_"><input type="checkbox" id="close123"/><i></i></span>
+									<label for="close123">Automatically hide and show the menubar</label>
+								</div>
+							</div>
+						</div>
+						
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-
-	<hr/>
-
-	<div class="row-group_">
-		<legend>Slider</legend>
-		<div style="max-width: 200px;">
-			<input type="range" value="80" min="0" max="100">
-		</div>
+	<div class="row-foot">
+		
 	</div>
 </section>
