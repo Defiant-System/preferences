@@ -28,6 +28,19 @@
 					.removeClass("show-user-options show-login-options")
 					.addClass(value);
 				break;
+			case "remember-me":
+				value = event.target.checked;
+				if (value) {
+					// add encrypted password cookie
+				} else {
+					// remove encrypted password cookie
+					
+				}
+				break;
+			case "option-create":
+			case "option-other-login":
+			case "show-full-name":
+				break;
 			case "edit-user-photo":
 				console.log(event);
 				break;

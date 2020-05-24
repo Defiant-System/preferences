@@ -35,7 +35,7 @@ const preferences = {
 		this.setViewState();
 
 		// tmp
-		this.dispatch({ type: "go-to", view: "general" })
+		this.dispatch({ type: "go-to", view: "usersGroups" })
 	},
 	dispatch(event) {
 		let self = preferences,
