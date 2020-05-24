@@ -15,6 +15,14 @@
 				self.tabView = self.section.find(".tab-active_");
 				self.userOptions = self.tabView.find(".user-options");
 				self.loginOptions = self.tabView.find(".login-options");
+
+				window.dialog({
+					id: "unlock",
+					buttons: {
+						unlock: { name: "Unlock", click: "do-unlock-event" },
+						cancel: { name: "Cancel" }
+					}
+				});
 				break;
 			case "select-user":
 				el = $(event.target);
@@ -34,7 +42,7 @@
 					// add encrypted password cookie
 				} else {
 					// remove encrypted password cookie
-					
+					//$.cipher(event.data.password, defiant.salt)
 				}
 				break;
 			case "option-create":

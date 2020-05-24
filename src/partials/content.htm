@@ -89,6 +89,30 @@
 		</div>
 	</section>
 
+	<dialogs>
+		<dialog id="unlock">
+			<div class="row-group_">
+				<i class="icon-padlock" style="background-image: url(~/icons/icon-padlock-open.png);"></i>
+				<div>
+					<h4>Password Required</h4>
+					<p>
+						In order to make changes in this view, you need to enter your password to unlock the fields.
+					</p>
+				</div>
+			</div>
+
+			<div class="row-group_">
+				<div>Password:</div>
+				<div class="field-row">
+					<div class="field">
+						<input type="password" data-name="user-password" spellcheck="false" autocomplete="off"/>
+					</div>
+				</div>
+			</div>
+
+		</dialog>
+	</dialogs>
+
 	@import "sections/accessibility.htm"
 	@import "sections/dateTime.htm"
 	@import "sections/desktop.htm"
