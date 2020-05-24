@@ -549,10 +549,16 @@ content {
 			display: flex;
 			flex-direction: column;
 
-			.date-time-options {
+			.row-body {
+				height1: 100%;
+			}
+
+			.date-time-options.tab-active_ {
 				text-align: center;
+				display: block;
 			}
 			.time-zone-options {
+				flex-direction: column;
 				text-align: center;
 
 				.worldmap {
@@ -581,7 +587,7 @@ content {
 			}
 
 			.clock-options {
-				
+				flex-direction: column;
 			}
 
 			.date-settings,

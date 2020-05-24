@@ -35,7 +35,7 @@ const preferences = {
 		this.setViewState();
 
 		// tmp
-		this.dispatch({ type: "go-to", view: "language" })
+		this.dispatch({ type: "go-to", view: "general" })
 	},
 	dispatch(event) {
 		let self = preferences,
