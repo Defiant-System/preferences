@@ -35,6 +35,7 @@ const preferences = {
 		this.setViewState();
 
 		// tmp
+		this.views = { isUnlocked: true, password: "temp" };
 		this.dispatch({ type: "go-to", view: "usersGroups" })
 	},
 	dispatch(event) {

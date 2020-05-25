@@ -15,6 +15,12 @@
 				self.userOptions = self.tabView.find(".user-options");
 				self.loginOptions = self.tabView.find(".login-options");
 				self.lock = self.section.find(".row-foot .unlock-to-edit");
+
+				// toggle view; if user already unlocked previously
+				self.dispatch({
+					type: "toggle-view",
+					isUnlocked: preferences.views.isUnlocked
+				});
 				break;
 			case "window.keyup":
 				if (window.dialog._name === "unlock") {
@@ -62,7 +68,11 @@
 					// incorrect password
 					return window.dialog.shake();
 				} else {
-					self.dispatch({ type: "unlock-view", isUnlocked: true });
+					self.dispatch({
+						type: "unlock-view",
+						isUnlocked: true,
+						password: value
+					});
 				}
 				/* falls through */
 			case "dialog-unlock-cancel":
@@ -74,7 +84,7 @@
 			case "toggle-view-lock":
 				if (event.el.hasClass("unlocked")) {
 					event.el.removeClass("unlocked");
-					self.dispatch({ type: "lock-view" });
+					self.dispatch({ type: "toggle-view" });
 				} else {
 					// lock icon UI
 					self.lock.addClass("authorizing");
@@ -82,10 +92,15 @@
 					window.dialog.open({ name: "unlock" });
 				}
 				break;
-			case "lock-view":
+			case "toggle-view":
 			case "unlock-view":
-				// save property to root app
-				preferences.isUnlocked = event.isUnlocked;
+				if (event.isUnlocked) {
+					// save info to root app
+					preferences.views = (({ isUnlocked, password }) => ({ isUnlocked, password }))(event);
+				} else {
+					// lock: forget references to views
+					delete preferences.views;
+				}
 
 				// lock icon UI
 				self.lock.removeClass("authorizing")
