@@ -48,10 +48,17 @@ const preferences = {
 			// native events
 			case "window.focus":
 			case "window.blur":
-			case "window.keyup":
 			case "window.keystroke":
-				// prevent fall through to default
-				console.log(event);
+				// prevents fall through to default
+				break;
+			case "window.keyup":
+				if (event.target && event.keyCode === 13) {
+					// enter on login dialog
+					view = self.history.current.view;
+					section = window.find(`section[data-view="${view}"]`);
+					// pass on event to part
+					parts[view].dispatch({ ...event, section });
+				}
 				break;
 			// custom events
 			case "main-menu":
@@ -80,14 +87,14 @@ const preferences = {
 				self.history.push({ view, name });
 				self.setViewState();
 				break;
-			case "dialog-unlock-cancel":
-			case "dialog-unlock-unlock":
-				window.dialog.close();
-				break;
 			default:
 				el = event.target ? $(event.target) : event.el;
-				if (!el) return;
-				section = el.parents("section");
+				if (el) section = el.parents("section");
+
+				if (!section || !section.length) {
+					view = self.history.current.view;
+					section = window.find(`section[data-view="${view}"]`);
+				}
 				view = section.data("view");
 
 				// pass on event to part

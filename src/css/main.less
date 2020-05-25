@@ -1088,8 +1088,17 @@ content {
 						background-image: url(~/icons/icon-padlock-open.png);
 					}
 					span {
+						&.authenticating,
 						&.locked { display: none; }
 						&.unlocked { display: inline-block; }
+					}
+				}
+				
+				&.authorizing {
+					span {
+						&.unlocked,
+						&.locked { display: none; }
+						&.authenticating { display: inline-block; }
 					}
 				}
 
@@ -1118,7 +1127,8 @@ content {
 					color: #777;
 
 					&.locked { display: inline-block; }
-					&.unlocked { display: none; }
+					&.unlocked,
+					&.authenticating { display: none; }
 				}
 			}
 		}
