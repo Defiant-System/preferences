@@ -15,14 +15,6 @@
 				self.tabView = self.section.find(".tab-active_");
 				self.userOptions = self.tabView.find(".user-options");
 				self.loginOptions = self.tabView.find(".login-options");
-
-				window.dialog({
-					id: "unlock",
-					buttons: {
-						unlock: { name: "Unlock", click: "do-unlock-event" },
-						cancel: { name: "Cancel" }
-					}
-				});
 				break;
 			case "select-user":
 				el = $(event.target);
@@ -56,6 +48,8 @@
 				console.log(event);
 				break;
 			case "unlock-view":
+				return window.dialog.open({ id: "unlock" });
+
 				isLocked = event.el.hasClass("unlocked");
 				event.el.toggleClass("unlocked", isLocked);
 

@@ -51,6 +51,7 @@ const preferences = {
 			case "window.keyup":
 			case "window.keystroke":
 				// prevent fall through to default
+				console.log(event);
 				break;
 			// custom events
 			case "main-menu":
@@ -78,6 +79,10 @@ const preferences = {
 
 				self.history.push({ view, name });
 				self.setViewState();
+				break;
+			case "dialog-unlock-cancel":
+			case "dialog-unlock-unlock":
+				window.dialog.close();
 				break;
 			default:
 				el = event.target ? $(event.target) : event.el;
