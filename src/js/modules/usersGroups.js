@@ -6,7 +6,6 @@
 		let self = parts.usersGroups,
 			items,
 			value,
-			isLocked,
 			el;
 		//console.log(event);
 		switch (event.type) {
@@ -18,19 +17,8 @@
 				self.lock = self.section.find(".row-foot .unlock-to-edit");
 				break;
 			case "window.keyup":
-				value = event.target.value;
-
-				items = $.cookie.get("defiantUser").split("%");
-				if (items[0] !== value.sha1()) {
-					// incorrect password
-					window.dialog.shake();
-				} else {
-					// correct password - unlock view
-					preferences.isUnlocked = true;
-					
-					self.dispatch({ type: "unlock-view", isUnlocked: true });
-
-					window.dialog.close();
+				if (window.dialog._name === "unlock") {
+					self.dispatch({ type: "check-unlock-password" });
 				}
 				break;
 			case "select-user":
@@ -45,6 +33,7 @@
 					.removeClass("show-user-options show-login-options")
 					.addClass(value);
 				break;
+
 			case "remember-me":
 				value = event.target.checked;
 				if (value) {
@@ -53,11 +42,6 @@
 					// remove encrypted password cookie
 					//$.cipher(event.data.password, defiant.salt)
 				}
-				break;
-			case "dialog-unlock-cancel":
-			case "dialog-unlock-unlock":
-				self.lock.removeClass("authorizing");
-				window.dialog.close();
 				break;
 			case "option-create":
 			case "option-other-login":
@@ -69,27 +53,52 @@
 			case "auto-login-option":
 				console.log(event);
 				break;
-			case "unlock-view":
-				if (event.el && preferences.isUnlocked) {
-					preferences.isUnlocked = false;
-					isLocked = true;
-					self.lock.removeClass("unlocked");
-				} else if (!event.isUnlocked) {
-					self.lock.addClass("authorizing");
-					return window.dialog.open({ name: "unlock" });
+
+			case "dialog-unlock-check":
+			case "check-unlock-password":
+				value = window.dialog.find("input").val();
+				items = $.cookie.get("defiantUser").split("%");
+				if (items[0] !== value.sha1()) {
+					// incorrect password
+					return window.dialog.shake();
 				} else {
-					isLocked = event.isUnlocked;
-					self.lock.removeClass("authorizing").addClass("unlocked");
+					self.dispatch({ type: "unlock-view", isUnlocked: true });
 				}
+				/* falls through */
+			case "dialog-unlock-cancel":
+				// lock icon UI
+				self.lock.removeClass("authorizing");
+				// close unlock dialog
+				window.dialog.close();
+				break;
+			case "toggle-view-lock":
+				if (event.el.hasClass("unlocked")) {
+					event.el.removeClass("unlocked");
+					self.dispatch({ type: "lock-view" });
+				} else {
+					// lock icon UI
+					self.lock.addClass("authorizing");
+					// show unlock dialog
+					window.dialog.open({ name: "unlock" });
+				}
+				break;
+			case "lock-view":
+			case "unlock-view":
+				// save property to root app
+				preferences.isUnlocked = event.isUnlocked;
+
+				// lock icon UI
+				self.lock.removeClass("authorizing")
+					.toggleClass("unlocked", !event.isUnlocked);
 
 				// user options
-				self.userOptions.find(".avatar").toggleClass("disabled_", isLocked);
-				self.userOptions.find("button").toggleAttr("disabled", isLocked);
+				self.userOptions.find(".avatar").toggleClass("disabled_", event.isUnlocked);
+				self.userOptions.find("button").toggleAttr("disabled", event.isUnlocked);
 
 				// login options
 				items = self.loginOptions.find("input, selectbox");
-				items.toggleAttr("disabled", isLocked);
-				items.parent().toggleClass("disabled_", isLocked);
+				items.toggleAttr("disabled", event.isUnlocked);
+				items.parent().toggleClass("disabled_", event.isUnlocked);
 				break;
 		}
 	}
