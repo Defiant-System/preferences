@@ -19,7 +19,7 @@
 				// toggle view; if user already unlocked previously
 				self.dispatch({
 					type: "toggle-view",
-					isUnlocked: preferences.views.isUnlocked
+					isUnlocked: preferences.views && preferences.views.isUnlocked
 				});
 				break;
 			case "window.keyup":
@@ -69,7 +69,7 @@
 					return window.dialog.shake();
 				} else {
 					self.dispatch({
-						type: "unlock-view",
+						type: "toggle-view",
 						isUnlocked: true,
 						password: value
 					});
@@ -93,7 +93,6 @@
 				}
 				break;
 			case "toggle-view":
-			case "unlock-view":
 				if (event.isUnlocked) {
 					// save info to root app
 					preferences.views = (({ isUnlocked, password }) => ({ isUnlocked, password }))(event);

@@ -652,7 +652,39 @@ content {
 				.worldmap {
 					height: 293px;
 					width: 100%;
-					margin: 13px;
+					margin: 13px 0;
+
+					&.disabled_ {
+						.land {
+							opacity: .8;
+						}
+
+						.utc-bar.active {
+							filter: none;
+						}
+					}
+
+					.land {
+						fill: url(#WMGID_1_);
+						filter: url(#WMDS_1);
+					}
+
+					.utc-bar {
+						fill: #fff;
+						stroke: #000;
+						opacity: 0;
+					}
+
+					.utc-bar.active {
+						opacity: 0.5;
+						stroke-width: 0.5;
+						filter: url(#UTCDS);
+					}
+
+					&:not(.disabled_) .utc-bar:not(.active):hover {
+						opacity: 0.5;
+						stroke-width: 0.35;
+					}
 				}
 
 				.selected-timezone {
@@ -684,13 +716,17 @@ content {
 				display: inline-block;
 				width: 240px;
 				height: 337px;
-				padding: 23px 0 0;
+				padding: 21px 0 0;
 				text-align: center;
 				vertical-align: top;
 
 				.date-sample,
 				.time-sample {
 					height: 43px;
+
+					&.disabled_ {
+
+					}
 
 					.wrapper {
 						background: #fff;
@@ -701,14 +737,25 @@ content {
 						font-size: 0;
 						width: 107px;
 
-						&.active {
+						&.active:not(.disabled_) {
 							border-color: #69d;
 							box-shadow: 0 0 0 3px #3366dd4a;
 						}
 
+						&.disabled_ {
+							background: #f2f2f2;
+							color: #666;
+
+							span,
+							span.selected {
+								background: transparent;
+								color: inherit;
+							}
+						}
+
 						span {
 							display: inline-block;
-							padding: 2px 1px 1px;
+							padding: 3px 1px 2px;
 							font-size: 13px;
 							border-radius: 2px;
 
@@ -743,6 +790,8 @@ content {
 				border: 1px solid #ccc;
 				border-radius: 3px;
 
+				&.disabled_ { background: #f5f5f5; }
+
 				.calendar-head {
 					padding: 7px 3px 0;
 					display: flex;
@@ -765,6 +814,7 @@ content {
 						font-size: 13px;
 						font-weight: 200;
 						text-align: center;
+						color: #777;
 					}
 				}
 
@@ -789,6 +839,9 @@ content {
 						display: inline-block;
 						width: calc( 14.285% - 1.5px );
 						padding: 6px 0 5px;
+
+						&:nth-child(7n - 1) { color: #777; }
+						&:nth-child(7n) { color: #eaa; }
 					}
 				}
 
@@ -812,10 +865,8 @@ content {
 							color: #fff;
 						}
 
-						&:nth-child(7n - 1),
-						&:nth-child(7n) {
-							color: #eaa;
-						}
+						&:nth-child(7n - 1) { color: #777; }
+						&:nth-child(7n) { color: #eaa; }
 
 						&:nth-child(7n + 1) {
 							margin-left: 1px;
@@ -832,7 +883,7 @@ content {
 						&.pm-day,
 						&.nm-day {
 							background: transparent;
-							color: #ddd;
+							color: #eee;
 							cursor: default;
 						}
 					}
@@ -849,6 +900,8 @@ content {
 				border: 1px solid #bbb;
 				border-radius: 50%;
 				box-shadow: 0 1px 3px rgba(0,0,0,.15);
+
+				&.disabled_:before { background: #f5f5f5; }
 
 				&:before {
 					content: "";
