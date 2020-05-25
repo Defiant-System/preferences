@@ -19,12 +19,12 @@
 				// toggle view; if user already unlocked previously
 				self.dispatch({
 					type: "toggle-view",
-					isUnlocked: preferences.views && preferences.views.isUnlocked
+					isUnlocked: preferences.views.isUnlocked
 				});
 				break;
 			case "window.keyup":
 				if (window.dialog._name === "unlock") {
-					self.dispatch({ type: "check-unlock-password" });
+					self.dispatch({ type: "dialog-unlock-check" });
 				}
 				break;
 			case "select-user":
@@ -61,7 +61,6 @@
 				break;
 
 			case "dialog-unlock-check":
-			case "check-unlock-password":
 				value = window.dialog.find("input").val();
 				items = $.cookie.get("defiantUser").split("%");
 				if (items[0] !== value.sha1()) {

@@ -21,6 +21,7 @@ const parts = {
 };
 
 const preferences = {
+	views: {},
 	init() {
 		// fast references
 		this.title = window.title;

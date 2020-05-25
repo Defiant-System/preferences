@@ -728,6 +728,80 @@ content {
 
 					}
 
+					.inc-arrows_ {
+						background: #fff;
+						position: relative;
+						top: 2px;
+						width: 13px;
+						height: 22px;
+						display: inline-block;
+						vertical-align: top;
+						border: 1px solid #ccc;
+						border-radius: 7px;
+
+						&.disabled_ {
+							background: #f2f2f2;
+							border-color: #d2d2d2;
+
+							i {
+								cursor: default;
+
+								&:after { filter: brightness(3.5); }
+							}
+						}
+
+						&:not(.disabled_) {
+							i {
+								&:active {
+									border-color: #1067de;
+									background: #1067dec0;
+
+									&:after {
+										filter: brightness(5);
+									}
+								}
+							}
+						}
+
+						i {
+							position: absolute;
+							top: 10px;
+							left: -1px;
+							width: 13px;
+							height: 11px;
+							cursor: pointer;
+							border-radius: 0 0 7px 7px;
+							border: 1px solid transparent;
+							
+							&:after {
+								content: "";
+								display: inline-block;
+								position: absolute;
+								top: 1px;
+								left: 2px;
+								width: 7px;
+								height: 7px;
+								background: url(/ant/icons/icon-chevron-down.png) 50% 50%/contain no-repeat;
+								filter: brightness(1.25);
+							}
+
+							&:nth-child(1) {
+								top: -1px;
+								border-bottom: 0;
+								border-radius: 7px 7px 0 0;
+
+								&:after {
+									top: 2px;
+									transform: rotate(180deg);
+								}
+							}
+
+							&:nth-child(2) {
+								border-top: 0;
+							}
+						}
+					}
+
 					.wrapper {
 						background: #fff;
 						display: inline-block;
@@ -764,6 +838,7 @@ content {
 								color: #fff;
 							}
 						}
+
 						.seperator:before {
 							content: "-";
 							display: inline-block;
@@ -790,7 +865,33 @@ content {
 				border: 1px solid #ccc;
 				border-radius: 3px;
 
-				&.disabled_ { background: #f5f5f5; }
+				&.disabled_ {
+					background: #f2f2f2;
+					border-color: #d5d5d5;
+
+					.calendar-head {
+						.calendar-left,
+						.calendar-right {
+							cursor: default;
+						}
+					}
+
+					.month {
+						span {
+							cursor: default;
+
+							&.active {
+								background: #eee;
+								color: #555;
+								box-shadow: inset 0 0 0 1px #bbb;
+							}
+
+							&:hover {
+								background: transparent;
+							}
+						}
+					}
+				}
 
 				.calendar-head {
 					padding: 7px 3px 0;
@@ -901,7 +1002,7 @@ content {
 				border-radius: 50%;
 				box-shadow: 0 1px 3px rgba(0,0,0,.15);
 
-				&.disabled_:before { background: #f5f5f5; }
+				&.disabled_:before { background: #f2f2f2; }
 
 				&:before {
 					content: "";
