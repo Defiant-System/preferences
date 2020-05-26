@@ -22,6 +22,8 @@
 					isUnlocked: preferences.views.isUnlocked
 				});
 
+				setTimeout(() => window.dialog.alert("Hello World"), 1000);
+
 				//self.dispatch({ type: "edit-user-photo" });
 				break;
 			case "window.keyup":
