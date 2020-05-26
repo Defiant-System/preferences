@@ -22,7 +22,7 @@
 					isUnlocked: preferences.views.isUnlocked
 				});
 
-				self.dispatch({ type: "edit-user-photo" });
+				//self.dispatch({ type: "edit-user-photo" });
 				break;
 			case "window.keyup":
 				if (window.dialog._name === "unlock") {
