@@ -21,6 +21,8 @@
 					type: "toggle-view",
 					isUnlocked: preferences.views.isUnlocked
 				});
+
+				self.dispatch({ type: "edit-user-photo" });
 				break;
 			case "window.keyup":
 				if (window.dialog._name === "unlock") {
@@ -54,7 +56,7 @@
 			case "show-full-name":
 				break;
 			case "edit-user-photo":
-				console.log(event);
+				window.dialog.open({ name: "profile-picture" });
 				break;
 			case "auto-login-option":
 				console.log(event);

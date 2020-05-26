@@ -1,4 +1,46 @@
 <Data>
+	<Profile>
+		<i src="/cdn/img/profile/animals/eagle.jpg" />
+		<i src="/cdn/img/profile/animals/owl.jpg" />
+		<i src="/cdn/img/profile/animals/parrot.jpg" />
+		<i src="/cdn/img/profile/animals/penguin.jpg" />
+		<i src="/cdn/img/profile/animals/zebra.jpg" />
+		<i src="/cdn/img/profile/flowers/dahlia.jpg" />
+		<i src="/cdn/img/profile/flowers/dandelion.jpg" />
+		<i src="/cdn/img/profile/flowers/flower.jpg" />
+		<i src="/cdn/img/profile/flowers/lotus.jpg" />
+		<i src="/cdn/img/profile/flowers/poppy.jpg" />
+		<i src="/cdn/img/profile/flowers/red-rose.jpg" />
+		<i src="/cdn/img/profile/flowers/sunflower.jpg" />
+		<i src="/cdn/img/profile/flowers/whiterose.jpg" />
+		<i src="/cdn/img/profile/flowers/yellow-daisy.jpg" />
+		<i src="/cdn/img/profile/fun/chalk.jpg" />
+		<i src="/cdn/img/profile/fun/fortune-cookie.jpg" />
+		<i src="/cdn/img/profile/fun/gingerbread-man.jpg" />
+		<i src="/cdn/img/profile/fun/medal.jpg" />
+		<i src="/cdn/img/profile/fun/smack.jpg" />
+		<i src="/cdn/img/profile/instruments/drum.jpg" />
+		<i src="/cdn/img/profile/instruments/guitar.jpg" />
+		<i src="/cdn/img/profile/instruments/piano.jpg" />
+		<i src="/cdn/img/profile/instruments/turntable.jpg" />
+		<i src="/cdn/img/profile/instruments/violin.jpg" />
+		<i src="/cdn/img/profile/nature/earth.png" />
+		<i src="/cdn/img/profile/nature/zen.jpg" />
+		<i src="/cdn/img/profile/nature/snowflake.jpg" />
+		<i src="/cdn/img/profile/nature/sandollar.jpg" />
+		<i src="/cdn/img/profile/nature/nest.jpg" />
+		<i src="/cdn/img/profile/nature/leaf.jpg" />
+		<i src="/cdn/img/profile/nature/lightning.jpg" />
+		<i src="/cdn/img/profile/nature/earth.jpg" />
+		<i src="/cdn/img/profile/nature/cactus.jpg" />
+		<i src="/cdn/img/profile/sports/tennis.jpg" />
+		<i src="/cdn/img/profile/sports/hockey.jpg" />
+		<i src="/cdn/img/profile/sports/soccer.jpg" />
+		<i src="/cdn/img/profile/sports/8ball.jpg" />
+		<i src="/cdn/img/profile/sports/basketball.jpg" />
+		<i src="/cdn/img/profile/sports/bowling.jpg" />
+		<i src="/cdn/img/profile/sports/football.jpg" />
+	</Profile>
 	<Desktop>
 		<i name="Ultra-Wide" type="wide">
 			<i><![CDATA[background: url(/cdn/img/bg/wide/mountain.jpg?w=688&h=288) no-repeat 50% 50%/cover;]]></i>

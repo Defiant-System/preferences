@@ -1,0 +1,76 @@
+
+
+.dialog-body_ {
+	display: flex;
+	height: 300px;
+
+	.dialog-list_ {
+		background: #fff;
+		border: 1px solid #ccc;
+		border-radius: 3px;
+		overflow-y: auto;
+		overflow-x: hidden;
+		width: 163px;
+		padding: 5px 0;
+		margin-right: 7px;
+
+		> div {
+			padding: 3px 7px;
+
+			&.active {
+				background: #1067de;
+				color: #fff;
+
+				span {
+					color: #8bf;
+				}
+			}
+
+			b {
+				display: block;
+				pointer-events: none;
+				font-size: 13px;
+				line-height: 1.25;
+			}
+
+			span {
+				pointer-events: none;
+				color: #777;
+			}
+		}
+	}
+
+	.dialog-photo_ {
+		position: relative;
+		background: #000 50% 50%/contain no-repeat;
+		--bg-image: url(/cdn/img/profile/instruments/violin.jpg);
+		width: 300px;
+		margin: 1px 0;
+		border-radius: 3px;
+
+		&:after,
+		&:before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			border-radius: inherit;
+			background: inherit;
+			background-image: var( --bg-image );
+			opacity: .45;
+		}
+
+		&:after {
+			background-image: var( --bg-image );
+			border-radius: 50%;
+			opacity: 1;
+		}
+	}
+}
+
+.dialog-foot_ {
+	
+}
+
