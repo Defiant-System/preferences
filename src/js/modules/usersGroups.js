@@ -22,9 +22,18 @@
 					isUnlocked: preferences.views.isUnlocked
 				});
 
-				setTimeout(() => window.dialog.alert("Hello World"), 1000);
+				// setTimeout(() => window.dialog.alert({
+				// 	message: "Hello World",
+				// 	onOk: () => console.log("OK")
+				// }), 1000);
 
-				//self.dispatch({ type: "edit-user-photo" });
+				// setTimeout(() => window.dialog.confirm({
+				// 	message: "Hello World",
+				// 	onCancel: () => console.log("Cancel"),
+				// 	onOk: () => console.log("OK")
+				// }), 1000);
+
+				self.dispatch({ type: "edit-user-photo" });
 				break;
 			case "window.keyup":
 				if (window.dialog._name === "unlock") {
@@ -57,9 +66,6 @@
 			case "option-other-login":
 			case "show-full-name":
 				break;
-			case "edit-user-photo":
-				window.dialog.open({ name: "profile-picture" });
-				break;
 			case "auto-login-option":
 				console.log(event);
 				break;
@@ -84,6 +90,16 @@
 				// close unlock dialog
 				window.dialog.close();
 				break;
+
+			case "edit-user-photo":
+				window.dialog.open({ name: "profile-picture" });
+				break;
+			case "dialog-profile-save":
+			case "dialog-profile-cancel":
+				// close unlock dialog
+				window.dialog.close();
+				break;
+				
 			case "toggle-view-lock":
 				if (event.el.hasClass("unlocked")) {
 					event.el.removeClass("unlocked");

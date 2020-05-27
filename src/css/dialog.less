@@ -1,123 +1,236 @@
 
 &[data-name="profile-picture"] {
-	padding-top: 7px;
-}
-
-.dialog-body_ {
-	display: flex;
-	height: 320px;
-
-	.panel-left {
-		background: #fff;
-		border: 1px solid #ccc;
-		border-radius: 3px 0 0 3px;
-		width: 149px;
-		margin-right: 5px;
-	}
-	.panel-right {
-		width: 314px;
-		background: #fff;
-		border: 1px solid #ccc;
-		border-radius: 0 3px 3px 0;
+	.dialog-body_ {
+		//padding-top: 11px;
 	}
 
-	.dialog-list {
-		overflow-y: auto;
-		overflow-x: hidden;
-		width: 100%;
-		height: 100%;
-		padding: 5px 0;
+	.dialog-body-wrapper_ {
+		display: flex;
+		height: 314px;
 
-		> div {
-			padding: 3px 7px 4px;
+		.panel-left {
+			background: #fff;
+			border: 1px solid #ccc;
+			border-radius: 3px 0 0 3px;
+			width: 139px;
+			margin-right: 5px;
+		}
 
-			&.active {
-				background: #1067de;
-				color: #fff;
+		.panel-right {
+			width: 314px;
+			background: #fff;
+			border: 1px solid #ccc;
+			border-radius: 0 3px 3px 0;
+		}
+
+		.dialog-list {
+			overflow-y: auto;
+			overflow-x: hidden;
+			width: 100%;
+			height: 100%;
+			padding: 5px 0 0;
+			display: flex;
+			flex-direction: column;
+
+			> div {
+				padding: 3px 7px 4px;
+
+				&.space {
+					flex: auto;
+				}
+
+				&.option {
+					position: relative;
+					border-top: 1px solid #e5e5e5;
+					padding-left: 37px;
+				}
+
+				&.active {
+					background: #1067de;
+					color: #fff;
+
+					span {
+						color: #8bf;
+					}
+
+					i {
+						filter: brightness(5) opacity(.65);
+						box-shadow: inset 0 0 0 1px #c5c5c590;
+					}
+				}
+
+				b {
+					display: block;
+					pointer-events: none;
+					font-weight: 400;
+					line-height: 1.25;
+				}
 
 				span {
-					color: #8bf;
+					pointer-events: none;
+					font-size: 11px;
+					color: #777;
+				}
+
+				i {
+					position: absolute;
+					top: 5px;
+					left: 7px;
+					width: 23px;
+					height: 23px;
+					background: 50% 50% no-repeat;
+					background-size: 65% auto;
+					border-radius: 50%;
+					box-shadow: inset 0 0 0 1px #c5c5c5;
+
+					&.icon-camera { background-image: url(~/icons/icon-camera.png); }
+					&.icon-image { background-image: url(~/icons/icon-image.png); }
+				}
+			}
+		}
+
+		.dialog-thumbnails {
+			display: none;
+			overflow-y: auto;
+			overflow-x: hidden;
+			padding: 5px 0;
+			width: 100%;
+			height: 100%;
+			font-size: 0;
+			padding: 8px 0 0 8px;
+
+			> div {
+				background: 50% 50%/contain no-repeat;
+				position: relative;
+				display: inline-block;
+				width: 68px;
+				height: 68px;
+				margin: 0 8px 8px 0;
+
+				&.active:before {
+					content: "";
+					position: absolute;
+					top: -2px;
+					left: -2px;
+					right: -2px;
+					bottom: -2px;
+					border-radius: 2px;
+					box-shadow: 0 0 0 3px #3182fa88;
+				}
+			}
+		}
+
+		.dialog-preview {
+			--bg-image: url(/cdn/img/profile/instruments/violin.jpg);
+			position: relative;
+			width: 100%;
+			height: 100%;
+			background: #000 50% 50%/contain no-repeat;
+			border-radius: inherit;
+
+			&:after,
+			&:before {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				border-radius: inherit;
+				background: inherit;
+				background-image: var( --bg-image );
+				opacity: .45;
+			}
+
+			&:after {
+				background-image: var( --bg-image );
+				border-radius: 50%;
+				opacity: 1;
+			}
+
+			.close {
+				position: absolute;
+				top: 7px;
+				right: 7px;
+				width: 21px;
+				height: 21px;
+				z-index: 2;
+				background: rgba(255,255,255,.35) url(~/icons/icon-times.png) 50% 50% no-repeat;
+				background-size: 50% auto;
+				border-radius: 50%;
+
+				&:active {
+					background-color: rgba(255,255,255,.3);
 				}
 			}
 
-			b {
-				display: block;
-				pointer-events: none;
-				font-weight: 400;
-				line-height: 1.25;
-			}
-
-			span {
-				pointer-events: none;
-				font-size: 11px;
-				color: #777;
-			}
-		}
-	}
-
-	.dialog-thumbnails {
-		overflow-y: auto;
-		overflow-x: hidden;
-		padding: 5px 0;
-		width: 100%;
-		height: 100%;
-		font-size: 0;
-		padding: 8px 0 0 8px;
-
-		> div {
-			background: 50% 50%/contain no-repeat;
-			position: relative;
-			display: inline-block;
-			width: 68px;
-			height: 68px;
-			margin: 0 8px 8px 0;
-
-			&.active:before {
-				content: "";
+			.zoom {
 				position: absolute;
-				top: -2px;
-				left: -2px;
-				right: -2px;
-				bottom: -2px;
-				border-radius: 2px;
-				box-shadow: 0 0 0 3px #3182fa88;
+				bottom: 9px;
+				left: 50%;
+				width: 92px;
+				height: 21px;
+				z-index: 2;
+				transform: translateX(-50%);
+
+				.bar {
+					position: absolute;
+					top: 0;
+					left: 0;
+					right: 0;
+					bottom: 0;
+					overflow: hidden;
+
+					&:before {
+						content: "";
+						display: block;
+						height: 17px;
+						margin: -4px;
+						border: 6px solid rgba(255,255,255,.35);
+						border-radius: 20px;
+					}
+				}
+
+				.minus,
+				.plus {
+					position: absolute;
+					top: 0;
+					bottom: 0;
+					left: -26px;
+					width: 26px;
+					border-radius: 20px 0 0 20px;
+					background: rgba(255,255,255,.35) url(~/icons/icon-minus.png) 65% 50% no-repeat;
+					background-size: 50% auto;
+
+					&.plus {
+						left: auto;
+						right: -26px;
+						border-radius: 0 20px 20px 0;
+						background-image: url(~/icons/icon-plus.png);
+						background-position: 35% 50%;
+					}
+
+					&:active {
+						background-color: rgba(255,255,255,.3);
+					}
+				}
+
+				.knob {
+					position: absolute;
+					top: 3px;
+					left: 43px;
+					width: 15px;
+					height: 15px;
+					background: rgba(255,255,255,.35);
+					border: 1px solid #333;
+					border-radius: 50%;
+				}
 			}
 		}
 	}
 
-	.dialog-preview {
-		display: none;
-		--bg-image: url(/cdn/img/profile/instruments/violin.jpg);
-		position: relative;
-		width: 100%;
-		height: 100%;
-		background: #000 50% 50%/contain no-repeat;
-		margin: 1px 0;
-		border-radius: 3px;
-
-		&:after,
-		&:before {
-			content: "";
-			position: absolute;
-			top: 0;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			border-radius: inherit;
-			background: inherit;
-			background-image: var( --bg-image );
-			opacity: .45;
-		}
-
-		&:after {
-			background-image: var( --bg-image );
-			border-radius: 50%;
-			opacity: 1;
-		}
+	.dialog-foot_ {
+		
 	}
-}
-
-.dialog-foot_ {
-	
 }
 
