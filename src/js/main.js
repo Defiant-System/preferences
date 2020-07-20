@@ -36,8 +36,9 @@ const preferences = {
 		this.setViewState();
 
 		// tmp
-		this.views = { isUnlocked: true, password: "temp" };
-		this.dispatch({ type: "go-to", view: "usersGroups" })
+		//this.views = { isUnlocked: true, password: "temp" };
+		//this.dispatch({ type: "go-to", view: "usersGroups" })
+		//this.dispatch({ type: "go-to", view: "desktop" })
 	},
 	dispatch(event) {
 		let self = preferences,
@@ -100,7 +101,9 @@ const preferences = {
 				view = section.data("view");
 
 				// pass on event to part
-				parts[view].dispatch({ ...event, section });
+				if (parts[view]) {
+					parts[view].dispatch({ ...event, section });
+				}
 		}
 	},
 	setViewState() {
