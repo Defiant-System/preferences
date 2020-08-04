@@ -1,6 +1,6 @@
 <MenuBar>
 	<Menu name="System Preferences">
-		<Menu name="About System Preferences" hotkey="meta+a"/>
+		<Menu name="About System Preferences" shell="win -a"/>
 		<Menu type="divider"/>
 		<Menu name="Preferences" hotkey="shift+,"/>
 		<Menu type="divider"/>
