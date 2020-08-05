@@ -79,7 +79,7 @@
 					// lock icon UI
 					self.lock.addClass("authorizing");
 					// show unlock dialog
-					window.dialog.open({ name: "unlock" });
+					window.dialog.show({ name: "unlock" });
 				}
 				break;
 			case "toggle-view":

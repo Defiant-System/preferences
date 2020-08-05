@@ -92,7 +92,7 @@
 				break;
 
 			case "edit-user-photo":
-				window.dialog.open({ name: "profile-picture" });
+				window.dialog.show({ name: "profile-picture" });
 				break;
 			case "dialog-profile-save":
 			case "dialog-profile-cancel":
@@ -108,7 +108,7 @@
 					// lock icon UI
 					self.lock.addClass("authorizing");
 					// show unlock dialog
-					window.dialog.open({ name: "unlock" });
+					window.dialog.show({ name: "unlock" });
 				}
 				break;
 			case "toggle-view":
