@@ -33,9 +33,9 @@
 				// 	onOk: () => console.log("OK")
 				// }), 1000);
 
-				self.dispatch({ type: "edit-user-photo" });
+				// self.dispatch({ type: "edit-user-photo" });
 				break;
-			case "window.keyup":
+			case "window.keydown":
 				if (window.dialog._name === "unlock") {
 					self.dispatch({ type: "dialog-unlock-check" });
 				}

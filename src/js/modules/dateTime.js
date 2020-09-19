@@ -27,7 +27,7 @@
 				// temp
 				//self.section.find(".tab-row_ > div:nth-child(3)").trigger("click");
 				break;
-			case "window.keyup":
+			case "window.keystroke":
 				if (window.dialog._name === "unlock") {
 					self.dispatch({ type: "dialog-unlock-check" });
 				}

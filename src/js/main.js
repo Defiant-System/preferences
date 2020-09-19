@@ -54,7 +54,7 @@ const preferences = {
 			case "window.keystroke":
 				// prevents fall through to default
 				break;
-			case "window.keyup":
+			case "window.keydown":
 				if (event.target && event.keyCode === 13) {
 					// enter on login dialog
 					view = self.history.current.view;

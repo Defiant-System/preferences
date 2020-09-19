@@ -7,6 +7,8 @@
 	async dispatch(event) {
 		let self = parts.desktop,
 			section = self.section,
+			workspace,
+			index,
 			shell,
 			isWide,
 			style,
