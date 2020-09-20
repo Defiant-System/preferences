@@ -2,17 +2,6 @@
 	<Menu name="System Preferences">
 		<Menu name="About System Preferences" shell="win -a"/>
 		<Menu type="divider"/>
-		<Menu name="Preferences" hotkey="shift+,"/>
-		<Menu type="divider"/>
-		<Menu name="Services">
-			<Menu name="Open"/>
-			<Menu name="Close"/>
-		</Menu>
-		<Menu type="divider"/>
-		<Menu name="Hide System Preferences"/>
-		<Menu name="Hide Others"/>
-		<Menu name="Show All" disabled="1"/>
-		<Menu type="divider"/>
 		<Menu name="Quit System Preferences" shell="win -c"/>
 	</Menu>
 	<Menu name="View">
