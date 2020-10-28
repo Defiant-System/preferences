@@ -6,7 +6,7 @@
 			<xsl:attribute name="class">tree-item</xsl:attribute>
 			<xsl:attribute name="data-type"><xsl:value-of select="@type"/></xsl:attribute>
 			<span class="icon">
-				<xsl:attribute name="style">background-image: url(/ant/icons/<xsl:choose>
+				<xsl:attribute name="style">background-image: url(~/icons/<xsl:choose>
 						<xsl:when test="@icon = 'color-wheel'">icon-color-preset</xsl:when>
 						<xsl:otherwise>tiny-generic-folder</xsl:otherwise>
 					</xsl:choose>.png)</xsl:attribute>

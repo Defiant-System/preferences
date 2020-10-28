@@ -56,6 +56,59 @@
 		<path fill="#888" d="M460.5,378.7L288.9,81.6c-10.7-18.6-24.8-27.9-39-27.9s-28.2,9.3-39,27.9L39.6,378.7c-21.7,37.2-4.1,67.6,39,67.6 h342.7C464.4,446.3,481.9,415.9,460.5,378.7z M227.6,203.5h44.7v103.9h-44.7L227.6,203.5L227.6,203.5z M250,374.9 c-13.5,0-24.5-11-24.5-24.5c0-13.5,11-24.5,24.5-24.5s24.5,11,24.5,24.5l0,0C274.5,363.9,263.6,374.9,250,374.9 C250,374.9,250,374.9,250,374.9L250,374.9z"/>
 	</svg>
 
+	<svg id="icon-chevron-down" viewBox="0 0 1024 1024">
+		<path fill="#333" d="M978.511 367.46l-439.767 439.174c-14.817 14.817-38.524 14.817-53.341 0l-439.767-439.174c-14.817-14.817-14.817-39.117 0-53.934l98.384-97.792c14.817-14.817 38.524-14.817 53.341 0l314.712 314.712 314.712-314.712c14.817-14.817 38.524-14.817 53.341 0l98.384 97.792c14.817 14.817 14.817 39.117 0 53.934z"/>
+	</svg>
+
+	<svg id="icon-chevron-left" viewBox="0 0 240 240">
+		<polyline fill="none" stroke="#333" stroke-width="32" stroke-linecap="round" stroke-linejoin="round" points="165,28.75 74,119.75 165.75,211"/>
+	</svg>
+
+	<svg id="icon-chevron-right" viewBox="0 0 240 240">
+		<polyline fill="none" stroke="#333" stroke-width="32" stroke-linecap="round" stroke-linejoin="round" points="74,211.25 165,120.25 74.25,28"/>
+	</svg>
+
+	<svg id="icon-color-preset" viewBox="0 0 390 390">
+		<circle fill="#fff" stroke="rgba(0,0,0,0.5)" stroke-width="20" cx="195" cy="195" r="177"/>
+		<circle fill="url(#CLRPRS_1)" cx="195" cy="195" r="177"/>
+		<circle fill="url(#CLRPRS_2)" cx="195" cy="195" r="177"/>
+		<circle fill="url(#CLRPRS_3)" cx="195" cy="195" r="177"/>
+		<circle fill="url(#CLRPRS_4)" cx="195" cy="195" r="177"/>
+		<circle fill="url(#CLRPRS_5)" cx="195" cy="195" r="177"/>
+		<circle fill="url(#CLRPRS_6)" cx="195" cy="195" r="177"/>
+		<defs>
+			<linearGradient id="CLRPRS_1" gradientUnits="userSpaceOnUse" x1="195.5005" y1="194.1343" x2="283.8001" y2="41.1949">
+				<stop offset="0" style="stop-color:#fff;stop-opacity:0"/>
+				<stop offset="1" style="stop-color:#f00;stop-opacity:0.7"/>
+			</linearGradient>
+			<linearGradient id="CLRPRS_2" gradientUnits="userSpaceOnUse" x1="196" y1="195" x2="372.5701" y2="195">
+				<stop offset="0" style="stop-color:#fff;stop-opacity:0"/>
+				<stop offset="1" style="stop-color:#00f;stop-opacity:0.7"/>
+			</linearGradient>
+			<linearGradient id="CLRPRS_3" gradientUnits="userSpaceOnUse" x1="195.5" y1="195.8667" x2="283.7997" y2="348.8062">
+				<stop offset="0" style="stop-color:#fff;stop-opacity:0"/>
+				<stop offset="1" style="stop-color:#00AEEF;stop-opacity:0.7"/>
+			</linearGradient>
+			<linearGradient id="CLRPRS_4" gradientUnits="userSpaceOnUse" x1="194.4995" y1="195.8662" x2="106.1998" y2="348.8057">
+				<stop offset="0" style="stop-color:#fff;stop-opacity:0"/>
+				<stop offset="1" style="stop-color:#0f0;stop-opacity:0.7"/>
+			</linearGradient>
+			<linearGradient id="CLRPRS_5" gradientUnits="userSpaceOnUse" x1="194.0005" y1="194.9995" x2="17.4301" y2="194.9995">
+				<stop offset="0" style="stop-color:#fff;stop-opacity:0"/>
+				<stop offset="1" style="stop-color:#ff0;stop-opacity:0.7"/>
+			</linearGradient>
+			<linearGradient id="CLRPRS_6" gradientUnits="userSpaceOnUse" x1="194.5" y1="194.1348" x2="106.2003" y2="41.1953">
+				<stop offset="0" style="stop-color:#fff;stop-opacity:0"/>
+				<stop offset="1" style="stop-color:#f0f;stop-opacity:0.7"/>
+			</linearGradient>
+		</defs>
+	</svg>
+
+	<svg id="tiny-generic-folder" viewBox="0 0 1024 1024">
+		<path fill="#97DAF8" stroke="#3829CC" stroke-width="6" d="M73.651,207.246 c0-22.44,18.189-40.634,40.635-40.634c0,0,141.598,0,199.47,0c73.882,0,54.18,66.492,116.979,66.492c93.58,0,478.982,0,478.982,0 c22.443,0,40.633,18.189,40.633,40.633v475.296c0,22.44-18.189,40.633-40.633,40.633H114.286c-22.445,0-40.635-18.192-40.635-40.633 V207.246z"/>
+		<path fill="#6FC7F1" stroke="#3829CC" stroke-width="6" d="M73.648,315.604 c0-22.443,18.192-40.633,40.634-40.633h795.437c22.445,0,40.633,18.189,40.633,40.633v501.15c0,22.441-18.188,40.633-40.633,40.633 H114.282c-22.441,0-40.634-18.191-40.634-40.633V315.604z"/>
+	</svg>
+
 	<svg id="user" viewBox="0 0 500 500">
 		<style type="text/css">
 			.st0{fill:#fff;}
