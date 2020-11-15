@@ -433,125 +433,148 @@ content {
 			display: flex;
 			flex-direction: column;
 
-			.panel-left {
-				legend {
-					padding: 3px 5px;
-					margin-bottom: 3px;
-					font-size: 12px;
-					color: #aaa;
-					pointer-events: none;
+			.row-body {
+				.panel-left {
+					legend {
+						padding: 3px 5px;
+						margin-bottom: 3px;
+						font-size: 12px;
+						color: #aaa;
+						pointer-events: none;
 
-					&:not(:first-child) {
-						margin-top: 13px;
-					}
-				}
-
-				> div {
-					&.active {
-						background: #1067de;
-						color: #fff;
-
-						.icon {
-							
+						&:not(:first-child) {
+							margin-top: 13px;
 						}
+					}
+
+					> div {
+						&.active {
+							background: #1067de;
+							color: #fff;
+
+							.icon {
+								
+							}
+							.size {
+								color: #8bf;
+							}
+							i.icon-house {
+								filter: drop-shadow(0 0 1px #fff);
+							}
+						}
+
+						&:not(.active):not(.storage-options) {
+							cursor: pointer;
+
+							&:hover {
+								background: #f2f2f2;
+							}
+						}
+					}
+
+					.storage {
+						position: relative;
+						padding: 5px 5px 5px 43px;
+						margin-bottom: 7px;
+
+						i[class^="icon-"] {
+							background: url(~/icons/icon-cloud-storage.png) 50% 50%/contain no-repeat;
+							position: absolute;
+							top: 3px;
+							left: 7px;
+							width: 29px;
+							height: 29px;
+							pointer-events: none;
+
+							&.icon-google-drive { background-image: url(~/icons/icon-google-drive.png); }
+							&.icon-dropbox { background-image: url(~/icons/icon-dropbox.png); }
+							&.icon-one-drive { background-image: url(~/icons/icon-one-drive.png); }
+						}
+
+						.name {
+							display: block;
+							padding: 1px 0 2px;
+							white-space: nowrap;
+							overflow: hidden;
+							text-overflow: ellipsis;
+							pointer-events: none;
+						}
+
 						.size {
-							color: #8bf;
-						}
-						i.icon-house {
-							filter: drop-shadow(0 0 1px #fff);
-						}
-					}
-
-					&:not(.active) {
-						cursor: pointer;
-
-						&:hover {
-							background: #f2f2f2;
+							display: block;
+							color: #999;
+							font-weight: 400;
+							font-size: 11px;
+							pointer-events: none;
 						}
 					}
-				}
 
-				.storage {
-					position: relative;
-					padding: 5px 5px 5px 43px;
-					margin-bottom: 7px;
-
-					i[class^="icon-"] {
-						background: url(~/icons/icon-cloud-storage.png) 50% 50%/contain no-repeat;
+					.storage-options {
+						background: #f6f6f6;
 						position: absolute;
-						top: 3px;
-						left: 7px;
-						width: 29px;
-						height: 29px;
-						pointer-events: none;
+						bottom: 0;
+						left: 0;
+						right: 0;
+						height: 25px;
+						border-top: 1px solid #ddd;
+						border-radius: 0 0 3px 3px;
+						display: flex;
 
-						&.icon-google-drive { background-image: url(~/icons/icon-google-drive.png); }
-						&.icon-dropbox { background-image: url(~/icons/icon-dropbox.png); }
-						&.icon-one-drive { background-image: url(~/icons/icon-one-drive.png); }
-					}
+						.option-button {
+							border-right: 1px solid #ddd;
+							padding: 5px 6px;
+							cursor: pointer;
 
-					.name {
-						display: block;
-						padding: 1px 0 2px;
-						white-space: nowrap;
-						overflow: hidden;
-						text-overflow: ellipsis;
-						pointer-events: none;
-					}
+							&:hover i {
+								opacity: .65;
+							}
+						}
 
-					.size {
-						display: block;
-						color: #999;
-						font-weight: 400;
-						font-size: 11px;
-						pointer-events: none;
-					}
-				}
+						.icon-plus,
+						.icon-minus {
+							background: url(~/icons/icon-plus.png) 50% 50%/contain no-repeat;
+							display: inline-block;
+							width: 14px;
+							height: 14px;
+							cursor: pointer;
+							opacity: .35;
 
-				.storage-options {
-					position: absolute;
-					bottom: 0;
-					left: 0;
-					right: 0;
-					padding: 5px 5px 2px 43px;
-					height: 37px;
-					border-top: 1px solid #ddd;
-					border-radius: 0 0 0 3px;
-					color: #777;
-					cursor: pointer;
-
-					&:hover {
-						color: #333;
-
-						.icon-plus {
-							opacity: .4;
+							&.icon-minus {
+								background-image: url(~/icons/icon-minus.png);
+							}
 						}
 					}
-
-					.icon-plus {
-						background: url(~/icons/icon-plus.png) 50% 50%/contain no-repeat;
-						position: absolute;
-						top: 8px;
-						left: 11px;
-						width: 19px;
-						height: 19px;
-						opacity: .25;
-						pointer-events: none;
-					}
-
-					span {
-						display: block;
-						padding: 8px 0 0;
-						pointer-events: none;
-					}
 				}
-			}
 
-			.panel-right {
-				.tab-active_ {
-					&.show-user-options .user-options,
-					&.show-login-options .login-options {
-						display: block;
+				.panel-right {
+					.tab-active_ {
+						flex-direction: column;
+					}
+					.row-group_ {
+						width: 317px;
+
+						> div {
+							display: flex;
+
+							> div {
+								display: inline-block;
+								padding: 3px;
+
+								&:first-child {
+									width: 37%;
+									text-align: right;
+									padding: 3px 7px 0 0;
+								}
+
+								.form-checkbox_ {
+									top: 0;
+								}
+
+								selectbox {
+									top: -5px;
+								}
+							}
+						}
 					}
 				}
 			}
@@ -1013,12 +1036,11 @@ content {
 							cursor: default;
 
 							&.active {
-								background: #eee;
-								color: #555;
-								box-shadow: inset 0 0 0 1px #bbb;
+								background: #aaa;
+								color: #fff;
 							}
 
-							&:hover {
+							&:hover:not(.active) {
 								background: transparent;
 							}
 						}

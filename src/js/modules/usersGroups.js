@@ -117,7 +117,7 @@
 					preferences.views = (({ isUnlocked, password }) => ({ isUnlocked, password }))(event);
 				} else {
 					// lock: forget references to views
-					delete preferences.views;
+					preferences.views = {};
 				}
 
 				// lock icon UI

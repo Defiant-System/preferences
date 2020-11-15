@@ -9,6 +9,9 @@
 			case "init-view":
 				self.section = event.section;
 				break;
+			case "add-storage":
+			case "remove-storage":
+				break;
 		}
 	}
 }

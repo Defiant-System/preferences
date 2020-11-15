@@ -29,15 +29,43 @@
 			</div>
 			
 			<div class="storage-options">
-				<i class="icon-plus"></i>
-				<span>Add Storage</span>
+				<div class="option-button" data-click="add-storage">
+					<i class="icon-plus"></i>
+				</div>
+				<div class="option-button" data-click="remove-storage">
+					<i class="icon-minus"></i>
+				</div>
 			</div>
 
 		</div>
 		<div class="panel-right">
 			<div class="tab-view_" sys-click="do-tab-row">
 				<div class="tab-body_">
-					<div class="tab-active_ show-user-options">
+					<div class="tab-active_">
+
+						<div class="row-group_">
+							<div class="row-cell_">
+								<div>Status:</div>
+								<div>
+									<b>Connected</b>
+								</div>
+							</div>
+						</div>
+
+						<hr/>
+
+						<div class="row-group_">
+							<div class="row-cell_">
+								<div>Storage:</div>
+								<div style="width: 200px;">
+									<selectbox>
+										<option value="google-drive" selected="true">Google Drive</option>
+										<option value="dropbox">Dropbox</option>
+										<option value="onedrive">OneDrive</option>
+									</selectbox>
+								</div>
+							</div>
+						</div>
 
 					</div>
 				</div>
