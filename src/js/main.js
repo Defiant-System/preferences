@@ -6,6 +6,7 @@ const parts = {
 	displays:      defiant.require("modules/displays.js"),
 	dock:          defiant.require("modules/dock.js"),
 	general:       defiant.require("modules/general.js"),
+	cloudStorage:  defiant.require("modules/cloudStorage.js"),
 	integrations:  defiant.require("modules/integrations.js"),
 	keyboard:      defiant.require("modules/keyboard.js"),
 	language:      defiant.require("modules/language.js"),
@@ -37,7 +38,7 @@ const preferences = {
 
 		// tmp
 		//this.views = { isUnlocked: true, password: "temp" };
-		//this.dispatch({ type: "go-to", view: "usersGroups" })
+		this.dispatch({ type: "go-to", view: "cloudStorage" })
 		//this.dispatch({ type: "go-to", view: "desktop" })
 	},
 	dispatch(event) {
