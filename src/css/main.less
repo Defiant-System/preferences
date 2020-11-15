@@ -451,10 +451,10 @@ content {
 						background: #1067de;
 						color: #fff;
 
-						.avatar {
-							box-shadow: inset 0 0 0 1px rgba(#8bf,.35);
+						.icon {
+							
 						}
-						.role {
+						.size {
 							color: #8bf;
 						}
 						i.icon-house {
@@ -476,7 +476,7 @@ content {
 					padding: 5px 5px 5px 43px;
 					margin-bottom: 7px;
 
-					.icon {
+					i[class^="icon-"] {
 						background: url(~/icons/icon-cloud-storage.png) 50% 50%/contain no-repeat;
 						position: absolute;
 						top: 3px;
@@ -484,6 +484,10 @@ content {
 						width: 29px;
 						height: 29px;
 						pointer-events: none;
+
+						&.icon-google-drive { background-image: url(~/icons/icon-google-drive.png); }
+						&.icon-dropbox { background-image: url(~/icons/icon-dropbox.png); }
+						&.icon-one-drive { background-image: url(~/icons/icon-one-drive.png); }
 					}
 
 					.name {
@@ -498,7 +502,7 @@ content {
 					.size {
 						display: block;
 						color: #999;
-						font-weight: 100;
+						font-weight: 400;
 						font-size: 11px;
 						pointer-events: none;
 					}
@@ -513,7 +517,16 @@ content {
 					height: 37px;
 					border-top: 1px solid #ddd;
 					border-radius: 0 0 0 3px;
+					color: #777;
 					cursor: pointer;
+
+					&:hover {
+						color: #333;
+
+						.icon-plus {
+							opacity: .4;
+						}
+					}
 
 					.icon-plus {
 						background: url(~/icons/icon-plus.png) 50% 50%/contain no-repeat;
@@ -522,7 +535,7 @@ content {
 						left: 11px;
 						width: 19px;
 						height: 19px;
-						opacity: .35;
+						opacity: .25;
 						pointer-events: none;
 					}
 
