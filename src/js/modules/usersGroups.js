@@ -52,7 +52,6 @@
 					.removeClass("show-user-options show-login-options")
 					.addClass(value);
 				break;
-
 			case "remember-me":
 				value = event.target.checked;
 				if (value) {

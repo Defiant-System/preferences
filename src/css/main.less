@@ -452,8 +452,8 @@ content {
 							background: #1067de;
 							color: #fff;
 
-							.icon {
-								
+							i[class^="icon-"]:not(.icon-storage) {
+								filter: grayscale() brightness(5);
 							}
 							.size {
 								color: #8bf;
