@@ -470,6 +470,77 @@ content {
 						}
 					}
 				}
+
+				.storage {
+					position: relative;
+					padding: 5px 5px 5px 43px;
+					margin-bottom: 7px;
+
+					.icon {
+						background: url(~/icons/icon-cloud-storage.png) 50% 50%/contain no-repeat;
+						position: absolute;
+						top: 3px;
+						left: 7px;
+						width: 29px;
+						height: 29px;
+						pointer-events: none;
+					}
+
+					.name {
+						display: block;
+						padding: 1px 0 2px;
+						white-space: nowrap;
+						overflow: hidden;
+						text-overflow: ellipsis;
+						pointer-events: none;
+					}
+
+					.size {
+						display: block;
+						color: #999;
+						font-weight: 100;
+						font-size: 11px;
+						pointer-events: none;
+					}
+				}
+
+				.storage-options {
+					position: absolute;
+					bottom: 0;
+					left: 0;
+					right: 0;
+					padding: 5px 5px 2px 43px;
+					height: 37px;
+					border-top: 1px solid #ddd;
+					border-radius: 0 0 0 3px;
+					cursor: pointer;
+
+					.icon-plus {
+						background: url(~/icons/icon-plus.png) 50% 50%/contain no-repeat;
+						position: absolute;
+						top: 8px;
+						left: 11px;
+						width: 19px;
+						height: 19px;
+						opacity: .35;
+						pointer-events: none;
+					}
+
+					span {
+						display: block;
+						padding: 8px 0 0;
+						pointer-events: none;
+					}
+				}
+			}
+
+			.panel-right {
+				.tab-active_ {
+					&.show-user-options .user-options,
+					&.show-login-options .login-options {
+						display: block;
+					}
+				}
 			}
 		}
 

@@ -1,35 +1,47 @@
 <section data-view="cloudStorage">
 	<div class="row-body">
-		<div class="panel-left" data-click="select-user">
+		<div class="panel-left" data-click="select-storage">
 
-			<legend>Current User</legend>
-			<div class="user active">
-				<span class="avatar" style="background-image: url(/res/img/hbi.jpg);"></span>
-				<span class="name">Hakan Bilgin</span>
-				<span class="role">Admin</span>
+			<legend>Defiant Storage</legend>
+			<div class="storage active">
+				<span class="icon"></span>
+				<span class="name">Default</span>
+				<span class="size">1 GB</span>
 			</div>
 
-			<legend>Other Users</legend>
-			<div class="user">
-				<span class="avatar" style="background-image: url(/res/img/sarienn.jpg);"></span>
-				<span class="name">Laura Bularca</span>
-				<span class="role">User</span>
+			<legend>External Storage</legend>
+			<div class="storage">
+				<span class="icon" style="background-image: url(/app/icons/sidebar-google-drive.png);"></span>
+				<span class="name">Google Drive</span>
+				<span class="size">15 GB</span>
 			</div>
 
-			<div class="user">
-				<span class="avatar"></span>
-				<span class="name">Okan Bilgin</span>
-				<span class="role">User</span>
+			<div class="storage">
+				<span class="icon" style="background-image: url(/app/icons/sidebar-dropbox.png);"></span>
+				<span class="name">Dropbox</span>
+				<span class="size">2 GB</span>
+			</div>
+
+			<div class="storage">
+				<span class="icon" style="background-image: url(/app/icons/sidebar-one-drive.png);"></span>
+				<span class="name">OneDrive</span>
+				<span class="size">5 GB</span>
 			</div>
 			
-			<div class="login-options">
-				<i class="icon-house"></i>
-				<span>Login Options</span>
+			<div class="storage-options">
+				<i class="icon-plus"></i>
+				<span>Add Storage</span>
 			</div>
 
 		</div>
 		<div class="panel-right">
-			test
+			<div class="tab-view_" sys-click="do-tab-row">
+				<div class="tab-body_">
+					<div class="tab-active_ show-user-options">
+
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 	
