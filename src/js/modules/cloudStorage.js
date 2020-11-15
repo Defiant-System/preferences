@@ -15,3 +15,6 @@
 		}
 	}
 }
+
+
+// Root.shell_.execute_(`win -o preferences { type: "go-to", view: "cloudStorage" }`);
