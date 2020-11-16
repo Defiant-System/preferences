@@ -44,17 +44,26 @@
 					<div class="tab-active_">
 
 						<div class="row-group_">
-							<div class="row-cell_">
+							<div class="row-cell_ row-status">
 								<div>Status:</div>
 								<div>
-									<b>Connected</b>
+									<i class="indicator"></i>
+									<b class="conn-working">
+										<svg class="loading paused" viewBox="25 25 50 50" >
+											<circle class="loader-path" cx="50" cy="50" r="20" />
+										</svg>
+										Connecting&hellip;
+									</b>
+									<b class="conn-true">Connected</b>
+									<b class="conn-false">Not connected</b>
+									<button data-click="connect-cloud-storage">Connect&hellip;</button>
 								</div>
 							</div>
 						</div>
 
 						<hr/>
 
-						<div class="row-group_">
+						<div class="row-group_ storage-name">
 							<div class="row-cell_">
 								<div>Name:</div>
 								<div>
@@ -63,7 +72,7 @@
 							</div>
 						</div>
 
-						<div class="row-group_">
+						<div class="row-group_ storage-type">
 							<div class="row-cell_">
 								<div>Storage:</div>
 								<div>
@@ -75,6 +84,29 @@
 								</div>
 							</div>
 						</div>
+
+						<div class="row-group_ disc-usage">
+							<div class="row-cell_">
+								<div>Usage:</div>
+								<div>
+									<div class="disc-bar">
+										<div style="background: #7676fe; width: 6.0%; "><span>Video</span></div>
+										<div style="background: #69a5e1; width: 4.6%; "><span>Audio</span></div>
+										<div style="background: #e97474; width: 11.0%; "><span>Documents</span></div>
+										<div style="background: #ff9800; width: 21.0%; "><span>Images</span></div>
+										<div style="background: #aaa; width: 9.0%; "><span>Other</span></div>
+									</div>
+									<span>975.4 MB available of 1.0 GB</span>
+								</div>
+							</div>
+						</div>
+
+						<hr/>
+
+						<p>
+							<i class="icon-info"></i>
+							You can connect a cloud storage, thereby extending available storage. To connect more than one disk storage, you need to upgrade your Defiant account to premium. Upgrading to premium grants you additional 15 GB of cloud storage.
+						</p>
 
 					</div>
 				</div>

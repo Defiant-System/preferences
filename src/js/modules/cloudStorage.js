@@ -19,6 +19,16 @@
 			case "add-storage":
 			case "remove-storage":
 				break;
+			case "connect-cloud-storage":
+				el = event.el.parents(".tab-active_");
+				el.addClass("connecting");
+				el.find(".loading").removeClass("paused");
+
+				setTimeout(() => {
+					el.removeClass("connecting").addClass("connected");
+					el.find(".loading").addClass("paused");
+				}, 2500);
+				break;
 		}
 	}
 }
