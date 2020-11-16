@@ -23,11 +23,13 @@
 				el = event.el.parents(".tab-active_");
 				el.addClass("connecting");
 				el.find(".loading").removeClass("paused");
+				el.find("selectbox").attr({ disabled: true });
 
 				setTimeout(() => {
 					el.removeClass("connecting").addClass("connected");
 					el.find(".loading").addClass("paused");
-				}, 2500);
+					el.find("selectbox").removeAttr("disabled");
+				}, 8000);
 				break;
 		}
 	}
