@@ -480,7 +480,7 @@ content {
 						i[class^="icon-"] {
 							background: url(~/icons/icon-cloud-storage.png) 50% 50%/contain no-repeat;
 							position: absolute;
-							top: 3px;
+							top: 4px;
 							left: 7px;
 							width: 29px;
 							height: 29px;
@@ -560,10 +560,14 @@ content {
 								display: inline-block;
 								padding: 3px;
 
-								&:first-child {
+								&:nth-child(1) {
 									width: 37%;
 									text-align: right;
 									padding: 3px 7px 0 0;
+								}
+
+								&:nth-child(2) {
+									width: 220px;
 								}
 
 								input,
