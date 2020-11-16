@@ -3,11 +3,11 @@
 
 {
 	dispatch(event) {
-		let self = parts.spotlight,
+		let Self = parts.spotlight,
 			el;
 		switch (event.type) {
 			case "init-view":
-				self.section = event.section;
+				Self.section = event.section;
 				break;
 		}
 	}

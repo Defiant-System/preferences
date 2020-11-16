@@ -3,21 +3,21 @@
 
 {
 	dispatch(event) {
-		let self = parts.usersGroups,
+		let Self = parts.usersGroups,
 			items,
 			value,
 			el;
 		//console.log(event);
 		switch (event.type) {
 			case "init-view":
-				self.section = event.section;
-				self.tabView = self.section.find(".tab-active_");
-				self.userOptions = self.tabView.find(".user-options");
-				self.loginOptions = self.tabView.find(".login-options");
-				self.lock = self.section.find(".row-foot .unlock-to-edit");
+				Self.section = event.section;
+				Self.tabView = Self.section.find(".tab-active_");
+				Self.userOptions = Self.tabView.find(".user-options");
+				Self.loginOptions = Self.tabView.find(".login-options");
+				Self.lock = Self.section.find(".row-foot .unlock-to-edit");
 
 				// toggle view; if user already unlocked previously
-				self.dispatch({
+				Self.dispatch({
 					type: "toggle-view",
 					isUnlocked: preferences.views.isUnlocked
 				});
@@ -33,11 +33,11 @@
 				// 	onOk: () => console.log("OK")
 				// }), 1000);
 
-				// self.dispatch({ type: "edit-user-photo" });
+				// Self.dispatch({ type: "edit-user-photo" });
 				break;
 			case "window.keydown":
 				if (window.dialog._name === "unlock") {
-					self.dispatch({ type: "dialog-unlock-check" });
+					Self.dispatch({ type: "dialog-unlock-check" });
 				}
 				break;
 			case "select-user":
@@ -48,7 +48,7 @@
 				el.addClass("active");
 
 				value = el.hasClass("login-options") ? "show-login-options" : "show-user-options";
-				self.tabView
+				Self.tabView
 					.removeClass("show-user-options show-login-options")
 					.addClass(value);
 				break;
@@ -76,7 +76,7 @@
 					// incorrect password
 					return window.dialog.shake();
 				} else {
-					self.dispatch({
+					Self.dispatch({
 						type: "toggle-view",
 						isUnlocked: true,
 						password: value
@@ -85,7 +85,7 @@
 				/* falls through */
 			case "dialog-unlock-cancel":
 				// lock icon UI
-				self.lock.removeClass("authorizing");
+				Self.lock.removeClass("authorizing");
 				// close unlock dialog
 				window.dialog.close();
 				break;
@@ -102,10 +102,10 @@
 			case "toggle-view-lock":
 				if (event.el.hasClass("unlocked")) {
 					event.el.removeClass("unlocked");
-					self.dispatch({ type: "toggle-view" });
+					Self.dispatch({ type: "toggle-view" });
 				} else {
 					// lock icon UI
-					self.lock.addClass("authorizing");
+					Self.lock.addClass("authorizing");
 					// show unlock dialog
 					window.dialog.show({ name: "unlock" });
 				}
@@ -120,15 +120,15 @@
 				}
 
 				// lock icon UI
-				self.lock.removeClass("authorizing")
+				Self.lock.removeClass("authorizing")
 					.toggleClass("unlocked", !event.isUnlocked);
 
 				// user options
-				self.userOptions.find(".avatar").toggleClass("disabled_", event.isUnlocked);
-				self.userOptions.find("button").toggleAttr("disabled", event.isUnlocked);
+				Self.userOptions.find(".avatar").toggleClass("disabled_", event.isUnlocked);
+				Self.userOptions.find("button").toggleAttr("disabled", event.isUnlocked);
 
 				// login options
-				items = self.loginOptions.find("input, selectbox");
+				items = Self.loginOptions.find("input, selectbox");
 				items.toggleAttr("disabled", event.isUnlocked);
 				items.parent().toggleClass("disabled_", event.isUnlocked);
 				break;

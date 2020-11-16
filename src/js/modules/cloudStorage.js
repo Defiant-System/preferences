@@ -3,11 +3,11 @@
 
 {
 	dispatch(event) {
-		let self = parts.cloudStorage,
+		let Self = parts.cloudStorage,
 			el;
 		switch (event.type) {
 			case "init-view":
-				self.section = event.section;
+				Self.section = event.section;
 				break;
 			case "select-storage":
 				el = $(event.target);

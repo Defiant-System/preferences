@@ -5,8 +5,8 @@
 	bgComplexRx: /url|gradient/i,
 	bgRexExp: /(?:\(['"]?)(.*?)(?:['"]?\))/,
 	async dispatch(event) {
-		let self = parts.desktop,
-			section = self.section,
+		let Self = parts.desktop,
+			section = Self.section,
 			workspace,
 			index,
 			shell,
@@ -23,43 +23,43 @@
 				// ignore if already rendered
 				if (!event.section.find(".tree .tree-item").length) {
 					// fast references
-					self.section = event.section;
-					self.wideWsEl = self.section.find(".workspace-wide");
-					self.reelEl = self.section.find(".reel");
-					self.treeEl = self.section.find(".tree");
-					self.listEl = self.section.find(".list");
+					Self.section = event.section;
+					Self.wideWsEl = Self.section.find(".workspace-wide");
+					Self.reelEl = Self.section.find(".reel");
+					Self.treeEl = Self.section.find(".tree");
+					Self.listEl = Self.section.find(".list");
 
 					// get wallpaper info from system
 					shell = await defiant.shell("ws -a wallpaper");
 
 					// set number of desktops
-					self.reelEl.data("ws", shell.result.length);
+					Self.reelEl.data("ws", shell.result.length);
 
 					shell.result.map(item => {
 						if (!style && item.wide) isWide = true;
 						if (!style) style = item.value;
 
-						self.section
+						Self.section
 							.find(`.workspace[data-id="${item.name}"] div`)
 							.attr({ style: item.value });
 					});
 
 					if (isWide) {
-						self.reelEl.addClass("wide");
-						self.wideWsEl.find("div").attr({ style });
-						active = self.wideWsEl;
+						Self.reelEl.addClass("wide");
+						Self.wideWsEl.find("div").attr({ style });
+						active = Self.wideWsEl;
 					} else {
-						active = self.section.find(".workspace:first");
+						active = Self.section.find(".workspace:first");
 					}
 
 					// is wide bg active
-					self.section.toggleClass("wide-wp", isWide);
+					Self.section.toggleClass("wide-wp", isWide);
 
 					// render tree view
 					window.render({
 						template: "bg-tree",
 						match: `//Data/Desktop`,
-						target: self.treeEl
+						target: Self.treeEl
 					});
 
 					// select first workspace
@@ -74,17 +74,17 @@
 				el.addClass("active");
 
 				// select folder containing current wallpaper
-				active = self.reelEl.find("> div.active div");
+				active = Self.reelEl.find("> div.active div");
 				style = active.attr("style");				
-				if (self.bgComplexRx.exec(style)) {
-					style = self.bgRexExp.exec(style)[1];
+				if (Self.bgComplexRx.exec(style)) {
+					style = Self.bgRexExp.exec(style)[1];
 					active = window.bluePrint.selectSingleNode(`//i[contains(text(), "${style}")]`);
 					name = active ? active.parentNode.getAttribute("name") : "Wallpapers"
-					item = self.treeEl.find(`.tree-item .name:contains("${name}")`);
+					item = Self.treeEl.find(`.tree-item .name:contains("${name}")`);
 				} else {
-					item = self.treeEl.find(`.tree-item .name:contains("Colors")`);
+					item = Self.treeEl.find(`.tree-item .name:contains("Colors")`);
 				}
-				if (!item.length) self.treeEl.find(".tree-item:nth-child(1) .name").trigger("click");
+				if (!item.length) Self.treeEl.find(".tree-item:nth-child(1) .name").trigger("click");
 				else item.parent().trigger("click");
 				break;
 			case "select-bg-folder":
@@ -97,17 +97,17 @@
 				window.render({
 					template: "bg-list",
 					match: `//Data/Desktop/i[@name="${value}"]`,
-					target: self.listEl.scrollTop(0)
+					target: Self.listEl.scrollTop(0)
 				});
 
 				// make "active" in list
-				active = self.reelEl.find("> .active div");
+				active = Self.reelEl.find("> .active div");
 				style = active.attr("style");
-				if (self.bgComplexRx.exec(style)) style = self.bgRexExp.exec(style)[1];
-				active = self.listEl.find(`div[style*="${style}"]`);
+				if (Self.bgComplexRx.exec(style)) style = Self.bgRexExp.exec(style)[1];
+				active = Self.listEl.find(`div[style*="${style}"]`);
 				if (active.length) active.addClass("active").scrollIntoView();
 
-				self.listEl.toggleClass("wide-wp", el.data("type") !== "wide");
+				Self.listEl.toggleClass("wide-wp", el.data("type") !== "wide");
 				break;
 			case "select-bg-item":
 				el = $(event.target);
@@ -132,20 +132,20 @@
 				defiant.shell(`ws -w ${index} '${value}'`);
 				break;
 			case "add-workspace":
-				value = +self.reelEl.data("ws");
-				siblings = self.reelEl.find("> div");
+				value = +Self.reelEl.data("ws");
+				siblings = Self.reelEl.find("> div");
 				style = siblings.get(value).find("div").attr("style");
 
 				// duplicate previous sibling bg
 				siblings.get(value + 1).find("div").attr({ style });
 				
-				self.reelEl.data({ ws: value + 1 });
+				Self.reelEl.data({ ws: value + 1 });
 
 				// todo: interact with workspace to add / remove workspaces
 				break;
 			case "remove-workspace":
-				value = +self.reelEl.data("ws");
-				self.reelEl.data({ ws: value - 1 });
+				value = +Self.reelEl.data("ws");
+				Self.reelEl.data({ ws: value - 1 });
 				
 				// todo: interact with workspace to add / remove workspaces
 				break;

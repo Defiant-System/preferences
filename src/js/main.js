@@ -42,12 +42,11 @@ const preferences = {
 		//this.dispatch({ type: "go-to", view: "desktop" })
 	},
 	dispatch(event) {
-		let self = preferences,
+		let Self = preferences,
 			section,
 			view,
 			name,
 			el;
-		//console.log(event);
 		switch (event.type) {
 			// native events
 			case "window.focus":
@@ -58,7 +57,7 @@ const preferences = {
 			case "window.keydown":
 				if (event.target && event.keyCode === 13) {
 					// enter on login dialog
-					view = self.history.current.view;
+					view = Self.history.current.view;
 					section = window.find(`section[data-view="${view}"]`);
 					// pass on event to part
 					parts[view].dispatch({ ...event, section });
@@ -66,21 +65,21 @@ const preferences = {
 				break;
 			// custom events
 			case "main-menu":
-				self.history.push({ view: "main", name: self.title });
-				self.setViewState();
+				Self.history.push({ view: "main", name: Self.title });
+				Self.setViewState();
 				break;
 			case "go-to":
 				el = window.find(`.section[data-id="${event.view}"]`);
 				view = el.data("id");
 				name = el.find(".name").text();
-				self.history.push({ view, name });
-				self.setViewState();
+				Self.history.push({ view, name });
+				Self.setViewState();
 				break;
 			case "history-go":
-				if (event.arg === "-1") self.history.goBack();
-				else self.history.goForward();
+				if (event.arg === "-1") Self.history.goBack();
+				else Self.history.goForward();
 				// update view state
-				self.setViewState();
+				Self.setViewState();
 				break;
 			case "select-section":
 				el = $(event.target);
@@ -88,15 +87,19 @@ const preferences = {
 				name = el.find(".name").text();
 				if (!view) return;
 
-				self.history.push({ view, name });
-				self.setViewState();
+				Self.history.push({ view, name });
+				Self.setViewState();
 				break;
 			default:
+				if (typeof event === "string") {
+					// event is a "shortcut" to a view
+					return Self.dispatch({ type: "go-to", view: event });
+				}
 				el = event.target ? $(event.target) : event.el;
 				if (el) section = el.parents("section");
 
 				if (!section || !section.length) {
-					view = self.history.current.view;
+					view = Self.history.current.view;
 					section = window.find(`section[data-view="${view}"]`);
 				}
 				view = section.data("view");

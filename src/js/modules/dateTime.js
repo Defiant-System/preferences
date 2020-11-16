@@ -3,34 +3,34 @@
 
 {
 	dispatch(event) {
-		let self = parts.dateTime,
+		let Self = parts.dateTime,
 			isLocked,
 			items,
 			el;
 		switch (event.type) {
 			case "init-view":
-				self.section = event.section;
-				self.dateSettings = self.section.find(".date-settings .wrapper");
-				self.timeSettings = self.section.find(".time-settings .wrapper");
-				self.incArrows = self.section.find(".date-time-options .inc-arrows_");
-				self.calendar = self.section.find(".calendar");
-				self.clock = self.section.find(".clock");
-				self.worldmap = self.section.find(".worldmap");
-				self.lock = self.section.find(".row-foot .unlock-to-edit");
-				self.clockOptions = self.section.find(".clock-options");
+				Self.section = event.section;
+				Self.dateSettings = Self.section.find(".date-settings .wrapper");
+				Self.timeSettings = Self.section.find(".time-settings .wrapper");
+				Self.incArrows = Self.section.find(".date-time-options .inc-arrows_");
+				Self.calendar = Self.section.find(".calendar");
+				Self.clock = Self.section.find(".clock");
+				Self.worldmap = Self.section.find(".worldmap");
+				Self.lock = Self.section.find(".row-foot .unlock-to-edit");
+				Self.clockOptions = Self.section.find(".clock-options");
 
 				// toggle view; if user already unlocked previously
-				self.dispatch({
+				Self.dispatch({
 					type: "toggle-view",
 					isUnlocked: preferences.views.isUnlocked
 				});
 				
 				// temp
-				//self.section.find(".tab-row_ > div:nth-child(3)").trigger("click");
+				//Self.section.find(".tab-row_ > div:nth-child(3)").trigger("click");
 				break;
 			case "window.keystroke":
 				if (window.dialog._name === "unlock") {
-					self.dispatch({ type: "dialog-unlock-check" });
+					Self.dispatch({ type: "dialog-unlock-check" });
 				}
 				break;
 			case "go-to-language":
@@ -42,13 +42,13 @@
 				break;
 			case "select-time-zone":
 				el = $(event.target);
-				if (self.worldmap.hasClass("disabled_")) return;
+				if (Self.worldmap.hasClass("disabled_")) return;
 
 				el.parent().find(".active").removeClass("active");
 				el.addClass("active");
 
-				self.section.find(".timezone-name").html( el.data("name") +" Time" );
-				self.section.find(".timezone-utc").html( el.data("utc") );
+				Self.section.find(".timezone-name").html( el.data("name") +" Time" );
+				Self.section.find(".timezone-utc").html( el.data("utc") );
 				break;
 
 			case "dialog-unlock-check":
@@ -58,7 +58,7 @@
 					// incorrect password
 					return window.dialog.shake();
 				} else {
-					self.dispatch({
+					Self.dispatch({
 						type: "toggle-view",
 						isUnlocked: true,
 						password: value
@@ -67,18 +67,18 @@
 				/* falls through */
 			case "dialog-unlock-cancel":
 				// lock icon UI
-				self.lock.removeClass("authorizing");
+				Self.lock.removeClass("authorizing");
 				// close unlock dialog
 				window.dialog.close();
 				break;
 			case "toggle-view-lock":
 				if (event.el.hasClass("unlocked")) {
 					event.el.removeClass("unlocked");
-					self.dispatch({ type: "toggle-view" });
+					Self.dispatch({ type: "toggle-view" });
 				} else {
-					return self.dispatch({ type: "toggle-view", isUnlocked: true });
+					return Self.dispatch({ type: "toggle-view", isUnlocked: true });
 					// lock icon UI
-					self.lock.addClass("authorizing");
+					Self.lock.addClass("authorizing");
 					// show unlock dialog
 					window.dialog.show({ name: "unlock" });
 				}
@@ -93,18 +93,18 @@
 				}
 
 				// lock icon UI
-				self.lock.removeClass("authorizing")
+				Self.lock.removeClass("authorizing")
 					.toggleClass("unlocked", !event.isUnlocked);
 
-				self.dateSettings.toggleClass("disabled_", event.isUnlocked);
-				self.timeSettings.toggleClass("disabled_", event.isUnlocked);
-				self.incArrows.toggleClass("disabled_", event.isUnlocked);
-				self.calendar.toggleClass("disabled_", event.isUnlocked);
-				self.clock.toggleClass("disabled_", event.isUnlocked);
-				self.worldmap.toggleClass("disabled_", event.isUnlocked);
+				Self.dateSettings.toggleClass("disabled_", event.isUnlocked);
+				Self.timeSettings.toggleClass("disabled_", event.isUnlocked);
+				Self.incArrows.toggleClass("disabled_", event.isUnlocked);
+				Self.calendar.toggleClass("disabled_", event.isUnlocked);
+				Self.clock.toggleClass("disabled_", event.isUnlocked);
+				Self.worldmap.toggleClass("disabled_", event.isUnlocked);
 
 				// clock options
-				items = self.clockOptions.find("input, selectbox");
+				items = Self.clockOptions.find("input, selectbox");
 				items.toggleAttr("disabled", event.isUnlocked);
 				items.parent().toggleClass("disabled_", event.isUnlocked);
 				break;
