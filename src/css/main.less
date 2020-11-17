@@ -435,39 +435,52 @@ content {
 
 			.row-body {
 				.panel-left {
-					legend {
-						padding: 3px 5px;
-						margin-bottom: 3px;
-						font-size: 12px;
-						color: #aaa;
-						pointer-events: none;
+					display: flex;
+					flex-direction: column;
+					padding: 0;
 
-						&:not(:first-child) {
-							margin-top: 13px;
-						}
-					}
+					.storage-list {
+						padding-top: 5px;
+						flex: 1;
 
-					> div {
-						&.active {
-							background: #1067de;
-							color: #fff;
+						legend {
+							padding: 3px 5px;
+							margin-bottom: 3px;
+							font-size: 12px;
+							color: #aaa;
+							pointer-events: none;
 
-							i[class^="icon-"]:not(.icon-storage) {
-								filter: grayscale() brightness(5);
+							&:not(:first-child) {
+								margin-top: 13px;
 							}
-							.size {
-								color: #8bf;
-							}
-							i.icon-house {
-								filter: drop-shadow(0 0 1px #fff);
+
+							&.hidden {
+								display: none;
 							}
 						}
 
-						&:not(.active):not(.storage-options) {
-							cursor: pointer;
+						> div {
+							&.active {
+								background: #1067de;
+								color: #fff;
 
-							&:hover {
-								background: #f2f2f2;
+								i[class^="icon-"]:not(.icon-storage) {
+									filter: grayscale() brightness(5);
+								}
+								.size {
+									color: #8bf;
+								}
+								i.icon-house {
+									filter: drop-shadow(0 0 1px #fff);
+								}
+							}
+
+							&:not(.active):not(.storage-options) {
+								cursor: pointer;
+
+								&:hover {
+									background: #f2f2f2;
+								}
 							}
 						}
 					}
@@ -511,10 +524,6 @@ content {
 
 					.storage-options {
 						background: #f6f6f6;
-						position: absolute;
-						bottom: 0;
-						left: 0;
-						right: 0;
 						height: 25px;
 						border-top: 1px solid #ddd;
 						border-radius: 0 0 3px 3px;
@@ -528,6 +537,14 @@ content {
 							&:hover i {
 								opacity: .65;
 							}
+
+							&.disabled {
+								cursor: default;
+
+								i {
+									opacity: .15;
+								}
+							}
 						}
 
 						.icon-plus,
@@ -536,7 +553,6 @@ content {
 							display: inline-block;
 							width: 14px;
 							height: 14px;
-							cursor: pointer;
 							opacity: .35;
 
 							&.icon-minus {
@@ -556,7 +572,7 @@ content {
 								.indicator {
 									display: none;
 								}
-								
+
 								.conn-working { display: inline-block; }
 								.conn-true,
 								.conn-false { display: none; }
@@ -590,6 +606,10 @@ content {
 							.disc-usage {
 								display: block;
 							}
+						}
+
+						.icon-info {
+							margin-right: 3px;
 						}
 					}
 
@@ -631,7 +651,7 @@ content {
 									width: 11px;
 									height: 11px;
 									border-radius: 50%;
-									margin-right: 2px;
+									margin-right: 5px;
 									box-shadow: 0 0 0 1px rgba(0,0,0,.2),
 												inset 0 0 0 1px rgba(0,0,0,.2);
 								}

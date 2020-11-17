@@ -21,50 +21,50 @@
 		switch (event.type) {
 			case "init-view":
 				// ignore if already rendered
-				if (!event.section.find(".tree .tree-item").length) {
-					// fast references
-					Self.section = event.section;
-					Self.wideWsEl = Self.section.find(".workspace-wide");
-					Self.reelEl = Self.section.find(".reel");
-					Self.treeEl = Self.section.find(".tree");
-					Self.listEl = Self.section.find(".list");
+				if (event.section.find(".tree .tree-item").length) return;
+				
+				// fast references
+				Self.section = event.section;
+				Self.wideWsEl = Self.section.find(".workspace-wide");
+				Self.reelEl = Self.section.find(".reel");
+				Self.treeEl = Self.section.find(".tree");
+				Self.listEl = Self.section.find(".list");
 
-					// get wallpaper info from system
-					shell = await defiant.shell("ws -a wallpaper");
+				// get wallpaper info from system
+				shell = await defiant.shell("ws -a wallpaper");
 
-					// set number of desktops
-					Self.reelEl.data("ws", shell.result.length);
+				// set number of desktops
+				Self.reelEl.data("ws", shell.result.length);
 
-					shell.result.map(item => {
-						if (!style && item.wide) isWide = true;
-						if (!style) style = item.value;
+				shell.result.map(item => {
+					if (!style && item.wide) isWide = true;
+					if (!style) style = item.value;
 
-						Self.section
-							.find(`.workspace[data-id="${item.name}"] div`)
-							.attr({ style: item.value });
-					});
+					Self.section
+						.find(`.workspace[data-id="${item.name}"] div`)
+						.attr({ style: item.value });
+				});
 
-					if (isWide) {
-						Self.reelEl.addClass("wide");
-						Self.wideWsEl.find("div").attr({ style });
-						active = Self.wideWsEl;
-					} else {
-						active = Self.section.find(".workspace:first");
-					}
-
-					// is wide bg active
-					Self.section.toggleClass("wide-wp", isWide);
-
-					// render tree view
-					window.render({
-						template: "bg-tree",
-						match: `//Data/Desktop`,
-						target: Self.treeEl
-					});
-
-					// select first workspace
-					active.trigger("click");
+				if (isWide) {
+					Self.reelEl.addClass("wide");
+					Self.wideWsEl.find("div").attr({ style });
+					active = Self.wideWsEl;
+				} else {
+					active = Self.section.find(".workspace:first");
 				}
+
+				// is wide bg active
+				Self.section.toggleClass("wide-wp", isWide);
+
+				// render tree view
+				window.render({
+					template: "bg-tree",
+					match: `//Data/Desktop`,
+					target: Self.treeEl
+				});
+
+				// select first workspace
+				active.trigger("click");
 				break;
 			case "select-workspace":
 				el = $(event.target);
