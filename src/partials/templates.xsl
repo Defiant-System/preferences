@@ -16,50 +16,74 @@
 		
 		<legend class="external"><xsl:value-of select="@name"/></legend>
 		<xsl:for-each select="./*">
-			<div class="storage">
-				<xsl:attribute name="data-id"><xsl:value-of select="@icon"/></xsl:attribute>
-				<i>
-					<xsl:attribute name="class">icon-<xsl:value-of select="@icon"/></xsl:attribute>
-				</i>
-				<span class="name"><xsl:value-of select="@name"/></span>
-				<span class="size">
-					<xsl:call-template name="sys:storage-size">
-						<xsl:with-param name="bytes" select="@quota" />
-					</xsl:call-template>
-				</span>
-			</div>
+			<xsl:call-template name="storage-list-item"/>
 		</xsl:for-each>
 	</div>
 </xsl:template>
 
+<xsl:template name="storage-list-item">
+	<div class="storage">
+		<xsl:attribute name="data-id"><xsl:value-of select="@icon"/></xsl:attribute>
+		<i>
+			<xsl:attribute name="class">icon-<xsl:value-of select="@icon"/></xsl:attribute>
+		</i>
+		<span class="name">
+			<xsl:value-of select="@name"/>
+			<xsl:if test="not(@name)">
+				<xsl:value-of select="//i18n//*[@name='New Storage']/@value"/>
+			</xsl:if>
+		</span>
+		<span class="size">
+			<xsl:call-template name="sys:storage-size">
+				<xsl:with-param name="bytes" select="@quota" />
+			</xsl:call-template>
+			<xsl:if test="not(@quota)">N/A</xsl:if>
+		</span>
+	</div>
+</xsl:template>
+
 <xsl:template name="storage-details">
+	<xsl:variable name="used" select="sum(//FileSystem//i/@size)"></xsl:variable>
+	<xsl:variable name="quota">
+		<xsl:call-template name="sys:storage-size">
+			<xsl:with-param name="bytes" select="//FileSystem/@quota" />
+		</xsl:call-template>
+	</xsl:variable>
+	<xsl:variable name="available">
+		<xsl:call-template name="sys:file-size">
+			<xsl:with-param name="bytes" select="//FileSystem/@quota - $used" />
+		</xsl:call-template>
+	</xsl:variable>
+
 	<div class="tab-active_">
 		<xsl:if test="@quota">
 			<xsl:attribute name="class">tab-active_ connected</xsl:attribute>
 		</xsl:if>
 		<div class="row-group_">
 			<div class="row-cell_ row-status">
-				<div>Status:</div>
+				<div><xsl:value-of select="//i18n//*[@name='Status']/@value"/>:</div>
 				<div>
 					<i class="indicator"></i>
-					<b class="conn-true">Connected</b>
+					<b class="conn-true"><xsl:value-of select="//i18n//*[@name='Connected']/@value"/></b>
 					<b class="conn-working">
 						<svg class="loading paused" viewBox="25 25 50 50" >
 							<circle class="loader-path" cx="50" cy="50" r="20" />
 						</svg>
-						Connecting&#8230;
+						<xsl:value-of select="//i18n//*[@name='Connecting']/@value"/>
 					</b>
-					<b class="conn-false">Not connected</b>
-					<button data-click="connect-cloud-storage">Connect&#8230;</button>
+					<b class="conn-false"><xsl:value-of select="//i18n//*[@name='Not connected']/@value"/></b>
+					<button disabled="disabled" data-click="connect-cloud-storage">
+						<xsl:value-of select="//i18n//*[@name='Connect']/@value"/>
+					</button>
 				</div>
 			</div>
 		</div>
 		<hr/>
 		<div class="row-group_ storage-name">
 			<div class="row-cell_">
-				<div>Name:</div>
+				<div><xsl:value-of select="//i18n//*[@name='Name']/@value"/>:</div>
 				<div>
-					<input type="text">
+					<input type="text" name="storage-name">
 						<xsl:if test="name() = 'FileSystem'">
 							<xsl:attribute name="disabled">disabled</xsl:attribute>
 						</xsl:if>
@@ -69,41 +93,46 @@
 							</xsl:when>
 							<xsl:otherwise><xsl:value-of select="@name"/></xsl:otherwise>	
 						</xsl:choose></xsl:attribute>
+						<xsl:attribute name="placeholder">
+							<xsl:value-of select="//i18n//*[@name='New Storage']/@value"/>
+						</xsl:attribute>
 					</input>
 				</div>
 			</div>
 		</div>
 		<div class="row-group_ storage-type">
 			<div class="row-cell_">
-				<div>Storage:</div>
+				<div><xsl:value-of select="//i18n//*[@name='Storage']/@value"/>:</div>
 				<div>
-					<selectbox>
-						<option value="google-drive" selected="true">Google Drive</option>
-						<option value="dropbox">Dropbox</option>
-						<option value="onedrive">OneDrive</option>
+					<selectbox data-change="select-storage-type">
+						<xsl:for-each select="//CloudStorages/*">
+							<option>
+								<xsl:attribute name="value"><xsl:value-of select="@icon"/></xsl:attribute>
+								<xsl:if test="@storage/@icon = current()/@icon"><xsl:attribute name="selected">true</xsl:attribute></xsl:if>
+								<xsl:value-of select="@name"/>
+							</option>
+						</xsl:for-each>
 					</selectbox>
 				</div>
 			</div>
 		</div>
 		<div class="row-group_ disc-usage">
 			<div class="row-cell_">
-				<div>Usage:</div>
+				<div><xsl:value-of select="//i18n//*[@name='Usage']/@value"/>:</div>
 				<div>
-					<div class="disc-bar">
-						<div style="background: #7676fe; width: 6.0%; "><span>Video</span></div>
-						<div style="background: #69a5e1; width: 4.6%; "><span>Audio</span></div>
-						<div style="background: #e97474; width: 11.0%; "><span>Documents</span></div>
-						<div style="background: #ff9800; width: 21.0%; "><span>Images</span></div>
-						<div style="background: #aaa; width: 9.0%; "><span>Other</span></div>
-					</div>
-					<span>975.4 MB available of 1.0 GB</span>
+					<xsl:call-template name="sys:disc-bar"/>
+					<span>
+						<xsl:value-of select="$available" />
+						<xsl:text> available of </xsl:text>
+						<xsl:value-of select="$quota" />
+					</span>
 				</div>
 			</div>
 		</div>
 		<hr/>
 		<p>
 			<i class="icon-info"></i>
-			You can connect a cloud storage, thereby extending available storage. To connect more than one disk storage, you need to upgrade to premium account. Upgrading to premium grants you additional 15 GB of cloud storage.
+			You can connect a cloud storage, thereby extending available storage in Defiant. To connect more than one disk storage, you need to upgrade to premium account. Upgrading grants you additional 15 GB of cloud storage.
 		</p>
 	</div>
 </xsl:template>

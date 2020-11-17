@@ -4,6 +4,7 @@
 {
 	dispatch(event) {
 		let Self = parts.cloudStorage,
+			node,
 			match,
 			target,
 			el;
@@ -25,6 +26,11 @@
 
 				// make first active
 				Self.section.find(".panel-left .storage").get(0).trigger("click");
+
+				// temp
+				setTimeout(() => {
+					Self.dispatch({ type: "add-storage" });
+				}, 1000);
 				break;
 			case "select-storage":
 				el = $(event.target);
@@ -43,12 +49,34 @@
 
 				// render storage details
 				window.render({ template: "storage-details", match, target });
+
+				// auto focus input field
+				if (el.data("id") === "new-storage") {
+					target.find("input[name='storage-name']").select();
+				}
+				break;
+			case "select-storage-type":
+				el = Self.section.find(`input[name='storage-name']`);
+				if (!el.val()) {
+					el.val(event.el.find("option[selected]").text());
+				}
+				// enable connect button
+				Self.section.find(`button[data-click="connect-cloud-storage"]`).removeAttr("disabled");
 				break;
 			case "add-storage":
-				target = Self.section.find(".tab-body_");
-				match = "*";
-				// render empty storage details
-				window.render({ template: "storage-details", match, target });
+				let xBlock = window.bluePrint.selectSingleNode("sys://block[@id='external-storage']");
+				node = xBlock.appendChild($.nodeFromString(`<item icon="new-storage"/>`));
+
+				// render tree view
+				el = Self.section.find(".panel-left .storage-list");
+				match = `//block[@id="external-storage"]/*[@icon="new-storage"]`;
+				window.render({ template: "storage-list-item", append: el, match });
+
+				// auto select new storage
+				el.find(".storage").trigger("click");
+
+				// remove temp node
+				node.parentNode.removeChild(node);
 				break;
 			case "remove-storage":
 				if (event.el.hasClass("disabled")) return;
