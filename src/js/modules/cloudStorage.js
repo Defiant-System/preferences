@@ -7,8 +7,20 @@
 			node,
 			match,
 			target,
+			value,
+			active,
 			el;
 		switch (event.type) {
+			// native events
+			case "window.keystroke":
+				el = $(event.target);
+				if (el.attr("name") === "storage-name") {
+					// put entered value into selected item in left panel
+					value = el.val() || defiant.i18n("New Storage");
+					Self.section.find(".panel-left .active .name").html(value);
+				}
+				break;
+			// custom events
 			case "init-view":
 				// ignore if already rendered
 				if (event.section.find(".panel-left .storage").length) return;
@@ -34,6 +46,12 @@
 				break;
 			case "select-storage":
 				el = $(event.target);
+
+				// remove any "new storage", if there is one
+				active = el.parent().find(".storage[data-id='new-storage']");
+				if (active[0] !== el[0]) active.remove();
+
+				// conditional checks
 				if (el.hasClass("active") || !el.hasClass("storage")) return;
 				el.parent().find(".active").removeClass("active");
 				el.addClass("active");
@@ -64,6 +82,9 @@
 				Self.section.find(`button[data-click="connect-cloud-storage"]`).removeAttr("disabled");
 				break;
 			case "add-storage":
+				active = Self.section.find(".panel-left .storage[data-id='new-storage']");
+				if (active.length) return;
+
 				let xBlock = window.bluePrint.selectSingleNode("sys://block[@id='external-storage']");
 				node = xBlock.appendChild($.nodeFromString(`<item icon="new-storage"/>`));
 
@@ -73,7 +94,11 @@
 				window.render({ template: "storage-list-item", append: el, match });
 
 				// auto select new storage
-				el.find(".storage").trigger("click");
+				el.find(".storage:last").trigger("click");
+
+				// hide legend if no external storage in list
+				el = Self.section.find("legend").get(1);
+				el.toggleClass("hidden", el.nextAll(".storage").length > 0);
 
 				// remove temp node
 				node.parentNode.removeChild(node);
@@ -86,12 +111,14 @@
 				window.dialog.confirm({
 					message: "Are you sure you want to remove storage?",
 					onOk: () => {
+						let next = el.prevAll(".storage").get(0);
 						// remove element from DOM
 						el.remove();
-
 						// hide legend if no external storage in list
 						el = Self.section.find("legend").get(1);
 						el.toggleClass("hidden", el.nextAll(".storage").length > 0);
+						// make active previous suibling
+						next.trigger("click");
 					}
 				});
 				break;

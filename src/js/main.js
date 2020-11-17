@@ -51,8 +51,14 @@ const preferences = {
 			// native events
 			case "window.focus":
 			case "window.blur":
-			case "window.keystroke":
 				// prevents fall through to default
+				break;
+			case "window.keystroke":
+				// enter on login dialog
+				view = Self.history.current.view;
+				section = window.find(`section[data-view="${view}"]`);
+				// pass on event to part
+				parts[view].dispatch({ ...event, section });
 				break;
 			case "window.keydown":
 				if (event.target && event.keyCode === 13) {
