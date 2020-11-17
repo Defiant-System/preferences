@@ -8,6 +8,7 @@ content {
 
 	.icon-info    { background-image: url(~/icons/icon-info.png); }
 	.icon-warning { background-image: url(~/icons/icon-warning.png); }
+	.icon-help    { background-image: url(~/icons/icon-help.png); }
 
 	.link         {
 		color: #1067de;
@@ -512,6 +513,11 @@ content {
 							overflow: hidden;
 							text-overflow: ellipsis;
 							pointer-events: none;
+
+							&:after {
+								content: "";
+								display: inline-block;
+							}
 						}
 
 						.size {
@@ -1554,8 +1560,8 @@ content {
 		}
 
 		.row-foot {
-			//background: #ccc;
-			height: 43px;
+			position: relative;
+			height: 41px;
 			padding-top: 5px;
 			margin-top: 7px;
 			text-align: left;
@@ -1617,6 +1623,27 @@ content {
 					&.locked { display: inline-block; }
 					&.unlocked,
 					&.authenticating { display: none; }
+				}
+			}
+
+			.section-help {
+				background: #f5f5f5;
+				position: absolute;
+				top: 11px;
+				right: 3px;
+				width: 21px;
+				height: 21px;
+				padding: 3px 0 0 3px;
+				cursor: pointer;
+				border-radius: 50%;
+				box-shadow: 0 0 0 1px rgba(0,0,0,.1),
+							0 1px 3px rgba(0,0,0,.35);
+
+				.icon-help {
+					display: inline-block;
+					width: 15px;
+					height: 15px;
+					opacity: .65;
 				}
 			}
 		}

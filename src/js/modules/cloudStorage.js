@@ -44,6 +44,9 @@
 					Self.dispatch({ type: "add-storage" });
 				}, 1000);
 				break;
+			case "show-section-help":
+				console.log(event);
+				break;
 			case "select-storage":
 				el = $(event.target);
 
