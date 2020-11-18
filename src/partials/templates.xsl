@@ -43,15 +43,16 @@
 </xsl:template>
 
 <xsl:template name="storage-details">
-	<xsl:variable name="used" select="sum(//FileSystem//i/@size)"></xsl:variable>
+	<xsl:variable name="baseDir" select="//FileSystem//*[@name='Google Drive' and @quota]"></xsl:variable>
+	<xsl:variable name="used" select="sum($baseDir//i/@size)"></xsl:variable>
 	<xsl:variable name="quota">
 		<xsl:call-template name="sys:storage-size">
-			<xsl:with-param name="bytes" select="//FileSystem/@quota" />
+			<xsl:with-param name="bytes" select="$baseDir/@quota" />
 		</xsl:call-template>
 	</xsl:variable>
 	<xsl:variable name="available">
 		<xsl:call-template name="sys:file-size">
-			<xsl:with-param name="bytes" select="//FileSystem/@quota - $used" />
+			<xsl:with-param name="bytes" select="$baseDir/@quota - $used" />
 		</xsl:call-template>
 	</xsl:variable>
 
