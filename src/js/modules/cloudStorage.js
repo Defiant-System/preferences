@@ -43,6 +43,7 @@
 
 				// temp
 				setTimeout(() => {
+					return;
 					Self.fake = true;
 
 					Self.dispatch({ type: "add-storage" });
@@ -168,7 +169,7 @@
 				sItem.find(".size").html( defiant.formatBytes(event.quota) );
 				
 				// TODO: render disc-bar
-				
+
 				break;
 		}
 	}
