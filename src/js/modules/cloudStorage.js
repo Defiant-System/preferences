@@ -13,10 +13,12 @@
 		switch (event.type) {
 			// native events
 			case "window.keystroke":
+				if (!event.target) return;
+				// handle input event
 				el = $(event.target);
 				if (el.attr("name") === "storage-name") {
 					// put entered value into selected item in left panel
-					value = el.val() || defiant.i18n("New Storage");
+					value = el.val() || el.attr("placeholder");
 					Self.section.find(".panel-left .active .name").html(value);
 				}
 				break;
@@ -45,7 +47,7 @@
 				}, 1000);
 				break;
 			case "show-section-help":
-				console.log(event);
+				defiant.shell("fs -u '~/help/cloud-storage.md'");
 				break;
 			case "select-storage":
 				el = $(event.target);
@@ -77,9 +79,11 @@
 				}
 				break;
 			case "select-storage-type":
-				el = Self.section.find(`input[name='storage-name']`);
-				if (!el.val()) {
-					el.val(event.el.find("option[selected]").text());
+				target = Self.section.find(`input[name='storage-name']`);
+				if (!target.val()) {
+					target.val(event.el.find("option[selected]").text());
+					// trigger fake event
+					Self.dispatch({ type: "window.keystroke", target });
 				}
 				// enable connect button
 				Self.section.find(`button[data-click="connect-cloud-storage"]`).removeAttr("disabled");
@@ -140,6 +144,3 @@
 		}
 	}
 }
-
-
-// Root.shell_.execute_(`win -o preferences { type: "go-to", view: "cloudStorage" }`);
