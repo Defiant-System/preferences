@@ -43,7 +43,10 @@
 
 				// temp
 				setTimeout(() => {
+					Self.fake = true;
+
 					Self.dispatch({ type: "add-storage" });
+					// Self.dispatch({ type: "cloud-storage-connected" });
 				}, 1000);
 				break;
 			case "show-section-help":
@@ -80,11 +83,15 @@
 				break;
 			case "select-storage-type":
 				target = Self.section.find(`input[name='storage-name']`);
+				active = event.el.find("option[selected]");
 				if (!target.val()) {
-					target.val(event.el.find("option[selected]").text());
+					target.val(active.text());
 					// trigger fake event
 					Self.dispatch({ type: "window.keystroke", target });
 				}
+				// update icon in left panel
+				Self.section.find(`.storage[data-id="new-storage"] > i`)
+					.prop({ className: "icon-"+ active.attr("value") });
 				// enable connect button
 				Self.section.find(`button[data-click="connect-cloud-storage"]`).removeAttr("disabled");
 				break;
@@ -135,11 +142,33 @@
 				el.find(".loading").removeClass("paused");
 				el.find("selectbox").attr({ disabled: true });
 
-				setTimeout(() => {
-					el.removeClass("connecting").addClass("connected");
-					el.find(".loading").addClass("paused");
-					el.find("selectbox").removeAttr("disabled");
-				}, 3000);
+				if (Self.fake) {
+					return setTimeout(() => {
+						Self.dispatch({
+							type: "cloud-storage-connected",
+							id: "google-drive",
+							quota: 16106127360,
+						});
+					}, 2000);
+				}
+
+				// listen to callback event
+				defiant.once("cloud-storage-connected", Self.dispatch);
+				// start authorization process
+				window.fetch(`/fs/mount/google-drive/authorize`)
+					.then(res => defiant.open(res.authUrl));
+				break;
+			case "cloud-storage-connected":
+				el = Self.section.find(".tab-active_");
+				el.removeClass("connecting").addClass("connected");
+				el.find(".loading").addClass("paused");
+				// left panel
+				let sItem = Self.section.find(`.panel-left .storage[data-id="new-storage"]`);
+				sItem.data({ id: event.id });
+				sItem.find(".size").html( defiant.formatBytes(event.quota) );
+				
+				// TODO: render disc-bar
+				
 				break;
 		}
 	}
