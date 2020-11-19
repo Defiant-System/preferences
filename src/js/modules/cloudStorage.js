@@ -44,6 +44,7 @@
 
 				// temp
 				setTimeout(() => {
+					Self.section.find(".panel-left .storage").get(1).trigger("click");
 					return;
 					Self.fake = true;
 
@@ -130,23 +131,26 @@
 				break;
 			case "remove-storage":
 				if (event.el.hasClass("disabled")) return;
-
-				el = Self.section.find(".panel-left .active");
-				// confirm action
-				window.dialog.confirm({
-					message: "Are you sure you want to remove storage?",
-					onOk: () => {
-						let next = el.prevAll(".storage").get(0);
-						// remove element from DOM
-						el.remove();
-						// hide legend if no external storage in list
-						el = Self.section.find("legend").get(1);
-						el.toggleClass("hidden", el.nextAll(".storage").length > 0);
-						// make active previous suibling
-						next.trigger("click");
-					}
-				});
+				// show custom confirm dialog
+				window.dialog.show({ name: "confirm-remove-storage" });
 				break;
+			case "dialog-remove-storage-ok":
+				el = Self.section.find(".panel-left .active");
+				
+				let next = el.prevAll(".storage").get(0);
+				// remove element from DOM
+				el.remove();
+				// hide legend if no external storage in list
+				el = Self.section.find("legend").get(1);
+				el.toggleClass("hidden", el.nextAll(".storage").length > 0);
+				// make active previous suibling
+				next.trigger("click");
+				/* falls through */
+			case "dialog-remove-storage-cancel":
+				// close unlock dialog
+				window.dialog.close();
+				break;
+
 			case "connect-cloud-storage":
 				el = event.el.parents(".tab-active_");
 				el.addClass("connecting");

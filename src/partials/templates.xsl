@@ -130,6 +130,7 @@
 				<div>
 					<xsl:call-template name="sys:disc-bar">
 						<xsl:with-param name="base" select="$baseDir" />
+						<xsl:with-param name="exclude" select="$exclude" />
 					</xsl:call-template>
 					<span>
 						<xsl:value-of select="$available" />
