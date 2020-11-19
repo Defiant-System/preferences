@@ -4,6 +4,7 @@
 {
 	dispatch(event) {
 		let Self = parts.cloudStorage,
+			xpath,
 			node,
 			match,
 			target,
@@ -69,13 +70,28 @@
 				Self.section.find(".panel-left .option-button[data-click='remove-storage']")
 					.toggleClass("disabled", el.data("id") !== "defiant-cloud");
 
+				// storage base
+				let changeSelect = "//FileSystem";
+				value = el.data("path");
+				if (value) {
+					value = value.slice(value.lastIndexOf("/") + 1)
+					changeSelect = `//*[@name='Mount']/*[@name='${value}']`;
+				}
+				console.log(changeSelect);
+
 				target = Self.section.find(".tab-body_");
 				match = el.data("id") === "defiant-cloud"
 							? `//FileSystem`
 							: `//block[@id="external-storage"]/*[@icon="${el.data("id")}"]`;
 
 				// render storage details
-				window.render({ template: "storage-details", match, target });
+				window.render({
+					template: "storage-details",
+					changePath: "/*[@name='baseDir']",
+					changeSelect,
+					match,
+					target
+				});
 
 				// auto focus input field
 				if (el.data("id") === "new-storage") {

@@ -21,9 +21,13 @@
 	</div>
 </xsl:template>
 
+
 <xsl:template name="storage-list-item">
+	<xsl:variable name="mountName" select="@name"/>
+	<xsl:variable name="baseDir" select="//*[@name='Mount']/*[@name=$mountName]"/>
 	<div class="storage">
 		<xsl:attribute name="data-id"><xsl:value-of select="@icon"/></xsl:attribute>
+		<xsl:attribute name="data-path"><xsl:value-of select="@path"/></xsl:attribute>
 		<i>
 			<xsl:attribute name="class">icon-<xsl:value-of select="@icon"/></xsl:attribute>
 		</i>
@@ -35,17 +39,19 @@
 		</span>
 		<span class="size">
 			<xsl:call-template name="sys:storage-size">
-				<xsl:with-param name="bytes" select="@quota" />
+				<xsl:with-param name="bytes" select="$baseDir/@quota" />
 			</xsl:call-template>
-			<xsl:if test="not(@quota)">N/A</xsl:if>
+			<xsl:if test="not($baseDir/@quota)">N/A</xsl:if>
 		</span>
 	</div>
 </xsl:template>
 
+
 <xsl:template name="storage-details">
-	<!-- <xsl:variable name="baseDir" select="//FileSystem"></xsl:variable> -->
-	<xsl:variable name="baseDir" select="//FileSystem//*[@name='Google Drive' and @quota]"></xsl:variable>
-	<xsl:variable name="used" select="sum($baseDir//i/@size)"></xsl:variable>
+	<xsl:variable name="baseDir" select="//FileSystem"/>
+	<xsl:variable name="exclude" select="$baseDir/*[@name != 'Mount']"/>
+
+	<xsl:variable name="used" select="sum($exclude//i/@size)"/>
 	<xsl:variable name="quota">
 		<xsl:call-template name="sys:storage-size">
 			<xsl:with-param name="bytes" select="$baseDir/@quota" />
@@ -58,7 +64,7 @@
 	</xsl:variable>
 
 	<div class="tab-active_">
-		<xsl:if test="@quota">
+		<xsl:if test="$quota">
 			<xsl:attribute name="class">tab-active_ connected</xsl:attribute>
 		</xsl:if>
 		<div class="row-group_">
@@ -129,8 +135,8 @@
 						<xsl:value-of select="$available" />
 						<xsl:text> available of </xsl:text>
 						<xsl:value-of select="$quota" />
-						
-						<span class="file-count"><xsl:value-of select="count($baseDir//i)" /> files</span>
+
+						<span class="file-count"><xsl:value-of select="count($exclude//i)" /> files</span>
 					</span>
 				</div>
 			</div>
@@ -142,6 +148,7 @@
 		</p>
 	</div>
 </xsl:template>
+
 
 <xsl:template name="bg-tree">
 	<xsl:for-each select="./*">
@@ -158,6 +165,7 @@
 		</div>
 	</xsl:for-each>
 </xsl:template>
+
 
 <xsl:template name="bg-list">
 	<xsl:for-each select="./*">
