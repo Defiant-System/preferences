@@ -43,6 +43,7 @@
 </xsl:template>
 
 <xsl:template name="storage-details">
+	<!-- <xsl:variable name="baseDir" select="//FileSystem"></xsl:variable> -->
 	<xsl:variable name="baseDir" select="//FileSystem//*[@name='Google Drive' and @quota]"></xsl:variable>
 	<xsl:variable name="used" select="sum($baseDir//i/@size)"></xsl:variable>
 	<xsl:variable name="quota">
@@ -121,7 +122,9 @@
 			<div class="row-cell_">
 				<div><xsl:value-of select="//i18n//*[@name='Usage']/@value"/>:</div>
 				<div>
-					<xsl:call-template name="sys:disc-bar"/>
+					<xsl:call-template name="sys:disc-bar">
+						<xsl:with-param name="base" select="$baseDir" />
+					</xsl:call-template>
 					<span>
 						<xsl:value-of select="$available" />
 						<xsl:text> available of </xsl:text>
