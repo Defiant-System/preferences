@@ -129,6 +129,8 @@
 						<xsl:value-of select="$available" />
 						<xsl:text> available of </xsl:text>
 						<xsl:value-of select="$quota" />
+						
+						<span class="file-count"><xsl:value-of select="count($baseDir//i)" /> files</span>
 					</span>
 				</div>
 			</div>
