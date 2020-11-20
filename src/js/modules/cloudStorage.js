@@ -48,7 +48,7 @@
 				setTimeout(() => {
 					// return Self.section.find(".panel-left .storage").get(1).trigger("click");
 
-					// Self.dispatch({ type: "add-storage" });
+					Self.dispatch({ type: "add-storage" });
 					// Self.dispatch({ type: "cloud-storage-connected" });
 				}, 1000);
 				break;
@@ -96,6 +96,8 @@
 			case "select-storage-type":
 				target = Self.section.find(`input[name='storage-name']`);
 				active = event.el.find("option[selected]");
+				if (!active.length) return;
+
 				if (!target.val()) {
 					target.val(active.text());
 					// trigger fake event

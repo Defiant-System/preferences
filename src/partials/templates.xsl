@@ -92,7 +92,7 @@
 				<div><xsl:value-of select="//i18n//*[@name='Name']/@value"/>:</div>
 				<div>
 					<input type="text" name="storage-name">
-						<xsl:if test="name() = 'FileSystem'">
+						<xsl:if test="@icon != 'new-storage'">
 							<xsl:attribute name="disabled">disabled</xsl:attribute>
 						</xsl:if>
 						<xsl:attribute name="value"><xsl:choose>
