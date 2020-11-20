@@ -46,9 +46,9 @@
 
 				// temp
 				setTimeout(() => {
-					// return Self.section.find(".panel-left .storage").get(1).trigger("click");
+					return Self.section.find(".panel-left .storage").get(1).trigger("click");
 
-					Self.dispatch({ type: "add-storage" });
+					// Self.dispatch({ type: "add-storage" });
 					// Self.dispatch({ type: "cloud-storage-connected" });
 				}, 1000);
 				break;
@@ -166,6 +166,17 @@
 					window.dialog.alert({ message: "Failed to connect..." });
 				}
 				break;
+			case "storage-disconnected":
+				el = Self.section.find(`.panel-left .storage[data-id="${event.detail.id}"]`);
+				node = el.prevAll(".storage").get(0);
+				// remove element from DOM
+				el.remove();
+				// hide legend if no external storage in list
+				el = Self.section.find("legend").get(1);
+				el.toggleClass("hidden", el.nextAll(".storage").length > 0);
+				// make active previous suibling
+				node.trigger("click");
+				break;
 
 			case "remove-storage":
 				if (event.el.hasClass("disabled")) return;
@@ -186,20 +197,13 @@
 			case "dialog-remove-storage-ok":
 				el = Self.section.find(".panel-left .active");
 
+				// listen to callback event
+				defiant.once("sys:storage-disconnected", Self.dispatch);
 				// signlar defiant to remove storage
 				defiant.storage.remove({
 					id: el.data("id"),
 					name: el.find(".name").text(),
 				});
-
-				node = el.prevAll(".storage").get(0);
-				// remove element from DOM
-				el.remove();
-				// hide legend if no external storage in list
-				el = Self.section.find("legend").get(1);
-				el.toggleClass("hidden", el.nextAll(".storage").length > 0);
-				// make active previous suibling
-				node.trigger("click");
 				/* falls through */
 			case "dialog-remove-storage-cancel":
 				// close unlock dialog
