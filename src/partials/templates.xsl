@@ -48,7 +48,7 @@
 
 
 <xsl:template name="storage-details">
-	<xsl:variable name="baseDir" select="//FileSystem"/>
+	<xsl:variable name="baseDir"/>
 	<xsl:variable name="exclude" select="$baseDir/*[@name != 'Mount']"/>
 
 	<xsl:variable name="used" select="sum($exclude//i/@size)"/>
@@ -64,7 +64,7 @@
 	</xsl:variable>
 
 	<div class="tab-active_">
-		<xsl:if test="$quota">
+		<xsl:if test="@icon != 'new-storage'">
 			<xsl:attribute name="class">tab-active_ connected</xsl:attribute>
 		</xsl:if>
 		<div class="row-group_">
@@ -80,7 +80,7 @@
 						<xsl:value-of select="//i18n//*[@name='Connecting']/@value"/>
 					</b>
 					<b class="conn-false"><xsl:value-of select="//i18n//*[@name='Not connected']/@value"/></b>
-					<button disabled="disabled" data-click="connect-cloud-storage">
+					<button disabled="disabled" data-click="connect-storage">
 						<xsl:value-of select="//i18n//*[@name='Connect']/@value"/>
 					</button>
 				</div>

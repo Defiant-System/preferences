@@ -6,6 +6,8 @@
 		let Self = parts.cloudStorage,
 			xpath,
 			node,
+			changePath,
+			changeSelect,
 			match,
 			target,
 			value,
@@ -44,9 +46,7 @@
 
 				// temp
 				setTimeout(() => {
-					Self.section.find(".panel-left .storage").get(1).trigger("click");
-					return;
-					Self.fake = true;
+					//return Self.section.find(".panel-left .storage").get(1).trigger("click");
 
 					Self.dispatch({ type: "add-storage" });
 					// Self.dispatch({ type: "cloud-storage-connected" });
@@ -77,8 +77,8 @@
 							: `//block[@id="external-storage"]/*[@icon="${el.data("id")}"]`;
 
 				// storage base
-				let changePath = "/*[@name='baseDir']",
-					changeSelect = "//FileSystem";
+				changePath = "/*[@name='baseDir']";
+				changeSelect = "//FileSystem";
 				value = el.data("path");
 				if (value) {
 					value = value.slice(value.lastIndexOf("/") + 1)
@@ -105,7 +105,7 @@
 				Self.section.find(`.storage[data-id="new-storage"] > i`)
 					.prop({ className: "icon-"+ active.attr("value") });
 				// enable connect button
-				Self.section.find(`button[data-click="connect-cloud-storage"]`).removeAttr("disabled");
+				Self.section.find(`button[data-click="connect-storage"]`).removeAttr("disabled");
 				break;
 			case "add-storage":
 				active = Self.section.find(".panel-left .storage[data-id='new-storage']");
@@ -117,6 +117,7 @@
 				// render tree view
 				el = Self.section.find(".panel-left .storage-list");
 				match = `//block[@id="external-storage"]/*[@icon="new-storage"]`;
+				// render contents
 				window.render({ template: "storage-list-item", append: el, match });
 
 				// auto select new storage
@@ -129,51 +130,23 @@
 				// remove temp node
 				node.parentNode.removeChild(node);
 				break;
-			case "remove-storage":
-				if (event.el.hasClass("disabled")) return;
-				// show custom confirm dialog
-				window.dialog.show({ name: "confirm-remove-storage" });
-				break;
-			case "dialog-remove-storage-ok":
-				el = Self.section.find(".panel-left .active");
-				
-				let next = el.prevAll(".storage").get(0);
-				// remove element from DOM
-				el.remove();
-				// hide legend if no external storage in list
-				el = Self.section.find("legend").get(1);
-				el.toggleClass("hidden", el.nextAll(".storage").length > 0);
-				// make active previous suibling
-				next.trigger("click");
-				/* falls through */
-			case "dialog-remove-storage-cancel":
-				// close unlock dialog
-				window.dialog.close();
-				break;
-
-			case "connect-cloud-storage":
+			case "connect-storage":
 				el = event.el.parents(".tab-active_");
 				el.addClass("connecting");
 				el.find(".loading").removeClass("paused");
 				el.find("selectbox").attr({ disabled: true });
 
-				if (Self.fake) {
-					return setTimeout(() => {
-						Self.dispatch({
-							type: "cloud-storage-connected",
-							id: "google-drive",
-							quota: 16106127360,
-						});
-					}, 2000);
-				}
-
 				// listen to callback event
-				defiant.once("cloud-storage-connected", Self.dispatch);
-				// start authorization process
-				window.fetch(`/fs/mount/google-drive/authorize`)
-					.then(res => defiant.open(res.authUrl));
+				defiant.once("storage-connected", Self.dispatch);
+				// signlar defiant to add storage
+				defiant.storage.add({
+					id: el.find("selectbox").val(),
+					name: el.find("input[name='storage-name']").val(),
+				});
 				break;
-			case "cloud-storage-connected":
+			case "storage-connected":
+				return console.log( event, event.success );
+
 				el = Self.section.find(".tab-active_");
 				el.removeClass("connecting").addClass("connected");
 				el.find(".loading").addClass("paused");
@@ -184,6 +157,45 @@
 				
 				// TODO: render disc-bar
 
+				break;
+
+			case "remove-storage":
+				if (event.el.hasClass("disabled")) return;
+				// conditional check to see if this is temp "new storage"
+				el = Self.section.find(".panel-left .active");
+				if (el.data("id") === "new-storage") {
+					// find sibling to focus
+					node = el.prevAll(".storage").get(0);
+					// remove item
+					el.remove();
+					// make previous active
+					return node.trigger("click");
+				}
+				// show custom confirm dialog
+				window.dialog.show({ name: "confirm-remove-storage" });
+				break;
+			// remove dialog
+			case "dialog-remove-storage-ok":
+				el = Self.section.find(".panel-left .active");
+
+				// signlar defiant to remove storage
+				defiant.storage.remove({
+					id: el.data("id"),
+					name: el.find(".name").text(),
+				});
+
+				node = el.prevAll(".storage").get(0);
+				// remove element from DOM
+				el.remove();
+				// hide legend if no external storage in list
+				el = Self.section.find("legend").get(1);
+				el.toggleClass("hidden", el.nextAll(".storage").length > 0);
+				// make active previous suibling
+				node.trigger("click");
+				/* falls through */
+			case "dialog-remove-storage-cancel":
+				// close unlock dialog
+				window.dialog.close();
 				break;
 		}
 	}
