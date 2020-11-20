@@ -704,7 +704,7 @@ content {
 							}
 
 							.disc-bar {
-								background: #d2d2d2;
+								background: #e9e9e9;
 								position: relative;
 								border-radius: 3px;
 								margin: -3px 0 5px;
@@ -716,7 +716,7 @@ content {
 								display: flex;
 								flex-direction: row;
 								box-shadow: 0 0 0 1px rgba(0,0,0,.25),
-											0 2px 0 rgba(255,255,255,.6);
+											0 2px 0 rgba(255,255,255,.4);
 
 								&:after {
 									content: "";
@@ -727,13 +727,14 @@ content {
 									bottom: 0;
 									pointer-events: none;
 									border-radius: 2px;
-									// box-shadow: inset 0 -13px 7px rgba(0,0,0,.1),
-									// 			inset 1px 1px 1px rgba(255,255,255,.2);
+									box-shadow: inset 0 -13px 7px rgba(0,0,0,.1),
+												inset 1px 1px 1px rgba(255,255,255,.15);
 								}
 
 								div {
 									position: relative;
-									// min-width: 2px;
+									max-width: 0;
+									animation: discSize 1000ms 300ms linear forwards;
 
 									&:hover span {
 										visibility: visible;
@@ -1751,5 +1752,10 @@ content {
 	0%   { transform: translateX(-50%) translateY(15px) scale(.25); opacity: 0; }
 	91%  { transform: translateX(-50%) translateY(-3px) scale(1.1); opacity: 1; }
 	100% { transform: translateX(-50%) translateY(0px) scale(1); opacity: 1; }
+}
+
+@keyframes discSize {
+  0%   { max-width: 0; }
+  100% { max-width: 250px; }
 }
 

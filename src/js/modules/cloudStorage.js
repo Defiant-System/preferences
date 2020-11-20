@@ -46,9 +46,9 @@
 
 				// temp
 				setTimeout(() => {
-					//return Self.section.find(".panel-left .storage").get(1).trigger("click");
+					// return Self.section.find(".panel-left .storage").get(1).trigger("click");
 
-					Self.dispatch({ type: "add-storage" });
+					// Self.dispatch({ type: "add-storage" });
 					// Self.dispatch({ type: "cloud-storage-connected" });
 				}, 1000);
 				break;
@@ -137,7 +137,7 @@
 				el.find("selectbox").attr({ disabled: true });
 
 				// listen to callback event
-				defiant.once("storage-connected", Self.dispatch);
+				defiant.once("sys:storage-connected", Self.dispatch);
 				// signlar defiant to add storage
 				defiant.storage.add({
 					id: el.find("selectbox").val(),
@@ -145,18 +145,24 @@
 				});
 				break;
 			case "storage-connected":
-				return console.log( event, event.success );
-
-				el = Self.section.find(".tab-active_");
-				el.removeClass("connecting").addClass("connected");
-				el.find(".loading").addClass("paused");
-				// left panel
-				let sItem = Self.section.find(`.panel-left .storage[data-id="new-storage"]`);
-				sItem.data({ id: event.id });
-				sItem.find(".size").html( defiant.formatBytes(event.quota) );
-				
-				// TODO: render disc-bar
-
+				if (event.detail.success) {
+					el = Self.section.find(".tab-active_");
+					el.removeClass("connecting").addClass("connected");
+					el.find(".loading").addClass("paused");
+					// left panel
+					let sItem = Self.section.find(`.panel-left .storage[data-id="new-storage"]`);
+					sItem.data({
+						id: event.detail.id,
+						path: event.detail.path,
+					});
+					sItem.find(".size").html( defiant.formatBytes(event.detail.quota) );
+					
+					// TODO: render disc-bar
+					sItem.removeClass("active").trigger("click");
+				} else {
+					// failed to connect
+					window.dialog.alert({ message: "Failed to connect..." });
+				}
 				break;
 
 			case "remove-storage":
