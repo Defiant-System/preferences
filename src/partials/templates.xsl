@@ -114,7 +114,7 @@
 				<div>
 					<selectbox data-change="select-storage-type">
 						<xsl:for-each select="//CloudStorages/*">
-							<xsl:if test="//block[@id = 'external-storage']/*[@id != current()/@id]">
+							<xsl:if test="not(//block[@id = 'external-storage']/*[@id = current()/@id])">
 								<option>
 									<xsl:attribute name="value"><xsl:value-of select="@id"/></xsl:attribute>
 									<xsl:value-of select="@name"/>
