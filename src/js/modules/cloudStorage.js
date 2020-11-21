@@ -46,9 +46,9 @@
 
 				// temp
 				setTimeout(() => {
-					return Self.section.find(".panel-left .storage").get(1).trigger("click");
+					// return Self.section.find(".panel-left .storage").get(1).trigger("click");
 
-					// Self.dispatch({ type: "add-storage" });
+					Self.dispatch({ type: "add-storage" });
 					// Self.dispatch({ type: "cloud-storage-connected" });
 				}, 1000);
 				break;
