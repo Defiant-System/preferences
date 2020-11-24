@@ -37,7 +37,7 @@
 				setTimeout(() => {
 					// return Self.section.find(".panel-left .storage").get(1).trigger("click");
 
-					Self.dispatch({ type: "add-storage" });
+					// Self.dispatch({ type: "add-storage" });
 					// Self.dispatch({ type: "cloud-storage-connected" });
 				}, 100);
 				break;
@@ -76,6 +76,10 @@
 
 				// render storage details
 				window.render({ template: "storage-details", changePath, changeSelect, match, target });
+
+				// hide legend if no external storage in list
+				el = Self.section.find("legend").get(1);
+				el.toggleClass("hidden", el.nextAll(".storage").length > 0);
 				break;
 			case "select-storage-type":
 				target = Self.section.find(`input[name='storage-name']`);
