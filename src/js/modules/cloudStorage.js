@@ -14,17 +14,6 @@
 			active,
 			el;
 		switch (event.type) {
-			// native events
-			case "window.keystroke":
-				if (!event.target) return;
-				// handle input event
-				el = $(event.target);
-				if (el.attr("name") === "storage-name") {
-					// put entered value into selected item in left panel
-					value = el.val() || el.attr("placeholder");
-					Self.section.find(".panel-left .active .name").html(value);
-				}
-				break;
 			// custom events
 			case "init-view":
 				// ignore if already rendered
@@ -48,9 +37,9 @@
 				setTimeout(() => {
 					// return Self.section.find(".panel-left .storage").get(1).trigger("click");
 
-					// Self.dispatch({ type: "add-storage" });
+					Self.dispatch({ type: "add-storage" });
 					// Self.dispatch({ type: "cloud-storage-connected" });
-				}, 1000);
+				}, 100);
 				break;
 			case "show-section-help":
 				defiant.shell("fs -u '~/help/cloud-storage.md'");
@@ -87,22 +76,15 @@
 
 				// render storage details
 				window.render({ template: "storage-details", changePath, changeSelect, match, target });
-
-				// auto focus input field
-				if (el.data("id") === "new-storage") {
-					target.find("input[name='storage-name']").select();
-				}
 				break;
 			case "select-storage-type":
 				target = Self.section.find(`input[name='storage-name']`);
 				active = event.el.find("option[selected]");
 				if (!active.length) return;
-
-				if (!target.val()) {
-					target.val(active.text());
-					// trigger fake event
-					Self.dispatch({ type: "window.keystroke", target });
-				}
+				// update input value
+				target.val(active.text());
+				// update name in left panel
+				Self.section.find(".panel-left .active .name").html(active.text());
 				// update icon in left panel
 				Self.section.find(`.storage[data-id="new-storage"] > i`)
 					.prop({ className: "icon-"+ active.attr("value") });

@@ -91,10 +91,7 @@
 			<div class="row-cell_">
 				<div><xsl:value-of select="//i18n//*[@name='Name']/@value"/>:</div>
 				<div>
-					<input type="text" name="storage-name">
-						<xsl:if test="@icon != 'new-storage'">
-							<xsl:attribute name="disabled">disabled</xsl:attribute>
-						</xsl:if>
+					<input type="text" name="storage-name" disabled="disabled">
 						<xsl:attribute name="value"><xsl:choose>
 							<xsl:when test="name() = 'FileSystem'">
 								<xsl:value-of select="//i18n//*[@name='Defiant Cloud']/@value"/>
