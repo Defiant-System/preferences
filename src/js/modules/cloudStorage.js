@@ -38,7 +38,6 @@
 					// return Self.section.find(".panel-left .storage").get(1).trigger("click");
 
 					// Self.dispatch({ type: "add-storage" });
-					// Self.dispatch({ type: "cloud-storage-connected" });
 				}, 100);
 				break;
 			case "show-section-help":
@@ -126,7 +125,7 @@
 
 				// listen to callback event
 				defiant.once("sys:storage-connected", Self.dispatch);
-				// signlar defiant to add storage
+				// signal defiant to add storage
 				defiant.storage.add({
 					id: el.find("selectbox").val(),
 					name: el.find("input[name='storage-name']").val(),
@@ -185,7 +184,7 @@
 
 				// listen to callback event
 				defiant.once("sys:storage-disconnected", Self.dispatch);
-				// signlar defiant to remove storage
+				// signal defiant to remove storage
 				defiant.storage.remove({
 					id: el.data("id"),
 					name: el.find(".name").text(),
