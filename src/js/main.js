@@ -1,24 +1,24 @@
 
 const parts = {
-	accessibility: defiant.require("modules/accessibility.js"),
-	dateTime:      defiant.require("modules/dateTime.js"),
-	desktop:       defiant.require("modules/desktop.js"),
-	displays:      defiant.require("modules/displays.js"),
-	dock:          defiant.require("modules/dock.js"),
-	general:       defiant.require("modules/general.js"),
-	cloudStorage:  defiant.require("modules/cloudStorage.js"),
-	integrations:  defiant.require("modules/integrations.js"),
-	keyboard:      defiant.require("modules/keyboard.js"),
-	language:      defiant.require("modules/language.js"),
-	mouse:         defiant.require("modules/mouse.js"),
-	notifications: defiant.require("modules/notifications.js"),
-	screenSaver:   defiant.require("modules/screenSaver.js"),
-	security:      defiant.require("modules/security.js"),
-	sharing:       defiant.require("modules/sharing.js"),
-	sound:         defiant.require("modules/sound.js"),
-	spotlight:     defiant.require("modules/spotlight.js"),
-	updates:       defiant.require("modules/updates.js"),
-	usersGroups:   defiant.require("modules/usersGroups.js"),
+	accessibility: @import "modules/accessibility.js",
+	dateTime:      @import "modules/dateTime.js",
+	desktop:       @import "modules/desktop.js",
+	displays:      @import "modules/displays.js",
+	dock:          @import "modules/dock.js",
+	general:       @import "modules/general.js",
+	cloudStorage:  @import "modules/cloudStorage.js",
+	integrations:  @import "modules/integrations.js",
+	keyboard:      @import "modules/keyboard.js",
+	language:      @import "modules/language.js",
+	mouse:         @import "modules/mouse.js",
+	notifications: @import "modules/notifications.js",
+	screenSaver:   @import "modules/screenSaver.js",
+	security:      @import "modules/security.js",
+	sharing:       @import "modules/sharing.js",
+	sound:         @import "modules/sound.js",
+	spotlight:     @import "modules/spotlight.js",
+	updates:       @import "modules/updates.js",
+	usersGroups:   @import "modules/usersGroups.js",
 };
 
 const preferences = {
@@ -65,8 +65,10 @@ const preferences = {
 					// enter on login dialog
 					view = Self.history.current.view;
 					section = window.find(`section[data-view="${view}"]`);
-					// pass on event to part
-					parts[view].dispatch({ ...event, section });
+					if (parts[view]) {
+						// pass on event to part
+						parts[view].dispatch({ ...event, section });
+					}
 				}
 				break;
 			// custom events
