@@ -37,7 +37,7 @@
 				Self.reelEl.data("ws", shell.result.length);
 
 				shell.result.map(item => {
-					if (!style && item.wide) isWide = true;
+					if (!style && item.isWide) isWide = true;
 					if (!style) style = item.value;
 
 					Self.section
@@ -89,7 +89,7 @@
 				break;
 			case "select-bg-folder":
 				el = $(event.target);
-				if (!el.hasClass("tree-item")) return;
+				if (!el.hasClass("tree-item") || el.hasClass("active")) return;
 				el.parent().find(".active").removeClass("active");
 				el.addClass("active");
 
@@ -123,11 +123,17 @@
 					workspace.find("div").attr({style: value});
 					index = "wide";
 				} else {
+					// section.find(".workspace-wide").removeClass("active");
 					section.find(".reel").removeClass("wide");
 					workspace = section.find(".workspace.active");
+					if (!workspace.length) {
+						shell = await defiant.shell(`ws -s`);
+						workspace = section.find(".workspace").get(shell.result-1).addClass("active");
+					}
 					workspace.find("div").attr({style: value});
 					index = workspace.index();
 				}
+
 				value = value.replace(/\?.+?\)/g, ")");
 				defiant.shell(`ws -w ${index} '${value}'`);
 				break;
