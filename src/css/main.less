@@ -1228,24 +1228,24 @@ content {
 						}
 					}
 
-					.month {
-						span {
-							cursor: default;
+					// .month {
+					// 	span {
+					// 		cursor: default;
 
-							&.active {
-								background: #aaa;
-								color: #fff;
-							}
+					// 		&.active {
+					// 			background: #aaa;
+					// 			color: #fff;
+					// 		}
 
-							&:hover:not(.active) {
-								background: transparent;
-							}
-						}
-					}
+					// 		&:hover:not(.active) {
+					// 			background: transparent;
+					// 		}
+					// 	}
+					// }
 				}
 
 				.calendar-head {
-					padding: 7px 3px 0;
+					padding: 7px 3px 3px;
 					display: flex;
 
 					.calendar-left,
@@ -1263,13 +1263,77 @@ content {
 					.calendar-month {
 						flex: 1;
 						padding-top: 2px;
-						font-size: 13px;
-						font-weight: 200;
+						font-size: 14px;
+						font-weight: 400;
 						text-align: center;
 						color: #777;
 					}
 				}
 
+
+				b {
+					display: inline-block;
+					width: 14%;
+					font-weight: 500;
+					font-size: 12px;
+					text-align: center;
+					padding: 5px 0;
+
+					i {
+						position: relative;
+						z-index: 1;
+						font-style: normal;
+					}
+				}
+
+				.weekdays {
+					font-size: 0;
+					color: #888;
+					padding: 3px 1px 0px;
+					margin-bottom: 3px;
+					// text-transform: uppercase;
+
+					b {
+						font-weight: 400;
+						font-size: 12px;
+					}
+				}
+
+				.days {
+					font-size: 0;
+					padding: 0 1px;
+
+					b {
+						&.weekend {
+							color: #e77;
+						}
+
+						&.non-day {
+							color: #c2c2c2;
+							font-weight: 300;
+						}
+
+						&.today {
+							position: relative;
+							color: #fff;
+
+							&:before {
+								content: "";
+								background: #1067de;
+								position: absolute;
+								top: 0;
+								right: auto;
+								left: 50%;
+								width: 21px;
+								height: 21px;
+								border-radius: 50%;
+								margin-left: -10px;
+							}
+						}
+					}
+				}
+
+				/*
 				.weekdays {
 					position: relative;
 					padding: 3px 0 1px;
@@ -1340,6 +1404,7 @@ content {
 						}
 					}
 				}
+				*/
 			}
 
 			.clock {
@@ -1622,7 +1687,7 @@ content {
 						left: 3px;
 						width: 31px;
 						height: 31px;
-						background: url(~/icons/icon-padlock.png) 50% 50% no-repeat;
+						background: url(~/icons/icon-padlock.png) 50% 50%/contain no-repeat;
 						filter: drop-shadow(0px 1px 1px rgba(0,0,0,.2));
 					}
 				}

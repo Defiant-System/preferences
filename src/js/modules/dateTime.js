@@ -24,6 +24,8 @@
 					type: "toggle-view",
 					isUnlocked: preferences.views.isUnlocked
 				});
+
+				Self.renderCalendar();
 				
 				// temp
 				//Self.section.find(".tab-row_ > div:nth-child(3)").trigger("click");
@@ -109,5 +111,37 @@
 				items.parent().toggleClass("disabled_", event.isUnlocked);
 				break;
 		}
+	},
+	renderCalendar() {
+		let date = new defiant.Moment(),
+			meta = date.render({ date, weekNumbers: 1, mini: 1 }),
+			htm = [];
+
+		// title: month
+		htm.push(`<div class="calendar-head">`);
+		htm.push(`<span class="calendar-left"></span>`);
+		htm.push(`<span class="calendar-month">${date.format("MMMM YYYY")}</span>`);
+		htm.push(`<span class="calendar-right"></span>`);
+		htm.push(`</div>`);
+		
+		// loop weekdays
+		htm.push(`<div class="weekdays">`);
+		meta.weekdays.map(day => {
+			let className = day.type ? ` class="${day.type.join(" ")}"` : "";
+			htm.push(`<b${className}>${day.name}</b>`);
+		});
+		htm.push(`</div>`);
+
+		// loop days
+		htm.push(`<div class="days">`);
+		meta.days.map(day => {
+			if (day.date) {
+				let className = day.type ? ` class="${day.type.join(" ")}"` : "";
+				htm.push(`<b${className}><i>${day.date}</i></b>`);
+			}
+		});
+		htm.push(`</div></div>`);
+
+		this.calendar.html(htm.join(""));
 	}
 }
