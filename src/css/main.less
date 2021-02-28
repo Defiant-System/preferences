@@ -6,9 +6,15 @@ content {
 	user-select: none;
 	color: #333;
 
-	.icon-info    { background-image: url(~/icons/icon-info.png); }
-	.icon-warning { background-image: url(~/icons/icon-warning.png); }
-	.icon-help    { background-image: url(~/icons/icon-help.png); }
+
+	[class*="icon-"],
+	[class^="icon-"] {
+		background-size: contain;
+		
+		&.icon-info    { background-image: url(~/icons/icon-info.png); }
+		&.icon-warning { background-image: url(~/icons/icon-warning.png); }
+		&.icon-help    { background-image: url(~/icons/icon-help.png); }
+	}
 
 	.link         {
 		color: #1067de;
@@ -32,7 +38,18 @@ content {
 
 	.row-group_ {
 		width: 442px;
+		min-height: 31px;
 		margin: 0 auto;
+
+		> div {
+			> div {
+				input,
+				selectbox {
+					position: relative;
+					top: -1px;
+				}
+			}
+		}
 
 		.cell {
 			display: inline-block;
@@ -154,7 +171,7 @@ content {
 
 						.name {
 							display: block;
-							padding: 1px 0 2px;
+							padding: 1px 0 3px;
 							white-space: nowrap;
 							overflow: hidden;
 							text-overflow: ellipsis;
@@ -164,7 +181,6 @@ content {
 						.info {
 							display: block;
 							color: #aaa;
-							font-weight: 100;
 							font-size: 11px;
 							pointer-events: none;
 						}
@@ -356,7 +372,7 @@ content {
 
 						&:after {
 							content: "";
-							background: url(~/icons/icon-times.png) 50% 50% no-repeat;
+							background: url(~/icons/icon-times.png) 50% 50%/contain no-repeat;
 							//background-size: 75% auto;
 							position: absolute;
 							top: 3px;
@@ -559,8 +575,8 @@ content {
 						.icon-minus {
 							background: url(~/icons/icon-plus.png) 50% 50%/contain no-repeat;
 							display: inline-block;
-							width: 14px;
-							height: 14px;
+							width: 13px;
+							height: 13px;
 							opacity: .35;
 
 							&.icon-minus {
@@ -1420,7 +1436,7 @@ content {
 
 						.name {
 							display: block;
-							padding: 1px 0 2px;
+							padding: 1px 0 3px;
 							white-space: nowrap;
 							overflow: hidden;
 							text-overflow: ellipsis;
@@ -1430,7 +1446,6 @@ content {
 						.info {
 							display: block;
 							color: #aaa;
-							font-weight: 100;
 							font-size: 11px;
 							pointer-events: none;
 						}
@@ -1443,6 +1458,7 @@ content {
 					}
 					.row-group_ {
 						width: 317px;
+						padding: 1px 0 7px;
 
 						> div {
 							display: flex;
@@ -1507,7 +1523,7 @@ content {
 
 						.name {
 							display: block;
-							padding: 1px 0 2px;
+							padding: 1px 0 3px;
 							white-space: nowrap;
 							overflow: hidden;
 							text-overflow: ellipsis;
@@ -1517,7 +1533,6 @@ content {
 						.info {
 							display: block;
 							color: #aaa;
-							font-weight: 100;
 							font-size: 11px;
 							pointer-events: none;
 						}
@@ -1643,6 +1658,7 @@ content {
 							0 1px 3px rgba(0,0,0,.35);
 
 				.icon-help {
+					background-size: contain;
 					display: inline-block;
 					width: 13px;
 					height: 13px;

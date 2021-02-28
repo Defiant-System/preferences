@@ -35,6 +35,14 @@
 
 				// Self.dispatch({ type: "edit-user-photo" });
 				break;
+			case "window.keystroke":
+				if (event.char === "return") {
+					Self.dispatch({ type: "dialog-unlock-check" });
+				}
+				if (event.char === "esc") {
+					Self.dispatch({ type: "dialog-unlock-cancel" });
+				}
+				break;
 			case "window.keydown":
 				if (window.dialog._name === "unlock") {
 					Self.dispatch({ type: "dialog-unlock-check" });
