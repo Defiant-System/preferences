@@ -1,10 +1,14 @@
 
-background: linear-gradient(to bottom, #ececec, #e0dfe4);
+// for dark theme
+@import "theme-dark";
+
+background-image: linear-gradient(to bottom, rgba(0,0,0,.02), rgba(0,0,0,.07));
+// background-image: linear-gradient(to bottom, #ececec, #e0dfe4);
 transition: all 200ms;
 
 content {
 	user-select: none;
-	color: #333;
+	color: var( --content-fg );
 
 
 	[class*="icon-"],
@@ -101,11 +105,11 @@ content {
 				}
 
 				&:not(:first-child) {
-					border-top: 1px solid #ededed;
+					border-top: 1px solid rgba(255,255,255,.375);
 				}
 
 				&:not(:last-child) {
-					border-bottom: 1px solid #d8d8d8;
+					border-bottom: 1px solid rgba(0,0,0,.085);
 				}
 			}
 
@@ -139,7 +143,7 @@ content {
 					width: inherit;
 					font-size: 12px;
 					line-height: 1.25;
-					color: #777;
+					opacity: .75;
 				}
 			}
 		}

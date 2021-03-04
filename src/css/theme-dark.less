@@ -1,0 +1,31 @@
+
+&[data-theme="dark"] {
+	content {
+		section {
+			&[data-view="main"] {
+				> div {
+					&:nth-child(2n) {
+						background: rgba(0,0,0,.0275);
+					}
+
+					&:not(:first-child) {
+						border-top-color: rgba(255,255,255,.125);
+					}
+
+					&:not(:last-child) {
+						border-bottom-color: rgba(0,0,0,.175);
+					}
+				}
+
+				.section {
+					.icon {
+						filter: drop-shadow(0 2px 1px rgba(0,0,0,0.25));
+					}
+					.name {
+						text-shadow: var( --text-shadow );
+					}
+				}
+			}
+		}
+	}
+}
