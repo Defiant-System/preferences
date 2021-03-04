@@ -2,6 +2,7 @@
 &[data-theme="dark"] {
 	content {
 		section {
+
 			&[data-view="main"] {
 				> div {
 					&:nth-child(2n) {
@@ -24,6 +25,81 @@
 					.name {
 						text-shadow: var( --text-shadow );
 					}
+				}
+			}
+
+			&[data-view="general"] {
+				.theme-preview {
+					&.active {
+						div {
+							box-shadow: 0 0 0 1px #5178b0,
+										0 0 0 4px #3182fa;
+						}
+					}
+				}
+			}
+
+			&[data-view="desktop"] {
+				.reel {
+					.workspace-wide,
+					.workspace {
+						background-color: rgba(0,0,0,.075);
+						border: 1px solid rgba(0,0,0,.075);
+
+						&.active {
+							&:before {
+								box-shadow: 0 0 0 3px #3182fa;
+							}
+
+							&:after {
+								color: var( --content-fg );
+							}
+						}
+
+						&[data-id="ws-add"] {
+							&:hover div {
+								filter: invert(1) opacity(.35) drop-shadow(0 1px 0 #111);
+							}
+
+							div {
+								filter: invert(1) opacity(.25) drop-shadow(0 1px 0 #111);
+							}
+						}
+					}
+				}
+
+				.list {
+					.bg-preview {
+						&.active:before {
+							box-shadow: 0 0 0 3px #3182fa;
+						}
+					}
+				}
+			}
+
+			.tab-body_ .tab-active_,
+			.row-body {
+				color: var( --content-fg );
+				text-shadow: 0 1px 1px rgba(0,0,0,.2);
+
+				.panel-left {
+					background: rgba(0,0,0,.025);
+					border-color: rgba(0,0,0,.125);
+					text-shadow: 0 1px 1px rgba(0,0,0,.2);
+				}
+			}
+
+			.sample {
+				text-shadow: 0 1px 1px rgba(0,0,0,.2);
+
+				.tree {
+					background: rgba(0,0,0,.05);
+					border-color: rgba(0,0,0,.125);
+				}
+
+				.list {
+					background: rgba(0,0,0,.05);
+					border-color: rgba(0,0,0,.125);
 				}
 			}
 		}
