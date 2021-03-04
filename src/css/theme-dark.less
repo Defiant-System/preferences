@@ -1,6 +1,7 @@
 
 &[data-theme="dark"] {
 	content {
+
 		section {
 
 			&[data-view="main"] {
@@ -39,12 +40,41 @@
 				}
 			}
 
+			&[data-view="cloudStorage"] {
+				.row-body {
+					.panel-left {
+						.storage-options {
+							background: rgba(0,0,0,.025);
+							border-color: rgba(0,0,0,.075);
+
+							.option-button {
+								border-right-color: rgba(0,0,0,.075);
+
+								.icon-plus,
+								.icon-minus {
+									filter: invert(1) drop-shadow(0 1px 0 #111);
+								}
+							}
+						}
+					}
+					
+					.panel-right {
+						.tab-active_ {
+							.icon-info {
+								filter: brightness(0.3) invert(1) drop-shadow(0 1px 1px #555);
+							}
+						}
+					}
+
+				}
+			}
+
 			&[data-view="desktop"] {
 				.reel {
 					.workspace-wide,
 					.workspace {
 						background-color: rgba(0,0,0,.075);
-						border: 1px solid rgba(0,0,0,.075);
+						border-color: rgba(0,0,0,.075);
 
 						&.active {
 							&:before {
@@ -56,13 +86,29 @@
 							}
 						}
 
+						i.icon-times {
+							top: -8px;
+							right: -8px;
+							width: 18px;
+							height: 18px;
+							background: var( --content-bg );
+							box-shadow: inset 0 0 2px var( --content-fg ),
+										0 2px 5px rgba(0,0,0,.65);
+
+							&:after {
+								top: 4px;
+								left: 4px;
+								filter: invert(1) drop-shadow(0 1px 0 #111);
+							}
+						}
+
 						&[data-id="ws-add"] {
 							&:hover div {
 								filter: invert(1) opacity(.35) drop-shadow(0 1px 0 #111);
 							}
 
 							div {
-								filter: invert(1) opacity(.25) drop-shadow(0 1px 0 #111);
+								filter: invert(1) opacity(.45) drop-shadow(0 1px 0 #111);
 							}
 						}
 					}
@@ -89,16 +135,41 @@
 				}
 			}
 
+			.row-foot {
+				.unlock-to-edit {
+					&:hover {
+						i.icon-padlock {
+							background: rgba(0,0,0,.075);
+						}
+					}
+
+					span {
+						color: var( --content-fg );
+						text-shadow: 0 1px 1px rgba(0,0,0,.2);
+					}
+				}
+
+				.section-help {
+					background: rgba(255,255,255,.125);
+					box-shadow: 0 0 0 1px rgba(0,0,0,.1),
+								0 1px 3px rgba(0,0,0,.35);
+					
+					.icon-help {
+						filter: invert(1) drop-shadow(0 1px 0 #111);
+					}
+				}
+			}
+
 			.sample {
 				text-shadow: 0 1px 1px rgba(0,0,0,.2);
 
 				.tree {
-					background: rgba(0,0,0,.05);
+					background: rgba(0,0,0,.065);
 					border-color: rgba(0,0,0,.125);
 				}
 
 				.list {
-					background: rgba(0,0,0,.05);
+					background: rgba(0,0,0,.065);
 					border-color: rgba(0,0,0,.125);
 				}
 			}

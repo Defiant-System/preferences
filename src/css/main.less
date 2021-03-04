@@ -431,7 +431,7 @@ content {
 					width: 211px;
 				}
 			}
-			
+
 			.list {
 				position: relative;
 				padding: 1px 3px 9px;
@@ -1042,6 +1042,7 @@ content {
 				text-align: center;
 				display: block;
 			}
+
 			.time-zone-options {
 				flex-direction: column;
 				text-align: center;
@@ -1088,9 +1089,11 @@ content {
 					.field-name {
 						color: #888;
 					}
+
 					.timezone-name {
 
 					}
+
 					.timezone-utc {
 						display: inline-block;
 						//display: none;
@@ -1539,7 +1542,7 @@ content {
 						.icon,
 						.avatar {
 							position: absolute;
-							top: 3px;
+							top: 4px;
 							left: 5px;
 							width: 29px;
 							height: 29px;
@@ -1593,7 +1596,11 @@ content {
 				margin-top: 2px;
 				margin-right: 11px;
 				border: 1px solid #ccc;
-				border-radius: 3px 0 0 3px;
+				border-radius: 3px;
+
+				.option:nth-child(1) {
+					border-radius: 2px 2px 0 0;
+				}
 			}
 
 			.panel-right {
@@ -1619,7 +1626,7 @@ content {
 
 				&:hover {
 					i.icon-padlock {
-						background:  #e7e7e7;
+						background: #e7e7e7;
 						box-shadow: inset 0 0 2px 1px rgba(0,0,0,.05);
 					}
 				}
@@ -1628,6 +1635,7 @@ content {
 					i.icon-padlock:before {
 						background-image: url(~/icons/icon-padlock-open.png);
 					}
+
 					span {
 						&.authenticating,
 						&.locked { display: none; }
@@ -1662,6 +1670,7 @@ content {
 						filter: drop-shadow(0px 1px 1px rgba(0,0,0,.2));
 					}
 				}
+
 				span {
 					position: relative;
 					top: 2px;
