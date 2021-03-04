@@ -6,7 +6,7 @@
 				<span class="name">Defiant</span>
 				<span class="info">System &mdash; Active</span>
 			</div>
-			<!--
+			<!---->
 			<div class="option">
 				<span class="name">Waves</span>
 				<span class="info">Theme info</span>
@@ -26,7 +26,7 @@
 				<span class="name">Nostalgia</span>
 				<span class="info">Theme info</span>
 			</div>
-			-->
+			
 		</div>
 		<div class="panel-right">
 			<div class="tab-view_" sys-click="do-tab-row">
@@ -35,9 +35,16 @@
 
 						<div class="row-group_">
 							<legend>Appearance:</legend>
-							<div>
-								<div class="theme-preview active" data-name="Light"></div>
-								<div class="theme-preview" data-name="Dark"></div>
+							<div data-click="select-ui-theme">
+								<div class="theme-preview active" data-name="Light" data-arg="defiant-light">
+									<div style="background-image: url(~/img/theme-light.jpg);"></div>
+								</div>
+								<div class="theme-preview" data-name="Dark" data-arg="defiant-dark">
+									<div style="background-image: url(~/img/theme-dark.jpg);"></div>
+								</div>
+								<div class="theme-preview" data-name="Olive" data-arg="defiant-olive">
+									<div style="background-image: url(~/img/theme-dark.jpg);"></div>
+								</div>
 							</div>
 						</div>
 
