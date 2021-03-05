@@ -80,6 +80,15 @@
 						.wrapper {
 							background: rgba(0,0,0,.175);
 							border-color: rgba(0,0,0,.175);
+
+							&.disabled_ {
+								background: rgba(0,0,0,.175);
+								color: var( --content-fg );
+
+								span {
+									opacity: .5;
+								}
+							}
 						}
 					}
 				}
@@ -91,9 +100,76 @@
 					&.disabled_ {
 						background: rgba(0,0,0,.25);
 						border-color: rgba(0,0,0,.25);
-						opacity: .65;
+						opacity: .5;
+					}
+
+					.calendar-head {
+						.calendar-left,
+						.calendar-right {
+							filter: invert(1) drop-shadow(0 1px 0 #111);
+						}
+
+						.calendar-month {
+							color: var( --content-fg );
+						}
+					}
+
+					.weekdays {
+						color: var( --content-fg );
+						opacity: .5;
+					}
+
+					.days {
+						b {
+							&.weekend:not(.non-day) {
+								color: #0ef;
+							}
+
+							&.non-day {
+								opacity: .5;
+							}
+
+							&.today {
+								color: #111;
+
+								&:before {
+									background: #0ef;
+								}
+							}
+						}
 					}
 				}
+
+				.clock {
+					background: linear-gradient(0deg, rgba(0,0,0,.225), rgba(0,0,0,.15));
+					border-color: rgba(0,0,0,.175);
+
+					&.disabled_ {
+						opacity: .75;
+
+						&:before {
+							background: rgba(0,0,0,.125);
+						}
+
+						svg {
+							opacity: .9;
+						}
+					}
+
+					&:before {
+						background: rgba(0,0,0,.125);
+						box-shadow: inset 0 1px 1px rgba(0,0,0,.125),
+									inset 0 -1px 1px rgba(0,0,0,.125),
+									inset 0 2px 5px rgba(0,0,0,.15);
+					}
+
+					svg {
+						--color-1: var( --content-fg );
+						--color-2: #0ef;
+						--color-3: #777;
+					}
+				}
+
 			}
 
 
