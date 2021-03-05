@@ -65,6 +65,9 @@
 
 				// select first workspace
 				active.trigger("click");
+				
+				// temp
+				// Self.section.find(".tab-row_ > div:nth-child(2)").trigger("click");
 				break;
 			case "select-workspace":
 				el = $(event.target);
