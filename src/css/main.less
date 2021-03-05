@@ -782,6 +782,15 @@ content {
 									max-width: 0;
 									animation: discSize 600ms 300ms linear forwards;
 
+									&:nth-child(1) {
+										border-radius: 3px 0 0 3px;
+									}
+
+									&[style*="width: 0.0"]:nth-child(1) + div,
+									&[style^="width: 0.0"]:nth-child(1) + div {
+										border-radius: 3px 0 0 3px;
+									}
+
 									&:hover span {
 										visibility: visible;
 										animation: pop 130ms linear forwards;
@@ -798,7 +807,7 @@ content {
 										padding: 6px 11px 5px;
 										font-size: 13px;
 										white-space: nowrap;
-										border-radius: 3px;
+										border-radius: 5px;
 										filter: drop-shadow(0 2px 3px rgba(0,0,0,.35));
 
 										&:before {
@@ -851,9 +860,11 @@ content {
 						.avatar {
 							box-shadow: inset 0 0 0 1px rgba(#8bf,.35);
 						}
+
 						.role {
 							color: #8bf;
 						}
+
 						i.icon-house {
 							filter: drop-shadow(0 0 1px #fff);
 						}
@@ -876,7 +887,7 @@ content {
 					.avatar {
 						background: #eee url(~/icons/user.png) 50% 50%/contain no-repeat;
 						position: absolute;
-						top: 3px;
+						top: 4px;
 						left: 7px;
 						width: 29px;
 						height: 29px;
@@ -1248,7 +1259,7 @@ content {
 						}
 					}
 				}
-				
+
 				.time-sample {
 					.wrapper {
 						width: 89px;

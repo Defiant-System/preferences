@@ -68,12 +68,36 @@
 								filter: brightness(0.3) invert(1) drop-shadow(0 1px 1px #555);
 							}
 						}
+
+						.row-group_ {
+							&.disc-usage {
+								.disc-bar + span {
+									color: var( --content-fg );
+								}
+
+								.disc-bar {
+									background: rgba(0,0,0,.15);
+									box-shadow: 0 0 0 1px rgba(0,0,0,.25),
+												0 2px 0 rgba(255,255,255,.2);
+
+									div {
+										span {
+											background: rgba(90,90,90,.9);
+											color: var( --content-fg );
+
+											&:before {
+												border-top-color: rgba(90,90,90,.9);
+											}
+										}
+									}
+								}
+							}
+						}
 					}
 				}
 			}
 
 			&[data-view="dateTime"] {
-
 				.time-zone-options {
 					.worldmap {
 						.land {
@@ -254,6 +278,19 @@
 						color: var( --content-fg );
 					}
 
+					> div {
+						&.active {
+							background: #1067de;
+							color: #fff;
+						}
+
+						&:not(.active) {
+							&:hover {
+								background: rgba(0,0,0,.1);
+							}
+						}
+					}
+
 					.user {
 						.role {
 							color: var( --content-fg );
@@ -261,7 +298,7 @@
 					}
 
 					.login-options {
-						border-top-color: rgba(0,0,0,.125);
+						border-top-color: rgba(0,0,0,.075);
 					}
 				}
 
