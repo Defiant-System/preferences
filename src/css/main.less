@@ -1000,7 +1000,7 @@ content {
 							padding: 17px 0 0 11px;
 							color: #111;
 						}
-						
+
 						.button {
 							width: 139px;
 							padding: 13px 0 0;
@@ -1037,7 +1037,7 @@ content {
 			flex-direction: column;
 
 			.row-body {
-				height1: 100%;
+				// height: 100%;
 			}
 
 			.date-time-options.tab-active_ {
@@ -1248,6 +1248,7 @@ content {
 						}
 					}
 				}
+				
 				.time-sample {
 					.wrapper {
 						width: 89px;
@@ -1274,7 +1275,7 @@ content {
 					.calendar-head {
 						.calendar-left,
 						.calendar-right {
-							cursor: default;
+							display: none;
 						}
 					}
 
@@ -1300,13 +1301,25 @@ content {
 
 					.calendar-left,
 					.calendar-right {
-						background: url(~/icons/icon-chevron-left.png) 50% 50% no-repeat;
-						width: 13px;
+						background: url(~/icons/icon-chevron-left.png) 50% 50%/contain no-repeat;
+						position: relative;
+						width: 11px;
+						height: 11px;
 						cursor: pointer;
 						filter: brightness(3);
 
 						&.calendar-right {
 							background-image: url(~/icons/icon-chevron-right.png);
+						}
+
+						&:before {
+							content: "";
+							position: absolute;
+							top: -3px;
+							left: -3px;
+							right: -3px;
+							bottom: -3px;
+							background: transparent;
 						}
 					}
 
@@ -1361,6 +1374,7 @@ content {
 						&.non-day {
 							color: #c2c2c2;
 							font-weight: 300;
+							text-shadow: 0 0 0;
 						}
 
 						&.today {
