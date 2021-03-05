@@ -1,12 +1,22 @@
 <svg class="worldmap" viewBox="0 0 1000 550" data-click="select-time-zone">
 	<linearGradient id="WMGID_1_" gradientUnits="userSpaceOnUse" x1="215.9692" y1="394.6992" x2="215.9692" y2="37.2388">
-		<stop offset="0" style="stop-color:#a0a0a0"/>
-		<stop offset="1" style="stop-color:#bdbdbd"/>
+		<stop offset="0" style="stop-color:rgba(0,0,0,.325)"/>
+		<stop offset="1" style="stop-color:rgba(0,0,0,.175)"/>
 	</linearGradient>
 	<filter id="WMDS_1" x="0" y="0" width="200%" height="200%">
 		<feDropShadow dx="0" dy="1" stdDeviation="1" flood-color="#fff" flood-opacity="0.85" />
 		<feDropShadow dx="0" dy="-1" stdDeviation="1" flood-color="#666" flood-opacity="0.75" />
 	</filter>
+
+	<linearGradient id="WMGID_1_DARK" gradientUnits="userSpaceOnUse" x1="215.9692" y1="394.6992" x2="215.9692" y2="37.2388">
+		<stop offset="0" style="stop-color:rgba(255,255,255,.225)"/>
+		<stop offset="1" style="stop-color:rgba(255,255,255,.325)"/>
+	</linearGradient>
+	<filter id="WMDS_1_DARK" x="0" y="0" width="200%" height="200%">
+		<feDropShadow dx="0" dy="1" stdDeviation="1" flood-color="#000" flood-opacity="0.85" />
+		<feDropShadow dx="0" dy="-1" stdDeviation="1" flood-color="#555" flood-opacity="0.75" />
+	</filter>
+
 	<filter id="UTCDS" height="130%">
 		<feGaussianBlur in="SourceAlpha" stdDeviation="3"/> 
 		<feOffset dx="0" dy="2" result="offsetblur"/>

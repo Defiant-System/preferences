@@ -73,10 +73,78 @@
 			}
 
 			&[data-view="dateTime"] {
+
+				.time-zone-options {
+					.worldmap {
+						.land {
+							fill: url(#WMGID_1_DARK);
+							filter: url(#WMDS_1_DARK);
+						}
+
+						.utc-bar {
+							fill: #fff;
+							stroke: #000;
+						}
+
+						.utc-bar.active {
+							filter: url(#UTCDS);
+						}
+					}
+				}
+
 				.date-settings,
 				.time-settings {
 					.date-sample,
 					.time-sample {
+
+						.inc-arrows_ {
+							background: rgba(0,0,0,.175);
+							border-color: rgba(0,0,0,.175);
+
+							&.disabled_ {
+								background: rgba(0,0,0,.175);
+								border-color: rgba(0,0,0,.175);
+
+								i {
+									&:after {
+										filter: brightness(3);
+									}
+
+									&:nth-child(1) {
+										&:after {
+											filter: brightness(3);
+										}
+									}
+								}
+							}
+
+							&:not(.disabled_) {
+								i {
+									&:active {
+										background: rgba(0,0,0,.175);
+										border-color: rgba(0,0,0,.175);
+
+										&:after {
+											filter: brightness(5) drop-shadow(0 1px 0 #222);
+										}
+
+										&:nth-child(1) {
+											&:after {
+												filter: brightness(5) drop-shadow(0 -1px 0 #222);
+											}
+										}
+									}
+								}
+							}
+
+							i {
+								&:after {
+									filter: brightness(5) drop-shadow(0 1px 0 #222);
+								}
+							}
+						}
+
+
 						.wrapper {
 							background: rgba(0,0,0,.175);
 							border-color: rgba(0,0,0,.175);
@@ -148,7 +216,7 @@
 						opacity: .75;
 
 						&:before {
-							background: rgba(0,0,0,.125);
+							background: rgba(0,0,0,.1);
 						}
 
 						svg {
@@ -164,7 +232,7 @@
 					}
 
 					svg {
-						--color-1: var( --content-fg );
+						--color-1: #ccc;
 						--color-2: #0ef;
 						--color-3: #777;
 					}
