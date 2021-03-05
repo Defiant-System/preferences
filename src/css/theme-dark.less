@@ -57,7 +57,7 @@
 							}
 						}
 					}
-					
+
 					.panel-right {
 						.tab-active_ {
 							.icon-info {
@@ -65,7 +65,40 @@
 							}
 						}
 					}
+				}
+			}
 
+			&[data-view="usersGroups"] {
+				.panel-left {
+					legend {
+						color: var( --content-fg );
+					}
+
+					.user {
+						.role {
+							color: var( --content-fg );
+						}
+					}
+
+					.login-options {
+						border-top-color: rgba(0,0,0,.125);
+					}
+				}
+
+				.panel-right {
+					.tab-active_ {
+						.icon-info {
+							filter: brightness(0.3) invert(1) drop-shadow(0 1px 1px #555);
+						}
+					}
+
+					.user-options {
+						.user {
+							.name {
+								color: var( --content-fg );
+							}
+						}
+					}
 				}
 			}
 
