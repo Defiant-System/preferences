@@ -6,6 +6,7 @@
 		let Self = parts.dateTime,
 			isLocked,
 			items,
+			value,
 			el;
 		switch (event.type) {
 			case "init-view":
