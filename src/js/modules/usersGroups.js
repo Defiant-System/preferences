@@ -33,7 +33,6 @@
 				// 	onOk: () => console.log("OK")
 				// }), 1000);
 
-				// Self.dispatch({ type: "edit-user-photo" });
 				break;
 			case "window.keystroke":
 				if (event.char === "return") {
@@ -98,9 +97,6 @@
 				window.dialog.close();
 				break;
 
-			case "edit-user-photo":
-				window.dialog.show({ name: "profile-picture" });
-				break;
 			case "dialog-profile-save":
 			case "dialog-profile-cancel":
 				// close unlock dialog
@@ -132,7 +128,7 @@
 					.toggleClass("unlocked", !event.isUnlocked);
 
 				// user options
-				Self.userOptions.find(".avatar").toggleClass("disabled_", event.isUnlocked);
+				// Self.userOptions.find(".avatar").toggleClass("disabled_", event.isUnlocked);
 				Self.userOptions.find("button").toggleAttr("disabled", event.isUnlocked);
 
 				// login options

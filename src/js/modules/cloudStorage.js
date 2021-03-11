@@ -34,11 +34,11 @@
 				Self.section.find(".panel-left .storage").get(0).trigger("click");
 
 				// temp
-				setTimeout(() => {
+				// setTimeout(() => {
 					// return Self.section.find(".panel-left .storage").get(1).trigger("click");
 
 					// Self.dispatch({ type: "add-storage" });
-				}, 100);
+				// }, 100);
 				break;
 			case "show-section-help":
 				defiant.shell("fs -u '~/help/cloud-storage.md'");
