@@ -1,29 +1,36 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0">
-	<svg id="icon-chevron-left" viewBox="0 0 240 240">
-		<polyline fill="none" stroke="#333" stroke-width="32" stroke-linecap="round" stroke-linejoin="round" points="165,28.75 74,119.75 165.75,211"/>
+
+	<svg id="icon-chevron-left" viewBox="0 0 13 13">
+		<style type="text/css">
+			.st0{fill:#333;}
+		</style>
+		<polygon class="st0" points="9.2,1.6 8.5,0.8 3.5,5.8 3.5,5.8 2.8,6.5 3.5,7.2 8.5,12.2 9.2,11.4 4.2,6.5 "/>
 	</svg>
 
-	<svg id="icon-chevron-right" viewBox="0 0 240 240">
-		<polyline fill="none" stroke="#333" stroke-width="32" stroke-linecap="round" stroke-linejoin="round" points="74,211.25 165,120.25 74.25,28"/>
+	<svg id="icon-chevron-right" viewBox="0 0 13 13">
+		<style type="text/css">
+			.st0{fill:#333;}
+		</style>
+		<polygon class="st0" points="2.8,11.4 3.5,12.2 8.5,7.2 8.5,7.2 9.2,6.5 8.5,5.8 3.5,0.8 2.8,1.6 7.8,6.5 "/>
 	</svg>
 
-	<svg id="icon-show-all" viewBox="0 0 240 240">
-		<rect fill="#333" y="40" width="40" height="40"/>
-		<rect fill="#333" x="60" y="40" width="40" height="40"/>
-		<rect fill="#333" x="120" y="40" width="40" height="40"/>
-		<rect fill="#333" x="180" y="40" width="40" height="40"/>
-		<rect fill="#333" y="100" width="40" height="40"/>
-		<rect fill="#333" x="60" y="100" width="40" height="40"/>
-		<rect fill="#333" x="120" y="100" width="40" height="40"/>
-		<rect fill="#333" x="180" y="100" width="40" height="40"/>
-		<rect fill="#333" y="160" width="40" height="40"/>
-		<rect fill="#333" x="60" y="160" width="40" height="40"/>
-		<rect fill="#333" x="120" y="160" width="40" height="40"/>
-		<rect fill="#333" x="180" y="160" width="40" height="40"/>
+	<svg id="icon-show-all" viewBox="0 0 13 13">
+		<rect fill="#333" x="1" y="3" width="2" height="2"/>
+		<rect fill="#333" x="1" y="6" width="2" height="2"/>
+		<rect fill="#333" x="1" y="9" width="2" height="2"/>
+		<rect fill="#333" x="4" y="3" width="2" height="2"/>
+		<rect fill="#333" x="4" y="6" width="2" height="2"/>
+		<rect fill="#333" x="4" y="9" width="2" height="2"/>
+		<rect fill="#333" x="7" y="3" width="2" height="2"/>
+		<rect fill="#333" x="7" y="6" width="2" height="2"/>
+		<rect fill="#333" x="7" y="9" width="2" height="2"/>
+		<rect fill="#333" x="10" y="3" width="2" height="2"/>
+		<rect fill="#333" x="10" y="6" width="2" height="2"/>
+		<rect fill="#333" x="10" y="9" width="2" height="2"/>
 	</svg>
 
-	<svg id="icon-add" viewBox="0 0 500 500">
-		<path d="M446.5,226.5h-173v-173c0-13-10.5-23.5-23.5-23.5c-13,0-23.5,10.5-23.5,23.5v173h-173C40.5,226.5,30,237,30,250 c0,13,10.5,23.5,23.5,23.5h173v173c0,13,10.5,23.5,23.5,23.5c13,0,23.5-10.5,23.5-23.5v-173h173c13,0,23.5-10.5,23.5-23.5 C470,237,459.5,226.5,446.5,226.5z"/>
+	<svg id="icon-add" viewBox="0 0 13 13">
+		<polygon points="11,6 7,6 7,2 6,2 6,6 2,6 2,7 6,7 6,11 7,11 7,7 11,7 "/>
 	</svg>
 
 	<svg id="icon-times" viewBox="0 0 500 500">
@@ -252,4 +259,5 @@
 	@import "icon-mouse.svg"
 	@import "icon-notifications.svg"
 	@import "icon-screensaver.svg"
+
 </svg>
