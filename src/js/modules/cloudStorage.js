@@ -23,7 +23,7 @@
 
 				// render tree view
 				el = Self.section.find(".panel-left");
-				match = `//Settings//block[@id="external-storage"]`;
+				match = `//Settings/Registry/*[@id='fs-cloud-storage']`;
 				window.render({ template: "storage-list", prepend: el, match });
 
 				// hide legend if no external storage in list
@@ -62,7 +62,7 @@
 				target = Self.section.find(".tab-body_");
 				match = el.data("id") === "defiant-cloud"
 							? `//FileSystem`
-							: `//block[@id="external-storage"]/*[@icon="${el.data("id")}"]`;
+							: `//Settings/Registry/*[@id='fs-cloud-storage']/*[@icon="${el.data("id")}"]`;
 
 				// storage base
 				changePath = "/*[@name='baseDir']";
@@ -98,12 +98,12 @@
 				active = Self.section.find(".panel-left .storage[data-id='new-storage']");
 				if (active.length) return;
 
-				let xBlock = window.bluePrint.selectSingleNode("sys://block[@id='external-storage']");
+				let xBlock = window.bluePrint.selectSingleNode("sys://Settings/Registry/*[@id='fs-cloud-storage']");
 				node = xBlock.appendChild($.nodeFromString(`<item icon="new-storage"/>`));
 
 				// render tree view
 				el = Self.section.find(".panel-left .storage-list");
-				match = `//block[@id="external-storage"]/*[@icon="new-storage"]`;
+				match = `//Settings/Registry/*[@id='fs-cloud-storage']/*[@icon="new-storage"]`;
 				// render contents
 				window.render({ template: "storage-list-item", append: el, match });
 
