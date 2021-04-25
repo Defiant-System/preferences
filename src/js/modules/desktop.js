@@ -72,10 +72,15 @@
 				el.parent().find(".active").removeClass("active");
 				el.addClass("active");
 
-				// desktop icon size
+				// toggle desktop icons
 				shell = await defiant.shell(`sys -t`);
 				el = Self.section.find(`input[id="hide-desktop-icons"]`);
 				el.prop({ checked: !shell.result });
+
+				// desktop icon size
+				shell = await defiant.shell(`sys -k`);
+				el = Self.section.find(`input[id="desktop-icon-size"]`);
+				el.val(shell.result);
 
 
 				// temp
@@ -178,6 +183,9 @@
 				el.addClass("active");
 				// execute shell command
 				defiant.shell(`sys -i ${el.data("arg")}`);
+				break;
+			case "set-desktop-icon-size":
+				console.log(event.value);
 				break;
 			case "hide-desktop-icons":
 				el = $(event.target);
