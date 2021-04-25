@@ -24,6 +24,11 @@
 				el = Self.section.find(`input[id="toggle-dock"]`);
 				el.prop({ checked: shell.result });
 
+				// dock app indicators
+				shell = await defiant.shell(`sys -l`);
+				el = Self.section.find(`input[id="toggle-app-indicators"]`);
+				el.prop({ checked: shell.result });
+
 				break;
 			case "select-dock-position":
 				el = $(event.target);
@@ -41,13 +46,14 @@
 			case "toggle-values":
 				el = $(event.target);
 				if (el.attr("type") !== "checkbox") return;
-
 				value = el.is(":checked");
 
 				switch (el.attr("id")) {
 					case "toggle-dock":
+						await defiant.shell(`sys -h ${!value}`);
 						break;
 					case "toggle-app-indicators":
+						await defiant.shell(`sys -l ${value}`);
 						break;
 					case "toggle-magnification":
 						Self.rowMagnification.toggleClass("disabled_", value);
