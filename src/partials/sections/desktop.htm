@@ -35,23 +35,22 @@
 			<!-- Icons -->
 			<div>
 				<div class="row-group_">
-					<legend>Folder color:</legend>
+					<legend>Folder Icon Color:</legend>
 					<div data-click="select-folder-icon-color">
-						<div class="color-select_ active" style="background: #157efb;"></div>
-						<div class="color-select_" style="background: #944194;"></div>
-						<div class="color-select_" style="background: #f5539e;"></div>
-						<div class="color-select_" style="background: #de3a43;"></div>
-						<div class="color-select_" style="background: #f5822e;"></div>
-						<div class="color-select_" style="background: #fab73b;"></div>
-						<div class="color-select_" style="background: #65b84d;"></div>
-						<div class="color-select_" style="background: #989898;"></div>
+						<div class="color-select_ active" data-arg="#157efb" style="background: #157efb;"></div>
+						<div class="color-select_" data-arg="#944194" style="background: #944194;"></div>
+						<div class="color-select_" data-arg="#de3a43" style="background: #de3a43;"></div>
+						<div class="color-select_" data-arg="#f5822e" style="background: #f5822e;"></div>
+						<div class="color-select_" data-arg="#fab73b" style="background: #fab73b;"></div>
+						<div class="color-select_" data-arg="#65b84d" style="background: #65b84d;"></div>
+						<div class="color-select_" data-arg="#989898" style="background: #989898;"></div>
 					</div>
 				</div>
 
-				<hr/>
+				<hr class="space"/>
 
 				<div class="row-group_">
-					<legend>Icon size</legend>
+					<legend>Desktop Icon Size</legend>
 					<div style="width: 170px;">
 						<input type="range" value="35" min="0" max="100">
 					</div>
@@ -60,13 +59,22 @@
 				<hr/>
 
 				<div class="row-group_">
+					<legend></legend>
+					<div>
+						<div class="row" data-click="hide-desktop-icons">
+							<span class="form-checkbox_"><input type="checkbox" id="hide-desktop-icons"/><i></i></span>
+							<label for="hide-desktop-icons">Show icons on desktop</label>
+						</div>
+					</div>
+				</div>
+
+				<!--
+				<div class="row-group_">
 					<legend>Slider Steps 1-5</legend>
 					<div style="width: 170px;">
 						<input type="range" value="4" min="1" max="5" step="1">
 					</div>
 				</div>
-
-				<hr/>
 
 				<div class="row-group_">
 					<legend>Range Slider</legend>
@@ -74,6 +82,7 @@
 						<input type="range">
 					</div>
 				</div>
+				-->
 			</div>
 		</div>
 	</div>

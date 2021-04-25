@@ -11,9 +11,15 @@
 			case "init-view":
 				Self.section = event.section;
 
+				// theme value
+				shell = await defiant.shell(`sys -o`);
+				el = Self.section.find(`.theme-preview[data-arg="${shell.result}"]`);
+				el.parent().find(".active").removeClass("active");
+				el.addClass("active");
+
 				// accent color
 				shell = await defiant.shell(`sys -j`);
-				el = Self.section.find(`.color-select_[data-color="${shell.result}"]`);
+				el = Self.section.find(`.color-select_[data-arg="${shell.result}"]`);
 				el.parent().find(".active").removeClass("active");
 				el.addClass("active");
 
@@ -21,7 +27,6 @@
 				shell = await defiant.shell(`sys -w`);
 				el = Self.section.find(`input[id="menubar-toggle"]`);
 				el.prop({ checked: shell.result });
-
 				break;
 			case "select-ui-theme":
 				el = $(event.target);
@@ -42,8 +47,7 @@
 				el.addClass("active");
 
 				// execute shell command
-				value = el.attr("style").match(/(#.+);/)[1];
-				defiant.shell(`sys -j ${value}`);
+				defiant.shell(`sys -j ${el.data("arg")}`);
 				break;
 			case "toggle-checkbox-value":
 				el = $(event.target);

@@ -30,21 +30,21 @@
 				Self.treeEl = Self.section.find(".tree");
 				Self.listEl = Self.section.find(".list");
 
+				/*
+				 * Wallpaper Tab
+				 */
 				// get wallpaper info from system
 				shell = await defiant.shell("ws -a wallpaper");
-
 				// set number of desktops
 				Self.reelEl.data("ws", shell.result.length);
-
+				// desktop screens
 				shell.result.map(item => {
 					if (!style && item.isWide) isWide = true;
 					if (!style) style = item.value;
-
 					Self.section
 						.find(`.workspace[data-id="${item.name}"] div`)
 						.attr({ style: item.value });
 				});
-
 				if (isWide) {
 					Self.reelEl.addClass("wide");
 					Self.wideWsEl.find("div").attr({ style });
@@ -52,22 +52,34 @@
 				} else {
 					active = Self.section.find(".workspace:first");
 				}
-
 				// is wide bg active
 				Self.section.toggleClass("wide-wp", isWide);
-
 				// render tree view
 				window.render({
 					template: "bg-tree",
 					match: `//Data/Desktop`,
 					target: Self.treeEl
 				});
-
 				// select first workspace
 				active.trigger("click");
-				
+
+				/*
+				 * Icons Tab
+				 */
+				// folder icon color
+				shell = await defiant.shell(`sys -i`);
+				el = Self.section.find(`.color-select_[data-arg="${shell.result}"]`);
+				el.parent().find(".active").removeClass("active");
+				el.addClass("active");
+
+				// desktop icon size
+				shell = await defiant.shell(`sys -t`);
+				el = Self.section.find(`input[id="hide-desktop-icons"]`);
+				el.prop({ checked: !shell.result });
+
+
 				// temp
-				// Self.section.find(".tab-row_ > div:nth-child(2)").trigger("click");
+				Self.section.find(".tab-row_ > div:nth-child(2)").trigger("click");
 				break;
 			case "select-workspace":
 				el = $(event.target);
@@ -157,6 +169,21 @@
 				Self.reelEl.data({ ws: value - 1 });
 				
 				// todo: interact with workspace to add / remove workspaces
+				break;
+			case "select-folder-icon-color":
+				el = $(event.target);
+				if (!el.attr("style")) return;
+				// indicate active theme
+				el.parent().find(".active").removeClass("active");
+				el.addClass("active");
+				// execute shell command
+				defiant.shell(`sys -i ${el.data("arg")}`);
+				break;
+			case "hide-desktop-icons":
+				el = $(event.target);
+				if (el.attr("type") !== "checkbox") return;
+				// execute shell command
+				defiant.shell(`sys -t ${!el.is(":checked")}`);
 				break;
 		}
 	}
