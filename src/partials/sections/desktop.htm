@@ -35,6 +35,34 @@
 			<!-- Icons -->
 			<div>
 				<div class="row-group_">
+					<legend>Show desktop icons as:</legend>
+					<div>
+						<div class="row" data-click="desktop-icons-as">
+							<div class="cell flat">
+								<span class="form-radio_"><input type="radio" name="desktop-icons-style" id="desktop-icons-icons" checked/><i></i></span>
+								<label for="desktop-icons-icons">Icons</label>
+							</div>
+							<div class="cell flat">
+								<span class="form-radio_ disabled_"><input type="radio" disabled name="desktop-icons-style" id="desktop-icons-buttons"/><i></i></span>
+								<label for="desktop-icons-buttons">Buttons</label>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row-group_">
+					<legend></legend>
+					<div>
+						<div class="row" data-click="hide-desktop-icons">
+							<span class="form-checkbox_"><input type="checkbox" id="hide-desktop-icons"/><i></i></span>
+							<label for="hide-desktop-icons">Show icons on desktop</label>
+						</div>
+					</div>
+				</div>
+
+				<hr/>
+				
+				<div class="row-group_">
 					<legend>Folder Icon Color:</legend>
 					<div data-click="select-folder-icon-color">
 						<div class="color-select_ active" data-arg="#157efb" style="background: #157efb;"></div>
@@ -53,18 +81,6 @@
 					<legend>Desktop Icon Size</legend>
 					<div>
 						<input type="range" value="90" min="50" max="130" id="desktop-icon-size" data-change="set-desktop-icon-size" style="width: 160px;"/>
-					</div>
-				</div>
-
-				<hr/>
-
-				<div class="row-group_">
-					<legend></legend>
-					<div>
-						<div class="row" data-click="hide-desktop-icons">
-							<span class="form-checkbox_"><input type="checkbox" id="hide-desktop-icons"/><i></i></span>
-							<label for="hide-desktop-icons">Show icons on desktop</label>
-						</div>
 					</div>
 				</div>
 

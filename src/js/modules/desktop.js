@@ -82,9 +82,8 @@
 				el = Self.section.find(`input[id="desktop-icon-size"]`);
 				el.val(shell.result);
 
-
 				// temp
-				Self.section.find(".tab-row_ > div:nth-child(2)").trigger("click");
+				// Self.section.find(".tab-row_ > div:nth-child(2)").trigger("click");
 				break;
 			case "select-workspace":
 				el = $(event.target);
