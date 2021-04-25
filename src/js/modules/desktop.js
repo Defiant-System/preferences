@@ -185,7 +185,7 @@
 				defiant.shell(`sys -i ${el.data("arg")}`);
 				break;
 			case "set-desktop-icon-size":
-				console.log(event.value);
+				defiant.shell(`sys -k ${event.value}`);
 				break;
 			case "hide-desktop-icons":
 				el = $(event.target);
