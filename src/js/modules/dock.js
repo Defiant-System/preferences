@@ -25,9 +25,16 @@
 				el.prop({ checked: shell.result });
 
 				// dock app indicators
-				shell = await defiant.shell(`sys -l`);
+				shell = await defiant.shell(`sys -f`);
 				el = Self.section.find(`input[id="toggle-app-indicators"]`);
 				el.prop({ checked: shell.result });
+
+				// dock magnification
+				shell = await defiant.shell(`sys -g`);
+				el = Self.section.find(`input[id="toggle-magnification"]`);
+				el.prop({ checked: shell.result.on });
+				el = Self.section.find(`input[id="magnification-size"]`);
+				el.val(shell.result.size);
 
 				break;
 			case "select-dock-position":
@@ -53,7 +60,7 @@
 						await defiant.shell(`sys -h ${value}`);
 						break;
 					case "toggle-app-indicators":
-						await defiant.shell(`sys -l ${value}`);
+						await defiant.shell(`sys -f ${value}`);
 						break;
 					case "toggle-magnification":
 						Self.rowMagnification.toggleClass("disabled_", value);
