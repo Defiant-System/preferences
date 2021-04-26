@@ -20,6 +20,10 @@
 				el = Self.section.find(`input[id="dock-${shell.result}"]`);
 				el.prop({ checked: true });
 
+				// dock size
+				shell = await defiant.shell(`sys -e`);
+				Self.section.find("input#dock-size").val(shell.result);
+
 				// dock show/hide
 				shell = await defiant.shell(`sys -h`);
 				el = Self.section.find(`input[id="toggle-dock"]`);
@@ -38,20 +42,21 @@
 					Self.dispatch({ type: "toggle-values", target: el[0], fake: true });
 				}
 				Self.inputMagnification.val(shell.result.size);
-
 				break;
 			case "select-dock-position":
 				el = $(event.target);
 				if (el.attr("type") !== "radio") return;
-				
 				value = el.attr("id").split("-")[1];
+				// save value in settings
 				defiant.shell("sys -d "+ value);
 				break;
-			case "icon-size":
-				console.log(event.value);
+			case "dock-size":
+				// save value in settings
+				defiant.shell(`sys -e ${event.value}`);
 				break;
 			case "magnification-size":
-				await defiant.shell(`sys -g true ${event.value}`);
+				// save value in settings
+				defiant.shell(`sys -g true ${event.value}`);
 				break;
 			case "toggle-values":
 				el = $(event.target);
@@ -60,10 +65,10 @@
 
 				switch (el.attr("id")) {
 					case "toggle-dock":
-						await defiant.shell(`sys -h ${value}`);
+						defiant.shell(`sys -h ${value}`);
 						break;
 					case "toggle-app-indicators":
-						await defiant.shell(`sys -f ${value}`);
+						defiant.shell(`sys -f ${value}`);
 						break;
 					case "toggle-magnification":
 						Self.rowMagnification.toggleClass("disabled_", value);
@@ -74,8 +79,9 @@
 						// return if it is a fake event
 						if (event.fake) return;
 
+						// save value in settings
 						size = Self.inputMagnification.val();
-						await defiant.shell(`sys -g ${value} ${size}`);
+						defiant.shell(`sys -g ${value} ${size}`);
 						break;
 				}
 				break;
