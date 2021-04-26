@@ -38,8 +38,8 @@ const preferences = {
 
 		// tmp
 		//this.views = { isUnlocked: true, password: "temp" };
-		// this.dispatch({ type: "go-to", view: "cloudStorage" })
-		this.dispatch({ type: "go-to", view: "dock" })
+		// this.dispatch({ type: "go-to", view: "usersGroups" })
+		this.dispatch({ type: "go-to", view: "general" })
 	},
 	dispatch(event) {
 		let Self = preferences,
