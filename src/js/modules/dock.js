@@ -50,7 +50,7 @@
 
 				switch (el.attr("id")) {
 					case "toggle-dock":
-						await defiant.shell(`sys -h ${!value}`);
+						await defiant.shell(`sys -h ${value}`);
 						break;
 					case "toggle-app-indicators":
 						await defiant.shell(`sys -l ${value}`);
