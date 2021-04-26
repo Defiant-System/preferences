@@ -67,6 +67,8 @@
 						// toggles range fields
 						if (value) Self.inputMagnification.removeAttr("disabled");
 						else Self.inputMagnification.attr({ disabled: "disabled" });
+
+						await defiant.shell(`sys -g true 50`);
 						break;
 				}
 				break;
