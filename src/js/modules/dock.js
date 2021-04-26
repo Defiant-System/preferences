@@ -6,6 +6,7 @@
 		let Self = parts.dock,
 			shell,
 			value,
+			size,
 			el;
 		switch (event.type) {
 			case "init-view":
@@ -33,8 +34,10 @@
 				shell = await defiant.shell(`sys -g`);
 				el = Self.section.find(`input[id="toggle-magnification"]`);
 				el.prop({ checked: shell.result.on });
-				el = Self.section.find(`input[id="magnification-size"]`);
-				el.val(shell.result.size);
+				if (shell.result.on) {
+					Self.dispatch({ type: "toggle-values", target: el[0], fake: true });
+				}
+				Self.inputMagnification.val(shell.result.size);
 
 				break;
 			case "select-dock-position":
@@ -48,7 +51,7 @@
 				console.log(event.value);
 				break;
 			case "magnification-size":
-				console.log(event.value);
+				await defiant.shell(`sys -g true ${event.value}`);
 				break;
 			case "toggle-values":
 				el = $(event.target);
@@ -68,7 +71,11 @@
 						if (value) Self.inputMagnification.removeAttr("disabled");
 						else Self.inputMagnification.attr({ disabled: "disabled" });
 
-						await defiant.shell(`sys -g true 50`);
+						// return if it is a fake event
+						if (event.fake) return;
+
+						size = Self.inputMagnification.val();
+						await defiant.shell(`sys -g ${value} ${size}`);
 						break;
 				}
 				break;
