@@ -69,7 +69,7 @@
 				<!-- Clock -->
 				<div class="clock-options">
 
-					<div class="row-group_">
+					<div class="row-group_" data-click="toggle-menubar-date-time">
 						<legend>Menu bar visibility:</legend>
 						<div>
 							<div class="row">
@@ -81,10 +81,42 @@
 
 					<hr class="space" />
 
-					<div class="row-group_">
+					<div class="row-group_" data-click="toggle-menubar-date-time">
+						<legend>Date options</legend>
+						<div>
+							<div class="row">
+								<span class="form-checkbox_"><input type="checkbox" id="show-weekday" checked/><i></i></span>
+								<label for="show-weekday">Show the day of the week</label>
+							</div>
+						</div>
+					</div>
+
+					<div class="row-group_" data-click="toggle-menubar-date-time">
+						<legend></legend>
+						<div>
+							<div class="row">
+								<span class="form-checkbox_"><input type="checkbox" id="show-date" checked/><i></i></span>
+								<label for="show-date">Show date</label>
+							</div>
+						</div>
+					</div>
+
+					<div class="row-group_" data-click="toggle-menubar-date-time">
+						<legend></legend>
+						<div>
+							<div class="row">
+								<span class="form-checkbox_"><input type="checkbox" id="show-time" checked/><i></i></span>
+								<label for="show-time">Show time</label>
+							</div>
+						</div>
+					</div>
+
+					<hr class="space" />
+
+					<div class="row-group_" data-click="toggle-menubar-clock">
 						<legend>Time options:</legend>
 						<div>
-							<div class="row" data-click="select-dock-position">
+							<div class="row">
 								<div class="cell flat">
 									<span class="form-radio_"><input type="radio" name="time-option" id="time-option-digital" checked/><i></i></span>
 									<label for="time-option-digital">Digital</label>
@@ -97,7 +129,7 @@
 						</div>
 					</div>
 
-					<div class="row-group_">
+					<div class="row-group_" data-click="toggle-menubar-date-time">
 						<legend></legend>
 						<div>
 							<div class="row">
@@ -107,44 +139,12 @@
 						</div>
 					</div>
 
-					<div class="row-group_">
+					<div class="row-group_" data-click="toggle-menubar-date-time">
 						<legend></legend>
 						<div>
 							<div class="row">
-								<span class="form-checkbox_"><input type="checkbox" id="use-24-hour"/><i></i></span>
-								<label for="use-24-hour">Display the time with seconds</label>
-							</div>
-						</div>
-					</div>
-
-					<div class="row-group_">
-						<legend></legend>
-						<div>
-							<div class="row">
-								<span class="form-checkbox_ disabled_"><input type="checkbox" id="use-24-hour" disabled/><i></i></span>
-								<label for="use-24-hour">Show am/pm</label>
-							</div>
-						</div>
-					</div>
-
-					<hr class="space" />
-
-					<div class="row-group_">
-						<legend>Date options</legend>
-						<div>
-							<div class="row">
-								<span class="form-checkbox_"><input type="checkbox" id="use-24-hour" checked/><i></i></span>
-								<label for="use-24-hour">Show the day of the week</label>
-							</div>
-						</div>
-					</div>
-
-					<div class="row-group_">
-						<legend></legend>
-						<div>
-							<div class="row">
-								<span class="form-checkbox_"><input type="checkbox" id="use-24-hour" checked/><i></i></span>
-								<label for="use-24-hour">Show date</label>
+								<span class="form-checkbox_ disabled_"><input type="checkbox" id="show-amp-pm" disabled/><i></i></span>
+								<label for="show-amp-pm">Show am/pm</label>
 							</div>
 						</div>
 					</div>

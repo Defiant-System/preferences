@@ -39,7 +39,7 @@ const preferences = {
 		// tmp
 		//this.views = { isUnlocked: true, password: "temp" };
 		// this.dispatch({ type: "go-to", view: "usersGroups" })
-		this.dispatch({ type: "go-to", view: "general" })
+		this.dispatch({ type: "go-to", view: "dateTime" })
 	},
 	dispatch(event) {
 		let Self = preferences,

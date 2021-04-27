@@ -2,14 +2,16 @@
 // parts.dateTime
 
 {
-	dispatch(event) {
+	async dispatch(event) {
 		let Self = parts.dateTime,
 			isLocked,
+			shell,
 			items,
 			value,
 			el;
 		switch (event.type) {
 			case "init-view":
+				// fast references
 				Self.section = event.section;
 				Self.dateSettings = Self.section.find(".date-settings .wrapper");
 				Self.timeSettings = Self.section.find(".time-settings .wrapper");
@@ -20,16 +22,20 @@
 				Self.lock = Self.section.find(".row-foot .unlock-to-edit");
 				Self.clockOptions = Self.section.find(".clock-options");
 
+				// dock position
+				shell = await defiant.shell(`sys -l`);
+				Self.section.find(`input[id="show-date-time"]`).prop({ checked: shell.result });
+
 				// toggle view; if user already unlocked previously
 				Self.dispatch({
 					type: "toggle-view",
-					isUnlocked: preferences.views.isUnlocked
+					isUnlocked: true //preferences.views.isUnlocked
 				});
 
 				Self.renderCalendar();
 				
 				// temp
-				// Self.section.find(".tab-row_ > div:nth-child(2)").trigger("click");
+				Self.section.find(".tab-row_ > div:nth-child(3)").trigger("click");
 				break;
 			case "window.keystroke":
 				if (window.dialog._name === "unlock") {
@@ -53,7 +59,6 @@
 				Self.section.find(".timezone-name").html( el.data("name") +" Time" );
 				Self.section.find(".timezone-utc").html( el.data("utc") );
 				break;
-
 			case "dialog-unlock-check":
 				value = window.dialog.find("input").val();
 				items = $.cookie.get("defiantUser").split("%");
@@ -110,6 +115,35 @@
 				items = Self.clockOptions.find("input, selectbox");
 				items.toggleAttr("disabled", event.isUnlocked);
 				items.parent().toggleClass("disabled_", event.isUnlocked);
+				break;
+			case "toggle-menubar-clock":
+				el = $(event.target);
+				if (el.attr("type") !== "radio") return;
+				value = el.attr("id").split("-")[2];
+
+				console.log(value);
+				break;
+			case "toggle-menubar-date-time":
+				el = $(event.target);
+				if (el.attr("type") !== "checkbox") return;
+				value = el.is(":checked");
+
+				switch (el.attr("id")) {
+					case "show-date-time":
+						defiant.shell(`sys -l ${value}`);
+						break;
+					case "show-weekday":
+						break;
+					case "show-date":
+						break;
+					case "show-time":
+						break;
+					case "use-24-hour":
+						break;
+					case "show-amp-pm":
+						break;
+				}
+
 				break;
 		}
 	},
