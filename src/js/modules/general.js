@@ -49,7 +49,7 @@
 				// execute shell command
 				defiant.shell(`sys -j ${el.data("arg")}`);
 				break;
-			case "toggle-checkbox-value":
+			case "toggle-menubar":
 				el = $(event.target);
 				if (el.attr("type") !== "checkbox") return;
 
