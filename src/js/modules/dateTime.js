@@ -26,6 +26,12 @@
 				shell = await defiant.shell(`sys -l`);
 				Self.section.find(`input[id="show-date-time"]`).prop({ checked: shell.result });
 
+				shell = await defiant.shell(`sys -m`);
+				Self.section.find(`input[id="time-option-${shell.result}"]`).prop({ checked: true });
+
+				shell = await defiant.shell(`sys -q`);
+				Self.applyFormat(shell.result);
+
 				// toggle view; if user already unlocked previously
 				Self.dispatch({
 					type: "toggle-view",
@@ -121,7 +127,17 @@
 				if (el.attr("type") !== "radio") return;
 				value = el.attr("id").split("-")[2];
 
-				console.log(value);
+				if (value === "digital") {
+					Self.section.find("input#use-24-hour").removeAttr("disabled")
+						.parents(".row-group_").removeClass("disabled_");
+					Self.section.find("input#show-am-pm").removeAttr("disabled")
+						.parents(".row-group_").removeClass("disabled_");
+				} else {
+					Self.section.find("input#use-24-hour").attr({ disabled: "disabled" })
+						.parents(".row-group_").addClass("disabled_");
+					Self.section.find("input#show-am-pm").attr({ disabled: "disabled" })
+						.parents(".row-group_").addClass("disabled_");
+				}
 				break;
 			case "toggle-menubar-date-time":
 				el = $(event.target);
@@ -133,19 +149,69 @@
 						defiant.shell(`sys -l ${value}`);
 						break;
 					case "show-weekday":
-						break;
 					case "show-date":
-						break;
 					case "show-time":
+						value = Self.buildFormat();
 						break;
 					case "use-24-hour":
+						Self.section.find("input#use-24-hour").prop({ checked: true });
+						Self.section.find("input#show-am-pm").prop({ checked: false });
+						value = Self.buildFormat();
 						break;
-					case "show-amp-pm":
+					case "show-am-pm":
+						Self.section.find("input#use-24-hour").prop({ checked: false });
+						Self.section.find("input#show-am-pm").prop({ checked: true });
+						value = Self.buildFormat();
 						break;
 				}
-
+				defiant.shell(`sys -q "${value}"`);
 				break;
 		}
+	},
+	buildFormat() {
+		let Self = this,
+			result = [];
+
+		if (Self.section.find("input#show-weekday").is(":checked")) result.push("ddd");
+		if (Self.section.find("input#show-date").is(":checked")) result.push("DD MMM");
+		if (Self.section.find("input#show-time").is(":checked")) {
+			if (Self.section.find("input#use-24-hour").is(":checked")) result.push("HH:mm");
+			else if (Self.section.find("input#show-am-pm").is(":checked")) result.push("H:mm a");
+		}
+
+		return result.join(" ");
+	},
+	applyFormat(format) {
+		let Self = this,
+			off = { checked: false },
+			on = { checked: true };
+		// reset all fields
+		Self.section.find("input#show-weekday").prop(off);
+		Self.section.find("input#show-date").prop(off);
+		Self.section.find("input#show-time").prop(off);
+		Self.section.find("input#use-24-hour").prop(off);
+		Self.section.find("input#show-am-pm").prop(off);
+		// iterate values
+		format.split(" ").map(str => {
+			switch (str) {
+				case "ddd":
+					Self.section.find("input#show-weekday").prop(on);
+					break;
+				case "dd":
+				case "MMM":
+					Self.section.find("input#show-date").prop(on);
+					break;
+				case "HH:mm":
+					Self.section.find("input#show-time").prop(on);
+					Self.section.find("input#use-24-hour").prop(on);
+					break;
+				case "H:mm":
+				case "a":
+					Self.section.find("input#show-time").prop(on);
+					Self.section.find("input#show-am-pm").prop(on);
+					break;
+			}
+		});
 	},
 	renderCalendar() {
 		let date = new defiant.Moment(),
