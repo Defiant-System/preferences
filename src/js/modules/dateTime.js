@@ -22,20 +22,31 @@
 				Self.lock = Self.section.find(".row-foot .unlock-to-edit");
 				Self.clockOptions = Self.section.find(".clock-options");
 
-				// dock position
+				// show / hide menubar-date-time
 				shell = await defiant.shell(`sys -l`);
 				Self.section.find(`input[id="show-date-time"]`).prop({ checked: shell.result });
 
+				// parse format
+				shell = await defiant.shell(`sys -q`);
+				Self.parseFormat(shell.result);
+
+				// digital / analogue
 				shell = await defiant.shell(`sys -m`);
 				Self.section.find(`input[id="time-option-${shell.result}"]`).prop({ checked: true });
 
-				shell = await defiant.shell(`sys -q`);
-				Self.applyFormat(shell.result);
+				if (shell.result !== "digital") {
+					setTimeout(() => {
+						Self.section.find("input#use-24-hour").attr({ disabled: "disabled" })
+							.parents(".row-group_").addClass("disabled_");
+						Self.section.find("input#show-am-pm").attr({ disabled: "disabled" })
+							.parents(".row-group_").addClass("disabled_");
+					});
+				}
 
 				// toggle view; if user already unlocked previously
 				Self.dispatch({
 					type: "toggle-view",
-					isUnlocked: true //preferences.views.isUnlocked
+					isUnlocked: preferences.views.isUnlocked
 				});
 
 				Self.renderCalendar();
@@ -90,7 +101,7 @@
 					event.el.removeClass("unlocked");
 					Self.dispatch({ type: "toggle-view" });
 				} else {
-					return Self.dispatch({ type: "toggle-view", isUnlocked: true });
+					// return Self.dispatch({ type: "toggle-view", isUnlocked: true });
 					// lock icon UI
 					Self.lock.addClass("authorizing");
 					// show unlock dialog
@@ -120,7 +131,14 @@
 				// clock options
 				items = Self.clockOptions.find("input, selectbox");
 				items.toggleAttr("disabled", event.isUnlocked);
-				items.parent().toggleClass("disabled_", event.isUnlocked);
+				items.parents(".row-group_").toggleClass("disabled_", event.isUnlocked);
+
+				if (Self.section.find(`input[id="time-option-analogue"]`).is(":checked")) {
+					Self.section.find("input#use-24-hour").attr({ disabled: "disabled" })
+						.parents(".row-group_").addClass("disabled_");
+					Self.section.find("input#show-am-pm").attr({ disabled: "disabled" })
+						.parents(".row-group_").addClass("disabled_");
+				}
 				break;
 			case "toggle-menubar-clock":
 				el = $(event.target);
@@ -138,6 +156,8 @@
 					Self.section.find("input#show-am-pm").attr({ disabled: "disabled" })
 						.parents(".row-group_").addClass("disabled_");
 				}
+				// save value to settings
+				defiant.shell(`sys -m ${value}`);
 				break;
 			case "toggle-menubar-date-time":
 				el = $(event.target);
@@ -164,6 +184,7 @@
 						value = Self.buildFormat();
 						break;
 				}
+				// save value to settings
 				defiant.shell(`sys -q "${value}"`);
 				break;
 		}
@@ -181,7 +202,7 @@
 
 		return result.join(" ");
 	},
-	applyFormat(format) {
+	parseFormat(format) {
 		let Self = this,
 			off = { checked: false },
 			on = { checked: true };
