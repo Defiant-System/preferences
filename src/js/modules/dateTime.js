@@ -10,6 +10,7 @@
 			items,
 			value,
 			add,
+			str,
 			target,
 			el;
 		switch (event.type) {
@@ -17,14 +18,24 @@
 				// fast references
 				Self.section = event.section;
 				Self.timeOptions = Self.section.find(".date-time-options");
-				Self.calendar = Self.timeOptions.find(".calendar");
+				Self.calendar = Self.timeOptions.find(".calendar .reel");
 				Self.clockSvg = Self.timeOptions.find(".clock svg");
-				Self.worldmap = Self.timeOptions.find(".worldmap");
 				Self.timeOptionSeconds = Self.timeOptions.find(".seconds");
+				Self.worldmap = Self.section.find("div.worldmap-land");
 				Self.lock = Self.section.find(".row-foot .unlock-to-edit");
 
 				// start update; calendar and clock
 				setTimeout(Self.updateTimeOptions.bind(Self), 100);
+
+				// dateTime difference
+				shell = await defiant.shell(`sys -y`);
+				if (shell.result !== 0) {
+					Self.section.find("input#set-automatically").prop({ checked: false });
+				}
+
+				// timezone
+				shell = await defiant.shell(`sys -z`);
+				Self.worldmap.find(`.utc-bar[data-utc="${shell.result}"]`).addClass("active");
 
 				// show / hide menubar-date-time
 				shell = await defiant.shell(`sys -l`);
@@ -53,10 +64,12 @@
 					isUnlocked: true //preferences.views.isUnlocked
 				});
 
-				Self.renderCalendar();
-				
+				// initial month render
+				str = Self.renderCalendar();
+				Self.calendar.html(str);
+
 				// temp
-				// Self.section.find(".tab-row_ > div:nth-child(3)").trigger("click");
+				Self.section.find(".tab-row_ > div:nth-child(2)").trigger("click");
 				break;
 			case "window.keystroke":
 				if (window.dialog._name === "unlock") {
@@ -106,6 +119,18 @@
 				}
 
 				el.html(value);
+				break;
+			case "go-prev-month":
+				console.log(event);
+				break;
+			case "go-next-month":
+				console.log(event);
+				break;
+			case "select-time-zone":
+				target = $(event.target);
+				if (!target.data("utc")) return;
+				
+				console.log(target.data("utc"));
 				break;
 			case "select-time-zone":
 				el = $(event.target);
@@ -164,6 +189,8 @@
 
 				Self.timeOptions.find(".row-group_").toggleClass("disabled_", event.isUnlocked);
 				Self.worldmap.toggleClass("disabled_", event.isUnlocked);
+
+				console.log( Self.worldmap );
 
 				// clock options
 				items = Self.section.find(".clock-options").find("input, selectbox");
@@ -333,10 +360,11 @@
 			htm = [];
 
 		// title: month
+		htm.push(`<div class="calendar-month">`);
 		htm.push(`<div class="calendar-head">`);
-		htm.push(`<span class="calendar-left"></span>`);
-		htm.push(`<span class="calendar-month">${date.format("MMMM YYYY")}</span>`);
-		htm.push(`<span class="calendar-right"></span>`);
+		htm.push(`<span class="calendar-left" data-click="go-prev-month"></span>`);
+		htm.push(`<span class="calendar-year-month">${date.format("MMMM YYYY")}</span>`);
+		htm.push(`<span class="calendar-right" data-click="go-next-month"></span>`);
 		htm.push(`</div>`);
 		
 		// loop weekdays
@@ -355,8 +383,8 @@
 				htm.push(`<b${className}><i>${day.date}</i></b>`);
 			}
 		});
-		htm.push(`</div></div>`);
+		htm.push(`</div></div></div>`);
 
-		this.calendar.html(htm.join(""));
+		return htm.join("");
 	}
 }
