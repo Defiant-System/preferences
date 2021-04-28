@@ -69,7 +69,7 @@
 				Self.calendar.html(str);
 
 				// temp
-				Self.section.find(".tab-row_ > div:nth-child(2)").trigger("click");
+				// Self.section.find(".tab-row_ > div:nth-child(2)").trigger("click");
 				break;
 			case "window.keystroke":
 				if (window.dialog._name === "unlock") {
@@ -127,20 +127,17 @@
 				console.log(event);
 				break;
 			case "select-time-zone":
-				target = $(event.target);
-				if (!target.data("utc")) return;
-				
-				console.log(target.data("utc"));
-				break;
-			case "select-time-zone":
 				el = $(event.target);
-				if (Self.worldmap.hasClass("disabled_")) return;
+				if (Self.worldmap.hasClass("disabled_") || !el.data("utc")) return;
 
 				el.parent().find(".active").removeClass("active");
 				el.addClass("active");
 
 				Self.section.find(".timezone-name").html( el.data("name") +" Time" );
 				Self.section.find(".timezone-utc").html( el.data("utc") );
+
+				// save to setting
+				defiant.shell(`sys -z "${el.data("utc")}"`);
 				break;
 			case "dialog-unlock-check":
 				value = window.dialog.find("input").val();
@@ -189,8 +186,6 @@
 
 				Self.timeOptions.find(".row-group_").toggleClass("disabled_", event.isUnlocked);
 				Self.worldmap.toggleClass("disabled_", event.isUnlocked);
-
-				console.log( Self.worldmap );
 
 				// clock options
 				items = Self.section.find(".clock-options").find("input, selectbox");
