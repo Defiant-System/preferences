@@ -22,9 +22,8 @@
 				Self.timeOptionSeconds = Self.timeOptions.find(".seconds");
 				Self.lock = Self.section.find(".row-foot .unlock-to-edit");
 
-				// set date time; calendar and clock
-				// Self.dateTime = new defiant.Moment();
-				Self.updateTimeOptions();
+				// start update; calendar and clock
+				setTimeout(Self.updateTimeOptions.bind(Self), 100);
 
 				// show / hide menubar-date-time
 				shell = await defiant.shell(`sys -l`);
@@ -215,8 +214,10 @@
 			"--rotation-seconds": `${seconds}deg`,
 		});
 
-		let nextTick = 1000 - now.date.getMilliseconds();
-		Self.timer = setTimeout(Self.updateTimeOptions.bind(Self), nextTick);
+		if (Self.timeOptions.is(":visible")) {
+			let nextTick = 1000 - now.date.getMilliseconds();
+			Self.timer = setTimeout(Self.updateTimeOptions.bind(Self), nextTick);
+		}
 	},
 	buildFormat() {
 		let Self = this,
