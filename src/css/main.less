@@ -1055,6 +1055,11 @@ content {
 			.date-time-options.tab-active_ {
 				text-align: center;
 				display: block;
+
+				.row-group_ .center {
+					text-align: inherit;
+					padding-bottom: 45px;
+				}
 			}
 
 			.time-zone-options {
@@ -1135,10 +1140,9 @@ content {
 
 			.date-settings,
 			.time-settings {
-				//background: rgba(0,0,0,.15);
 				display: inline-block;
 				width: 240px;
-				height: 337px;
+				height: 267px;
 				padding: 21px 0 0;
 				text-align: center;
 				vertical-align: top;
@@ -1155,12 +1159,14 @@ content {
 						background: #fff;
 						position: relative;
 						top: 2px;
-						width: 13px;
 						height: 22px;
+						width: 13px;
+						margin-right: -17px;
 						display: inline-block;
 						vertical-align: top;
 						border: 1px solid #ccc;
 						border-radius: 7px;
+						visibility: hidden;
 
 						&.disabled_ {
 							background: #f2f2f2;
@@ -1232,11 +1238,15 @@ content {
 						border-radius: 3px;
 						padding: 3px 0;
 						font-size: 0;
-						width: 107px;
+						width: 97px;
 
 						&.active:not(.disabled_) {
 							border-color: #69d;
 							box-shadow: 0 0 0 3px #3366dd4a;
+
+							& + .inc-arrows_ {
+								visibility: visible;
+							}
 						}
 
 						&.disabled_ {
@@ -1272,7 +1282,7 @@ content {
 
 				.time-sample {
 					.wrapper {
-						width: 89px;
+						width: 85px;
 
 						.seperator:before {
 							content: ":";

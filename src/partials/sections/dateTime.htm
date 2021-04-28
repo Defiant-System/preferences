@@ -9,36 +9,43 @@
 			<div class="tab-body_">
 				<!-- Date & Time -->
 				<div class="date-time-options tab-active_">
-					
+
 					<div class="date-settings">
 						<div class="date-sample">
-							<div class="wrapper active">
-								<span class="year selected"></span>
+							<div class="wrapper disabled_" data-click="select-date-section">
+								<span class="year"></span>
 								<span class="seperator"></span>
 								<span class="month"></span>
 								<span class="seperator"></span>
 								<span class="date"></span>
 							</div>
-							<div class="inc-arrows_ disabled_" data-click="increment-date"><i></i><i></i></div>
+							<div class="inc-arrows_ disabled_" data-click="increment-date"><i data-add="1"></i><i data-add="-1"></i></div>
 						</div>
-						<div class="calendar">
+						<div class="calendar disabled_">
 							<!-- mini calendar html goes here -->
 						</div>
 					</div>
 
 					<div class="time-settings">
 						<div class="time-sample">
-							<div class="wrapper">
+							<div class="wrapper disabled_" data-click="select-date-section">
 								<span class="hours"></span>
 								<span class="seperator"></span>
 								<span class="minutes"></span>
 								<span class="seperator"></span>
 								<span class="seconds"></span>
 							</div>
-							<div class="inc-arrows_" data-click="increment-time"><i></i><i></i></div>
+							<div class="inc-arrows_" data-click="increment-time"><i data-add="1"></i><i data-add="-1"></i></div>
 						</div>
-						<div class="clock">
+						<div class="clock disabled_">
 							<svg><use xlink:href="#clock"></use></svg>
+						</div>
+					</div>
+					
+					<div class="row-group_ disabled_" data-click="toggle-manual-date-time">
+						<div class="center">
+							<span class="form-checkbox_"><input type="checkbox" disabled id="set-automatically" checked/><i></i></span>
+							<label for="set-automatically">Set date &amp; time automatically</label>
 						</div>
 					</div>
 

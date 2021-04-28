@@ -9,6 +9,7 @@
 			shell,
 			items,
 			value,
+			add,
 			target,
 			el;
 		switch (event.type) {
@@ -65,9 +66,46 @@
 			case "go-to-language":
 				preferences.dispatch({ type: "go-to", view: "language" });
 				break;
+			case "select-date-section":
+				target = $(event.target);
+				if (target.hasClass("seconds") || target.hasClass("seperator")) return;
+
+				// make wrapper active
+				Self.timeOptions.find(".selected").removeClass("selected");
+				Self.timeOptions.find(".active").removeClass("active");
+				event.el.addClass("active");
+
+				target.addClass("selected");
+				break;
 			case "increment-date":
 			case "increment-time":
-				console.log(event);
+				el = Self.timeOptions.find(".selected");
+				target = $(event.target);
+				add = +target.data("add");
+				value = +el.html();
+
+				switch (true) {
+					case el.hasClass("year"):
+						value = value + add;
+						break;
+					case el.hasClass("month"):
+						value = Math.max(Math.min(value + add, 12), 1).toString().padStart(2, "0");
+						break;
+					case el.hasClass("date"):
+						let year = +Self.timeOptions.find(".year").html();
+						let month = +Self.timeOptions.find(".month").html();
+						let max = (new Date(year, month, 0)).getDate();
+						value = Math.max(Math.min(value + add, max), 1).toString().padStart(2, "0");
+						break;
+					case el.hasClass("hours"):
+						value = Math.max(Math.min(value + add, 23), 0).toString().padStart(2, "0");
+						break;
+					case el.hasClass("minutes"):
+						value = Math.max(Math.min(value + add, 59), 0).toString().padStart(2, "0");
+						break;
+				}
+
+				el.html(value);
 				break;
 			case "select-time-zone":
 				el = $(event.target);
@@ -124,17 +162,14 @@
 				Self.lock.removeClass("authorizing")
 					.toggleClass("unlocked", !event.isUnlocked);
 
-				Self.section.find(".date-settings .wrapper").toggleClass("disabled_", event.isUnlocked);
-				Self.section.find(".time-settings .wrapper").toggleClass("disabled_", event.isUnlocked);
-				Self.timeOptions.find(".inc-arrows_").toggleClass("disabled_", event.isUnlocked);
-				Self.timeOptions.find(".clock").toggleClass("disabled_", event.isUnlocked);
-				Self.calendar.toggleClass("disabled_", event.isUnlocked);
+				Self.timeOptions.find(".row-group_").toggleClass("disabled_", event.isUnlocked);
 				Self.worldmap.toggleClass("disabled_", event.isUnlocked);
 
 				// clock options
 				items = Self.section.find(".clock-options").find("input, selectbox");
 				items.toggleAttr("disabled", event.isUnlocked);
 				items.parents(".row-group_").toggleClass("disabled_", event.isUnlocked);
+				Self.timeOptions.find(".row-group_ input").toggleAttr("disabled", event.isUnlocked);
 
 				if (Self.section.find(`input[id="time-option-analogue"]`).is(":checked")) {
 					Self.section.find("input#use-24-hour").attr({ disabled: "disabled" })
@@ -142,6 +177,28 @@
 					Self.section.find("input#show-am-pm").attr({ disabled: "disabled" })
 						.parents(".row-group_").addClass("disabled_");
 				}
+				// force in to boolean value
+				Self.viewLocked = !!event.isUnlocked;
+
+				value = Self.section.find("input#set-automatically").is(":checked");
+				Self.dispatch({ type: "toggle-manual-date-time", value });
+				break;
+			case "toggle-manual-date-time":
+				if (event.value !== undefined) {
+					value = event.value;
+				} else {
+					el = $(event.target);
+					if (el.attr("type") !== "checkbox") return;
+					value = el.is(":checked");
+				}
+				// view lock logic
+				value = !Self.viewLocked || value;
+
+				Self.section.find(".date-settings .wrapper").toggleClass("disabled_", !value);
+				Self.section.find(".time-settings .wrapper").toggleClass("disabled_", !value);
+				Self.timeOptions.find(".inc-arrows_").toggleClass("disabled_", !value);
+				Self.timeOptions.find(".clock").toggleClass("disabled_", !value);
+				Self.calendar.toggleClass("disabled_", !value);
 				break;
 			case "toggle-menubar-clock":
 				el = $(event.target);
@@ -197,12 +254,18 @@
 		clearTimeout(this.timer);
 
 		let Self = this,
-			now = new defiant.Moment();
-		Self.timeOptions.find(".year").html(now.format("YYYY"));
-		Self.timeOptions.find(".month").html(now.format("HH"));
-		Self.timeOptions.find(".date").html(now.format("DD"));
-		Self.timeOptions.find(".hours").html(now.format("HH"));
-		Self.timeOptions.find(".minutes").html(now.format("mm"));
+			now = new defiant.Moment(),
+			el;
+		
+		if (!Self.timeOptions.find(".date-sample .wrapper").hasClass("active")) {
+			Self.timeOptions.find(".year").html(now.format("YYYY"));
+			Self.timeOptions.find(".month").html(now.format("MM"));
+			Self.timeOptions.find(".date").html(now.format("DD"));
+		}
+		if (!Self.timeOptions.find(".time-sample .wrapper").hasClass("active")) {
+			Self.timeOptions.find(".hours").html(now.format("HH"));
+			Self.timeOptions.find(".minutes").html(now.format("mm"));
+		}
 		Self.timeOptionSeconds.html(now.format("ss"));
 
 		let hours = 30 * (now.date.getHours() % 12) + now.date.getMinutes() / 2,
