@@ -5,22 +5,26 @@
 	async dispatch(event) {
 		let Self = parts.dateTime,
 			isLocked,
+			now,
 			shell,
 			items,
 			value,
+			target,
 			el;
 		switch (event.type) {
 			case "init-view":
 				// fast references
 				Self.section = event.section;
-				Self.dateSettings = Self.section.find(".date-settings .wrapper");
-				Self.timeSettings = Self.section.find(".time-settings .wrapper");
-				Self.incArrows = Self.section.find(".date-time-options .inc-arrows_");
-				Self.calendar = Self.section.find(".calendar");
-				Self.clock = Self.section.find(".clock");
-				Self.worldmap = Self.section.find(".worldmap");
+				Self.timeOptions = Self.section.find(".date-time-options");
+				Self.calendar = Self.timeOptions.find(".calendar");
+				Self.clockSvg = Self.timeOptions.find(".clock svg");
+				Self.worldmap = Self.timeOptions.find(".worldmap");
+				Self.timeOptionSeconds = Self.timeOptions.find(".seconds");
 				Self.lock = Self.section.find(".row-foot .unlock-to-edit");
-				Self.clockOptions = Self.section.find(".clock-options");
+
+				// set date time; calendar and clock
+				// Self.dateTime = new defiant.Moment();
+				Self.updateTimeOptions();
 
 				// show / hide menubar-date-time
 				shell = await defiant.shell(`sys -l`);
@@ -46,13 +50,13 @@
 				// toggle view; if user already unlocked previously
 				Self.dispatch({
 					type: "toggle-view",
-					isUnlocked: preferences.views.isUnlocked
+					isUnlocked: true //preferences.views.isUnlocked
 				});
 
 				Self.renderCalendar();
 				
 				// temp
-				Self.section.find(".tab-row_ > div:nth-child(3)").trigger("click");
+				// Self.section.find(".tab-row_ > div:nth-child(3)").trigger("click");
 				break;
 			case "window.keystroke":
 				if (window.dialog._name === "unlock") {
@@ -101,7 +105,7 @@
 					event.el.removeClass("unlocked");
 					Self.dispatch({ type: "toggle-view" });
 				} else {
-					// return Self.dispatch({ type: "toggle-view", isUnlocked: true });
+					return Self.dispatch({ type: "toggle-view", isUnlocked: true });
 					// lock icon UI
 					Self.lock.addClass("authorizing");
 					// show unlock dialog
@@ -121,15 +125,15 @@
 				Self.lock.removeClass("authorizing")
 					.toggleClass("unlocked", !event.isUnlocked);
 
-				Self.dateSettings.toggleClass("disabled_", event.isUnlocked);
-				Self.timeSettings.toggleClass("disabled_", event.isUnlocked);
-				Self.incArrows.toggleClass("disabled_", event.isUnlocked);
+				Self.section.find(".date-settings .wrapper").toggleClass("disabled_", event.isUnlocked);
+				Self.section.find(".time-settings .wrapper").toggleClass("disabled_", event.isUnlocked);
+				Self.timeOptions.find(".inc-arrows_").toggleClass("disabled_", event.isUnlocked);
+				Self.timeOptions.find(".clock").toggleClass("disabled_", event.isUnlocked);
 				Self.calendar.toggleClass("disabled_", event.isUnlocked);
-				Self.clock.toggleClass("disabled_", event.isUnlocked);
 				Self.worldmap.toggleClass("disabled_", event.isUnlocked);
 
 				// clock options
-				items = Self.clockOptions.find("input, selectbox");
+				items = Self.section.find(".clock-options").find("input, selectbox");
 				items.toggleAttr("disabled", event.isUnlocked);
 				items.parents(".row-group_").toggleClass("disabled_", event.isUnlocked);
 
@@ -188,6 +192,31 @@
 				defiant.shell(`sys -q "${value}"`);
 				break;
 		}
+	},
+	updateTimeOptions() {
+		// clear timer; just in case...and avoid multiple calls
+		clearTimeout(this.timer);
+
+		let Self = this,
+			now = new defiant.Moment();
+		Self.timeOptions.find(".year").html(now.format("YYYY"));
+		Self.timeOptions.find(".month").html(now.format("HH"));
+		Self.timeOptions.find(".date").html(now.format("DD"));
+		Self.timeOptions.find(".hours").html(now.format("HH"));
+		Self.timeOptions.find(".minutes").html(now.format("mm"));
+		Self.timeOptionSeconds.html(now.format("ss"));
+
+		let hours = 30 * (now.date.getHours() % 12) + now.date.getMinutes() / 2,
+			minutes = 6 * now.date.getMinutes(),
+			seconds = 6 * now.date.getSeconds();
+		Self.clockSvg.css({
+			"--rotation-hours": `${hours}deg`,
+			"--rotation-minutes": `${minutes}deg`,
+			"--rotation-seconds": `${seconds}deg`,
+		});
+
+		let nextTick = 1000 - now.date.getMilliseconds();
+		Self.timer = setTimeout(Self.updateTimeOptions.bind(Self), nextTick);
 	},
 	buildFormat() {
 		let Self = this,
