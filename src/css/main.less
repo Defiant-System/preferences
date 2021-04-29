@@ -1301,6 +1301,33 @@ content {
 				border: 1px solid #ccc;
 				border-radius: 3px;
 
+				&.disabled_ {
+					background: #f2f2f2;
+					border-color: #d5d5d5;
+
+					.calendar-head {
+						.calendar-left,
+						.calendar-right {
+							display: none;
+						}
+					}
+
+					.month {
+						span {
+							cursor: default;
+
+							&.active {
+								background: #aaa;
+								color: #fff;
+							}
+
+							&:hover:not(.active) {
+								background: transparent;
+							}
+						}
+					}
+				}
+
 				.reel {
 					position: relative;
 					left: 0;
@@ -1313,33 +1340,6 @@ content {
 					&.to-right {
 						transition: left 200ms ease-out;
 						left: -222px;
-					}
-
-					&.disabled_ {
-						background: #f2f2f2;
-						border-color: #d5d5d5;
-
-						.calendar-head {
-							.calendar-left,
-							.calendar-right {
-								display: none;
-							}
-						}
-
-						.month {
-							span {
-								cursor: default;
-
-								&.active {
-									background: #aaa;
-									color: #fff;
-								}
-
-								&:hover:not(.active) {
-									background: transparent;
-								}
-							}
-						}
 					}
 				}
 

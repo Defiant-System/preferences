@@ -26,7 +26,7 @@
 				Self.lock = Self.section.find(".row-foot .unlock-to-edit");
 
 				// start update; calendar and clock
-				setTimeout(Self.updateTimeOptions.bind(Self), 100);
+				setTimeout(Self.updateTimeOptions.bind(Self), 60);
 
 				// dateTime difference
 				shell = await defiant.shell(`sys -y`);
@@ -246,7 +246,7 @@
 				Self.section.find(".time-settings .wrapper").toggleClass("disabled_", !value);
 				Self.timeOptions.find(".inc-arrows_").toggleClass("disabled_", !value);
 				Self.timeOptions.find(".clock").toggleClass("disabled_", !value);
-				Self.calendar.toggleClass("disabled_", !value);
+				Self.calendar.parent().toggleClass("disabled_", !value);
 				break;
 			case "toggle-menubar-clock":
 				el = $(event.target);
