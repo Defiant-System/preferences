@@ -1302,6 +1302,19 @@ content {
 				border-radius: 3px;
 
 				.reel {
+					position: relative;
+					left: 0;
+
+					&.to-left {
+						transition: left 200ms ease-out;
+						left: 222px;
+					}
+
+					&.to-right {
+						transition: left 200ms ease-out;
+						left: -222px;
+					}
+
 					&.disabled_ {
 						background: #f2f2f2;
 						border-color: #d5d5d5;
@@ -1334,6 +1347,7 @@ content {
 					position: absolute;
 					top: 0;
 					left: 0;
+					width: 220px;
 				}
 
 				.calendar-head {

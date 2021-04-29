@@ -5,7 +5,8 @@
 	async dispatch(event) {
 		let Self = parts.dateTime,
 			isLocked,
-			now,
+			date,
+			newMonth,
 			shell,
 			items,
 			value,
@@ -65,6 +66,7 @@
 				});
 
 				// initial month render
+				Self.calendarDate = new defiant.Moment();
 				str = Self.renderCalendar();
 				Self.calendar.html(str);
 
@@ -121,10 +123,32 @@
 				el.html(value);
 				break;
 			case "go-prev-month":
-				console.log(event);
+				date = Self.calendarDate.date;
+				date.setMonth(date.getMonth() - 1);
+				// render month
+				str = Self.renderCalendar();
+				newMonth = Self.calendar.append(str);
+				newMonth.css({ left: `-${Self.calendar.parent().width()}px` });
+
+				Self.calendar.cssSequence("to-left", "transitionend", el => {
+					newMonth.prev(".calendar-month").remove();
+					newMonth.css({ left: "" });
+					el.removeClass("to-left");
+				});
 				break;
 			case "go-next-month":
-				console.log(event);
+				date = Self.calendarDate.date;
+				date.setMonth(date.getMonth() + 1);
+				// render month
+				str = Self.renderCalendar();
+				newMonth = Self.calendar.append(str);
+				newMonth.css({ left: `${Self.calendar.parent().width()}px` });
+
+				Self.calendar.cssSequence("to-right", "transitionend", el => {
+					newMonth.prev(".calendar-month").remove();
+					newMonth.css({ left: "" });
+					el.removeClass("to-right");
+				});
 				break;
 			case "select-time-zone":
 				el = $(event.target);
@@ -350,7 +374,7 @@
 		});
 	},
 	renderCalendar() {
-		let date = new defiant.Moment(),
+		let date = this.calendarDate,
 			meta = date.render({ date, weekNumbers: 1, mini: 1 }),
 			htm = [];
 
