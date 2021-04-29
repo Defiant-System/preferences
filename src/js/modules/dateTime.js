@@ -67,8 +67,7 @@
 
 				// initial month render
 				Self.calendarDate = new defiant.Moment();
-				str = Self.renderCalendar();
-				Self.calendar.html(str);
+				Self.renderCalendar();
 
 				// temp
 				// Self.section.find(".tab-row_ > div:nth-child(2)").trigger("click");
@@ -126,8 +125,7 @@
 				date = Self.calendarDate.date;
 				date.setMonth(date.getMonth() - 1);
 				// render month
-				str = Self.renderCalendar();
-				newMonth = Self.calendar.append(str);
+				newMonth = Self.renderCalendar();
 				newMonth.css({ left: `-${Self.calendar.parent().width()}px` });
 
 				Self.calendar.cssSequence("to-left", "transitionend", el => {
@@ -140,8 +138,7 @@
 				date = Self.calendarDate.date;
 				date.setMonth(date.getMonth() + 1);
 				// render month
-				str = Self.renderCalendar();
-				newMonth = Self.calendar.append(str);
+				newMonth = Self.renderCalendar();
 				newMonth.css({ left: `${Self.calendar.parent().width()}px` });
 
 				Self.calendar.cssSequence("to-right", "transitionend", el => {
@@ -404,6 +401,6 @@
 		});
 		htm.push(`</div></div></div>`);
 
-		return htm.join("");
+		return this.calendar.append(htm.join(""));
 	}
 }
