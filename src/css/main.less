@@ -1058,7 +1058,44 @@ content {
 
 				.row-group_ .center {
 					text-align: inherit;
-					padding-bottom: 45px;
+					padding-top: 23px;
+					padding-bottom: 27px;
+				}
+			}
+
+			.date-diff-options {
+				position: relative;
+				top: -7px;
+				height: 0;
+				font-size: 0;
+				text-align: center;
+
+				&.hidden {
+					display: none;
+				}
+
+				span {
+					background: #f2f2f2;
+					position: relative;
+					width: 25px;
+					height: 25px;
+					padding: 5px;
+					margin: 0 2px;
+					display: inline-block;
+					vertical-align: middle;
+					border: 1px solid rgba(0,0,0,.15);
+					border-radius: 3px;
+
+					&:after {
+						content: "";
+						background: 50% 50%/contain no-repeat;
+						display: block;
+						width: 13px;
+						height: 13px;
+					}
+
+					&.icon-revert:after { background-image: url(~/icons/icon-revert.png); }
+					&.icon-apply:after { background-image: url(~/icons/icon-apply.png); }
 				}
 			}
 

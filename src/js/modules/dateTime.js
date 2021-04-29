@@ -242,6 +242,7 @@
 				// view lock logic
 				value = !Self.viewLocked || value;
 
+				Self.section.find(".date-diff-options").toggleClass("hidden", !value);
 				Self.section.find(".date-settings .wrapper").toggleClass("disabled_", !value);
 				Self.section.find(".time-settings .wrapper").toggleClass("disabled_", !value);
 				Self.timeOptions.find(".inc-arrows_").toggleClass("disabled_", !value);
