@@ -1480,6 +1480,10 @@ content {
 
 				&.disabled_:before { background: #f2f2f2; }
 
+				&.show-24h:after {
+					display: none;
+				}
+
 				&:before {
 					content: "";
 					position: absolute;
@@ -1494,6 +1498,18 @@ content {
 								inset 0 2px 5px rgba(0,0,0,.15);
 				}
 
+				&:after {
+					content: attr(data-a);
+					text-transform: uppercase;
+					font-size: 13px;
+					position: absolute;
+					top: 67%;
+					left: 21px;
+					right: 21px;
+					opacity: .5;
+					text-align: center;
+				}
+
 				svg {
 					position: absolute;
 					top: 5px;
@@ -1501,6 +1517,7 @@ content {
 					width: 127px;
 					height: 127px;
 					border-radius: 50%;
+					z-index: 2;
 					--rotation-hours: 0deg;
 					--rotation-minutes: 0deg;
 					--rotation-seconds: 0deg;

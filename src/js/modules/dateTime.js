@@ -34,6 +34,10 @@
 					Self.section.find("input#set-automatically").prop({ checked: false });
 				}
 
+				// clock 24h (or am/pm)
+				shell = await defiant.shell(`sys -u`);
+				Self.clockSvg.parent().toggleClass("show-24h", shell.result === "am/pm");
+
 				// timezone
 				shell = await defiant.shell(`sys -z`);
 				Self.worldmap.find(`.utc-bar[data-utc="${shell.result}"]`).addClass("active");
@@ -70,7 +74,7 @@
 				Self.renderCalendar();
 
 				// temp
-				// Self.section.find(".tab-row_ > div:nth-child(2)").trigger("click");
+				Self.section.find(".tab-row_ > div:nth-child(3)").trigger("click");
 				break;
 			case "window.keystroke":
 				if (window.dialog._name === "unlock") {
@@ -280,11 +284,19 @@
 						Self.section.find("input#use-24-hour").prop({ checked: true });
 						Self.section.find("input#show-am-pm").prop({ checked: false });
 						value = Self.buildFormat();
+						// set i18n hours
+						defiant.shell(`sys -u "24h"`);
+						// ui update for clock
+						Self.clockSvg.parent().addClass("show-24h");
 						break;
 					case "show-am-pm":
 						Self.section.find("input#use-24-hour").prop({ checked: false });
 						Self.section.find("input#show-am-pm").prop({ checked: true });
 						value = Self.buildFormat();
+						// set i18n hours
+						defiant.shell(`sys -u "am/pm"`);
+						// ui update for clock
+						Self.clockSvg.parent().removeClass("show-24h");
 						break;
 				}
 				// save value to settings
