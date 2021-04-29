@@ -27,9 +27,39 @@
 					</div>
 				</div>
 				<div class="sample">
-					<div class="tree" data-click="select-bg-folder"></div>
-					<div class="list wide-wp" data-click="select-bg-item"></div>
+					<div class="tree">
+						<div class="tree-list" data-click="select-bg-folder">
+							<!-- tree list goes here -->
+						</div>
+						<div class="folder-options">
+							<div class="option-button" data-click="add-folder">
+								<i class="icon-plus"></i>
+							</div>
+							<div class="option-button disabled_" data-click="remove-folder">
+								<i class="icon-minus"></i>
+							</div>
+						</div>
+					</div>
+					<div class="list wide-wp" data-click="select-bg-item">
+						<!-- selected folder list goes here -->
+					</div>
 				</div>
+
+				<div class="popup-bubble" data-click="set-wallpaper-style">
+					<div class="row-entry">
+						<input type="checkbox" id="type-wide"/>
+						<label for="type-wide">Ultra-wide</label>
+					</div>
+					<div class="row-entry">
+						<input type="checkbox" id="type-normal" checked/>
+						<label for="type-normal">Normal</label>
+					</div>
+					<div class="row-entry">
+						<input type="checkbox" id="type-tile"/>
+						<label for="type-tile">Tiled</label>
+					</div>
+				</div>
+
 			</div>
 
 			<!-- Icons -->

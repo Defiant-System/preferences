@@ -16,6 +16,8 @@
 			item,
 			name,
 			value,
+			pos,
+			target,
 			siblings,
 			el;
 		switch (event.type) {
@@ -24,11 +26,13 @@
 				if (event.section.find(".tree .tree-item").length) return;
 				
 				// fast references
+				Self.doc = $(document);
 				Self.section = event.section;
 				Self.wideWsEl = Self.section.find(".workspace-wide");
 				Self.reelEl = Self.section.find(".reel");
-				Self.treeEl = Self.section.find(".tree");
+				Self.treeEl = Self.section.find(".tree .tree-list");
 				Self.listEl = Self.section.find(".list");
+				Self.popBubble = Self.section.find(".popup-bubble");
 
 				/*
 				 * Wallpaper Tab
@@ -84,6 +88,7 @@
 
 				// temp
 				// Self.section.find(".tab-row_ > div:nth-child(2)").trigger("click");
+				Self.treeEl.find(".tree-item:nth(8)").trigger("click");
 				break;
 			case "select-workspace":
 				el = $(event.target);
@@ -127,6 +132,52 @@
 				if (active.length) active.addClass("active").scrollIntoView();
 
 				Self.listEl.toggleClass("wide-wp", el.data("type") !== "wide");
+				break;
+			case "add-folder":
+			case "remove-folder":
+				console.log(event);
+				break;
+			case "show-pop-bubble":
+				let fn = e => {
+						let elem = $(e.target).parents(".popup-bubble");
+						if (elem.length) return;
+						// remove class
+						target.removeClass("popup-source");
+						// hide bubble
+						Self.popBubble.removeClass("pop");
+						// unbind event handler
+						Self.doc.unbind("mousedown", fn);
+					};
+
+				pos = Self.getPosition(event.target, Self.popBubble.parent()[0]);
+				target = $(event.target).parent().addClass("popup-source");
+				// diff for bubble arrow
+				pos.top -= 43;
+
+				// reset checkboxes
+				Self.popBubble.find("input[type='checkbox']").prop({ checked: false });
+				Self.popBubble.find(`input#type-${target.data("type")}`).prop({ checked: true });
+
+				// pop bubble
+				Self.popBubble.addClass("pop").css(pos);
+				// bind event handler
+				Self.doc.bind("mousedown", fn);
+				break;
+			case "set-wallpaper-style":
+				el = $(event.target);
+				if (el.attr("type") !== "checkbox") return;
+
+				event.el.find("input[type='checkbox']").prop({ checked: false });
+				el.prop({ checked: true });
+
+				let [a, b] = el.attr("id").split("-"),
+					src = Self.listEl.find(".popup-source");
+				src.data({ type: b });
+				// re-position bubble
+				pos = Self.getPosition(src.find(".bg-config")[0], Self.popBubble.parent()[0]);
+				// diff for bubble arrow
+				pos.top -= 43;
+				Self.popBubble.addClass("pop").css(pos);
 				break;
 			case "select-bg-item":
 				el = $(event.target);
@@ -193,5 +244,18 @@
 				defiant.shell(`sys -t ${!el.is(":checked")}`);
 				break;
 		}
+	},
+	getPosition(el, rEl) {
+		let pEl = el,
+			pos = {
+				top: el.offsetHeight / 2,
+				left: el.offsetWidth + 15,
+			};
+		while (pEl !== rEl) {
+			pos.top += (pEl.offsetTop - pEl.parentNode.scrollTop);
+			pos.left += (pEl.offsetLeft - pEl.parentNode.scrollLeft);
+			pEl = pEl.offsetParent;
+		}
+		return pos;
 	}
 }

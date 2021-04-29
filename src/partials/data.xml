@@ -53,6 +53,7 @@
 			<i src="/cdn/img/profile/sports/football.jpg" />
 		</i>
 	</Profile>
+
 	<Desktop>
 		<i name="Ultra-Wide" type="wide">
 			<i><![CDATA[background: url(/cdn/img/bg/wide/mountain.jpg?w=688&h=288) no-repeat 50% 50%/cover;]]></i>
@@ -107,7 +108,7 @@
 			<i><![CDATA[background: url(/cdn/img/bg/nature/flower.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
 			<i><![CDATA[background: url(/cdn/img/bg/nature/rose.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
 		</i>
-		<i name="Patterns">
+		<i name="Tiles">
 			<i><![CDATA[background: url(/cdn/img/bg/tiles/birdsteps.gif);]]></i>
 			<i><![CDATA[background: url(/cdn/img/bg/tiles/chicken.jpg);]]></i>
 			<i><![CDATA[background: url(/cdn/img/bg/tiles/coffee_bean.gif);]]></i>
@@ -173,6 +174,11 @@
 			<i><![CDATA[background: #e3e4e5;]]></i>
 			<i><![CDATA[background: #bebfc4;]]></i>
 			<i><![CDATA[background: #7a7b80;]]></i>
+		</i>
+		<i name="images" path="/fs/Desktop/images/">
+			<i type="normal"><![CDATA[background: url(/fs/Desktop/images/rasied-by-wolves.jpeg?w=232&h=148) no-repeat 50% 50%;]]></i>
+			<i type="wide"><![CDATA[background: url(/cdn/img/bg/wide/mountain.jpg?w=688&h=288) no-repeat 50% 50%;]]></i>
+			<i type="tile"><![CDATA[background: url(/cdn/img/bg/tiles/plait.gif) no-repeat 50% 50%;]]></i>
 		</i>
 	</Desktop>
 </Data>

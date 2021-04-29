@@ -197,6 +197,10 @@
 					window.dialog.show({ name: "unlock" });
 				}
 				break;
+			case "datetime-revert-diff":
+				break;
+			case "datetime-apply-diff":
+				break;
 			case "toggle-view":
 				if (event.isUnlocked) {
 					// save info to root app
