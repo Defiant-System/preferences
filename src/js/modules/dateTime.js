@@ -70,11 +70,12 @@
 				});
 
 				// initial month render
+				Self.calendar.html("");
 				Self.calendarDate = new defiant.Moment();
 				Self.renderCalendar();
 
 				// temp
-				Self.section.find(".tab-row_ > div:nth-child(3)").trigger("click");
+				// Self.section.find(".tab-row_ > div:nth-child(3)").trigger("click");
 				break;
 			case "window.keystroke":
 				if (window.dialog._name === "unlock") {
