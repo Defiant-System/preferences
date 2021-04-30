@@ -176,9 +176,9 @@
 			<i><![CDATA[background: #7a7b80;]]></i>
 		</i>
 		<i name="User Defined" type="user-defined">
-			<i type="normal"><![CDATA[background: url(/fs/Desktop/images/rasied-by-wolves.jpeg?w=232&h=148) no-repeat 50% 50%;]]></i>
+			<!-- <i type="normal"><![CDATA[background: url(/fs/Desktop/images/rasied-by-wolves.jpeg?w=232&h=148) no-repeat 50% 50%;]]></i>
 			<i type="tile"><![CDATA[background: url(/cdn/img/bg/tiles/plait.gif) no-repeat 50% 50%;]]></i>
-			<!-- <i type="wide"><![CDATA[background: url(/cdn/img/bg/wide/mountain.jpg?w=688&h=288) no-repeat 50% 50%;]]></i> -->
+			<i type="wide"><![CDATA[background: url(/cdn/img/bg/wide/mountain.jpg?w=688&h=288) no-repeat 50% 50%;]]></i> -->
 		</i>
 	</Desktop>
 </Data>

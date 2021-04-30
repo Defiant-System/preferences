@@ -34,6 +34,13 @@
 				Self.listEl = Self.section.find(".list");
 				Self.popBubble = Self.section.find(".popup-bubble");
 
+				// if setting exist, replace existing
+				let xSetting = window.settings.getItem("user-defined-wallpapers");
+				if (xSetting) {
+					let xOld = window.bluePrint.selectSingleNode(`//i[@type="user-defined"]`);
+					xOld.parentNode.replaceChild(xSetting, xOld);
+				}
+
 				/*
 				 * Wallpaper Tab
 				 */
@@ -92,7 +99,9 @@
 				Self.listEl.find(".bg-config:nth(1)").trigger("click");
 				break;
 			case "dispose-view":
-				console.log( window.bluePrint.selectSingleNode(`//i[@type="user-defined"]`) );
+				value = window.bluePrint.selectSingleNode(`//i[@type="user-defined"]`).cloneNode(true);
+				// save settings
+				window.settings.setItem("user-defined-wallpapers", value);
 				break;
 			case "select-workspace":
 				el = $(event.target);
