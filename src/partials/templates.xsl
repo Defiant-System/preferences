@@ -170,7 +170,7 @@
 
 
 <xsl:template name="bg-list">
-	<xsl:if test="@type">
+	<xsl:if test="@type = 'user-defined'">
 		<div class="bg-preview add-custom"></div>
 	</xsl:if>
 	<xsl:for-each select="./*">

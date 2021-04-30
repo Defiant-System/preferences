@@ -96,8 +96,8 @@
 
 				// temp
 				// Self.section.find(".tab-row_ > div:nth-child(2)").trigger("click");
-				Self.treeEl.find(".tree-item:nth(8)").trigger("click");
-				Self.listEl.find(".bg-config:nth(1)").trigger("click");
+				// Self.treeEl.find(".tree-item:nth(8)").trigger("click");
+				// Self.listEl.find(".bg-config:nth(1)").trigger("click");
 				break;
 			case "dispose-view":
 				value = Self.xUserDefined.cloneNode(true);

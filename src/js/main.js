@@ -38,7 +38,7 @@ const preferences = {
 
 		// tmp
 		//this.views = { isUnlocked: true, password: "temp" };
-		this.dispatch({ type: "go-to", view: "desktop" })
+		// this.dispatch({ type: "go-to", view: "desktop" })
 		// this.dispatch({ type: "go-to", view: "dateTime" })
 	},
 	dispatch(event) {
