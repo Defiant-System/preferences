@@ -89,6 +89,7 @@
 				// temp
 				// Self.section.find(".tab-row_ > div:nth-child(2)").trigger("click");
 				Self.treeEl.find(".tree-item:nth(8)").trigger("click");
+				Self.listEl.find(".bg-config:nth(1)").trigger("click");
 				break;
 			case "select-workspace":
 				el = $(event.target);
@@ -139,8 +140,7 @@
 				break;
 			case "show-pop-bubble":
 				let fn = e => {
-						let elem = $(e.target).parents(".popup-bubble");
-						if (elem.length) return;
+						if ($(e.target).parents(".popup-bubble").length) return;
 						// remove class
 						target.removeClass("popup-source");
 						// hide bubble
@@ -165,6 +165,7 @@
 				break;
 			case "set-wallpaper-style":
 				el = $(event.target);
+				if (el.hasClass("pop-button")) return Self.dispatch({ type: "delete-custom-item", el });
 				if (el.attr("type") !== "checkbox") return;
 
 				event.el.find("input[type='checkbox']").prop({ checked: false });
@@ -184,6 +185,15 @@
 				break;
 			case "add-custom-item":
 				console.log(event);
+				break;
+			case "delete-custom-item":
+				el = Self.listEl.find(".popup-source");
+				index = el.index();
+				// remove DOM element
+				el.trigger("mousedown").remove();
+				// remove data node
+				target = window.bluePrint.selectSingleNode(`//i[@type="user-defined"]/*[position()=${index}]`);
+				target.parentNode.removeChild(target);
 				break;
 			case "select-bg-item":
 				el = $(event.target);
