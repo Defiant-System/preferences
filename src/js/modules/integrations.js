@@ -1,9 +1,9 @@
 
-// parts.integrations
+// Section.integrations
 
 {
 	dispatch(event) {
-		let Self = parts.integrations,
+		let Self = Section.integrations,
 			el;
 		switch (event.type) {
 			case "init-view":

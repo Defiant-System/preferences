@@ -1,9 +1,9 @@
 
-// parts.accessibility
+// Section.accessibility
 
 {
 	dispatch(event) {
-		let Self = parts.accessibility,
+		let Self = Section.accessibility,
 			el;
 		switch (event.type) {
 			case "init-view":

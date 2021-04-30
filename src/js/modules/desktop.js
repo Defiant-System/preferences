@@ -1,11 +1,11 @@
 
-// parts.desktop
+// Section.desktop
 
 {
 	bgComplexRx: /url|gradient/i,
 	bgRexExp: /(?:\(['"]?)(.*?)(?:['"]?\))/,
 	async dispatch(event) {
-		let Self = parts.desktop,
+		let Self = Section.desktop,
 			section = Self.section,
 			workspace,
 			index,
@@ -90,6 +90,9 @@
 				// Self.section.find(".tab-row_ > div:nth-child(2)").trigger("click");
 				Self.treeEl.find(".tree-item:nth(8)").trigger("click");
 				Self.listEl.find(".bg-config:nth(1)").trigger("click");
+				break;
+			case "dispose-view":
+				console.log( window.bluePrint.selectSingleNode(`//i[@type="user-defined"]`) );
 				break;
 			case "select-workspace":
 				el = $(event.target);
@@ -182,6 +185,11 @@
 				
 				// apply item
 				Self.dispatch({ type: "select-bg-item", target: src[0] });
+
+				// update node
+				index = src.index();
+				target = window.bluePrint.selectSingleNode(`//i[@type="user-defined"]/*[position()=${index}]`);
+				target.setAttribute("type", b);
 				break;
 			case "add-custom-item":
 				console.log(event);

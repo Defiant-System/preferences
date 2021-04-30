@@ -1,9 +1,9 @@
 
-// parts.displays
+// Section.displays
 
 {
 	dispatch(event) {
-		let Self = parts.displays,
+		let Self = Section.displays,
 			el;
 		switch (event.type) {
 			case "init-view":

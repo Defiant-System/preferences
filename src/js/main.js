@@ -1,5 +1,5 @@
 
-const parts = {
+const Section = {
 	accessibility: @import "modules/accessibility.js",
 	dateTime:      @import "modules/dateTime.js",
 	desktop:       @import "modules/desktop.js",
@@ -58,8 +58,8 @@ const preferences = {
 				view = Self.history.current.view;
 				section = window.find(`section[data-view="${view}"]`);
 				// pass on event to part
-				if (parts[view]) {
-					parts[view].dispatch({ ...event, section });
+				if (Section[view]) {
+					Section[view].dispatch({ ...event, section });
 				}
 				break;
 			case "window.keydown":
@@ -67,11 +67,15 @@ const preferences = {
 					// enter on login dialog
 					view = Self.history.current.view;
 					section = window.find(`section[data-view="${view}"]`);
-					if (parts[view]) {
+					if (Section[view]) {
 						// pass on event to part
-						parts[view].dispatch({ ...event, section });
+						Section[view].dispatch({ ...event, section });
 					}
 				}
+				break;
+			case "window.close":
+				// signal "dispose" to current view
+				Section[Self.history.current.view].dispatch({ type: "dispose-view" });
 				break;
 			// custom events
 			case "main-menu":
@@ -115,13 +119,14 @@ const preferences = {
 				view = section.data("view");
 
 				// pass on event to part
-				if (parts[view]) {
-					parts[view].dispatch({ ...event, section });
+				if (Section[view]) {
+					Section[view].dispatch({ ...event, section });
 				}
 		}
 	},
 	setViewState() {
-		let state = this.history.current,
+		let prev = this.history.previous,
+			state = this.history.current,
 			section = window.find(`section[data-view="${state.view}"]`),
 			width = this.mainMenu.width(),
 			height = this.mainMenu.height();
@@ -130,11 +135,16 @@ const preferences = {
 		this.el.btnPrev.toggleClass("tool-disabled_", this.history.canGoBack);
 		this.el.btnNext.toggleClass("tool-disabled_", this.history.canGoForward);
 
+		if (prev) {
+			// signal "dispose" to current view
+			Section[prev.view].dispatch({ type: "dispose-view" });
+		}
 		if (state.view !== "main") {
+			// adjust dim
 			width = section.width();
 			height = section.height();
 			// pass on view-init event to part
-			parts[state.view].dispatch({ type: "init-view", section });
+			Section[state.view].dispatch({ type: "init-view", section });
 		}
 
 		this.activeSection.removeClass("active");

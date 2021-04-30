@@ -1,9 +1,9 @@
 
-// parts.dateTime
+// Section.dateTime
 
 {
 	async dispatch(event) {
-		let Self = parts.dateTime,
+		let Self = Section.dateTime,
 			isLocked,
 			date,
 			newMonth,

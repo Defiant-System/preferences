@@ -1,9 +1,9 @@
 
-// parts.notifications
+// Section.notifications
 
 {
 	dispatch(event) {
-		let Self = parts.notifications,
+		let Self = Section.notifications,
 			el;
 		switch (event.type) {
 			case "init-view":

@@ -1,9 +1,9 @@
 
-// parts.usersGroups
+// Section.usersGroups
 
 {
 	dispatch(event) {
-		let Self = parts.usersGroups,
+		let Self = Section.usersGroups,
 			items,
 			value,
 			el;

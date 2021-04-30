@@ -1,9 +1,9 @@
 
-// parts.updates
+// Section.updates
 
 {
 	dispatch(event) {
-		let Self = parts.updates,
+		let Self = Section.updates,
 			el;
 		switch (event.type) {
 			case "init-view":

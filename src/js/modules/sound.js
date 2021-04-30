@@ -1,9 +1,9 @@
 
-// parts.sound
+// Section.sound
 
 {
 	dispatch(event) {
-		let Self = parts.sound,
+		let Self = Section.sound,
 			el;
 		switch (event.type) {
 			case "init-view":

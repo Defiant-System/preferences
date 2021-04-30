@@ -1,9 +1,9 @@
 
-// parts.dock
+// Section.dock
 
 {
 	async dispatch(event) {
-		let Self = parts.dock,
+		let Self = Section.dock,
 			shell,
 			value,
 			size,

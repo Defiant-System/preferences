@@ -1,9 +1,9 @@
 
-// parts.cloudStorage
+// Section.cloudStorage
 
 {
 	dispatch(event) {
-		let Self = parts.cloudStorage,
+		let Self = Section.cloudStorage,
 			xpath,
 			node,
 			changePath,

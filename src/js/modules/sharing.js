@@ -1,9 +1,9 @@
 
-// parts.sharing
+// Section.sharing
 
 {
 	dispatch(event) {
-		let Self = parts.sharing,
+		let Self = Section.sharing,
 			el;
 		switch (event.type) {
 			case "init-view":

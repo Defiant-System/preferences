@@ -1,9 +1,9 @@
 
-// parts.mouse
+// Section.mouse
 
 {
 	dispatch(event) {
-		let Self = parts.mouse,
+		let Self = Section.mouse,
 			el;
 		switch (event.type) {
 			case "init-view":

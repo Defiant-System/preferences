@@ -1,9 +1,9 @@
 
-// parts.keyboard
+// Section.keyboard
 
 {
 	dispatch(event) {
-		let Self = parts.keyboard,
+		let Self = Section.keyboard,
 			el;
 		switch (event.type) {
 			case "init-view":

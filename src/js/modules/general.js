@@ -1,9 +1,9 @@
 
-// parts.general
+// Section.general
 
 {
 	async dispatch(event) {
-		let Self = parts.general,
+		let Self = Section.general,
 			shell,
 			value,
 			el;

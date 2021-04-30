@@ -1,9 +1,9 @@
 
-// parts.screenSaver
+// Section.screenSaver
 
 {
 	dispatch(event) {
-		let Self = parts.screenSaver,
+		let Self = Section.screenSaver,
 			el;
 		switch (event.type) {
 			case "init-view":
