@@ -40,6 +40,7 @@
 					let xOld = window.bluePrint.selectSingleNode(`//i[@type="user-defined"]`);
 					xOld.parentNode.replaceChild(xSetting, xOld);
 				}
+				Self.xUserDefined = window.bluePrint.selectSingleNode(`//i[@type="user-defined"]`);
 
 				/*
 				 * Wallpaper Tab
@@ -99,7 +100,7 @@
 				Self.listEl.find(".bg-config:nth(1)").trigger("click");
 				break;
 			case "dispose-view":
-				value = window.bluePrint.selectSingleNode(`//i[@type="user-defined"]`).cloneNode(true);
+				value = Self.xUserDefined.cloneNode(true);
 				// save settings
 				window.settings.setItem("user-defined-wallpapers", value);
 				break;
@@ -145,10 +146,6 @@
 				if (active.length) active.addClass("active").scrollIntoView();
 
 				Self.listEl.toggleClass("wide-wp", el.data("type") !== "wide");
-				break;
-			case "add-folder":
-			case "remove-folder":
-				console.log(event);
 				break;
 			case "show-pop-bubble":
 				let fn = e => {
@@ -197,11 +194,28 @@
 
 				// update node
 				index = src.index();
-				target = window.bluePrint.selectSingleNode(`//i[@type="user-defined"]/*[position()=${index}]`);
+				target = Self.xUserDefined.selectSingleNode(`./*[position()=${index}]`);
 				target.setAttribute("type", b);
 				break;
 			case "add-custom-item":
-				console.log(event);
+				let fileHandler = file => {
+					let str = `<i type="normal"><![CDATA[background: url(${file.path}?w=232&h=148) no-repeat 50% 50%;]`+`]></i>`,
+						node = Self.xUserDefined.insertBefore($.nodeFromString(str), Self.xUserDefined.firstChild),
+						vDom = window.render({
+							vdom: true,
+							template: "bg-list",
+							match: `//Data/Desktop/i[@type="user-defined"]`,
+						});
+					// prepend rendered item to list at second position
+					Self.listEl.find(".add-custom").after(vDom.find(".bg-preview:nth(1)"));
+				};
+				// open FS open dialog
+				window.dialog.open({
+					jpg: fileHandler,
+					jpeg: fileHandler,
+					png: fileHandler,
+					gif: fileHandler,
+				});
 				break;
 			case "delete-custom-item":
 				el = Self.listEl.find(".popup-source");
@@ -209,7 +223,7 @@
 				// remove DOM element
 				el.trigger("mousedown").remove();
 				// remove data node
-				target = window.bluePrint.selectSingleNode(`//i[@type="user-defined"]/*[position()=${index}]`);
+				target = Self.xUserDefined.selectSingleNode(`./*[position()=${index}]`);
 				target.parentNode.removeChild(target);
 				break;
 			case "select-bg-item":
