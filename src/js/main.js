@@ -79,6 +79,7 @@ const preferences = {
 				break;
 			// custom events
 			case "main-menu":
+				if (Self.history.current.view === "main") return;
 				Self.history.push({ view: "main", name: Self.title });
 				Self.setViewState();
 				break;
@@ -135,7 +136,7 @@ const preferences = {
 		this.el.btnPrev.toggleClass("tool-disabled_", this.history.canGoBack);
 		this.el.btnNext.toggleClass("tool-disabled_", this.history.canGoForward);
 
-		if (prev) {
+		if (prev && Section[prev.view]) {
 			// signal "dispose" to current view
 			Section[prev.view].dispatch({ type: "dispose-view" });
 		}
