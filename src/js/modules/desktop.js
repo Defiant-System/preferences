@@ -178,6 +178,9 @@
 				// diff for bubble arrow
 				pos.top -= 43;
 				Self.popBubble.addClass("pop").css(pos);
+				
+				// apply item
+				Self.dispatch({ type: "select-bg-item", target: src[0] });
 				break;
 			case "select-bg-item":
 				el = $(event.target);
@@ -187,7 +190,13 @@
 
 				value = el.attr("style");
 
-				if (el.parent().hasClass("wide-wp")) {
+				switch (el.data("type")) {
+					case "normal": value += `background-size: cover;`; break;
+					case "tile": value += `background-repeat: repeat;`; break;
+					case "wide": index = "wide"; break;
+				}
+
+				if (el.parent().hasClass("wide-wp") || index === "wide") {
 					section.find(".reel").addClass("wide");
 					workspace = section.find(".workspace-wide").addClass("active");
 					workspace.find("div").attr({style: value});
