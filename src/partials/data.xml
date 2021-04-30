@@ -57,6 +57,8 @@
 	<Desktop>
 		<i name="Ultra-Wide" type="wide">
 			<i><![CDATA[background: url(/cdn/img/bg/wide/mountain.jpg?w=688&h=288) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/wide/lone-pine-peak.jpg?w=688&h=288) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/wide/fractal-flame.jpg?w=688&h=288) no-repeat 50% 50%/cover;]]></i>
 			<i><![CDATA[background: url(/cdn/img/bg/wide/deep-space.jpg?w=688&h=288) no-repeat 50% 50%/cover;]]></i>
 			<i><![CDATA[background: url(/cdn/img/bg/wide/forest-trail.jpg?w=688&h=288) no-repeat 50% 50%/cover;]]></i>
 			<i><![CDATA[background: url(/cdn/img/bg/wide/fuji.jpg?w=688&h=288) no-repeat 50% 50%/cover;]]></i>
@@ -88,9 +90,20 @@
 			<i><![CDATA[background: url(/cdn/img/bg/wallpapers/thunderstorm.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
 			<i><![CDATA[background: url(/cdn/img/bg/wallpapers/antelope-canyon.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
 			<i><![CDATA[background: url(/cdn/img/bg/wallpapers/water-drop.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
-			<i><![CDATA[background: url(/cdn/img/bg/wallpapers/hawaiian-print.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/space/black-hole.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
 		</i>
 		<i name="Nature">
+			<i><![CDATA[background: url(/cdn/img/bg/nature/alaska-mountains.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/nature/city-sunrise-pink.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/nature/colorful-afterglow.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/nature/glenwood-springs-sunset.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/nature/morning-glory-sunrise.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/nature/mount-whitney.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/nature/orange-desert.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/nature/orange-sun-light.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/nature/pier.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/nature/purple-sky-beach-sunset.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/nature/southern-alps.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
 			<i><![CDATA[background: url(/cdn/img/bg/nature/barley-field.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
 			<i><![CDATA[background: url(/cdn/img/bg/nature/bloom.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
 			<i><![CDATA[background: url(/cdn/img/bg/nature/cherry-tree.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
@@ -102,11 +115,41 @@
 			<i><![CDATA[background: url(/cdn/img/bg/nature/plant.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
 		</i>
 		<i name="Plants">
+			<i><![CDATA[background: url(/cdn/img/bg/plants/water-lilies.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/plants/blossom-flower.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/plants/cherry-blossom-on.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/plants/cherry-blossom.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/plants/daisy-blossom-flower.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/plants/drops-from-red-leaf.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/plants/flowers-photography.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/plants/macro-blossom-flowers-dews.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/plants/pink-color-hyacinth-flowers.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/plants/poppy-flowers.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/plants/purple-leaves.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/plants/purple-symphony.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/plants/spring-blossom.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/plants/water-drop-on-leaf-macro.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
 			<i><![CDATA[background: url(/cdn/img/bg/nature/drop-of-water.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
 			<i><![CDATA[background: url(/cdn/img/bg/nature/flower-2.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
 			<i><![CDATA[background: url(/cdn/img/bg/nature/flower-3.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
 			<i><![CDATA[background: url(/cdn/img/bg/nature/flower.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
 			<i><![CDATA[background: url(/cdn/img/bg/nature/rose.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
+		</i>
+		<i name="Abstract">
+			<i><![CDATA[background: url(/cdn/img/bg/abstract/watercolor-art.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/abstract/blue-faded-colors.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/abstract/colorful-digital-art.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/abstract/colorful-shapes.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/abstract/fading-dreams.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/abstract/galaxy-s7.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/abstract/galaxy-s10.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/abstract/gas-flow.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/abstract/paint-splash.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/abstract/purple-abstract.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/abstract/purple-dotted.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/abstract/samsung-galaxy-s10.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/abstract/samsung-galaxy.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
+			<i><![CDATA[background: url(/cdn/img/bg/abstract/splash-color-burst.jpg?w=232&h=148) no-repeat 50% 50%/cover;]]></i>
 		</i>
 		<i name="Tiles">
 			<i><![CDATA[background: url(/cdn/img/bg/tiles/birdsteps.gif);]]></i>
@@ -131,17 +174,6 @@
 			<i><![CDATA[background: url(/cdn/img/bg/tiles/zapotec.gif);]]></i>
 		</i>
 		<i name="Gradients">
-			<i><![CDATA[background: linear-gradient(135deg, rgb(195, 39, 2) 0%,rgb(224, 164, 60) 100%);]]></i>
-			<i><![CDATA[background: linear-gradient(135deg, rgb(191, 152, 26) 0%,rgb(216, 90, 24) 100%);]]></i>
-			<i><![CDATA[background: linear-gradient(0deg, rgb(61, 103, 216),rgb(65, 80, 170),rgb(53, 69, 115));]]></i>
-			<i><![CDATA[background: linear-gradient(135deg, rgb(245, 177, 77),rgb(237, 53, 115));]]></i>
-			<i><![CDATA[background: linear-gradient(90deg, rgb(235, 216, 9),rgb(202, 60, 134));]]></i>
-			<i><![CDATA[background: linear-gradient(90deg, rgb(217, 198, 252),rgb(82, 114, 237));]]></i>
-			<i><![CDATA[background: linear-gradient(56deg, rgba(43, 46, 224, 0.15) 0%,rgba(26, 218, 182, 0.15) 100%),linear-gradient(336deg, rgb(50, 52, 221),rgb(60, 239, 241));]]></i>
-			<i><![CDATA[background: linear-gradient(90deg, rgb(54, 181, 183) 0%,rgb(19, 126, 105) 100%);]]></i>
-			<i><![CDATA[background: linear-gradient(135deg, rgb(182, 244, 85),rgb(63, 128, 87));]]></i>
-		</i>
-		<i name="Abstract">
 			<i><![CDATA[background: radial-gradient(circle at 7% 43%, hsla(83,0%,3%,0.05) 0%, hsla(83,0%,3%,0.05) 21%, transparent 1%, transparent 73%, transparent 73%, transparent 100%), radial-gradient(circle at 83% 67%, hsla(83,0%,3%,0.05) 0%, hsla(83,0%,3%,0.05) 19%, transparent 19%, transparent 83%, transparent 83%, transparent 100%), radial-gradient(circle at 53% 47%, hsla(83,0%,3%,0.05) 0%, hsla(83,0%,3%,0.05) 13%, transparent 13%, transparent 13%, transparent 13%, transparent 100%), radial-gradient(circle at 11% 59%, hsla(83,0%,3%,0.05) 0%, hsla(83,0%,3%,0.05) 83%, transparent 83%, transparent 89%, transparent 89%, transparent 100%), radial-gradient(circle at 43% 37%, hsla(83,0%,3%,0.05) 0%, hsla(83,0%,3%,0.05) 23%, transparent 23%, transparent 83%, transparent 83%, transparent 100%), radial-gradient(circle at 21% 73%, hsla(83,0%,3%,0.05) 0%, hsla(83,0%,3%,0.05) 17%, transparent 17%, transparent 53%, transparent 53%, transparent 100%), radial-gradient(circle at 53% 89%, hsla(83,0%,3%,0.05) 0%, hsla(83,0%,3%,0.05) 47%, transparent 47%, transparent 73%, transparent 73%, transparent 100%), radial-gradient(circle at 61% 41%, hsla(83,0%,3%,0.05) 0%, hsla(83,0%,3%,0.05) 13%, transparent 13%, transparent 47%, transparent 47%, transparent 100%), radial-gradient(circle at 73% 59%, hsla(83,0%,3%,0.05) 0%, hsla(83,0%,3%,0.05) 43%, transparent 43%, transparent 89%, transparent 89%, transparent 100%), linear-gradient(137deg, hsl(197,0%,89%), hsl(197,0%,97%));]]></i>
 			<i><![CDATA[background: radial-gradient(circle at 17% 77%, rgba(17, 17, 17,0.04) 0%, rgba(17, 17, 17,0.04) 50%,rgba(197, 197, 197,0.04) 50%, rgba(197, 197, 197,0.04) 100%),radial-gradient(circle at 26% 17%, rgba(64, 64, 64,0.04) 0%, rgba(64, 64, 64,0.04) 50%,rgba(244, 244, 244,0.04) 50%, rgba(244, 244, 244,0.04) 100%),radial-gradient(circle at 44% 60%, rgba(177, 177, 177,0.04) 0%, rgba(177, 177, 177,0.04) 50%,rgba(187, 187, 187,0.04) 50%, rgba(187, 187, 187,0.04) 100%),linear-gradient(19deg, rgb(28, 117, 250),rgb(34, 2, 159));]]></i>
 			<i><![CDATA[background: linear-gradient(52deg, rgba(163, 163, 163, 0.09) 0%, rgba(163, 163, 163, 0.09) 33.3%,rgba(100, 100, 100, 0.09) 33.3%, rgba(100, 100, 100, 0.09) 66.6%,rgba(162, 162, 162, 0.09) 66.6%, rgba(162, 162, 162, 0.09) 99%),linear-gradient(258deg, rgba(193, 193, 193, 0.06) 0%, rgba(193, 193, 193, 0.06) 33.3%,rgba(169, 169, 169, 0.06) 33.3%, rgba(169, 169, 169, 0.06) 66.6%,rgba(92, 92, 92, 0.06) 66.6%, rgba(92, 92, 92, 0.06) 99%),linear-gradient(129deg, rgba(45, 45, 45, 0.03) 0%, rgba(45, 45, 45, 0.03) 33.3%,rgba(223, 223, 223, 0.03) 33.3%, rgba(223, 223, 223, 0.03) 66.6%,rgba(173, 173, 173, 0.03) 66.6%, rgba(173, 173, 173, 0.03) 99%),linear-gradient(280deg, rgba(226, 226, 226, 0.06) 0%, rgba(226, 226, 226, 0.06) 33.3%,rgba(81, 81, 81, 0.06) 33.3%, rgba(81, 81, 81, 0.06) 66.6%,rgba(186, 186, 186, 0.06) 66.6%, rgba(186, 186, 186, 0.06) 99%),linear-gradient(85deg, rgba(225, 225, 225, 0.04) 0%, rgba(225, 225, 225, 0.04) 33.3%,rgba(95, 95, 95, 0.04) 33.3%, rgba(95, 95, 95, 0.04) 66.6%,rgba(39, 39, 39, 0.04) 66.6%, rgba(39, 39, 39, 0.04) 99%),linear-gradient(128deg, rgba(184, 184, 184, 0.06) 0%, rgba(184, 184, 184, 0.06) 33.3%,rgba(0, 0, 0, 0.06) 33.3%, rgba(0, 0, 0, 0.06) 66.6%,rgba(140, 140, 140, 0.06) 66.6%, rgba(140, 140, 140, 0.06) 99.89999999999999%),linear-gradient(323deg, rgba(40, 40, 40, 0.07) 0%, rgba(40, 40, 40, 0.07) 33.3%,rgba(214, 214, 214, 0.07) 33.3%, rgba(214, 214, 214, 0.07) 66.6%,rgba(190, 190, 190, 0.07) 66.6%, rgba(190, 190, 190, 0.07) 99.89999999999999%),linear-gradient(61deg, rgba(230, 230, 230, 0) 0%, rgba(230, 230, 230, 0) 33.3%,rgba(241, 241, 241, 0) 33.3%, rgba(241, 241, 241, 0) 66.6%,rgba(55, 55, 55, 0) 66.6%, rgba(55, 55, 55, 0) 99%),linear-gradient(0deg, #2625e3,#0bbaef);]]></i>
@@ -160,6 +192,17 @@
 			<i><![CDATA[background: linear-gradient(135deg, rgba(61, 61, 61, 0.08) 0%, rgba(61, 61, 61, 0.08) 16%,rgba(209, 209, 209, 0.08) 16%, rgba(209, 209, 209, 0.08) 53%,rgba(180, 180, 180, 0.08) 53%, rgba(180, 180, 180, 0.08) 75%,rgba(247, 247, 247, 0.08) 75%, rgba(247, 247, 247, 0.08) 81%,rgba(161, 161, 161, 0.08) 81%, rgba(161, 161, 161, 0.08) 83%,rgba(17, 17, 17, 0.08) 83%, rgba(17, 17, 17, 0.08) 100%),linear-gradient(90deg, rgba(105, 105, 105, 0.1) 0%, rgba(105, 105, 105, 0.1) 11%,rgba(103, 103, 103, 0.1) 11%, rgba(103, 103, 103, 0.1) 50%,rgba(7, 7, 7, 0.1) 50%, rgba(7, 7, 7, 0.1) 69%,rgba(166, 166, 166, 0.1) 69%, rgba(166, 166, 166, 0.1) 100%),linear-gradient(135deg, rgba(40, 40, 40, 0.1) 0%, rgba(40, 40, 40, 0.1) 31%,rgba(216, 216, 216, 0.1) 31%, rgba(216, 216, 216, 0.1) 34%,rgba(24, 24, 24, 0.1) 34%, rgba(24, 24, 24, 0.1) 36%,rgba(107, 107, 107, 0.1) 36%, rgba(107, 107, 107, 0.1) 53%,rgba(228, 228, 228, 0.1) 53%, rgba(228, 228, 228, 0.1) 60%,rgba(136, 136, 136, 0.1) 60%, rgba(136, 136, 136, 0.1) 92%,rgba(88, 88, 88, 0.1) 92%, rgba(88, 88, 88, 0.1) 100%),linear-gradient(90deg, rgba(180, 180, 180, 0.01) 0%, rgba(180, 180, 180, 0.01) 8%,rgba(250, 250, 250, 0.01) 8%, rgba(250, 250, 250, 0.01) 62%,rgba(101, 101, 101, 0.01) 62%, rgba(101, 101, 101, 0.01) 82%,rgba(243, 243, 243, 0.01) 82%, rgba(243, 243, 243, 0.01) 89%,rgba(22, 22, 22, 0.01) 89%, rgba(22, 22, 22, 0.01) 90%,rgba(73, 73, 73, 0.01) 90%, rgba(73, 73, 73, 0.01) 96%,rgba(61, 61, 61, 0.01) 96%, rgba(61, 61, 61, 0.01) 100%),linear-gradient(90deg, rgb(11, 170, 156),rgb(60, 8, 248));]]></i>
 			<i><![CDATA[background: linear-gradient(0deg, rgba(77, 77, 77, 0.08) 0%, rgba(77, 77, 77, 0.08) 63%,rgba(96, 96, 96, 0.08) 63%, rgba(96, 96, 96, 0.08) 100%),linear-gradient(0deg, rgba(149, 149, 149, 0.02) 0%, rgba(149, 149, 149, 0.02) 35%,rgba(34, 34, 34, 0.02) 35%, rgba(34, 34, 34, 0.02) 100%),linear-gradient(0deg, rgba(199, 199, 199, 0.09) 0%, rgba(199, 199, 199, 0.09) 76%,rgba(107, 107, 107, 0.09) 76%, rgba(107, 107, 107, 0.09) 100%),linear-gradient(90deg, rgba(65, 65, 65, 0.01) 0%, rgba(65, 65, 65, 0.01) 99%,rgba(95, 95, 95, 0.01) 99%, rgba(95, 95, 95, 0.01) 100%),linear-gradient(45deg, rgba(131, 131, 131, 0.08) 0%, rgba(131, 131, 131, 0.08) 45%,rgba(11, 11, 11, 0.08) 45%, rgba(11, 11, 11, 0.08) 100%),linear-gradient(0deg, rgba(149, 149, 149, 0.06) 0%, rgba(149, 149, 149, 0.06) 94%,rgba(194, 194, 194, 0.06) 94%, rgba(194, 194, 194, 0.06) 100%),linear-gradient(90deg, rgb(3, 206, 186),rgb(38, 6, 177));]]></i>
 			<i><![CDATA[background: radial-gradient(circle at 40% 49%, rgba(196, 196, 196,0.04) 0%, rgba(196, 196, 196,0.04) 50%,rgba(91, 91, 91,0.04) 50%, rgba(91, 91, 91,0.04) 100%),radial-gradient(circle at 32% 80%, rgba(42, 42, 42,0.04) 0%, rgba(42, 42, 42,0.04) 50%,rgba(186, 186, 186,0.04) 50%, rgba(186, 186, 186,0.04) 100%),radial-gradient(circle at 72% 99%, rgba(233, 233, 233,0.04) 0%, rgba(233, 233, 233,0.04) 50%,rgba(53, 53, 53,0.04) 50%, rgba(53, 53, 53,0.04) 100%),linear-gradient(148deg, rgb(126, 9, 68),rgb(223, 57, 181));]]></i>
+		</i>
+		<i name="Simple">
+			<i><![CDATA[background: linear-gradient(135deg, rgb(195, 39, 2) 0%,rgb(224, 164, 60) 100%);]]></i>
+			<i><![CDATA[background: linear-gradient(135deg, rgb(191, 152, 26) 0%,rgb(216, 90, 24) 100%);]]></i>
+			<i><![CDATA[background: linear-gradient(0deg, rgb(61, 103, 216),rgb(65, 80, 170),rgb(53, 69, 115));]]></i>
+			<i><![CDATA[background: linear-gradient(135deg, rgb(245, 177, 77),rgb(237, 53, 115));]]></i>
+			<i><![CDATA[background: linear-gradient(90deg, rgb(235, 216, 9),rgb(202, 60, 134));]]></i>
+			<i><![CDATA[background: linear-gradient(90deg, rgb(217, 198, 252),rgb(82, 114, 237));]]></i>
+			<i><![CDATA[background: linear-gradient(56deg, rgba(43, 46, 224, 0.15) 0%,rgba(26, 218, 182, 0.15) 100%),linear-gradient(336deg, rgb(50, 52, 221),rgb(60, 239, 241));]]></i>
+			<i><![CDATA[background: linear-gradient(90deg, rgb(54, 181, 183) 0%,rgb(19, 126, 105) 100%);]]></i>
+			<i><![CDATA[background: linear-gradient(135deg, rgb(182, 244, 85),rgb(63, 128, 87));]]></i>
 		</i>
 		<i name="Colors" icon="color-wheel">
 			<i><![CDATA[background: #fbb731;]]></i>
