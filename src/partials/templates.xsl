@@ -154,8 +154,8 @@
 		<div>
 			<xsl:attribute name="class">tree-item</xsl:attribute>
 			<xsl:attribute name="data-type"><xsl:value-of select="@type"/></xsl:attribute>
-			<xsl:if test="@path">
-				<xsl:attribute name="data-path"><xsl:value-of select="@path"/></xsl:attribute>
+			<xsl:if test="@type = 'user-defined'">
+				<xsl:attribute name="data-type"><xsl:value-of select="@type"/></xsl:attribute>
 			</xsl:if>
 			<span class="icon">
 				<xsl:attribute name="style">background-image: url(~/icons/<xsl:choose>
@@ -170,12 +170,15 @@
 
 
 <xsl:template name="bg-list">
+	<xsl:if test="@type">
+		<div class="bg-preview add-custom"></div>
+	</xsl:if>
 	<xsl:for-each select="./*">
 		<div>
 			<xsl:attribute name="class">bg-preview</xsl:attribute>
 			<xsl:attribute name="style"><xsl:value-of select="." disable-output-escaping="yes"/></xsl:attribute>
 			<xsl:if test="@type"><xsl:attribute name="data-type"><xsl:value-of select="@type"/></xsl:attribute></xsl:if>
-			<xsl:if test="../@path"><span class="bg-config" data-click="show-pop-bubble"></span></xsl:if>
+			<xsl:if test="../@type = 'user-defined'"><span class="bg-config" data-click="show-pop-bubble"></span></xsl:if>
 		</div>
 	</xsl:for-each>
 </xsl:template>

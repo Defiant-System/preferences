@@ -20,7 +20,6 @@ content {
 		&.icon-info     { background-image: url(~/icons/icon-info.png); }
 		&.icon-warning  { background-image: url(~/icons/icon-warning.png); }
 		&.icon-help     { background-image: url(~/icons/icon-help.png); }
-		&.icon-pencil   { background-image: url(~/icons/icon-pencil.png); }
 		&.icon-trashcan { background-image: url(~/icons/icon-trashcan.png); }
 	}
 
@@ -474,6 +473,10 @@ content {
 							color: #fff;
 						}
 
+						&[data-type="user-defined"] .icon {
+							filter: hue-rotate(275deg);
+						}
+
 						.icon {
 							background-position: 50% 50%;
 							background-size: contain;
@@ -490,49 +493,11 @@ content {
 								height: 15px;
 							}
 						}
+
 						span {
 							display: inline-block;
 							padding-top: 3px;
 							pointer-events: none;
-						}
-					}
-
-					.folder-options {
-						background: #f6f6f6;
-						height: 25px;
-						border-top: 1px solid #ddd;
-						border-radius: 0 0 3px 3px;
-						display: flex;
-
-						.option-button {
-							border-right: 1px solid #ddd;
-							padding: 5px 6px;
-							cursor: pointer;
-
-							&:hover i {
-								opacity: .65;
-							}
-
-							&.disabled_ {
-								cursor: default;
-
-								i {
-									opacity: .15;
-								}
-							}
-						}
-
-						.icon-plus,
-						.icon-minus {
-							background: url(~/icons/icon-plus.png) 50% 50%/contain no-repeat;
-							display: inline-block;
-							width: 13px;
-							height: 13px;
-							opacity: .35;
-
-							&.icon-minus {
-								background-image: url(~/icons/icon-minus.png);
-							}
 						}
 					}
 				}
@@ -593,6 +558,18 @@ content {
 					&[data-type="tile"] {
 						background-repeat: repeat !important;
 					}
+
+					&.add-custom {
+						background: url(/app/ant/preferences/icons/icon-add.png) 50% 50% no-repeat;
+						background-size: auto 35%;
+						opacity: .25;
+						cursor: pointer;
+						border: 2px dashed rgba(0,0,0,.25);
+
+						&:hover {
+							opacity: .5;
+						}
+					}
 				}
 
 				.bg-config {
@@ -628,7 +605,7 @@ content {
 				position: absolute;
 				display: none;
 				z-index: 11;
-				width: 170px;
+				width: 190px;
 				padding: 15px 13px 11px;
 				border-radius: 13px;
 				box-shadow: 0 0 0 1px rgba(0,0,0,.1),
@@ -687,6 +664,42 @@ content {
 						position: relative;
 						top: 0;
 						margin-right: 7px;
+					}
+				}
+
+				.row-actions {
+					display: block;
+					text-align: right;
+					padding-right: 3px;
+
+					.pop-button {
+						display: inline-block;
+						width: 23px;
+						height: 23px;
+						padding: 4px;
+						margin-left: 3px;
+						border-radius: 3px;
+						cursor: pointer;
+
+						&.disabled {
+							opacity: .5;
+							cursor: default;
+						}
+
+						&:hover:not(.disabled) {
+							background: rgba(0,0,0,.05);
+						}
+
+						i {
+							position: relative;
+							display: inline-block;
+							width: 15px;
+							height: 15px;
+							vertical-align: middle;
+							top: 0;
+							margin: 0;
+							opacity: .35;
+						}
 					}
 				}
 			}

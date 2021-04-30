@@ -182,14 +182,20 @@
 				// apply item
 				Self.dispatch({ type: "select-bg-item", target: src[0] });
 				break;
+			case "add-custom-item":
+				console.log(event);
+				break;
 			case "select-bg-item":
 				el = $(event.target);
+				if (el.hasClass("add-custom")) {
+					return Self.dispatch({ ...event, type: "add-custom-item" });
+				}
+
 				if (!el.hasClass("bg-preview")) return;
 				el.parent().find(".active").removeClass("active");
 				el.addClass("active");
 
 				value = el.attr("style");
-
 				switch (el.data("type")) {
 					case "normal": value += `background-size: cover;`; break;
 					case "tile": value += `background-repeat: repeat;`; break;
