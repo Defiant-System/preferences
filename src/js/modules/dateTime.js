@@ -120,6 +120,23 @@
 				// start ticking
 				Self.updateTimeOptions(str);
 				break;
+			case "select-date-day":
+				if (Self.section.find("input#set-automatically").is(":checked")) return;
+
+				el = $(event.target);
+				let mEl = el.parents(".calendar-month"),
+					[year, month] = mEl.data("year-month").split("-");
+
+				// remove "today", if any
+				mEl.find(".today").removeClass("today");
+
+				el.addClass("today"); // new "today"
+				date = el.text();
+
+				Self.timeOptions.find(".year").html(year);
+				Self.timeOptions.find(".month").html(month);
+				Self.timeOptions.find(".date").html(date);
+				break;
 			case "increment-date":
 			case "increment-time":
 				el = Self.timeOptions.find(".selected");
@@ -426,7 +443,7 @@
 			htm = [];
 
 		// title: month
-		htm.push(`<div class="calendar-month">`);
+		htm.push(`<div class="calendar-month" data-year-month="${date.format("YYYY-MM")}">`);
 		htm.push(`<div class="calendar-head">`);
 		htm.push(`<span class="calendar-left" data-click="go-prev-month"></span>`);
 		htm.push(`<span class="calendar-year-month">${date.format("MMMM YYYY")}</span>`);
@@ -442,7 +459,7 @@
 		htm.push(`</div>`);
 
 		// loop days
-		htm.push(`<div class="days">`);
+		htm.push(`<div class="days" data-click="select-date-day">`);
 		meta.days.map(day => {
 			if (day.date) {
 				let className = day.type ? ` class="${day.type.join(" ")}"` : "";
