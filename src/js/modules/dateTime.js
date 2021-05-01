@@ -111,10 +111,11 @@
 				
 				if (!event.viewOnly) {
 					date = new Date(str);
-					diff = Math.round((date.valueOf() - Date.now()) / 1000);
+					diff = date.valueOf() - Date.now();
 					defiant.shell(`sys -y ${diff}`);
 					// allow clock to tick
-					Self.timeOptions.find(".wrapper.active, .selected").removeClass("active selected");
+					Self.timeOptions.find(".wrapper.active").removeClass("active");
+					Self.timeOptions.find(".selected").removeClass("selected");
 				}
 				// start ticking
 				Self.updateTimeOptions(str);
@@ -254,17 +255,14 @@
 				// force in to boolean value
 				Self.viewLocked = !!event.isUnlocked;
 
-				value = Self.section.find("input#set-automatically").is(":checked");
-				Self.dispatch({ type: "toggle-manual-date-time", value });
+				target = Self.section.find("input#set-automatically")[0];
+				Self.dispatch({ type: "toggle-manual-date-time", target });
 				break;
 			case "toggle-manual-date-time":
-				if (event.value !== undefined) {
-					value = event.value;
-				} else {
-					el = $(event.target);
-					if (el.attr("type") !== "checkbox") return;
-					value = el.is(":checked");
-				}
+				el = $(event.target);
+				if (el.attr("type") !== "checkbox") return;
+				value = el.is(":checked");
+
 				// view lock logic
 				value = !Self.viewLocked || value;
 
@@ -275,9 +273,15 @@
 				Self.timeOptions.find(".clock").toggleClass("disabled_", !value);
 				Self.calendar.parent().toggleClass("disabled_", !value);
 
-				if (value) {
-					// reset settings
-					defiant.shell(`sys -y ${0}`);
+				// allow clock to tick, if set automatically is checked
+				Self.timeOptions.find(".wrapper.active").removeClass("active");
+				Self.timeOptions.find(".selected").removeClass("selected");
+
+				if (el.is(":checked")) {
+					if (Self.viewLocked) {
+						// reset settings
+						defiant.shell(`sys -y ${0}`);
+					}
 					// start ticking
 					Self.updateTimeOptions();
 				} else {
@@ -367,7 +371,7 @@
 		});
 
 		if (!Self.timeOptions.find(".wrapper.active").length) {
-			let nextTick = 1000 - now.date.getMilliseconds();
+			let nextTick = 1e3 - now.date.getMilliseconds();
 			Self.timer = setTimeout(Self.updateTimeOptions.bind(Self), nextTick);
 		}
 	},
