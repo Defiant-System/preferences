@@ -1291,6 +1291,7 @@ content {
 			}
 
 			.date-time-options.tab-active_ {
+				position: relative;
 				text-align: center;
 				display: block;
 
@@ -1302,11 +1303,17 @@ content {
 			}
 
 			.date-diff-options {
-				position: relative;
-				top: -7px;
-				height: 0;
+				background: rgba(0,0,0,.05);
+				position: absolute;
+				top: 37px;
+				left: 53px;
+				right: 53px;
+				height: 40px;
+				border-radius: 3px;
+				padding: 7px 5px;
+				z-index: 1;
 				font-size: 0;
-				text-align: center;
+				text-align: right;
 
 				&.hidden {
 					display: none;
@@ -1415,20 +1422,19 @@ content {
 
 			.date-settings,
 			.time-settings {
+				position: relative;
+				z-index: 2;
 				display: inline-block;
 				width: 240px;
 				height: 267px;
 				padding: 21px 0 0;
 				text-align: center;
 				vertical-align: top;
+				pointer-events: none;
 
 				.date-sample,
 				.time-sample {
 					height: 43px;
-
-					&.disabled_ {
-
-					}
 
 					.inc-arrows_ {
 						background: #fff;
@@ -1514,6 +1520,7 @@ content {
 						padding: 3px 0;
 						font-size: 0;
 						width: 97px;
+						pointer-events: all;
 
 						&.active:not(.disabled_) {
 							border-color: #69d;
@@ -1575,6 +1582,7 @@ content {
 				overflow: hidden;
 				border: 1px solid #ccc;
 				border-radius: 3px;
+				pointer-events: all;
 
 				&.disabled_ {
 					background: #f2f2f2;
@@ -1752,6 +1760,7 @@ content {
 				border: 1px solid #bbb;
 				border-radius: 50%;
 				box-shadow: 0 1px 3px rgba(0,0,0,.15);
+				pointer-events: all;
 
 				&.disabled_:before { background: #f2f2f2; }
 

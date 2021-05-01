@@ -18,10 +18,10 @@
 			case "init-view":
 				// fast references
 				Self.section = event.section;
+				Self.diffOptions = Self.section.find(".date-diff-options");
 				Self.timeOptions = Self.section.find(".date-time-options");
 				Self.calendar = Self.timeOptions.find(".calendar .reel");
 				Self.clockSvg = Self.timeOptions.find(".clock svg");
-				Self.timeOptionSeconds = Self.timeOptions.find(".seconds");
 				Self.worldmap = Self.section.find("div.worldmap-land");
 				Self.lock = Self.section.find(".row-foot .unlock-to-edit");
 
@@ -87,7 +87,7 @@
 				break;
 			case "select-date-section":
 				target = $(event.target);
-				if (target.hasClass("seconds") || target.hasClass("seperator")) return;
+				if (target.hasClass("seperator")) return;
 
 				// make wrapper active
 				Self.timeOptions.find(".selected").removeClass("selected");
@@ -95,6 +95,12 @@
 				event.el.addClass("active");
 
 				target.addClass("selected");
+				break;
+			case "datetime-revert-diff":
+				console.log(event);
+				Self.section.find("input#set-automatically").trigger("click");
+				break;
+			case "datetime-apply-diff":
 				break;
 			case "increment-date":
 			case "increment-time":
@@ -120,11 +126,22 @@
 						value = Math.max(Math.min(value + add, 23), 0).toString().padStart(2, "0");
 						break;
 					case el.hasClass("minutes"):
+					case el.hasClass("seconds"):
 						value = Math.max(Math.min(value + add, 59), 0).toString().padStart(2, "0");
 						break;
 				}
 
 				el.html(value);
+
+				// build date from fields
+				str = Self.timeOptions.find(".year").text() +"-";
+				str += Self.timeOptions.find(".month").text() +"-";
+				str += Self.timeOptions.find(".date").text() +" ";
+				str += Self.timeOptions.find(".hours").text() +":";
+				str += Self.timeOptions.find(".minutes").text() +":";
+				str += Self.timeOptions.find(".seconds").text();
+				
+				Self.updateTimeOptions(str);
 				break;
 			case "go-prev-month":
 				date = Self.calendarDate.date;
@@ -197,10 +214,6 @@
 					window.dialog.show({ name: "unlock" });
 				}
 				break;
-			case "datetime-revert-diff":
-				break;
-			case "datetime-apply-diff":
-				break;
 			case "toggle-view":
 				if (event.isUnlocked) {
 					// save info to root app
@@ -252,6 +265,10 @@
 				Self.timeOptions.find(".inc-arrows_").toggleClass("disabled_", !value);
 				Self.timeOptions.find(".clock").toggleClass("disabled_", !value);
 				Self.calendar.parent().toggleClass("disabled_", !value);
+
+				if (!value) {
+					Self.timeOptions.find(".year").trigger("click");
+				}
 				break;
 			case "toggle-menubar-clock":
 				el = $(event.target);
@@ -310,24 +327,20 @@
 				break;
 		}
 	},
-	updateTimeOptions() {
+	updateTimeOptions(date) {
 		// clear timer; just in case...and avoid multiple calls
 		clearTimeout(this.timer);
 
 		let Self = this,
-			now = new defiant.Moment(),
+			now = new defiant.Moment(date),
 			el;
 		
-		if (!Self.timeOptions.find(".date-sample .wrapper").hasClass("active")) {
-			Self.timeOptions.find(".year").html(now.format("YYYY"));
-			Self.timeOptions.find(".month").html(now.format("MM"));
-			Self.timeOptions.find(".date").html(now.format("DD"));
-		}
-		if (!Self.timeOptions.find(".time-sample .wrapper").hasClass("active")) {
-			Self.timeOptions.find(".hours").html(now.format("HH"));
-			Self.timeOptions.find(".minutes").html(now.format("mm"));
-		}
-		Self.timeOptionSeconds.html(now.format("ss"));
+		Self.timeOptions.find(".year").html(now.format("YYYY"));
+		Self.timeOptions.find(".month").html(now.format("MM"));
+		Self.timeOptions.find(".date").html(now.format("DD"));
+		Self.timeOptions.find(".hours").html(now.format("HH"));
+		Self.timeOptions.find(".minutes").html(now.format("mm"));
+		Self.timeOptions.find(".seconds").html(now.format("ss"));
 
 		let hours = 30 * (now.date.getHours() % 12) + now.date.getMinutes() / 2,
 			minutes = 6 * now.date.getMinutes(),
@@ -338,7 +351,7 @@
 			"--rotation-seconds": `${seconds}deg`,
 		});
 
-		if (Self.timeOptions.is(":visible")) {
+		if (Self.diffOptions.hasClass("hidden")) {
 			let nextTick = 1000 - now.date.getMilliseconds();
 			Self.timer = setTimeout(Self.updateTimeOptions.bind(Self), nextTick);
 		}
