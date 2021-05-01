@@ -1297,8 +1297,8 @@ content {
 
 				.row-group_ .center {
 					text-align: inherit;
-					padding-top: 23px;
-					padding-bottom: 27px;
+					padding-top: 7px;
+					padding-bottom: 43px;
 				}
 			}
 
@@ -1314,13 +1314,14 @@ content {
 				z-index: 1;
 				font-size: 0;
 				text-align: right;
+				box-shadow: 0 0 0 1px rgba(0,0,0,.1);
 
 				&.hidden {
 					display: none;
 				}
 
 				span {
-					background: #f2f2f2;
+					background: #f7f7f7;
 					position: relative;
 					width: 25px;
 					height: 25px;
@@ -1330,6 +1331,15 @@ content {
 					vertical-align: middle;
 					border: 1px solid rgba(0,0,0,.15);
 					border-radius: 3px;
+					cursor: pointer;
+
+					&:hover {
+						background: #fff;
+
+						&:after {
+							opacity: 1;
+						}
+					}
 
 					&:after {
 						content: "";
@@ -1337,6 +1347,7 @@ content {
 						display: block;
 						width: 13px;
 						height: 13px;
+						opacity: .5;
 					}
 
 					&.icon-revert:after { background-image: url(~/icons/icon-revert.png); }
@@ -1448,6 +1459,7 @@ content {
 						border: 1px solid #ccc;
 						border-radius: 7px;
 						visibility: hidden;
+						pointer-events: all;
 
 						&.disabled_ {
 							background: #f2f2f2;

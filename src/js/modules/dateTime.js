@@ -6,6 +6,7 @@
 		let Self = Section.dateTime,
 			isLocked,
 			date,
+			diff,
 			newMonth,
 			shell,
 			items,
@@ -97,10 +98,26 @@
 				target.addClass("selected");
 				break;
 			case "datetime-revert-diff":
-				console.log(event);
 				Self.section.find("input#set-automatically").trigger("click");
 				break;
 			case "datetime-apply-diff":
+				// build date from fields
+				str = Self.timeOptions.find(".year").text() +"-";
+				str += Self.timeOptions.find(".month").text() +"-";
+				str += Self.timeOptions.find(".date").text() +" ";
+				str += Self.timeOptions.find(".hours").text() +":";
+				str += Self.timeOptions.find(".minutes").text() +":";
+				str += Self.timeOptions.find(".seconds").text();
+				
+				if (!event.viewOnly) {
+					date = new Date(str);
+					diff = Math.round((date.valueOf() - Date.now()) / 1000);
+					defiant.shell(`sys -y ${diff}`);
+					// allow clock to tick
+					Self.timeOptions.find(".wrapper.active, .selected").removeClass("active selected");
+				}
+				// start ticking
+				Self.updateTimeOptions(str);
 				break;
 			case "increment-date":
 			case "increment-time":
@@ -132,16 +149,8 @@
 				}
 
 				el.html(value);
-
-				// build date from fields
-				str = Self.timeOptions.find(".year").text() +"-";
-				str += Self.timeOptions.find(".month").text() +"-";
-				str += Self.timeOptions.find(".date").text() +" ";
-				str += Self.timeOptions.find(".hours").text() +":";
-				str += Self.timeOptions.find(".minutes").text() +":";
-				str += Self.timeOptions.find(".seconds").text();
-				
-				Self.updateTimeOptions(str);
+				// ui update
+				Self.dispatch({ type: "datetime-apply-diff", viewOnly: true });
 				break;
 			case "go-prev-month":
 				date = Self.calendarDate.date;
@@ -266,7 +275,13 @@
 				Self.timeOptions.find(".clock").toggleClass("disabled_", !value);
 				Self.calendar.parent().toggleClass("disabled_", !value);
 
-				if (!value) {
+				if (value) {
+					// reset settings
+					defiant.shell(`sys -y ${0}`);
+					// start ticking
+					Self.updateTimeOptions();
+				} else {
+					// auto focus on "year"
 					Self.timeOptions.find(".year").trigger("click");
 				}
 				break;
@@ -351,7 +366,7 @@
 			"--rotation-seconds": `${seconds}deg`,
 		});
 
-		if (Self.diffOptions.hasClass("hidden")) {
+		if (!Self.timeOptions.find(".wrapper.active").length) {
 			let nextTick = 1000 - now.date.getMilliseconds();
 			Self.timer = setTimeout(Self.updateTimeOptions.bind(Self), nextTick);
 		}
