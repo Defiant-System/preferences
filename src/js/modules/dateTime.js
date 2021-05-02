@@ -68,7 +68,7 @@
 				// toggle view; if user already unlocked previously
 				Self.dispatch({
 					type: "toggle-view",
-					isUnlocked: true //preferences.views.isUnlocked
+					isUnlocked: preferences.views.isUnlocked
 				});
 
 				// initial month render
@@ -80,9 +80,8 @@
 				Self.clockSvg.on("mousedown", Self.clockHands);
 
 				// temp
-				// setTimeout(() => { Self.updateTimeOptions(1619947845000) }, 200);
-
-				Self.section.find("input#set-automatically").trigger("click");
+				Self.section.find(".locked").trigger("click");
+				// Self.section.find("input#set-automatically").trigger("click");
 				// Self.section.find(".tab-row_ > div:nth-child(3)").trigger("click");
 				break;
 			case "dispose-view":
@@ -90,7 +89,7 @@
 				Self.clockSvg.off("mousedown", Self.clockHands);
 				break;
 			case "window.keystroke":
-				if (window.dialog._name === "unlock") {
+				if (window.dialog._name === "unlock" && event.keyCode === 13) {
 					Self.dispatch({ type: "dialog-unlock-check" });
 				}
 				break;
@@ -245,7 +244,7 @@
 					event.el.removeClass("unlocked");
 					Self.dispatch({ type: "toggle-view" });
 				} else {
-					return Self.dispatch({ type: "toggle-view", isUnlocked: true });
+					// return Self.dispatch({ type: "toggle-view", isUnlocked: true });
 					// lock icon UI
 					Self.lock.addClass("authorizing");
 					// show unlock dialog
