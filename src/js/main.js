@@ -39,7 +39,7 @@ const preferences = {
 		// tmp
 		//this.views = { isUnlocked: true, password: "temp" };
 		// this.dispatch({ type: "go-to", view: "desktop" })
-		this.dispatch({ type: "go-to", view: "dateTime" })
+		// this.dispatch({ type: "go-to", view: "dateTime" })
 	},
 	dispatch(event) {
 		let Self = preferences,
@@ -74,8 +74,10 @@ const preferences = {
 				}
 				break;
 			case "window.close":
-				// signal "dispose" to current view
-				Section[Self.history.current.view].dispatch({ type: "dispose-view" });
+				if (Self.history.current.view !== "main") {
+					// signal "dispose" to current view
+					Section[Self.history.current.view].dispatch({ type: "dispose-view" });
+				}
 				break;
 			// custom events
 			case "main-menu":
