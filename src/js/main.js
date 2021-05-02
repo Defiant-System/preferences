@@ -39,7 +39,7 @@ const preferences = {
 		// tmp
 		//this.views = { isUnlocked: true, password: "temp" };
 		// this.dispatch({ type: "go-to", view: "desktop" })
-		// this.dispatch({ type: "go-to", view: "dateTime" })
+		this.dispatch({ type: "go-to", view: "dateTime" })
 	},
 	dispatch(event) {
 		let Self = preferences,
@@ -91,10 +91,12 @@ const preferences = {
 				Self.setViewState();
 				break;
 			case "history-go":
+				view = Self.history.current;
+
 				if (event.arg === "-1") Self.history.goBack();
 				else Self.history.goForward();
 				// update view state
-				Self.setViewState();
+				Self.setViewState(view);
 				break;
 			case "select-section":
 				el = $(event.target);
@@ -125,9 +127,8 @@ const preferences = {
 				}
 		}
 	},
-	setViewState() {
-		let prev = this.history.previous,
-			state = this.history.current,
+	setViewState(prev) {
+		let state = this.history.current,
 			section = window.find(`section[data-view="${state.view}"]`),
 			width = this.mainMenu.width(),
 			height = this.mainMenu.height();

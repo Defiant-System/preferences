@@ -8,8 +8,7 @@
 		.st4{opacity:0.45;enable-background:new    ;}
 	</style>
 	<g>
-		
-			<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="22" y1="-421.3565" x2="22" y2="-447.331" gradientTransform="matrix(1 0 0 1 0 455)">
+		<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="22" y1="-421.3565" x2="22" y2="-447.331" gradientTransform="matrix(1 0 0 1 0 455)">
 			<stop  offset="0" style="stop-color:#BB88BB"/>
 			<stop  offset="1" style="stop-color:#6699DD"/>
 		</linearGradient>

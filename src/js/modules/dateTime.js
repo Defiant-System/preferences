@@ -18,6 +18,7 @@
 		switch (event.type) {
 			case "init-view":
 				// fast references
+				Self.doc = $(document);
 				Self.section = event.section;
 				Self.diffOptions = Self.section.find(".date-diff-options");
 				Self.timeOptions = Self.section.find(".date-time-options");
@@ -75,8 +76,16 @@
 				Self.calendarDate = new defiant.Moment();
 				Self.renderCalendar();
 
+				// bind event handlers
+				Self.clockSvg.on("mousedown", Self.clockHands);
+
 				// temp
+				Self.section.find("input#set-automatically").trigger("click");
 				// Self.section.find(".tab-row_ > div:nth-child(3)").trigger("click");
+				break;
+			case "dispose-view":
+				// unbind event handlers
+				Self.clockSvg.off("mousedown", Self.clockHands);
 				break;
 			case "window.keystroke":
 				if (window.dialog._name === "unlock") {
@@ -469,5 +478,59 @@
 		htm.push(`</div></div></div>`);
 
 		return this.calendar.append(htm.join(""));
+	},
+	clockHands(event) {
+		let Self = Section.dateTime,
+			Drag = Self.drag,
+			css = {};
+		switch (event.type) {
+			case "mousedown":
+				let el = $(event.target),
+					pEl = el.parent();
+
+				if (Self.section.find("input#set-automatically").is(":checked")
+					|| (!el.hasClass("hours-handle")
+					&& !el.hasClass("minutes-handle")
+					&& !el.hasClass("seconds-handle"))) return;
+
+				// collect info
+				let hand = el.prop("className").baseVal.split("-")[0],
+					fEl = Self.timeOptions.find(`.${hand}`),
+					rect = event.target.parentNode.getBoundingClientRect();
+
+				// prepare drag info
+				Self.drag = {
+					el,
+					pEl,
+					fEl,
+					hand,
+					cY: rect.top + (rect.height / 2),
+					cX: rect.left + (rect.width / 2),
+				};
+				// bind event handler
+				Self.doc.on("mousemove mouseup", Self.clockHands);
+				break;
+			case "mousemove":
+				let dY = event.clientY - Drag.cY,
+					dX = event.clientX - Drag.cX,
+					theta = Math.atan2(dY, dX);
+				theta *= (180 / Math.PI);
+				theta = (theta + 450) % 360;
+				
+				// value of field
+				let value = Drag.hand === "hours"
+								? (theta / 360) * 24
+								: (theta / 360) * 60;
+				Drag.fEl.html(Math.round(value).toString().padStart(2, "0"));
+
+				// apply to element style
+				css[`--rotation-${Drag.hand}`] = `${theta}deg`;
+				Drag.pEl.css(css);
+				break;
+			case "mouseup":
+				// bind event handler
+				Self.doc.off("mousemove mouseup", Self.clockHands);
+				break;
+		}
 	}
 }
