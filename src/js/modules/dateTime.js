@@ -80,6 +80,8 @@
 				Self.clockSvg.on("mousedown", Self.clockHands);
 
 				// temp
+				// setTimeout(() => { Self.updateTimeOptions(1619947845000) }, 200);
+
 				Self.section.find("input#set-automatically").trigger("click");
 				// Self.section.find(".tab-row_ > div:nth-child(3)").trigger("click");
 				break;
@@ -494,9 +496,24 @@
 					&& !el.hasClass("seconds-handle"))) return;
 
 				// collect info
-				let hand = el.prop("className").baseVal.split("-")[0],
+				let mHand = Self.timeOptions.find(`.minutes`),
+					sHand = Self.timeOptions.find(`.seconds`),
+					hand = el.prop("className").baseVal.split("-")[0],
 					fEl = Self.timeOptions.find(`.${hand}`),
-					rect = event.target.parentNode.getBoundingClientRect();
+					rect = event.target.parentNode.getBoundingClientRect(),
+					snap,
+					offset;
+
+				switch (hand) {
+					case "hours":
+						snap = 30;
+						offset = (+mHand.text() / 60) * snap;
+						break;
+					case "minutes":
+						snap = 6;
+						offset = (+sHand.text() / 60) * snap;
+						break;
+				}
 
 				// prepare drag info
 				Self.drag = {
@@ -504,9 +521,12 @@
 					pEl,
 					fEl,
 					hand,
+					snap,
+					offset,
 					cY: rect.top + (rect.height / 2),
 					cX: rect.left + (rect.width / 2),
 				};
+
 				// bind event handler
 				Self.doc.on("mousemove mouseup", Self.clockHands);
 				break;
@@ -519,16 +539,21 @@
 				
 				// value of field
 				let value = Drag.hand === "hours"
-								? (theta / 360) * 24
-								: (theta / 360) * 60;
+								? (theta / 360) * 11
+								: (theta / 360) * 59;
 				Drag.fEl.html(Math.round(value).toString().padStart(2, "0"));
 
+				// apply snap, if any
+				if (Drag.snap) {
+					theta -= theta % Drag.snap;
+					theta += Drag.offset;
+				}
 				// apply to element style
 				css[`--rotation-${Drag.hand}`] = `${theta}deg`;
 				Drag.pEl.css(css);
 				break;
 			case "mouseup":
-				// bind event handler
+				// unbind event handler
 				Self.doc.off("mousemove mouseup", Self.clockHands);
 				break;
 		}
