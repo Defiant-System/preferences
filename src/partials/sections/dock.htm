@@ -1,61 +1,75 @@
 <section data-view="dock">
+	<div class="tab-view_" sys-click="do-tab-row">
+		<div class="tab-row_">
+			<div class="tab-active_">Settings</div>
+			<div>Icons</div>
+		</div>
+		<div class="tab-body_">
+			<!-- Wallpaper -->
+			<div class="tab-active_">
 
-	<div class="row-group_">
-		<legend>Position on screen:</legend>
-		<div>
-			<div class="row" data-click="select-dock-position">
-				<div class="cell">
-					<span class="form-radio_"><input type="radio" name="dock" id="dock-left"/><i></i></span>
-					<label for="dock-left">Left</label>
+				<div class="row-group_">
+					<legend>Position on screen:</legend>
+					<div>
+						<div class="row" data-click="select-dock-position">
+							<div class="cell">
+								<span class="form-radio_"><input type="radio" name="dock" id="dock-left"/><i></i></span>
+								<label for="dock-left">Left</label>
+							</div>
+							<div class="cell">
+								<span class="form-radio_"><input type="radio" name="dock" id="dock-bottom" checked/><i></i></span>
+								<label for="dock-bottom">Bottom</label>
+							</div>
+							<div class="cell">
+								<span class="form-radio_"><input type="radio" name="dock" id="dock-right"/><i></i></span>
+								<label for="dock-right">Right</label>
+							</div>
+						</div>
+					</div>
 				</div>
-				<div class="cell">
-					<span class="form-radio_"><input type="radio" name="dock" id="dock-bottom" checked/><i></i></span>
-					<label for="dock-bottom">Bottom</label>
+
+				<hr class="space"/>
+
+				<div class="row-group_">
+					<legend>Size</legend>
+					<div style="max-width: 220px;" data-scale-left="Small" data-scale-right="Large">
+						<input type="range" value="70" min="55" max="90" id="dock-size" data-change="dock-size">
+					</div>
 				</div>
-				<div class="cell">
-					<span class="form-radio_"><input type="radio" name="dock" id="dock-right"/><i></i></span>
-					<label for="dock-right">Right</label>
+
+				<hr/>
+
+				<div class="row-group_">
+					<legend></legend>
+					<div data-click="toggle-values">
+						<div class="row">
+							<span class="form-checkbox_"><input type="checkbox" id="toggle-dock"/><i></i></span>
+							<label for="toggle-dock">Automatically hide and show the Dock</label>
+						</div>
+						<div class="row">
+							<span class="form-checkbox_"><input type="checkbox" id="toggle-app-indicators"/><i></i></span>
+							<label for="toggle-app-indicators">Show indicators for open applications</label>
+						</div>
+						<div class="row">
+							<span class="form-checkbox_"><input type="checkbox" id="toggle-magnification"/><i></i></span>
+							<label for="toggle-magnification">Magnification</label>
+						</div>
+					</div>
+				</div>
+
+				<div class="row-group_ disabled_" data-row="magnification">
+					<legend>Magnification</legend>
+					<div style="max-width: 220px;" data-scale-left="Small" data-scale-right="Large">
+						<input type="range" disabled value="50" min="0" max="100" id="magnification-size" data-change="magnification-size">
+					</div>
 				</div>
 			</div>
-		</div>
-	</div>
 
-	<hr/>
-
-	<div class="row-group_">
-		<legend>Size</legend>
-		<div style="max-width: 220px;" data-scale-left="Small" data-scale-right="Large">
-			<input type="range" value="70" min="55" max="90" id="dock-size" data-change="dock-size">
-		</div>
-	</div>
-
-	<hr/>
-
-	<div class="row-group_">
-		<legend></legend>
-		<div data-click="toggle-values">
-			<div class="row">
-				<span class="form-checkbox_"><input type="checkbox" id="toggle-dock"/><i></i></span>
-				<label for="toggle-dock">Automatically hide and show the Dock</label>
+			<!-- Icons -->
+			<div>
+				Icons
 			</div>
-			<div class="row">
-				<span class="form-checkbox_"><input type="checkbox" id="toggle-app-indicators"/><i></i></span>
-				<label for="toggle-app-indicators">Show indicators for open applications</label>
-			</div>
-			<div class="row">
-				<span class="form-checkbox_"><input type="checkbox" id="toggle-magnification"/><i></i></span>
-				<label for="toggle-magnification">Magnification</label>
-			</div>
+
 		</div>
 	</div>
-
-	<hr/>
-
-	<div class="row-group_ disabled_" data-row="magnification">
-		<legend>Magnification</legend>
-		<div style="max-width: 220px;" data-scale-left="Small" data-scale-right="Large">
-			<input type="range" disabled value="50" min="0" max="100" id="magnification-size" data-change="magnification-size">
-		</div>
-	</div>
-
 </section>

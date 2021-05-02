@@ -708,7 +708,16 @@ content {
 
 		&[data-view="dock"] {
 			width: 590px;
-			height: 360px;
+			height: 400px;
+
+			.tab-body_ {
+				overflow: initial;
+
+				.tab-active_ {
+					position: relative;
+					display: block;
+				}
+			}
 		}
 
 		&[data-view="cloudStorage"] {
