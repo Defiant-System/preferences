@@ -482,8 +482,8 @@
 	},
 	clockHands(event) {
 		let Self = Section.dateTime,
-			Drag = Self.drag,
-			css = {};
+			Drag = Self.drag;
+
 		switch (event.type) {
 			case "mousedown":
 				let el = $(event.target),
@@ -533,7 +533,8 @@
 				let isHours = Drag.hand === "hours",
 					dY = event.clientY - Drag.cY,
 					dX = event.clientX - Drag.cX,
-					theta = Math.atan2(dY, dX);
+					theta = Math.atan2(dY, dX),
+					css = {};
 				
 				theta *= 180 / Math.PI;
 				theta = theta + 450;
@@ -547,6 +548,7 @@
 				// value of field
 				let value = isHours ? ((theta % 360) / 360) * 11
 									: ((theta % 360) / 360) * 59;
+				value = (value + 12) % 24;
 				Drag.fEl.html(Math.round(value).toString().padStart(2, "0"));
 
 				// apply to element style
