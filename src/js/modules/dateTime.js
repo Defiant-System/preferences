@@ -68,7 +68,7 @@
 				// toggle view; if user already unlocked previously
 				Self.dispatch({
 					type: "toggle-view",
-					isUnlocked: preferences.views.isUnlocked
+					isUnlocked: true //preferences.views.isUnlocked
 				});
 
 				// initial month render
@@ -80,8 +80,8 @@
 				Self.clockSvg.on("mousedown", Self.clockHands);
 
 				// temp
-				Self.section.find(".locked").trigger("click");
-				// Self.section.find("input#set-automatically").trigger("click");
+				// Self.section.find(".locked").trigger("click");
+				Self.section.find("input#set-automatically").trigger("click");
 				// Self.section.find(".tab-row_ > div:nth-child(3)").trigger("click");
 				break;
 			case "dispose-view":
@@ -244,7 +244,7 @@
 					event.el.removeClass("unlocked");
 					Self.dispatch({ type: "toggle-view" });
 				} else {
-					// return Self.dispatch({ type: "toggle-view", isUnlocked: true });
+					return Self.dispatch({ type: "toggle-view", isUnlocked: true });
 					// lock icon UI
 					Self.lock.addClass("authorizing");
 					// show unlock dialog
@@ -489,8 +489,8 @@
 				let el = $(event.target),
 					pEl = el.parent();
 
-				if (Self.section.find("input#set-automatically").is(":checked")
-					|| (!el.hasClass("hours-handle")
+				if (Self.section.find("input#set-automatically").is(":checked") ||
+					(!el.hasClass("hours-handle")
 					&& !el.hasClass("minutes-handle")
 					&& !el.hasClass("seconds-handle"))) return;
 
@@ -530,23 +530,25 @@
 				Self.doc.on("mousemove mouseup", Self.clockHands);
 				break;
 			case "mousemove":
-				let dY = event.clientY - Drag.cY,
+				let isHours = Drag.hand === "hours",
+					dY = event.clientY - Drag.cY,
 					dX = event.clientX - Drag.cX,
 					theta = Math.atan2(dY, dX);
-				theta *= (180 / Math.PI);
-				theta = (theta + 450) % 360;
 				
-				// value of field
-				let value = Drag.hand === "hours"
-								? (theta / 360) * 11
-								: (theta / 360) * 59;
-				Drag.fEl.html(Math.round(value).toString().padStart(2, "0"));
+				theta *= 180 / Math.PI;
+				theta = theta + 450;
 
 				// apply snap, if any
 				if (Drag.snap) {
 					theta -= theta % Drag.snap;
 					theta += Drag.offset;
 				}
+
+				// value of field
+				let value = isHours ? ((theta % 360) / 360) * 11
+									: ((theta % 360) / 360) * 59;
+				Drag.fEl.html(Math.round(value).toString().padStart(2, "0"));
+
 				// apply to element style
 				css[`--rotation-${Drag.hand}`] = `${theta}deg`;
 				Drag.pEl.css(css);
