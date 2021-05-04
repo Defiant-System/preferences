@@ -12,19 +12,19 @@
 				Self.section = event.section;
 
 				// theme value
-				shell = await defiant.shell(`sys -o`);
+				shell = await defiant.shell(`gui -o`);
 				el = Self.section.find(`.theme-preview[data-arg="${shell.result}"]`);
 				el.parent().find(".active").removeClass("active");
 				el.addClass("active");
 
 				// accent color
-				shell = await defiant.shell(`sys -j`);
+				shell = await defiant.shell(`gui -j`);
 				el = Self.section.find(`.color-select_[data-arg="${shell.result}"]`);
 				el.parent().find(".active").removeClass("active");
 				el.addClass("active");
 
 				// menubar toggle
-				shell = await defiant.shell(`sys -w`);
+				shell = await defiant.shell(`gui -m`);
 				el = Self.section.find(`input[id="menubar-toggle"]`);
 				el.prop({ checked: shell.result });
 				break;
@@ -36,7 +36,7 @@
 				el.addClass("active");
 
 				// execute shell command
-				defiant.shell(`sys -o ${el.data("arg")}`);
+				defiant.shell(`gui -o ${el.data("arg")}`);
 				break;
 			case "select-accent-icon-color":
 				el = $(event.target);
@@ -47,14 +47,14 @@
 				el.addClass("active");
 
 				// execute shell command
-				defiant.shell(`sys -j ${el.data("arg")}`);
+				defiant.shell(`gui -j ${el.data("arg")}`);
 				break;
 			case "toggle-menubar":
 				el = $(event.target);
 				if (el.attr("type") !== "checkbox") return;
 
 				// execute shell command
-				defiant.shell(`sys -w ${el.is(":checked")}`);
+				defiant.shell(`gui -m ${el.is(":checked")}`);
 				break;
 		}
 	}

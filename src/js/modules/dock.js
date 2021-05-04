@@ -16,26 +16,26 @@
 				Self.inputMagnification = Self.rowMagnification.find("input");
 
 				// dock position
-				shell = await defiant.shell(`sys -d`);
+				shell = await defiant.shell(`gui -d`);
 				el = Self.section.find(`input[id="dock-${shell.result}"]`);
 				el.prop({ checked: true });
 
 				// dock size
-				shell = await defiant.shell(`sys -e`);
+				shell = await defiant.shell(`gui -e`);
 				Self.section.find("input#dock-size").val(shell.result);
 
 				// dock show/hide
-				shell = await defiant.shell(`sys -h`);
+				shell = await defiant.shell(`gui -h`);
 				el = Self.section.find(`input[id="toggle-dock"]`);
 				el.prop({ checked: shell.result });
 
 				// dock app indicators
-				shell = await defiant.shell(`sys -f`);
+				shell = await defiant.shell(`gui -f`);
 				el = Self.section.find(`input[id="toggle-app-indicators"]`);
 				el.prop({ checked: shell.result });
 
 				// dock magnification
-				shell = await defiant.shell(`sys -g`);
+				shell = await defiant.shell(`gui -g`);
 				el = Self.section.find(`input[id="toggle-magnification"]`);
 				el.prop({ checked: shell.result.on });
 				if (shell.result.on) {
@@ -48,15 +48,15 @@
 				if (el.attr("type") !== "radio") return;
 				value = el.attr("id").split("-")[1];
 				// save value in settings
-				defiant.shell("sys -d "+ value);
+				defiant.shell("gui -d "+ value);
 				break;
 			case "dock-size":
 				// save value in settings
-				defiant.shell(`sys -e ${event.value}`);
+				defiant.shell(`gui -e ${event.value}`);
 				break;
 			case "magnification-size":
 				// save value in settings
-				defiant.shell(`sys -g true ${event.value}`);
+				defiant.shell(`gui -g true ${event.value}`);
 				break;
 			case "toggle-values":
 				el = $(event.target);
@@ -65,10 +65,10 @@
 
 				switch (el.attr("id")) {
 					case "toggle-dock":
-						defiant.shell(`sys -h ${value}`);
+						defiant.shell(`gui -h ${value}`);
 						break;
 					case "toggle-app-indicators":
-						defiant.shell(`sys -f ${value}`);
+						defiant.shell(`gui -f ${value}`);
 						break;
 					case "toggle-magnification":
 						Self.rowMagnification.toggleClass("disabled_", value);
@@ -81,7 +81,7 @@
 
 						// save value in settings
 						size = Self.inputMagnification.val();
-						defiant.shell(`sys -g ${value} ${size}`);
+						defiant.shell(`gui -g ${value} ${size}`);
 						break;
 				}
 				break;

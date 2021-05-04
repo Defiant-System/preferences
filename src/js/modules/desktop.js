@@ -46,7 +46,7 @@
 				 * Wallpaper Tab
 				 */
 				// get wallpaper info from system
-				shell = await defiant.shell("ws -a wallpaper");
+				shell = await defiant.shell("gui -a wallpaper");
 				// set number of desktops
 				Self.reelEl.data("ws", shell.result.length);
 				// desktop screens
@@ -79,18 +79,18 @@
 				 * Icons Tab
 				 */
 				// folder icon color
-				shell = await defiant.shell(`sys -i`);
+				shell = await defiant.shell(`gui -i`);
 				el = Self.section.find(`.color-select_[data-arg="${shell.result}"]`);
 				el.parent().find(".active").removeClass("active");
 				el.addClass("active");
 
 				// toggle desktop icons
-				shell = await defiant.shell(`sys -t`);
+				shell = await defiant.shell(`gui -t`);
 				el = Self.section.find(`input[id="hide-desktop-icons"]`);
 				el.prop({ checked: !shell.result });
 
 				// desktop icon size
-				shell = await defiant.shell(`sys -k`);
+				shell = await defiant.shell(`gui -k`);
 				el = Self.section.find(`input[id="desktop-icon-size"]`);
 				el.val(shell.result);
 
@@ -253,7 +253,7 @@
 					section.find(".reel").removeClass("wide");
 					workspace = section.find(".workspace.active");
 					if (!workspace.length) {
-						shell = await defiant.shell(`ws -s`);
+						shell = await defiant.shell(`gui -s`);
 						workspace = section.find(".workspace").get(shell.result-1).addClass("active");
 					}
 					workspace.find("div").attr({style: value});
@@ -261,7 +261,7 @@
 				}
 
 				value = value.replace(/\?.+?\)/g, ")");
-				defiant.shell(`ws -w ${index} '${value}'`);
+				defiant.shell(`gui -w ${index} '${value}'`);
 				break;
 			case "add-workspace":
 				value = +Self.reelEl.data("ws");
@@ -288,16 +288,16 @@
 				el.parent().find(".active").removeClass("active");
 				el.addClass("active");
 				// execute shell command
-				defiant.shell(`sys -i ${el.data("arg")}`);
+				defiant.shell(`gui -i ${el.data("arg")}`);
 				break;
 			case "set-desktop-icon-size":
-				defiant.shell(`sys -k ${event.value}`);
+				defiant.shell(`gui -k ${event.value}`);
 				break;
 			case "hide-desktop-icons":
 				el = $(event.target);
 				if (el.attr("type") !== "checkbox") return;
 				// execute shell command
-				defiant.shell(`sys -t ${!el.is(":checked")}`);
+				defiant.shell(`gui -t ${el.is(":checked")}`);
 				break;
 		}
 	},
