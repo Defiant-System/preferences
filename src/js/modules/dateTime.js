@@ -112,14 +112,18 @@
 				Self.section.find("input#set-automatically").trigger("click");
 				break;
 			case "datetime-apply-diff":
+				// hours need to reduce am/pm
+				value = Self.timeOptions.find(".hours").text();
 				// build date from fields
 				str = Self.timeOptions.find(".year").text() +"-";
 				str += Self.timeOptions.find(".month").text() +"-";
 				str += Self.timeOptions.find(".date").text() +" ";
-				str += Self.timeOptions.find(".hours").text() +":";
+				str += value +":";
 				str += Self.timeOptions.find(".minutes").text() +":";
 				str += Self.timeOptions.find(".seconds").text();
-				
+				// am/pm
+				Self.clockSvg.parent().data({ a: Math.floor(value / 12) });
+
 				if (!event.viewOnly) {
 					date = new Date(str);
 					diff = date.valueOf() - Date.now();
@@ -528,54 +532,53 @@
 				theta = theta + 450;
 
 				// value of field
-				let value = (theta % 360) / 360,
-					cValue = +Drag.fEl.html(),
-					amPm = +Drag.cEl.data("a");
+				let nValue = (theta % 360) / 360,
+					oValue = +Drag.fEl.html(),
+					amPm;
 				switch (Drag.hand) {
 					case "hours":
-						value *= 11;
+						nValue *= 11;
+						amPm = +Drag.cEl.data("a");
 
-						if ((cValue % 12) > 6 && (value % 12) < 6) {
+						if ((oValue % 12) > 6 && (nValue % 12) < 6) {
 							amPm = (amPm + 1) % 2;
-							Drag.cEl.data({ a: amPm })
 						}
-						if ((cValue % 12) < 6 && (value % 12) > 6) {
+						if ((oValue % 12) < 6 && (nValue % 12) > 6) {
 							amPm = ((amPm + 2) - 1) % 2;
-							Drag.cEl.data({ a: amPm })
 						}
-						if (amPm === 1) value += 12;
+						if (amPm === 1) nValue += 12;
 						break;
 					case "minutes":
-						value *= 59;
+						nValue *= 59;
 
-						if (cValue > 30 && value < 30) {
+						if (oValue > 30 && nValue < 30) {
 							el = Drag.fEl.parent().find(".hours");
-							cValue = +el.html() + 1;
-							el.html(cValue % 24);
+							oValue = +el.html() + 1;
+							el.html(oValue % 24);
 						}
-						if (cValue < 30 && value > 30) {
+						if (oValue < 30 && nValue > 30) {
 							el = Drag.fEl.parent().find(".hours");
-							cValue = +el.html() - 1;
-							el.html((cValue + 24) % 24);
+							oValue = +el.html() - 1;
+							el.html((oValue + 24) % 24);
 						}
 						break;
 					case "seconds":
-						value *= 59;
+						nValue *= 59;
 
-						if (cValue > 30 && value < 30) {
+						if (oValue > 30 && nValue < 30) {
 							el = Drag.fEl.parent().find(".minutes");
-							cValue = +el.html() + 1;
-							el.html(cValue % 60);
+							oValue = +el.html() + 1;
+							el.html(oValue % 60);
 						}
-						if (cValue < 30 && value > 30) {
+						if (oValue < 30 && nValue > 30) {
 							el = Drag.fEl.parent().find(".minutes");
-							cValue = +el.html() - 1;
-							el.html((cValue + 60) % 60);
+							oValue = +el.html() - 1;
+							el.html((oValue + 60) % 60);
 						}
 						break;
 				}
 				
-				Drag.fEl.html(Math.round(value).toString().padStart(2, "0"));
+				Drag.fEl.html(Math.round(nValue).toString().padStart(2, "0"));
 
 				// ui update
 				Self.dispatch({ type: "datetime-apply-diff", viewOnly: true });

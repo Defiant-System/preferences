@@ -1808,7 +1808,7 @@ content {
 				}
 
 				&:after {
-					content: attr(data-a);
+					content: "am";
 					text-transform: uppercase;
 					font-size: 13px;
 					position: absolute;
@@ -1817,6 +1817,10 @@ content {
 					right: 21px;
 					opacity: .5;
 					text-align: center;
+				}
+
+				&[data-a="1"]:after {
+					content: "pm";
 				}
 
 				svg {
