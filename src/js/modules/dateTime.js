@@ -501,6 +501,7 @@
 				let mHand = Self.timeOptions.find(`.minutes`),
 					sHand = Self.timeOptions.find(`.seconds`),
 					hand = el.prop("className").baseVal.split("-")[0],
+					cEl = Self.clockSvg.parent(),
 					fEl = Self.timeOptions.find(`.${hand}`),
 					rect = event.target.parentNode.getBoundingClientRect();
 
@@ -509,6 +510,7 @@
 					el,
 					pEl,
 					fEl,
+					cEl,
 					hand,
 					cY: rect.top + (rect.height / 2),
 					cX: rect.left + (rect.width / 2),
@@ -527,16 +529,21 @@
 
 				// value of field
 				let value = (theta % 360) / 360,
-					cValue = +Drag.fEl.html();
+					cValue = +Drag.fEl.html(),
+					amPm = +Drag.cEl.data("a");
 				switch (Drag.hand) {
 					case "hours":
 						value *= 11;
-						// there must be a smarter way to do this with "modulus"
-						if (cValue > 11) value += 12;
-						if (cValue === 12 && Math.round(value) === 23) value -= 12;
-						if (cValue === 0 && Math.round(value) === 11) value += 12;
-						if (cValue === 23 && Math.round(value) === 12) value -= 12;
-						if (cValue === 11 && Math.round(value) === 0) value += 12;
+
+						if ((cValue % 12) > 6 && (value % 12) < 6) {
+							amPm = (amPm + 1) % 2;
+							Drag.cEl.data({ a: amPm })
+						}
+						if ((cValue % 12) < 6 && (value % 12) > 6) {
+							amPm = ((amPm + 2) - 1) % 2;
+							Drag.cEl.data({ a: amPm })
+						}
+						if (amPm === 1) value += 12;
 						break;
 					case "minutes":
 						value *= 59;
@@ -544,18 +551,27 @@
 						if (cValue > 30 && value < 30) {
 							el = Drag.fEl.parent().find(".hours");
 							cValue = +el.html() + 1;
-							el.html((cValue + 24) % 24);
-							// console.log("increment hours");
+							el.html(cValue % 24);
 						}
 						if (cValue < 30 && value > 30) {
 							el = Drag.fEl.parent().find(".hours");
 							cValue = +el.html() - 1;
 							el.html((cValue + 24) % 24);
-							// console.log("decrement hours");
 						}
 						break;
 					case "seconds":
 						value *= 59;
+
+						if (cValue > 30 && value < 30) {
+							el = Drag.fEl.parent().find(".minutes");
+							cValue = +el.html() + 1;
+							el.html(cValue % 60);
+						}
+						if (cValue < 30 && value > 30) {
+							el = Drag.fEl.parent().find(".minutes");
+							cValue = +el.html() - 1;
+							el.html((cValue + 60) % 60);
+						}
 						break;
 				}
 				
