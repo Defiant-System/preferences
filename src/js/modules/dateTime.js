@@ -39,6 +39,7 @@
 				// clock 24h (or am/pm)
 				shell = await defiant.shell(`sys -u`);
 				Self.clockSvg.parent().toggleClass("show-24h", shell.result === "am/pm");
+				// Self.clockSvg.parent().removeClass("show-24h");
 
 				// timezone
 				shell = await defiant.shell(`sys -z`);
@@ -482,12 +483,14 @@
 	},
 	clockHands(event) {
 		let Self = Section.dateTime,
-			Drag = Self.drag;
+			Drag = Self.drag,
+			pEl,
+			el;
 
 		switch (event.type) {
 			case "mousedown":
-				let el = $(event.target),
-					pEl = el.parent();
+				el = $(event.target);
+				pEl = el.parent();
 
 				if (Self.section.find("input#set-automatically").is(":checked") ||
 					(!el.hasClass("hours-handle")
@@ -499,20 +502,7 @@
 					sHand = Self.timeOptions.find(`.seconds`),
 					hand = el.prop("className").baseVal.split("-")[0],
 					fEl = Self.timeOptions.find(`.${hand}`),
-					rect = event.target.parentNode.getBoundingClientRect(),
-					snap,
-					offset;
-
-				switch (hand) {
-					case "hours":
-						snap = 30;
-						offset = (+mHand.text() / 60) * snap;
-						break;
-					case "minutes":
-						snap = 6;
-						offset = (+sHand.text() / 60) * snap;
-						break;
-				}
+					rect = event.target.parentNode.getBoundingClientRect();
 
 				// prepare drag info
 				Self.drag = {
@@ -520,8 +510,6 @@
 					pEl,
 					fEl,
 					hand,
-					snap,
-					offset,
 					cY: rect.top + (rect.height / 2),
 					cX: rect.left + (rect.width / 2),
 				};
@@ -530,30 +518,51 @@
 				Self.doc.on("mousemove mouseup", Self.clockHands);
 				break;
 			case "mousemove":
-				let isHours = Drag.hand === "hours",
-					dY = event.clientY - Drag.cY,
+				let dY = event.clientY - Drag.cY,
 					dX = event.clientX - Drag.cX,
-					theta = Math.atan2(dY, dX),
-					css = {};
+					theta = Math.atan2(dY, dX);
 				
 				theta *= 180 / Math.PI;
 				theta = theta + 450;
 
-				// apply snap, if any
-				if (Drag.snap) {
-					theta -= theta % Drag.snap;
-					theta += Drag.offset;
-				}
-
 				// value of field
-				let value = isHours ? ((theta % 360) / 360) * 11
-									: ((theta % 360) / 360) * 59;
-				value = (value + 12) % 24;
+				let value = (theta % 360) / 360,
+					cValue = +Drag.fEl.html();
+				switch (Drag.hand) {
+					case "hours":
+						value *= 11;
+						// there must be a smarter way to do this with "modulus"
+						if (cValue > 11) value += 12;
+						if (cValue === 12 && Math.round(value) === 23) value -= 12;
+						if (cValue === 0 && Math.round(value) === 11) value += 12;
+						if (cValue === 23 && Math.round(value) === 12) value -= 12;
+						if (cValue === 11 && Math.round(value) === 0) value += 12;
+						break;
+					case "minutes":
+						value *= 59;
+
+						if (cValue > 30 && value < 30) {
+							el = Drag.fEl.parent().find(".hours");
+							cValue = +el.html() + 1;
+							el.html((cValue + 24) % 24);
+							// console.log("increment hours");
+						}
+						if (cValue < 30 && value > 30) {
+							el = Drag.fEl.parent().find(".hours");
+							cValue = +el.html() - 1;
+							el.html((cValue + 24) % 24);
+							// console.log("decrement hours");
+						}
+						break;
+					case "seconds":
+						value *= 59;
+						break;
+				}
+				
 				Drag.fEl.html(Math.round(value).toString().padStart(2, "0"));
 
-				// apply to element style
-				css[`--rotation-${Drag.hand}`] = `${theta}deg`;
-				Drag.pEl.css(css);
+				// ui update
+				Self.dispatch({ type: "datetime-apply-diff", viewOnly: true });
 				break;
 			case "mouseup":
 				// unbind event handler
