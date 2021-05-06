@@ -1452,6 +1452,20 @@ content {
 				vertical-align: top;
 				pointer-events: none;
 
+				&.time-settings.show-24h {
+					.wrapper {
+						width: 85px;
+
+						span.am-pm {
+							display: none;
+						}
+					}
+
+					.clock:after {
+						display: none;
+					}
+				}
+
 				.date-sample,
 				.time-sample {
 					height: 43px;
@@ -1573,6 +1587,19 @@ content {
 								background: #1067de;
 								color: #fff;
 							}
+
+							&.am-pm {
+								display: inline-block;
+
+								&:before {
+									content: "am";
+									text-transform: uppercase;
+								}
+
+								&[data-a="1"]:before {
+									content: "pm";
+								}
+							}
 						}
 
 						.seperator:before {
@@ -1585,7 +1612,7 @@ content {
 
 				.time-sample {
 					.wrapper {
-						width: 85px;
+						width: 105px;
 
 						.seperator:before {
 							content: ":";
@@ -1788,10 +1815,6 @@ content {
 				pointer-events: all;
 
 				&.disabled_:before { background: #f2f2f2; }
-
-				&.show-24h:after {
-					display: none;
-				}
 
 				&:before {
 					content: "";

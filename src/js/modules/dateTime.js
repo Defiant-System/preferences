@@ -6,6 +6,7 @@
 		let Self = Section.dateTime,
 			isLocked,
 			date,
+			is24h,
 			diff,
 			newMonth,
 			shell,
@@ -22,13 +23,11 @@
 				Self.section = event.section;
 				Self.diffOptions = Self.section.find(".date-diff-options");
 				Self.timeOptions = Self.section.find(".date-time-options");
+				Self.timeSettings = Self.section.find(".time-settings");
 				Self.calendar = Self.timeOptions.find(".calendar .reel");
 				Self.clockSvg = Self.timeOptions.find(".clock svg");
 				Self.worldmap = Self.section.find("div.worldmap-land");
 				Self.lock = Self.section.find(".row-foot .unlock-to-edit");
-
-				// start update; calendar and clock
-				setTimeout(Self.updateTimeOptions.bind(Self), 60);
 
 				// dateTime difference
 				shell = await defiant.shell(`sys -y`);
@@ -38,8 +37,7 @@
 
 				// clock 24h (or am/pm)
 				shell = await defiant.shell(`sys -u`);
-				Self.clockSvg.parent().toggleClass("show-24h", shell.result === "am/pm");
-				// Self.clockSvg.parent().removeClass("show-24h");
+				Self.timeSettings.toggleClass("show-24h", shell.result === "am/pm");
 
 				// timezone
 				shell = await defiant.shell(`sys -z`);
@@ -69,7 +67,7 @@
 				// toggle view; if user already unlocked previously
 				Self.dispatch({
 					type: "toggle-view",
-					isUnlocked: true //preferences.views.isUnlocked
+					isUnlocked: true// preferences.views.isUnlocked
 				});
 
 				// initial month render
@@ -77,12 +75,15 @@
 				Self.calendarDate = new defiant.Moment();
 				Self.renderCalendar();
 
+				// start update; calendar and clock
+				Self.dispatch({ type: "datetime-apply-diff"});
+
 				// bind event handlers
 				Self.clockSvg.on("mousedown", Self.clockHands);
 
 				// temp
 				// Self.section.find(".locked").trigger("click");
-				Self.section.find("input#set-automatically").trigger("click");
+				// setTimeout(() => Self.section.find("input#set-automatically").trigger("click"), 500);
 				// Self.section.find(".tab-row_ > div:nth-child(3)").trigger("click");
 				break;
 			case "dispose-view":
@@ -114,6 +115,13 @@
 			case "datetime-apply-diff":
 				// hours need to reduce am/pm
 				value = Self.timeOptions.find(".hours").text();
+				is24h = Self.section.find("input#use-24-hour").is(":checked");
+				// am/pm
+				Self.clockSvg.parent().data({ a: Math.floor(value / 12) });
+				Self.timeOptions.find(".am-pm").data({ a: Math.floor(value / 12) });
+
+				if (!is24h) value = value % 12;
+
 				// build date from fields
 				str = Self.timeOptions.find(".year").text() +"-";
 				str += Self.timeOptions.find(".month").text() +"-";
@@ -121,8 +129,7 @@
 				str += value +":";
 				str += Self.timeOptions.find(".minutes").text() +":";
 				str += Self.timeOptions.find(".seconds").text();
-				// am/pm
-				Self.clockSvg.parent().data({ a: Math.floor(value / 12) });
+				if (!is24h) str += " "+ Self.timeOptions.find(".am-pm").text();
 
 				if (!event.viewOnly) {
 					date = new Date(str);
@@ -181,7 +188,11 @@
 						break;
 				}
 
-				el.html(value);
+				if (el.hasClass("am-pm")) {
+					el.data({ a: (+el.data("a") + 2 + add) % 2 });
+				} else {
+					el.html(value);
+				}
 				// ui update
 				Self.dispatch({ type: "datetime-apply-diff", viewOnly: true });
 				break;
@@ -298,7 +309,7 @@
 				// view lock logic
 				value = !Self.viewLocked || value;
 
-				Self.section.find(".date-diff-options").toggleClass("hidden", !value);
+				Self.diffOptions.toggleClass("hidden", !value);
 				Self.section.find(".date-settings .wrapper").toggleClass("disabled_", !value);
 				Self.section.find(".time-settings .wrapper").toggleClass("disabled_", !value);
 				Self.timeOptions.find(".inc-arrows_").toggleClass("disabled_", !value);
@@ -361,7 +372,7 @@
 						// set i18n hours
 						defiant.shell(`sys -u "24h"`);
 						// ui update for clock
-						Self.clockSvg.parent().addClass("show-24h");
+						Self.dispatch({ type: "datetime-apply-diff" });
 						break;
 					case "show-am-pm":
 						Self.section.find("input#use-24-hour").prop({ checked: false });
@@ -370,7 +381,7 @@
 						// set i18n hours
 						defiant.shell(`sys -u "am/pm"`);
 						// ui update for clock
-						Self.clockSvg.parent().removeClass("show-24h");
+						Self.dispatch({ type: "datetime-apply-diff" });
 						break;
 				}
 				// save value to settings
@@ -384,14 +395,16 @@
 
 		let Self = this,
 			now = new defiant.Moment(date),
+			is24h = Self.section.find("input#use-24-hour").is(":checked"),
 			el;
 		
 		Self.timeOptions.find(".year").html(now.format("YYYY"));
 		Self.timeOptions.find(".month").html(now.format("MM"));
 		Self.timeOptions.find(".date").html(now.format("DD"));
-		Self.timeOptions.find(".hours").html(now.format("HH"));
+		Self.timeOptions.find(".hours").html(now.format(is24h ? "HH" : "H"));
 		Self.timeOptions.find(".minutes").html(now.format("mm"));
 		Self.timeOptions.find(".seconds").html(now.format("ss"));
+		Self.timeSettings.toggleClass("show-24h", !is24h);
 
 		let hours = 30 * (now.date.getHours() % 12) + now.date.getMinutes() / 2,
 			minutes = 6 * now.date.getMinutes(),
