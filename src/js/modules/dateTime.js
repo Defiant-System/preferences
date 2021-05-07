@@ -23,6 +23,7 @@
 				Self.section = event.section;
 				Self.diffOptions = Self.section.find(".date-diff-options");
 				Self.timeOptions = Self.section.find(".date-time-options");
+				Self.dateSettings = Self.section.find(".date-settings");
 				Self.timeSettings = Self.section.find(".time-settings");
 				Self.calendar = Self.timeOptions.find(".calendar .reel");
 				Self.clockSvg = Self.timeOptions.find(".clock svg");
@@ -82,6 +83,7 @@
 				Self.clockSvg.on("mousedown", Self.clockHands);
 
 				// temp
+				// Self.updateTimeOptions("2021-05-06 00:52:25");
 				// Self.section.find(".locked").trigger("click");
 				// setTimeout(() => Self.section.find("input#set-automatically").trigger("click"), 500);
 				// Self.section.find(".tab-row_ > div:nth-child(3)").trigger("click");
@@ -113,23 +115,28 @@
 				Self.section.find("input#set-automatically").trigger("click");
 				break;
 			case "datetime-apply-diff":
-				// hours need to reduce am/pm
-				value = Self.timeOptions.find(".hours").text();
-				is24h = Self.section.find("input#use-24-hour").is(":checked");
-				// am/pm
-				Self.clockSvg.parent().data({ a: Math.floor(value / 12) });
-				Self.timeOptions.find(".am-pm").data({ a: Math.floor(value / 12) });
+				let memory = event.memory;
+				if (!memory) {
+					memory = {
+						year: +Self.dateSettings.find(".year").text(),
+						month: +Self.dateSettings.find(".month").text(),
+						date: +Self.dateSettings.find(".date").text(),
+						hours: +Self.timeSettings.find(".hours").text(),
+						minutes: +Self.timeSettings.find(".minutes").text(),
+						seconds: +Self.timeSettings.find(".seconds").text(),
+					};
 
-				if (!is24h) value = value % 12;
+					if (!Self.timeSettings.hasClass("show-24h")) {
+						memory.hours += 12;
+					}
+				}
+				
+				if (!Self.timeSettings.find(".hours").text()) {
+					return Self.updateTimeOptions();
+				}
 
-				// build date from fields
-				str = Self.timeOptions.find(".year").text() +"-";
-				str += Self.timeOptions.find(".month").text() +"-";
-				str += Self.timeOptions.find(".date").text() +" ";
-				str += value +":";
-				str += Self.timeOptions.find(".minutes").text() +":";
-				str += Self.timeOptions.find(".seconds").text();
-				if (!is24h) str += " "+ Self.timeOptions.find(".am-pm").text();
+				// build up new date string
+				str = `${memory.year}-${memory.month}-${memory.date} ${memory.hours}:${memory.minutes}:${memory.seconds}`;
 
 				if (!event.viewOnly) {
 					date = new Date(str);
@@ -139,6 +146,7 @@
 					Self.timeOptions.find(".wrapper.active").removeClass("active");
 					Self.timeOptions.find(".selected").removeClass("selected");
 				}
+
 				// start ticking
 				Self.updateTimeOptions(str);
 				break;
@@ -397,13 +405,15 @@
 			now = new defiant.Moment(date),
 			is24h = Self.section.find("input#use-24-hour").is(":checked"),
 			el;
-		
+
 		Self.timeOptions.find(".year").html(now.format("YYYY"));
 		Self.timeOptions.find(".month").html(now.format("MM"));
 		Self.timeOptions.find(".date").html(now.format("DD"));
 		Self.timeOptions.find(".hours").html(now.format(is24h ? "HH" : "H"));
 		Self.timeOptions.find(".minutes").html(now.format("mm"));
 		Self.timeOptions.find(".seconds").html(now.format("ss"));
+		Self.timeOptions.find(".am-pm").data({ a: now.format("a") === "AM" ? 0 : 1 });
+		Self.clockSvg.parent().data({ a: now.format("a") === "AM" ? 0 : 1 });
 		Self.timeSettings.toggleClass("show-24h", !is24h);
 
 		let hours = 30 * (now.date.getHours() % 12) + now.date.getMinutes() / 2,
@@ -415,7 +425,7 @@
 			"--rotation-seconds": `${seconds}deg`,
 		});
 
-		if (!Self.timeOptions.find(".wrapper.active").length) {
+		if (Self.diffOptions.hasClass("hidden")) {
 			let nextTick = 1e3 - now.date.getMilliseconds();
 			Self.timer = setTimeout(Self.updateTimeOptions.bind(Self), nextTick);
 		}
@@ -501,13 +511,11 @@
 	clockHands(event) {
 		let Self = Section.dateTime,
 			Drag = Self.drag,
-			pEl,
 			el;
 
 		switch (event.type) {
 			case "mousedown":
 				el = $(event.target);
-				pEl = el.parent();
 
 				if (Self.section.find("input#set-automatically").is(":checked") ||
 					(!el.hasClass("hours-handle")
@@ -518,20 +526,29 @@
 				let mHand = Self.timeOptions.find(`.minutes`),
 					sHand = Self.timeOptions.find(`.seconds`),
 					hand = el.prop("className").baseVal.split("-")[0],
-					cEl = Self.clockSvg.parent(),
-					fEl = Self.timeOptions.find(`.${hand}`),
 					rect = event.target.parentNode.getBoundingClientRect();
 
 				// prepare drag info
 				Self.drag = {
 					el,
-					pEl,
-					fEl,
-					cEl,
 					hand,
+					memory: {
+						year: +Self.dateSettings.find(".year").text(),
+						month: +Self.dateSettings.find(".month").text(),
+						date: +Self.dateSettings.find(".date").text(),
+						hours: +Self.timeSettings.find(".hours").text(),
+						minutes: +Self.timeSettings.find(".minutes").text(),
+						seconds: +Self.timeSettings.find(".seconds").text(),
+						amPm: +Self.timeSettings.find(".am-pm").data("a"),
+					},
 					cY: rect.top + (rect.height / 2),
 					cX: rect.left + (rect.width / 2),
 				};
+
+				if (!Self.timeSettings.hasClass("show-24h")) {
+					let value = Self.drag.memory.hours;
+					Self.drag.memory.hours = (value + 12) % 24;
+				}
 
 				// bind event handler
 				Self.doc.on("mousemove mouseup", Self.clockHands);
@@ -546,55 +563,47 @@
 
 				// value of field
 				let nValue = (theta % 360) / 360,
-					oValue = +Drag.fEl.html(),
-					amPm;
+					oValue;
+
 				switch (Drag.hand) {
 					case "hours":
 						nValue *= 11;
-						amPm = +Drag.cEl.data("a");
+						oValue = Drag.memory.hours;
 
-						if ((oValue % 12) > 6 && (nValue % 12) < 6) {
-							amPm = (amPm + 1) % 2;
+						if ((oValue % 12) > 6 && nValue < 6) {
+							Drag.memory.amPm = (Drag.memory.amPm + 1) % 2;
+						} else if ((oValue % 12) < 6 && nValue > 6) {
+							Drag.memory.amPm = (Drag.memory.amPm - 1 + 2) % 2;
 						}
-						if ((oValue % 12) < 6 && (nValue % 12) > 6) {
-							amPm = ((amPm + 2) - 1) % 2;
-						}
-						if (amPm === 1) nValue += 12;
+
+						if (Drag.memory.amPm > 0) nValue += 12;
 						break;
 					case "minutes":
 						nValue *= 59;
+						oValue = Drag.memory.minutes;
 
 						if (oValue > 30 && nValue < 30) {
-							el = Drag.fEl.parent().find(".hours");
-							oValue = +el.html() + 1;
-							el.html(oValue % 24);
-						}
-						if (oValue < 30 && nValue > 30) {
-							el = Drag.fEl.parent().find(".hours");
-							oValue = +el.html() - 1;
-							el.html((oValue + 24) % 24);
+							Drag.memory.hours = (Drag.memory.hours + 1) % 24;
+						} else if (oValue < 30 && nValue > 30) {
+							Drag.memory.hours = (Drag.memory.hours + 23) % 24;
 						}
 						break;
 					case "seconds":
 						nValue *= 59;
+						oValue = Drag.memory.seconds;
 
 						if (oValue > 30 && nValue < 30) {
-							el = Drag.fEl.parent().find(".minutes");
-							oValue = +el.html() + 1;
-							el.html(oValue % 60);
-						}
-						if (oValue < 30 && nValue > 30) {
-							el = Drag.fEl.parent().find(".minutes");
-							oValue = +el.html() - 1;
-							el.html((oValue + 60) % 60);
+							Drag.memory.minutes = (Drag.memory.minutes + 1) % 24;
+						} else if (oValue < 30 && nValue > 30) {
+							Drag.memory.minutes = (Drag.memory.minutes + 23) % 24;
 						}
 						break;
 				}
 				
-				Drag.fEl.html(Math.round(nValue).toString().padStart(2, "0"));
+				Self.drag.memory[Drag.hand] = Math.round(nValue);
 
 				// ui update
-				Self.dispatch({ type: "datetime-apply-diff", viewOnly: true });
+				Self.dispatch({ type: "datetime-apply-diff", viewOnly: true, memory: Self.drag.memory });
 				break;
 			case "mouseup":
 				// unbind event handler
