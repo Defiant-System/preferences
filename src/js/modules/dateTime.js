@@ -68,7 +68,7 @@
 				// toggle view; if user already unlocked previously
 				Self.dispatch({
 					type: "toggle-view",
-					isUnlocked: true// preferences.views.isUnlocked
+					isUnlocked: preferences.views.isUnlocked
 				});
 
 				// initial month render
