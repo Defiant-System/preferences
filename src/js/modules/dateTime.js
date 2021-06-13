@@ -232,7 +232,7 @@
 				break;
 			case "select-time-zone":
 				el = $(event.target);
-				if (Self.worldmap.hasClass("disabled_") || !el.data("utc")) return;
+				if (Self.worldmap.hasClass("disabled_") || !el.data("utc")) return;
 
 				el.parent().find(".active").removeClass("active");
 				el.addClass("active");

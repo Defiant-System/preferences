@@ -117,7 +117,7 @@ const preferences = {
 				el = event.target ? $(event.target) : event.el;
 				if (el) section = el.parents("section");
 
-				if (!section || !section.length) {
+				if (!section || !section.length) {
 					view = Self.history.current.view;
 					section = window.find(`section[data-view="${view}"]`);
 				}
